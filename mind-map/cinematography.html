@@ -14,6 +14,312 @@
         .domain-header h1 {
             color: var(--cinematography);
         }
+
+        /* ═══════════════════════════════════════════
+           THREE-POINT LIGHTING — triple light sources
+           ═══════════════════════════════════════════ */
+        .skill-three-point {
+            position: relative;
+            border-left-color: var(--cinematography);
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(255, 220, 120, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 60%, rgba(180, 180, 220, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 30%);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .skill-three-point::after {
+            content: 'KEY ◐  FILL ◑  BACK ◒';
+            position: absolute;
+            top: -8px;
+            right: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--cinematography);
+            opacity: 0.5;
+            letter-spacing: 0.05em;
+        }
+
+        /* ═══════════════════════════════════════════
+           HARD VS SOFT LIGHT — split card
+           ═══════════════════════════════════════════ */
+        .skill-hard-soft {
+            position: relative;
+            overflow: hidden;
+            border-left-color: #f59e0b;
+        }
+
+        .skill-hard-soft::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.06) 0%, transparent 100%);
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            pointer-events: none;
+        }
+
+        .skill-hard-soft::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .skill-hard-soft .hard-label,
+        .skill-hard-soft .soft-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            color: var(--text-3);
+        }
+
+        .skill-hard-soft .hard-label {
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-hard-soft .soft-label {
+            text-shadow: 0 0 8px rgba(255, 200, 100, 0.3);
+        }
+
+        [data-theme="dark"] .skill-hard-soft::before {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+        }
+
+        [data-theme="dark"] .skill-hard-soft::after {
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+
+        /* ═══════════════════════════════════════════
+           COLOR TEMPERATURE — warm left, cool right
+           ═══════════════════════════════════════════ */
+        .skill-color-temp {
+            border-left: 5px solid transparent;
+            border-image: linear-gradient(to bottom, #f59e0b, #3b82f6) 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-color-temp::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(245, 158, 11, 0.08) 0%,
+                    transparent 50%,
+                    rgba(59, 130, 246, 0.08) 100%);
+            pointer-events: none;
+        }
+
+        .skill-color-temp .temp-bar {
+            height: 4px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #fef3c7, #dbeafe, #93c5fd, #3b82f6);
+            margin: 0.75rem 0;
+        }
+
+        .skill-color-temp .temp-labels {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-3);
+        }
+
+        .skill-color-temp .temp-warm {
+            color: #d97706;
+        }
+
+        .skill-color-temp .temp-cool {
+            color: #2563eb;
+        }
+
+        /* ═══════════════════════════════════════════
+           PRACTICAL LIGHTS — warm glow
+           ═══════════════════════════════════════════ */
+        .skill-practicals {
+            position: relative;
+            border-left-color: #fbbf24;
+        }
+
+        .skill-practicals::before {
+            content: '💡';
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            opacity: 0.3;
+        }
+
+        .skill-practicals::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            transform: translate(10%, -50%);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ═══════════════════════════════════════════
+           FOCAL LENGTH — perspective distortion
+           ═══════════════════════════════════════════ */
+        .skill-focal-length {
+            border-left-color: var(--cinematography);
+        }
+
+        .skill-focal-length .lens-demo {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            align-items: center;
+        }
+
+        .skill-focal-length .lens {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            background: var(--surface-2);
+            text-align: center;
+        }
+
+        .skill-focal-length .lens-wide {
+            transform: scaleX(1.15);
+            letter-spacing: 0.05em;
+        }
+
+        .skill-focal-length .lens-normal {
+            transform: none;
+        }
+
+        .skill-focal-length .lens-tele {
+            transform: scaleX(0.85);
+            letter-spacing: -0.02em;
+        }
+
+        /* ═══════════════════════════════════════════
+           DEPTH OF FIELD — blurred background
+           ═══════════════════════════════════════════ */
+        .skill-dof {
+            position: relative;
+            border-left-color: #8b5cf6;
+        }
+
+        .skill-dof h3 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-dof .desc {
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-dof .resources {
+            filter: blur(1.2px);
+            opacity: 0.6;
+            transition: filter 0.4s, opacity 0.4s;
+        }
+
+        .skill-dof:hover .resources {
+            filter: blur(0);
+            opacity: 1;
+        }
+
+        .skill-dof::after {
+            content: 'hover to focus ↓';
+            position: absolute;
+            bottom: -4px;
+            right: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: #8b5cf6;
+            opacity: 0.5;
+        }
+
+        /* ═══════════════════════════════════════════
+           EXPOSURE TRIANGLE — three segments
+           ═══════════════════════════════════════════ */
+        .skill-exposure {
+            border-left-color: #059669;
+        }
+
+        .skill-exposure .triangle-demo {
+            display: flex;
+            gap: 0;
+            margin: 0.75rem 0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-exposure .tri-aperture {
+            flex: 1;
+            background: #8b5cf6;
+        }
+
+        .skill-exposure .tri-shutter {
+            flex: 1;
+            background: #059669;
+        }
+
+        .skill-exposure .tri-iso {
+            flex: 1;
+            background: #f59e0b;
+        }
+
+        .skill-exposure .tri-labels {
+            display: flex;
+            justify-content: space-around;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-3);
+            margin-top: 2px;
+        }
+
+        /* ═══════════════════════════════════════════
+           MOTIVATED CAMERA MOVEMENT — subtle animation
+           ═══════════════════════════════════════════ */
+        .skill-camera-move {
+            border-left-color: var(--cinematography);
+            animation: subtle-dolly 8s ease-in-out infinite;
+        }
+
+        @keyframes subtle-dolly {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(3px);
+            }
+
+            75% {
+                transform: translateX(-3px);
+            }
+        }
+
+        .skill-camera-move::after {
+            content: '↔ motivated movement';
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--cinematography);
+            opacity: 0.4;
+            display: block;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 
@@ -40,7 +346,7 @@
             </div>
             <p>Light is the only thing the camera sees. Everything else is inference.</p>
 
-            <div class="skill">
+            <div class="skill skill-three-point">
                 <h3>Three-Point Lighting</h3>
                 <p class="desc">
                     Key light creates the main illumination. Fill light softens shadows. Back light separates subject
@@ -60,11 +366,11 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-hard-soft">
                 <h3>Hard vs Soft Light</h3>
                 <p class="desc">
-                    Hard light = small source = harsh shadows = drama. Soft light = large source = gentle shadows =
-                    beauty.
+                    <span class="hard-label">HARD ▌</span> Hard light = small source = harsh shadows = drama.
+                    <span class="soft-label">SOFT ○</span> Soft light = large source = gentle shadows = beauty.
                     The sun at noon is hard. The sun through clouds is soft. Control shadow edge, control mood.
                 </p>
                 <div class="resources">
@@ -80,8 +386,13 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-color-temp">
                 <h3>Color Temperature</h3>
+                <div class="temp-bar"></div>
+                <div class="temp-labels">
+                    <span class="temp-warm">3200K Tungsten</span>
+                    <span class="temp-cool">5600K Daylight</span>
+                </div>
                 <p class="desc">
                     Tungsten is warm (3200K). Daylight is cool (5600K). Mixed lighting creates tension.
                     Michael Mann uses it to separate worlds. Fincher controls it obsessively.
@@ -106,7 +417,7 @@
             </div>
             <p>Every light needs a reason. If you can't point to the source, you're lying to the audience.</p>
 
-            <div class="skill">
+            <div class="skill skill-practicals">
                 <h3>Practical Lights</h3>
                 <p class="desc">
                     Lamps, candles, TVs, windows — lights visible in frame. They justify your lighting setup.
@@ -134,8 +445,13 @@
             </div>
             <p>Lenses don't capture reality — they interpret it. Each focal length tells a different lie.</p>
 
-            <div class="skill">
+            <div class="skill skill-focal-length">
                 <h3>Focal Length Psychology</h3>
+                <div class="lens-demo">
+                    <div class="lens lens-wide">24mm<br>wide</div>
+                    <div class="lens lens-normal">50mm<br>normal</div>
+                    <div class="lens lens-tele">85mm+<br>telephoto</div>
+                </div>
                 <p class="desc">
                     Wide lenses (24mm) exaggerate space, create intimacy or unease. Telephoto (85mm+) compresses space,
                     isolates subjects, feels voyeuristic. 50mm is "normal" — closest to human vision.
@@ -153,7 +469,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-dof">
                 <h3>Depth of Field</h3>
                 <p class="desc">
                     Shallow DOF (blurry background) isolates subjects, feels cinematic. Deep DOF (everything sharp)
@@ -179,8 +495,18 @@
             </div>
             <p>The triangle of light: aperture, shutter, ISO. Master this or master nothing.</p>
 
-            <div class="skill">
+            <div class="skill skill-exposure">
                 <h3>The Exposure Triangle</h3>
+                <div class="triangle-demo">
+                    <div class="tri-aperture"></div>
+                    <div class="tri-shutter"></div>
+                    <div class="tri-iso"></div>
+                </div>
+                <div class="tri-labels">
+                    <span>Aperture</span>
+                    <span>Shutter</span>
+                    <span>ISO</span>
+                </div>
                 <p class="desc">
                     Aperture controls depth. Shutter controls motion blur. ISO controls sensitivity (and noise).
                     Change one, compensate with another. It's a negotiation.
@@ -205,7 +531,7 @@
             </div>
             <p>Where actors move and where camera follows. Choreography without dance.</p>
 
-            <div class="skill">
+            <div class="skill skill-camera-move">
                 <h3>Motivated Camera Movement</h3>
                 <p class="desc">
                     Every dolly, pan, tilt needs emotional justification. Unmotivated movement is noise.

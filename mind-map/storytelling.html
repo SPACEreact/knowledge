@@ -15,12 +15,28 @@
             color: #f59e0b;
         }
 
+        /* ═══════════════════════════════════════════
+           CORE PRINCIPLE — dark cinematic blocks
+           ═══════════════════════════════════════════ */
         .core-principle {
             background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
             color: white;
             padding: 2rem;
             border-radius: 8px;
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .core-principle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .core-principle h3 {
@@ -32,14 +48,108 @@
             opacity: 0.9;
         }
 
+        /* ═══════════════════════════════════════════
+           FORMULA — monospace, computation aesthetic
+           ═══════════════════════════════════════════ */
         .formula {
             font-family: var(--font-mono);
             background: rgba(255, 255, 255, 0.1);
             padding: 1rem;
             border-radius: 6px;
             margin: 1rem 0;
+            letter-spacing: 0.02em;
+            position: relative;
         }
 
+        /* ═══════════════════════════════════════════
+           STYLE MULTIPLIER — multiplication visual
+           ═══════════════════════════════════════════ */
+        .skill-multiplier {
+            border-left-color: #f59e0b;
+        }
+
+        .skill-multiplier .formula {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .skill-multiplier .formula .mult-zero {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .skill-multiplier .formula .mult-one {
+            color: #64748b;
+        }
+
+        .skill-multiplier .formula .mult-five {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        /* ═══════════════════════════════════════════
+           WHEN STYLE LEADS — warning state, red border
+           ═══════════════════════════════════════════ */
+        .warning {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .warning strong {
+            color: #b91c1c;
+        }
+
+        .warning::before {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: -3px;
+            bottom: -3px;
+            width: 4px;
+            background: #ef4444;
+            border-radius: 4px 0 0 4px;
+        }
+
+        [data-theme="dark"] .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════
+           WHEN STORY LEADS — subtle glow, success
+           ═══════════════════════════════════════════ */
+        .skill-story-leads {
+            border-left: 4px solid #22c55e;
+            position: relative;
+        }
+
+        .skill-story-leads::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 6px;
+            box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.1),
+                0 0 12px rgba(34, 197, 94, 0.06);
+            pointer-events: none;
+        }
+
+        .skill-story-leads h3 {
+            color: #059669;
+        }
+
+        [data-theme="dark"] .skill-story-leads h3 {
+            color: #34d399;
+        }
+
+        /* ═══════════════════════════════════════════
+           CHECKLIST — golden amber, structured
+           ═══════════════════════════════════════════ */
         .checklist {
             background: #fffbeb;
             border: 1px solid #fcd34d;
@@ -57,16 +167,203 @@
             margin-bottom: 0.5rem;
         }
 
-        .warning {
-            background: #fef2f2;
-            border: 1px solid #fca5a5;
-            padding: 1rem;
-            border-radius: 6px;
+        .checklist ol {
+            counter-reset: checklist-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist ol li {
+            counter-increment: checklist-counter;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist ol li::before {
+            content: counter(checklist-counter);
+            position: absolute;
+            left: 0;
+            width: 1.4rem;
+            height: 1.4rem;
+            background: #f59e0b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            top: 2px;
+        }
+
+        [data-theme="dark"] .checklist {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        [data-theme="dark"] .checklist h4 {
+            color: #fbbf24;
+        }
+
+        /* ═══════════════════════════════════════════
+           DESIRE / FRICTION / RELIEF — three-act flow
+           ═══════════════════════════════════════════ */
+        .skill-desire {
+            border-left: 4px solid #22c55e;
+        }
+
+        .skill-desire h3::before {
+            content: '▲ ';
+            color: #22c55e;
+            font-size: 0.7rem;
+        }
+
+        .skill-friction {
+            border-left: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.02);
+        }
+
+        .skill-friction h3::before {
+            content: '■ ';
+            color: #ef4444;
+            font-size: 0.7rem;
+        }
+
+        .skill-relief {
+            border-left: 4px solid #3b82f6;
+        }
+
+        .skill-relief h3::before {
+            content: '● ';
+            color: #3b82f6;
+            font-size: 0.7rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           BRAND ROLE — three columns
+           ═══════════════════════════════════════════ */
+        .skill-brand-role {
+            border-left-color: #f59e0b;
+        }
+
+        .skill-brand-role .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
             margin: 1rem 0;
         }
 
-        .warning strong {
-            color: #b91c1c;
+        .skill-brand-role .role-card {
+            padding: 0.75rem;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .skill-brand-role .role-helper {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-brand-role .role-guide {
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .skill-brand-role .role-authority {
+            background: rgba(139, 92, 246, 0.08);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .skill-brand-role .role-icon {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-brand-role .role-name {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ═══════════════════════════════════════════
+           MICRO-ARCS — compressed timeline
+           ═══════════════════════════════════════════ */
+        .skill-micro-arcs {
+            border-left-color: #f59e0b;
+        }
+
+        .skill-micro-arcs .arc-flow {
+            display: flex;
+            gap: 0;
+            margin: 0.75rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .skill-micro-arcs .arc-step {
+            flex: 1;
+            padding: 0.5rem 0.3rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .skill-micro-arcs .arc-hook {
+            background: #ef4444;
+        }
+
+        .skill-micro-arcs .arc-recog {
+            background: #f59e0b;
+        }
+
+        .skill-micro-arcs .arc-pressure {
+            background: #b91c1c;
+        }
+
+        .skill-micro-arcs .arc-shift {
+            background: #3b82f6;
+        }
+
+        .skill-micro-arcs .arc-close {
+            background: #22c55e;
+        }
+
+        /* ═══════════════════════════════════════════
+           FINAL ANCHOR — monumental
+           ═══════════════════════════════════════════ */
+        .final-anchor {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-anchor::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-conic-gradient(rgba(245, 158, 11, 0.03) 0% 25%, transparent 25% 50%);
+            pointer-events: none;
+        }
+
+        .final-anchor h2 {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .final-anchor .formula {
+            font-size: 1.1rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -99,16 +396,16 @@
                 <p style="margin-top: 1rem; opacity: 0.7;">If you confuse them, everything collapses.</p>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-multiplier">
                 <h3>Style is a Multiplier, Not a Generator</h3>
                 <p class="desc">
                     Story = meaning + change. Style = sensory constraint.
                     Style multiplies story — but ×0 story = nothing.
                 </p>
                 <div class="formula">
-                    ×0 story = nothing<br>
-                    ×1 story = clarity<br>
-                    ×5 style on solid story = impact
+                    <span class="mult-zero">×0 story = nothing</span><br>
+                    <span class="mult-one">×1 story = clarity</span><br>
+                    <span class="mult-five">×5 style on solid story = impact</span>
                 </div>
             </div>
 
@@ -127,7 +424,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-story-leads">
                 <h3>When Story Leads (Results)</h3>
                 <p class="desc">
                     Visual choices feel inevitable. Cuts feel necessary.
@@ -172,8 +469,8 @@
                 <p>This is the ad version of the harmonic cycle. Every effective ad runs this engine.</p>
             </div>
 
-            <div class="skill">
-                <h3>1️⃣ Desire</h3>
+            <div class="skill skill-desire">
+                <h3>Desire</h3>
                 <p class="desc">
                     What the audience wants <em>before</em> the product appears:
                     Status, Ease, Safety, Belonging, Pleasure, Control.
@@ -181,16 +478,16 @@
                 </p>
             </div>
 
-            <div class="skill">
-                <h3>2️⃣ Friction</h3>
+            <div class="skill skill-friction">
+                <h3>Friction</h3>
                 <p class="desc">
                     Something blocks the desire: Effort, Cost, Confusion, Time, Fear, Inconvenience.
                     <br><strong>Without friction, there is no reason to act.</strong>
                 </p>
             </div>
 
-            <div class="skill">
-                <h3>3️⃣ Relief</h3>
+            <div class="skill skill-relief">
+                <h3>Relief</h3>
                 <p class="desc">
                     The product reframes or removes friction.
                     It doesn't "save the world" — it changes the equation.
@@ -198,27 +495,42 @@
                 </p>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-brand-role">
                 <h3>Brand Role (Critical)</h3>
                 <p class="desc">
                     Brands can only play three legitimate roles:
                 </p>
-                <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--text-2);">
-                    <li><strong>🅐 Helper</strong> — Supports the user's journey (most consumer brands)</li>
-                    <li><strong>🅑 Guide</strong> — Provides clarity or confidence (education, tools)</li>
-                    <li><strong>🅒 Authority</strong> — Signals trust or expertise (healthcare, finance)</li>
-                </ul>
+                <div class="roles-grid">
+                    <div class="role-card role-helper">
+                        <span class="role-icon">🤝</span>
+                        <div class="role-name">Helper</div>
+                        <div>Supports the user's journey</div>
+                    </div>
+                    <div class="role-card role-guide">
+                        <span class="role-icon">🧭</span>
+                        <div class="role-name">Guide</div>
+                        <div>Provides clarity or confidence</div>
+                    </div>
+                    <div class="role-card role-authority">
+                        <span class="role-icon">🏛️</span>
+                        <div class="role-name">Authority</div>
+                        <div>Signals trust or expertise</div>
+                    </div>
+                </div>
                 <div class="warning">
                     <strong>❌ The brand is not the hero. The audience is.</strong>
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-micro-arcs">
                 <h3>Micro-Arcs (Story in Seconds)</h3>
                 <p class="desc">Ads compress story into beats, not scenes:</p>
-                <div class="formula">
-                    Hook (pattern break) → Recognition ("that's me") → Pressure (friction) → Shift (product reframes) →
-                    Closure (relief / action)
+                <div class="arc-flow">
+                    <div class="arc-step arc-hook">Hook</div>
+                    <div class="arc-step arc-recog">"That's me"</div>
+                    <div class="arc-step arc-pressure">Pressure</div>
+                    <div class="arc-step arc-shift">Shift</div>
+                    <div class="arc-step arc-close">Close</div>
                 </div>
                 <p class="desc">This can happen in 30 seconds, 6 seconds, even 3 shots.</p>
             </div>
@@ -237,13 +549,12 @@
         </div>
 
         <!-- FINAL ANCHOR -->
-        <div class="subgroup"
-            style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); color: white; padding: 2rem; border-radius: 8px; margin-top: 3rem;">
-            <h2 style="color: #f59e0b; margin-bottom: 1rem;">Final Anchor (Memorize This)</h2>
-            <div class="formula" style="font-size: 1.1rem; text-align: center; background: rgba(255,255,255,0.1);">
+        <div class="subgroup final-anchor">
+            <h2>Final Anchor (Memorize This)</h2>
+            <div class="formula">
                 Story leads. Style serves. Domains execute.
             </div>
-            <p style="margin-top: 1.5rem; text-align: center; opacity: 0.8;">
+            <p style="margin-top: 1.5rem; opacity: 0.8;">
                 If you feel lost: You're not untalented. You're just letting style drive.
             </p>
         </div>

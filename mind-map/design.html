@@ -7,12 +7,336 @@
     <title>Design | Visual Storytelling Study Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&family=Georgia&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .domain-header h1 {
             color: var(--design);
+        }
+
+        /* ═══════════════════════════════════════════
+           VISUAL HIERARCHY — exaggerated size cascade
+           ═══════════════════════════════════════════ */
+        .skill-visual-hierarchy {
+            border-left: 4px solid var(--design);
+            position: relative;
+        }
+
+        .skill-visual-hierarchy h3 {
+            font-size: 1.8rem !important;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .skill-visual-hierarchy .desc {
+            font-size: 0.88rem !important;
+            line-height: 1.7;
+        }
+
+        .skill-visual-hierarchy .resources {
+            font-size: 0.72rem;
+            opacity: 0.7;
+        }
+
+        .skill-visual-hierarchy::before {
+            content: '1ST';
+            position: absolute;
+            top: -8px;
+            right: 0;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--design);
+            opacity: 0.5;
+            letter-spacing: 0.15em;
+        }
+
+        /* ═══════════════════════════════════════════
+           RULE OF THIRDS — grid overlay
+           ═══════════════════════════════════════════ */
+        .skill-rule-thirds {
+            position: relative;
+            border-left-color: #d97706;
+        }
+
+        .skill-rule-thirds::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right, transparent 32%, rgba(217, 119, 6, 0.12) 32%, rgba(217, 119, 6, 0.12) 33%, transparent 33%,
+                    transparent 65%, rgba(217, 119, 6, 0.12) 65%, rgba(217, 119, 6, 0.12) 66%, transparent 66%),
+                linear-gradient(to bottom, transparent 32%, rgba(217, 119, 6, 0.12) 32%, rgba(217, 119, 6, 0.12) 33%, transparent 33%,
+                    transparent 65%, rgba(217, 119, 6, 0.12) 65%, rgba(217, 119, 6, 0.12) 66%, transparent 66%);
+            pointer-events: none;
+            border-radius: 4px;
+        }
+
+        .skill-rule-thirds::after {
+            content: '⊞';
+            position: absolute;
+            top: -6px;
+            right: 4px;
+            font-size: 0.8rem;
+            color: #d97706;
+            opacity: 0.5;
+        }
+
+        /* ═══════════════════════════════════════════
+           NEGATIVE SPACE — extreme breathing room
+           ═══════════════════════════════════════════ */
+        .skill-negative-space {
+            padding: 2.5rem 2rem !important;
+            border-left-color: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .skill-negative-space h3 {
+            margin-bottom: 2rem !important;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 0.85rem !important;
+        }
+
+        .skill-negative-space .desc {
+            max-width: 60%;
+            margin-bottom: 2.5rem !important;
+            line-height: 2.2;
+        }
+
+        /* ═══════════════════════════════════════════
+           FONT PERSONALITY — each line is a typeface
+           ═══════════════════════════════════════════ */
+        .skill-font-personality .desc {
+            line-height: 2.4;
+        }
+
+        .skill-font-personality .line-helvetica {
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            color: var(--text-3);
+        }
+
+        .skill-font-personality .line-garamond {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-style: italic;
+            color: #78350f;
+        }
+
+        .skill-font-personality .line-mono {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.82rem;
+            background: var(--surface-2);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        [data-theme="dark"] .skill-font-personality .line-garamond {
+            color: #fcd34d;
+        }
+
+        /* ═══════════════════════════════════════════
+           KERNING / TRACKING / LEADING — visible spacing
+           ═══════════════════════════════════════════ */
+        .skill-kerning h3 {
+            letter-spacing: 0.35em !important;
+            font-weight: 400;
+        }
+
+        .skill-kerning .desc {
+            line-height: 2.8 !important;
+        }
+
+        .skill-kerning .tracking-demo {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin: 0.75rem 0;
+            padding: 0.5rem;
+            background: var(--surface-2);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-kerning .tight {
+            letter-spacing: -0.05em;
+        }
+
+        .skill-kerning .normal {
+            letter-spacing: 0;
+        }
+
+        .skill-kerning .wide {
+            letter-spacing: 0.3em;
+        }
+
+        /* ═══════════════════════════════════════════
+           COLOR PSYCHOLOGY — warm-to-cool gradient
+           ═══════════════════════════════════════════ */
+        .skill-color-psych {
+            border-left: 5px solid transparent;
+            border-image: linear-gradient(to bottom, #ef4444, #f59e0b, #3b82f6, #6366f1) 1;
+            position: relative;
+        }
+
+        .skill-color-psych::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(239, 68, 68, 0.04) 0%,
+                    rgba(245, 158, 11, 0.04) 25%,
+                    rgba(59, 130, 246, 0.04) 75%,
+                    rgba(99, 102, 241, 0.04) 100%);
+            pointer-events: none;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .skill-color-psych .warm {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .skill-color-psych .cool {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .skill-color-psych .warm {
+            color: #fca5a5;
+        }
+
+        [data-theme="dark"] .skill-color-psych .cool {
+            color: #93c5fd;
+        }
+
+        /* ═══════════════════════════════════════════
+           COLOR HARMONY — complementary color strips
+           ═══════════════════════════════════════════ */
+        .skill-color-harmony {
+            border-left-color: transparent;
+            padding-left: 0 !important;
+            position: relative;
+        }
+
+        .skill-color-harmony .harmony-bar {
+            display: flex;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .skill-color-harmony .harmony-bar span {
+            flex: 1;
+        }
+
+        .skill-color-harmony .comp-bar span:nth-child(1) {
+            background: #3b82f6;
+        }
+
+        .skill-color-harmony .comp-bar span:nth-child(2) {
+            background: #f97316;
+        }
+
+        .skill-color-harmony .analog-bar span:nth-child(1) {
+            background: #3b82f6;
+        }
+
+        .skill-color-harmony .analog-bar span:nth-child(2) {
+            background: #6366f1;
+        }
+
+        .skill-color-harmony .analog-bar span:nth-child(3) {
+            background: #8b5cf6;
+        }
+
+        .skill-color-harmony .triad-bar span:nth-child(1) {
+            background: #ef4444;
+        }
+
+        .skill-color-harmony .triad-bar span:nth-child(2) {
+            background: #22c55e;
+        }
+
+        .skill-color-harmony .triad-bar span:nth-child(3) {
+            background: #3b82f6;
+        }
+
+        /* ═══════════════════════════════════════════
+           SHAPE LANGUAGE — CSS shapes as decoration
+           ═══════════════════════════════════════════ */
+        .skill-shape-lang {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-shape-lang .shapes-demo {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .skill-shape-lang .shape-circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 2px solid rgba(59, 130, 246, 0.4);
+            border-radius: 50%;
+        }
+
+        .skill-shape-lang .shape-square {
+            width: 36px;
+            height: 36px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 2px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .skill-shape-lang .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 22px solid transparent;
+            border-right: 22px solid transparent;
+            border-bottom: 38px solid rgba(239, 68, 68, 0.25);
+        }
+
+        .skill-shape-lang .shape-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-align: center;
+            color: var(--text-3);
+            margin-top: 4px;
+        }
+
+        /* ═══════════════════════════════════════════
+           GRID SYSTEMS — visible grid background
+           ═══════════════════════════════════════════ */
+        .skill-grid-systems {
+            position: relative;
+            border-left-color: #0891b2;
+        }
+
+        .skill-grid-systems::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0px, rgba(8, 145, 178, 0.06) 1px, transparent 1px, transparent 60px),
+                repeating-linear-gradient(0deg, rgba(8, 145, 178, 0.06) 0px, rgba(8, 145, 178, 0.06) 1px, transparent 1px, transparent 40px);
+            pointer-events: none;
+        }
+
+        .skill-grid-systems h3::after {
+            content: ' ┃';
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: #0891b2;
+            opacity: 0.4;
         }
     </style>
 </head>
@@ -40,7 +364,7 @@
             </div>
             <p>Where the eye goes first, second, third. The invisible hand guiding attention.</p>
 
-            <div class="skill">
+            <div class="skill skill-visual-hierarchy">
                 <h3>Visual Hierarchy</h3>
                 <p class="desc">
                     Every frame is a negotiation for attention. Size, contrast, isolation, and proximity
@@ -61,7 +385,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-rule-thirds">
                 <h3>Rule of Thirds & Golden Ratio</h3>
                 <p class="desc">
                     Not rules — hypotheses. The golden ratio appears in nature, but don't worship it.
@@ -80,7 +404,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-negative-space">
                 <h3>Negative Space</h3>
                 <p class="desc">
                     What you don't show is as powerful as what you show. Empty space isn't empty —
@@ -108,10 +432,12 @@
             </div>
             <p>Text is voice made visible. Every font has a personality, every kerning choice a mood.</p>
 
-            <div class="skill">
+            <div class="skill skill-font-personality">
                 <h3>Font Personality</h3>
                 <p class="desc">
-                    Helvetica whispers neutrality. Garamond speaks old money. Comic Sans screams amateur.
+                    <span class="line-helvetica">Helvetica whispers neutrality.</span><br>
+                    <span class="line-garamond">Garamond speaks old money.</span><br>
+                    <span class="line-mono">Comic Sans screams amateur.</span><br>
                     Typography is casting — wrong font is like wrong actor for the role.
                 </p>
                 <div class="resources">
@@ -127,12 +453,17 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-kerning">
                 <h3>Kerning, Tracking & Leading</h3>
                 <p class="desc">
                     The space between letters (kerning/tracking) and between lines (leading) is where
                     readability lives or dies. Bad kerning is like someone speaking with marbles in their mouth.
                 </p>
+                <div class="tracking-demo">
+                    <span class="tight">T I G H T</span>
+                    <span class="normal">NORMAL</span>
+                    <span class="wide">W I D E</span>
+                </div>
                 <div class="resources">
                     <h4>Study Resources</h4>
                     <ul>
@@ -155,11 +486,12 @@
             </div>
             <p>Color is emotion before thought. You feel blue before you think "sadness."</p>
 
-            <div class="skill">
+            <div class="skill skill-color-psych">
                 <h3>Color Psychology</h3>
                 <p class="desc">
                     Red doesn't mean danger everywhere — in China it's luck. Context matters.
-                    But warm colors advance, cool colors recede. That's physics, not culture.
+                    But <span class="warm">warm colors advance</span>, <span class="cool">cool colors recede</span>.
+                    That's physics, not culture.
                 </p>
                 <div class="resources">
                     <h4>Study Resources</h4>
@@ -174,8 +506,11 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-color-harmony">
                 <h3>Color Harmony</h3>
+                <div class="harmony-bar comp-bar"><span></span><span></span></div>
+                <div class="harmony-bar analog-bar"><span></span><span></span><span></span></div>
+                <div class="harmony-bar triad-bar"><span></span><span></span><span></span></div>
                 <p class="desc">
                     Complementary colors vibrate against each other (tension). Analogous colors soothe (harmony).
                     Triadic colors are bold but balanced. Learn the wheel, then forget it — let intuition guide.
@@ -202,8 +537,22 @@
             </div>
             <p>Clean geometry that scales infinitely. The DNA of icons, logos, and motion graphics.</p>
 
-            <div class="skill">
+            <div class="skill skill-shape-lang">
                 <h3>Shape Language</h3>
+                <div class="shapes-demo">
+                    <div>
+                        <div class="shape-circle"></div>
+                        <div class="shape-label">friendly</div>
+                    </div>
+                    <div>
+                        <div class="shape-square"></div>
+                        <div class="shape-label">stable</div>
+                    </div>
+                    <div>
+                        <div class="shape-triangle"></div>
+                        <div class="shape-label">dynamic</div>
+                    </div>
+                </div>
                 <p class="desc">
                     Circles = friendly, organic. Squares = stable, trustworthy. Triangles = dynamic, dangerous.
                     Disney villains have angular faces. Heroes have round ones. It's primal.
@@ -230,7 +579,7 @@
             </div>
             <p>The invisible grid that holds everything together. Order from chaos.</p>
 
-            <div class="skill">
+            <div class="skill skill-grid-systems">
                 <h3>Grid Systems</h3>
                 <p class="desc">
                     Grids aren't prisons — they're languages. Josef Müller-Brockmann's grid system became

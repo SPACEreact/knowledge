@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craft Notes | Personal Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .domain-header h1 {
+            color: #10b981;
+        }
+
+        .personal-tag {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: 0.5rem;
+        }
+
+        .note-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+        }
+
+        .note-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .note-section h3 {
+            font-size: 1rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text);
+        }
+
+        .note-section p,
+        .note-section li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-2);
+        }
+
+        .note-section ul {
+            margin-left: 1.5rem;
+        }
+
+        .note-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .insight {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+
+        .grid-table th,
+        .grid-table td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .grid-table th {
+            background: #f8f8f8;
+            font-weight: 500;
+        }
+
+        .formula {
+            font-family: var(--font-mono);
+            background: #f8f8f8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .raw-note {
+            background: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a href="index.html" class="back-link">← Back to Overview</a>
+
+        <div class="domain-header">
+            <h1>Craft Notes <span class="personal-tag">Personal</span></h1>
+            <p class="question">Your raw thinking, organized but unpolished</p>
+        </div>
+
+        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
+            These are your working notes — ideas captured in the moment.
+            They're organized by craft discipline but kept raw to preserve the insight.
+        </p>
+
+        <!-- CHARACTER CREATION -->
+        <div class="note-section" id="character">
+            <h2>🎭 Character Creation</h2>
+
+            <h3>The Character Grid</h3>
+            <p>Characters pursue either a <strong>Need</strong> (soul-growth, truth, internal shift) or a
+                <strong>Want</strong> (external goal, desire, image). The World/Power can support or oppose each.
+            </p>
+
+            <table class="grid-table">
+                <tr>
+                    <th>Character Type</th>
+                    <th>Pursues</th>
+                    <th>Power Supports</th>
+                    <th>Power Opposes</th>
+                </tr>
+                <tr>
+                    <td>Conscious</td>
+                    <td>Need</td>
+                    <td>Harmonious story of growth</td>
+                    <td>Tragic hero, painful but transformative</td>
+                </tr>
+                <tr>
+                    <td>Conscious</td>
+                    <td>Want</td>
+                    <td>Success arc, fulfillment</td>
+                    <td>Moral dilemma, sacrifice needed</td>
+                </tr>
+                <tr>
+                    <td>Unconscious</td>
+                    <td>Need</td>
+                    <td>Accidental healing, fate helps</td>
+                    <td>Resistance until awakening</td>
+                </tr>
+                <tr>
+                    <td>Unconscious</td>
+                    <td>Want</td>
+                    <td>Hollow success, irony</td>
+                    <td>Self-destruction, powerful conflict</td>
+                </tr>
+            </table>
+
+            <h3>Core Layers of a Character</h3>
+            <ul>
+                <li><strong>Outer Mask</strong> — Who they pretend to be (public persona)</li>
+                <li><strong>Private Self</strong> — Who they think they are (with trusted people)</li>
+                <li><strong>Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
+            </ul>
+
+            <h3>Social Reaction Shifts</h3>
+            <p>Characters shift depending on who's watching:</p>
+            <ul>
+                <li><strong>With someone they admire</strong> — Performative, seeking validation</li>
+                <li><strong>With someone they fear</strong> — Obedient, deceptive, or defensive</li>
+                <li><strong>With someone they hate</strong> — Aggressive, mocking, combative</li>
+                <li><strong>With someone they love</strong> — Vulnerable or scared to be vulnerable</li>
+                <li><strong>With someone they pity</strong> — Superior, nurturing, or manipulative</li>
+            </ul>
+
+            <div class="insight">
+                "We are who we think they think we are."
+            </div>
+
+            <h3>Enneagram Types (Shorthand)</h3>
+            <ul>
+                <li><strong>Type 9</strong> — Feels they have potential but chooses unhealthy way to come on top.
+                    Obsessive about achieving it. If they come on top and drop negative habits → good leader.</li>
+                <li><strong>Type 8</strong> — Less ego, more control. Wants to dominate to protect. Easy to write,
+                    straightforward. Won't show emotions. Learned they need to be tough.</li>
+                <li><strong>Type 7</strong> — Avoids the darkness which stops them from becoming true self. Will do
+                    multiple things just to avoid the pain.</li>
+            </ul>
+
+            <h3>Character Introduction Rules</h3>
+            <ul>
+                <li>What is the first thing the character says? (Sherlock's first dialogue is deduction — that's first
+                    impression)</li>
+                <li>Show what is the problem of the character</li>
+                <li>Make them likeable</li>
+                <li>Widen audience perception about themselves (Walter White says it's for family, but it was ego)</li>
+                <li>Break the stereotype (old lady we imagine to be "go with the flow" — what if they're mean?)</li>
+                <li>Make them do something that contradicts expected behavior</li>
+            </ul>
+
+            <div class="raw-note">
+                <strong>Character should be split between 3 times:</strong><br>
+                Past — A past that affects their present<br>
+                Present — Immediate problem (one personal conflict + one internal conflict)
+            </div>
+        </div>
+
+        <!-- STORY STRUCTURE -->
+        <div class="note-section" id="structure">
+            <h2>📐 Story Structure</h2>
+
+            <h3>Dan Harmon's Story Circle</h3>
+            <div class="formula">
+                1. <strong>You</strong> — Character in their zone of comfort<br>
+                2. <strong>Need</strong> — Wants something<br>
+                3. <strong>Go!</strong> — Enters an unfamiliar situation<br>
+                4. <strong>Struggle</strong> — Has to adapt<br>
+                5. <strong>Find</strong> — Gets what they want (or a version)<br>
+                6. <strong>Suffer</strong> — Has to make a sacrifice<br>
+                7. <strong>Return</strong> — Returns to familiar situation<br>
+                8. <strong>Change</strong> — Having changed fundamentally
+            </div>
+
+            <h3>Conflict Rules</h3>
+            <div class="insight">
+                "The real unity of opposites is one in which compromise is impossible."
+            </div>
+            <p><strong>The Unity of Opposites:</strong> Great conflict comes from characters with opposing needs,
+                values, or goals, who are locked together in a situation where neither can back down or walk away.</p>
+
+            <ul>
+                <li>Don't make inciting incident same for everyone — protagonist should have higher stakes</li>
+                <li>It's never too soon to push character out of comfort zone (inciting incident)</li>
+                <li>Don't make conflict too easily resolved</li>
+                <li>A chain reaction of conflict should happen</li>
+            </ul>
+
+            <div class="raw-note">
+                <strong>For audience connection:</strong> Highlight the ordinary, make it extraordinary. People should
+                relate but think "I'm not even in that bad a situation."
+            </div>
+        </div>
+
+        <!-- SCENE WRITING -->
+        <div class="note-section" id="scenes">
+            <h2>✍️ Scene Writing</h2>
+
+            <h3>The Three Questions</h3>
+            <div class="formula">
+                1. Who wants what from whom?<br>
+                2. What happens if they don't get it?<br>
+                3. Why now?
+            </div>
+
+            <h3>Scene Writing Process</h3>
+            <ol>
+                <li>Write it simply: what does my character want, how did the scene change them?</li>
+                <li>Rewrite with deeper context: how did the character react, what's the new correlation between
+                    characters now?</li>
+            </ol>
+
+            <div class="insight">
+                "Dialogue becomes powerful when characters have hidden agendas."
+            </div>
+
+            <div class="raw-note">
+                Add subtext in scene to represent something but don't demand any conclusion — just leave it there.
+            </div>
+        </div>
+
+        <!-- STORYBOARD -->
+        <div class="note-section" id="storyboard">
+            <h2>🎬 Storyboard Techniques</h2>
+
+            <h3>What to Include</h3>
+            <ul>
+                <li>Lighting</li>
+                <li>Sound</li>
+                <li>Camera movement</li>
+                <li>Aspect ratio</li>
+                <li>Character movement</li>
+                <li>Framing & composition</li>
+                <li>Angle</li>
+                <li>Transition between frames</li>
+                <li>Depth of field (cross out out-of-focus elements)</li>
+            </ul>
+
+            <h3>Visual Storytelling Rules</h3>
+            <ul>
+                <li>Movement of character should give sense of what they would do — audience should anticipate</li>
+                <li>Show weather, time of day</li>
+                <li>Cut on action</li>
+                <li>Switch between full to medium shot in a single scene</li>
+            </ul>
+        </div>
+
+        <!-- LIGHTING -->
+        <div class="note-section" id="lighting">
+            <h2>💡 Lighting Notes</h2>
+
+            <h3>Types of Light Sources</h3>
+            <ul>
+                <li><strong>Natural Light</strong> — Sunlight, moonlight. Changes throughout the day.</li>
+                <li><strong>Practical Light</strong> — Existing lights in a scene (lamps, candles, screens).</li>
+                <li><strong>Artificial Light</strong> — Studio lights, LEDs, flash, strobes.</li>
+            </ul>
+
+            <h3>Three-Point Lighting</h3>
+            <ul>
+                <li><strong>Key Light</strong> — Strongest, main source, shapes the subject</li>
+                <li><strong>Fill Light</strong> — Softer, reduces shadows from key light</li>
+                <li><strong>Backlight</strong> — Behind subject, separates from background</li>
+                <li><strong>Kicker Light</strong> — Side/back, adds highlight on edge</li>
+                <li><strong>Motivated Lighting</strong> — Artificial lights mimicking natural sources</li>
+            </ul>
+
+            <h3>Lighting Styles</h3>
+            <table class="grid-table">
+                <tr>
+                    <th>Style</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Rembrandt</td>
+                    <td>Small triangle of light on one cheek, dramatic yet natural</td>
+                </tr>
+                <tr>
+                    <td>Loop</td>
+                    <td>Slight shadow under nose, common for portraits</td>
+                </tr>
+                <tr>
+                    <td>Split</td>
+                    <td>One half lit, other dark — high contrast</td>
+                </tr>
+                <tr>
+                    <td>Butterfly</td>
+                    <td>Shadow under nose, used for beauty shots</td>
+                </tr>
+                <tr>
+                    <td>Clamshell</td>
+                    <td>Two soft lights above/below, smooth look</td>
+                </tr>
+                <tr>
+                    <td>Silhouette</td>
+                    <td>Light from behind, subject appears dark</td>
+                </tr>
+                <tr>
+                    <td>Low-Key</td>
+                    <td>High contrast, dramatic shadows (film noir)</td>
+                </tr>
+                <tr>
+                    <td>High-Key</td>
+                    <td>Bright, low contrast (commercials, comedies)</td>
+                </tr>
+            </table>
+
+            <h3>Light Softness Rules</h3>
+            <ul>
+                <li>Larger light source = Softer shadows</li>
+                <li>Smaller light source = Harsher shadows</li>
+                <li>Closer light = Softer (wraps around subject)</li>
+                <li>Farther light = Harsher (more directional)</li>
+            </ul>
+
+            <div class="raw-note">
+                <strong>Shoot from the Dark Side</strong> — Position camera on shadowed side of face for depth and
+                drama.<br><br>
+                <strong>Broad Lighting</strong> — Bright side faces camera (makes face look wider)<br>
+                <strong>Short Lighting</strong> — Shadowed side faces camera (adds contrast and depth)
+            </div>
+        </div>
+
+        <!-- SCREENPLAY -->
+        <div class="note-section" id="screenplay">
+            <h2>📝 Screenplay Conventions</h2>
+
+            <ul>
+                <li>Keep it visual and in present tense</li>
+                <li>Write <code>V.O.</code> for voice over</li>
+                <li>Add <code>CUT TO</code> or <code>BACK TO</code> for scene change</li>
+                <li><code>MONTAGE START</code> and <code>MONTAGE END</code></li>
+                <li>Dialogues in the centre</li>
+            </ul>
+        </div>
+
+        <!-- QUICK WISDOM -->
+        <div class="note-section" id="wisdom" style="border-left-color: #f59e0b;">
+            <h2>⚡ Quick Wisdom (Raw Notes)</h2>
+
+            <div class="raw-note" style="background: #fef3c7;">
+                So what does audience think when they see the world... How it makes them connect to their idea... How
+                they communicate.... Is character funny in a horror world... Is character hiding something that can
+                change the world... or is there fight between two people whom we know what their desires are, what their
+                flaws are, and how they are changed throughout the entire time and what theme do they follow.
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p><a href="index.html">← Back to Overview</a></p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            toggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        })();
+    </script>
+</body>
+
+</html>

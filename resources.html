@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Visual Storytelling Study Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .domain-header h1 {
+            color: var(--resources);
+        }
+
+        .search-phrase {
+            font-family: var(--font-mono);
+            background: var(--surface-2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--resources);
+            cursor: text;
+            user-select: all;
+        }
+
+        .resource-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .resource-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            color: var(--text-2);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .resource-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .tag-film {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .tag-motion {
+            background: #fff7ed;
+            color: #ea580c;
+        }
+
+        .tag-ai {
+            background: #ecfeff;
+            color: #0891b2;
+        }
+
+        .tag-story {
+            background: #faf5ff;
+            color: #9333ea;
+        }
+
+        .tag-free {
+            background: #f0fdf4;
+            color: #059669;
+        }
+
+        [data-theme="dark"] .tag-film {
+            background: #3d2424;
+        }
+
+        [data-theme="dark"] .tag-motion {
+            background: #3d2d1a;
+        }
+
+        [data-theme="dark"] .tag-ai {
+            background: #1a3d3d;
+        }
+
+        [data-theme="dark"] .tag-story {
+            background: #2d1a3d;
+        }
+
+        [data-theme="dark"] .tag-free {
+            background: #1a3d24;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a href="index.html" class="back-link">← Back to Overview</a>
+
+        <div class="domain-header">
+            <h1>🌐 Best Free Resources</h1>
+            <p class="question">Search these exact names. Study these exact creators. All free.</p>
+        </div>
+
+        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
+            This is a curated list of the <strong>best free resources</strong> on the internet for learning visual
+            storytelling,
+            filmmaking, motion graphics, and AI visual generation. Not a dump of links — a map of exactly what to study
+            and why.
+        </p>
+
+        <!-- A. YOUTUBE CHANNELS -->
+        <div class="subgroup">
+            <div class="subgroup-header">
+                <span class="letter">A</span>
+                <h2>YouTube Channels</h2>
+            </div>
+            <p>These creators teach more than most film schools. Search their names exactly.</p>
+
+            <div class="resource-card">
+                <h4>Every Frame a Painting</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    The gold standard of video essay analysis. Tony Zhou dissects filmmaking techniques with surgical
+                    precision —
+                    camera movement, editing rhythm, visual comedy, composition. Every episode is a masterclass in a
+                    specific
+                    cinematic concept. The channel stopped producing in 2016, but every video remains timeless. Start
+                    with
+                    "Composing Movement" and "How Does an Editor Think and Feel?"
+                </p>
+                <a href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>StudioBinder Filmmaking</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-story">Story</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    Comprehensive filmmaking education — shot types, camera angles, lighting setups, directing
+                    techniques,
+                    story structure, and production planning. Their videos are polished, well-structured, and cover both
+                    creative and practical aspects of filmmaking. Their blog is equally excellent. Best for systematic,
+                    foundational learning.
+                </p>
+                <a href="https://www.youtube.com/@StudioBinder" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Lessons from the Screenplay</h4>
+                <span class="resource-tag tag-story">Story</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    Michael Tucker analyzes screenwriting and storytelling through the lens of produced films. Focuses
+                    on
+                    character arcs, conflict, dialogue, and how screenplay decisions translate to screen. Essential for
+                    understanding WHY stories work, not just how they're filmed. Start with his analysis of "Whiplash"
+                    or "Gone Girl."
+                </p>
+                <a href="https://www.youtube.com/@LessonsFromTheScreenplay" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Film Riot (Early Episodes)</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    Ryan Connolly's earlier episodes are practical, DIY filmmaking education — how to shoot with limited
+                    budgets,
+                    creative problem-solving, and hands-on technique. The energy and pragmatism are infectious. Best for
+                    understanding the craft of filmmaking as problem-solving, not as an academic exercise. Focus on
+                    episodes from the first 5 years.
+                </p>
+                <a href="https://www.youtube.com/@filmriot" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Nerdwriter Video Essays</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-story">Story</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    Evan Puschak creates thoughtful video essays about film, art, music, and culture. His film analysis
+                    focuses on the philosophical and emotional dimensions of cinema — why specific shots make us feel
+                    certain ways, how directors communicate ideas through visual choices. More conceptual than
+                    technical,
+                    which is exactly what most filmmakers need.
+                </p>
+                <a href="https://www.youtube.com/@Nerdwriter1" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Ben Marriott — Motion Design</h4>
+                <span class="resource-tag tag-motion">Motion</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    The best free motion design education on YouTube. Ben teaches After Effects techniques with a focus
+                    on
+                    WHY specific motion choices work, not just how to execute them. Covers kinetic typography, character
+                    animation, easing curves, and motion theory. His tutorials are well-paced and emphasize design
+                    thinking
+                    over button-pressing.
+                </p>
+                <a href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>School of Motion (Free Lessons)</h4>
+                <span class="resource-tag tag-motion">Motion</span>
+                <span class="resource-tag tag-free">Free</span>
+                <p>
+                    While their paid courses are industry-standard, School of Motion offers substantial free content —
+                    blog posts,
+                    YouTube tutorials, and their podcast. Covers motion design principles, career paths, industry
+                    trends, and
+                    software-agnostic animation thinking. Their free "Path to MoGraph" series is an excellent starting
+                    point.
+                </p>
+                <a href="https://www.youtube.com/@SchoolofMotion" target="_blank">Watch on YouTube →</a>
+            </div>
+        </div>
+
+        <!-- B. WEBSITES -->
+        <div class="subgroup">
+            <div class="subgroup-header">
+                <span class="letter">B</span>
+                <h2>Websites & Blogs</h2>
+            </div>
+            <p>Deep-dive articles, breakdowns, and analysis. Bookmark these.</p>
+
+            <div class="resource-card">
+                <h4>StudioBinder Blog</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <p>Comprehensive written guides on every filmmaking concept — shot lists, storyboarding, directing,
+                    cinematography, and production. Their visual glossaries are particularly useful as reference
+                    material. Pairs perfectly with their YouTube channel.</p>
+                <a href="https://www.studiobinder.com/blog/" target="_blank">Visit StudioBinder Blog →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>No Film School</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-ai">AI</span>
+                <p>The largest independent filmmaking resource on the internet. Daily articles covering gear, technique,
+                    industry news, AI tools, and interviews with working filmmakers. Their "filmmaking 101" sections are
+                    excellent for building foundational knowledge. Also covers the intersection of AI and filmmaking.
+                </p>
+                <a href="https://nofilmschool.com/" target="_blank">Visit No Film School →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Cinefix</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-story">Story</span>
+                <p>Known for their "Top 10 Movie Lists" format that goes deeper than rankings — they analyze why
+                    specific films succeed at specific techniques (best editing, best single shots, best sound design).
+                    A great way to build a watchlist of films that demonstrate specific concepts.</p>
+                <a href="https://www.youtube.com/@CineFix" target="_blank">Visit Cinefix →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>School of Motion Blog</h4>
+                <span class="resource-tag tag-motion">Motion</span>
+                <p>In-depth articles on motion design theory, career guidance, software tutorials, and industry
+                    analysis. Covers the business side of motion design alongside the creative side. Their design
+                    breakdowns of professional work are particularly educational.</p>
+                <a href="https://www.schoolofmotion.com/blog" target="_blank">Visit School of Motion Blog →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Frame.io Blog</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <p>Technical and creative articles about post-production — editing workflows, color grading, sound
+                    design, and the editorial process. Written by industry professionals. Their deep-dive articles on
+                    editorial decision-making are some of the best free resources available for understanding the
+                    editor's craft.</p>
+                <a href="https://blog.frame.io/" target="_blank">Visit Frame.io Blog →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Vimeo Staff Picks (Analysis)</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-motion">Motion</span>
+                <p>Don't just watch Staff Picks — analyze them. Study WHY each pick was selected. Look at composition,
+                    timing, transitions, and emotional structure. Vimeo Staff Picks represent some of the best
+                    short-form visual storytelling on the internet. Use them as case studies, not entertainment.</p>
+                <a href="https://vimeo.com/channels/staffpicks" target="_blank">Browse Vimeo Staff Picks →</a>
+            </div>
+        </div>
+
+        <!-- C. SEARCH PHRASES -->
+        <div class="subgroup">
+            <div class="subgroup-header">
+                <span class="letter">C</span>
+                <h2>Search Phrases (Copy-Paste)</h2>
+            </div>
+            <p>Copy these exact phrases into Google or YouTube. They'll lead you to the right knowledge.</p>
+
+            <h3 style="margin-top: 1.5rem; margin-bottom: 1rem;">Filmmaking & Storytelling</h3>
+            <code class="search-phrase">"How emotion is conveyed without dialogue in film"</code>
+            <code class="search-phrase">"Why camera movement matters storytelling"</code>
+            <code class="search-phrase">"Visual storytelling without words"</code>
+            <code class="search-phrase">"Film scenes analysis blocking and camera"</code>
+            <code class="search-phrase">"Minimalist filmmaking emotional impact"</code>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Motion Graphics</h3>
+            <code class="search-phrase">"Motion graphics storytelling examples"</code>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">AI + Visual Thinking</h3>
+            <code class="search-phrase">"Latent space explained visually"</code>
+            <code class="search-phrase">"Prompt engineering is not writing"</code>
+            <code class="search-phrase">"Why less prompting works better"</code>
+            <code class="search-phrase">"AI video realism problems explained"</code>
+        </div>
+
+        <!-- D. AI CREATORS -->
+        <div class="subgroup">
+            <div class="subgroup-header">
+                <span class="letter">D</span>
+                <h2>AI + Visual Thinking Creators</h2>
+            </div>
+            <p>The intersection of traditional visual thinking and AI tools. These creators understand both worlds.</p>
+
+            <div class="resource-card">
+                <h4>Corridor Crew — AI Breakdowns</h4>
+                <span class="resource-tag tag-ai">AI</span>
+                <span class="resource-tag tag-film">Film</span>
+                <p>
+                    VFX professionals who critically analyze AI video and image tools from a filmmaker's perspective.
+                    They
+                    don't just hype AI — they stress-test it, expose its failures, and discuss what it means for visual
+                    storytelling. Their breakdown videos reveal how AI tools actually perform in professional workflows.
+                </p>
+                <a href="https://www.youtube.com/@CorridorCrew" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>CineD — AI Articles</h4>
+                <span class="resource-tag tag-ai">AI</span>
+                <span class="resource-tag tag-film">Film</span>
+                <p>
+                    Professional cinematography publication that covers AI developments from a technical filmmaking
+                    perspective.
+                    Their articles analyze how AI affects camera work, lighting design, and post-production workflows.
+                    Written
+                    for working professionals, not enthusiasts — which means the analysis is practical and honest.
+                </p>
+                <a href="https://www.cined.com/" target="_blank">Visit CineD →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Runway / Pika / Luma Blog Theory Posts</h4>
+                <span class="resource-tag tag-ai">AI</span>
+                <p>
+                    The research blogs from major AI video companies. Beyond tool announcements, these blogs publish
+                    insights about temporal consistency, motion modeling, and the fundamental challenges of AI video
+                    generation.
+                    Reading these gives you a deeper understanding of <em>why</em> AI video works the way it does — its
+                    capabilities and inherent limitations.
+                </p>
+                <a href="https://research.runwayml.com/" target="_blank">Runway Research →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Ben Marriott (Motion Thinking)</h4>
+                <span class="resource-tag tag-motion">Motion</span>
+                <span class="resource-tag tag-ai">AI</span>
+                <p>
+                    While primarily a motion designer, Ben's thinking about animation principles, timing, and visual
+                    communication
+                    is directly applicable to AI-generated motion. Understanding his approach to "why things move" will
+                    fundamentally improve your AI video prompting. Motion thinking transfers from After Effects to AI
+                    seamlessly.
+                </p>
+                <a href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="resource-card">
+                <h4>Every Frame a Painting (Visual Language)</h4>
+                <span class="resource-tag tag-film">Film</span>
+                <span class="resource-tag tag-ai">AI</span>
+                <p>
+                    Yes, this channel is listed twice — once for filmmaking and once for AI. Why? Because the visual
+                    language
+                    concepts Tony Zhou teaches (composition, movement, rhythm) are exactly the knowledge gap that makes
+                    most
+                    AI-generated content feel empty. Understanding cinematographic language is the #1 skill that
+                    separates
+                    meaningless AI output from cinematic AI output.
+                </p>
+                <a href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p><a href="ai-visual.html">← AI Visual Generation</a> | <a href="index.html">Overview</a></p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            toggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        })();
+    </script>
+</body>
+
+</html>

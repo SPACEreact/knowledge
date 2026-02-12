@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Reference | Visual Storytelling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .domain-header h1 {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .style-category {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .style-category h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .style-category .desc {
+            color: var(--text-2);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .style-card {
+            padding: 1rem;
+            background: #f8f8f8;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .style-card h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .style-card p {
+            font-size: 0.85rem;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+
+        .category-1 .style-card {
+            border-color: #8b5cf6;
+        }
+
+        .category-2 .style-card {
+            border-color: #06b6d4;
+        }
+
+        .category-3 .style-card {
+            border-color: #f59e0b;
+        }
+
+        .category-4 .style-card {
+            border-color: #ec4899;
+        }
+
+        .category-5 .style-card {
+            border-color: #10b981;
+        }
+
+        .reminder {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .reminder p {
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a href="index.html" class="back-link">← Back to Overview</a>
+
+        <div class="domain-header">
+            <h1>Style Reference</h1>
+            <p class="question">The visual vocabulary for each domain</p>
+        </div>
+
+        <div class="reminder">
+            <p><strong>Remember:</strong> Style lives inside domains, never above them. Story decides what changes —
+                style decides how it's perceived.</p>
+        </div>
+
+        <!-- 1. DEPTH, TEXTURE & LIGHT -->
+        <div class="style-category category-1">
+            <h2>🔮 1. Depth, Texture & Light</h2>
+            <p class="desc">The "Morphisms" — styles focused on physical properties of digital materials.</p>
+            <div class="style-grid">
+                <div class="style-card">
+                    <h3>Glassmorphism / Liquid Glass</h3>
+                    <p>Frosted glass effect with blur, transparency, and subtle borders. Feels futuristic yet natural.
+                    </p>
+                </div>
+                <div class="style-card">
+                    <h3>Neuomorphism (Soft UI)</h3>
+                    <p>Elements extruded from background using soft, monochromatic shadows. Tactile without texture.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Chrome-morphism</h3>
+                    <p>Highly reflective, liquid-metal surfaces with high-contrast highlights. Alien and premium.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Aurora UI</h3>
+                    <p>Soft, blurred, multi-colored gradients as backgrounds. Ethereal, glowing depth.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Holographic</h3>
+                    <p>Shimmering "oil-slick" colors that shift with viewing angle. Iridescent and dynamic.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Claymorphism</h3>
+                    <p>Soft, rounded 3D elements that look like clay or plastic. Playful and approachable.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Skeuomorphism</h3>
+                    <p>Digital elements mimicking real-world materials (leather, wood, metal). Physical familiarity.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Paperneomorphism</h3>
+                    <p>Tactile, fibrous paper textures on modern UI layouts. Warm and handmade feeling.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. STRUCTURAL & LAYOUT -->
+        <div class="style-category category-2">
+            <h2>📐 2. Structural & Layout Styles</h2>
+            <p class="desc">How information and visuals are organized.</p>
+            <div class="style-grid">
+                <div class="style-card">
+                    <h3>Bento Grid</h3>
+                    <p>Modular, rounded compartments (Apple/Framer style). Organized and scannable.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Neo Brutalism</h3>
+                    <p>Raw, bold, unapologetic. Heavy borders, stark colors, intentional "ugliness" as honesty.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Swiss Style</h3>
+                    <p>Massive grids, bold sans-serif typography, objective photography. Clarity over decoration.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Bauhaus</h3>
+                    <p>Geometric, functional, primary colors (Red, Blue, Yellow). Form follows function.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Material Design</h3>
+                    <p>Google's "digital paper" that casts realistic shadows. Systematic and accessible.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Flat Design 2.0</h3>
+                    <p>Modern flat design with subtle gradients and depth. Clean without being lifeless.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. RETRO-FUTURISM -->
+        <div class="style-category category-3">
+            <h2>⏳ 3. Retro-Futurism & Nostalgia</h2>
+            <p class="desc">Eras digitally remixed for modern storytelling.</p>
+            <div class="style-grid">
+                <div class="style-card">
+                    <h3>Y2K Aesthetic</h3>
+                    <p>Glossy plastics, translucent tech (iMac G3 vibes), "blobby" shapes. Late 90s optimism.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Frutiger Aero</h3>
+                    <p>Mid-2000s: bubbles, water droplets, glossy glass, bright nature imagery. Windows Vista era.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Vaporwave / Synthwave</h3>
+                    <p>80s neon, grid-scapes, sunset gradients, VHS glitches. Nostalgic and ironic.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Cyberpunk</h3>
+                    <p>High-tech/low-life. Rainy streets, neon signage, dark industrial textures. Dystopian beauty.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Solarpunk</h3>
+                    <p>Optimistic future where tech and nature integrate. Greenery, curves, sustainability.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Steampunk</h3>
+                    <p>Victorian-era tech powered by steam. Brass, gears, leather. Analog imagination.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Pixel Art / Voxel Art</h3>
+                    <p>8-bit, 16-bit aesthetics or 3D cuboid worlds. Constraint as creativity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. ARTISTIC & EXPERIMENTAL -->
+        <div class="style-category category-4">
+            <h2>🎨 4. Artistic & Experimental</h2>
+            <p class="desc">"Anti-clean" styles for high-impact creative projects.</p>
+            <div class="style-grid">
+                <div class="style-card">
+                    <h3>Maximalism</h3>
+                    <p>"More is more" — clashing colors, layered images, zero white space. Overwhelming by design.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Acid Graphic</h3>
+                    <p>Distorted "liquid" typography, high-saturation colors, psychedelic patterns. Visual trip.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Memphis Design</h3>
+                    <p>1980s pop art: squiggles, triangles, "confetti" patterns in pastels. Playful chaos.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Grunge</h3>
+                    <p>Distressed textures, grainy overlays, torn paper, "dirty" typography. Raw and real.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Ukiyo-e (Modern)</h3>
+                    <p>Woodblock print styles with modern subjects or digital colors. East meets West.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Eco-Brutalism</h3>
+                    <p>Raw concrete textures with lush, overgrown greenery. Nature reclaiming structure.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Dreamcore / Weirdcore</h3>
+                    <p>Surreal liminal spaces that feel unsettling yet familiar. Low-quality, found-footage vibe.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. CINEMATIC -->
+        <div class="style-category category-5">
+            <h2>🎬 5. Cinematic & Visual Effects</h2>
+            <p class="desc">Styles that define the "look" of the frame.</p>
+            <div class="style-grid">
+                <div class="style-card">
+                    <h3>Film Noir</h3>
+                    <p>High-contrast black and white with dramatic chiaroscuro lighting. Shadow as character.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Technicolor</h3>
+                    <p>Hyper-saturated, vibrant colors of mid-century cinema. Larger than life.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Pop Art / Comic</h3>
+                    <p>Ben-Day dots, heavy ink outlines, high-action framing. Graphic impact.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Tilt-Shift</h3>
+                    <p>Making real scenes look like miniature models through selective focus. Dollhouse reality.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Lo-Fi / VHS</h3>
+                    <p>Intentionally degraded quality — tracking lines, color bleeding. Nostalgic imperfection.</p>
+                </div>
+                <div class="style-card">
+                    <h3>Infrared Photography</h3>
+                    <p>Greens become pinks/whites for alien, otherworldly landscapes. Invisible made visible.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- USAGE GUIDE -->
+        <div class="subgroup"
+            style="background: #fffbeb; border: 1px solid #fcd34d; padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">📋 How to Use This Reference</h2>
+            <ol style="margin-left: 1.5rem; color: var(--text-2);">
+                <li><strong>Start with story</strong> — What emotional change are you creating?</li>
+                <li><strong>Choose domain</strong> — Is this a Design, Cinematography, Motion decision?</li>
+                <li><strong>Pick style deliberately</strong> — What does this style say about the story?</li>
+                <li><strong>Mix intentionally</strong> — Y2K design + Film Noir cinematography = specific meaning</li>
+                <li><strong>Document your choices</strong> — "This is Solarpunk because the brand stands for optimism"
+                </li>
+            </ol>
+        </div>
+
+    </main>
+    <footer>
+        <p><a href="index.html">← Back to Overview</a></p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            toggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        })();
+    </script>
+</body>
+
+</html>

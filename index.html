@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Storytelling Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .core-card {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+      color: white;
+      border: none;
+      margin-bottom: 2rem;
+    }
+
+    .core-card h3 {
+      color: #f59e0b;
+    }
+
+    .core-card p {
+      opacity: 0.85;
+    }
+
+    .core-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hierarchy {
+      text-align: center;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+    }
+
+    .hierarchy-level {
+      margin: 1rem 0;
+    }
+
+    .hierarchy-level .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+    }
+
+    .hierarchy-level .name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .arrow {
+      color: var(--text-3);
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Visual Storytelling</h1>
+    <p class="subtitle">A Deep Study Guide for Filmmakers & Visual Thinkers</p>
+    <p class="tagline">Not film school. A curated path through the world's best free knowledge — plus your own
+      frameworks.</p>
+  </header>
+
+  <nav>
+    <a href="#hierarchy">Structure</a>
+    <a href="#core">Core Layer</a>
+    <a href="#domains">5 Domains</a>
+    <a href="#keywords">Keyword Guides</a>
+    <a href="style-reference.html">Style Reference</a>
+    <a href="craft-notes.html">Craft Notes</a>
+    <a href="resources.html">Resources</a>
+    <a href="#masters">Masters</a>
+  </nav>
+
+  <main>
+    <!-- HIERARCHY VISUAL -->
+    <section id="hierarchy" class="hierarchy">
+      <p style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 1.5rem;">The System Structure</p>
+      <div class="hierarchy-level">
+        <div class="label">Core Layer</div>
+        <div class="name" style="color: #f59e0b;">Storytelling</div>
+        <div style="font-size: 0.85rem; color: var(--text-2);">Why does this matter?</div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="hierarchy-level">
+        <div class="label">Execution Layers</div>
+        <div class="name">5 Domains</div>
+        <div style="font-size: 0.85rem; color: var(--text-2);">Design · Cinematography · Sound · Editing · Motion</div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="hierarchy-level">
+        <div class="label">Expression</div>
+        <div class="name" style="color: var(--text-2);">Style</div>
+        <div style="font-size: 0.85rem; color: var(--text-3);">Lives inside each domain, never above</div>
+      </div>
+    </section>
+
+    <!-- CORE LAYER -->
+    <section id="core">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        Core Layer</h2>
+      <a href="storytelling.html" class="domain-link core-card">
+        <span class="num">00</span>
+        <h3>Storytelling</h3>
+        <p>Meaning architecture. Story vs Style. The Ad Story Engine. Why everything else exists.</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">↳ Your personal frameworks included</p>
+      </a>
+    </section>
+
+    <!-- DOMAINS -->
+    <section id="domains">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        Execution Domains</h2>
+      <div class="domain-grid">
+        <a href="design.html" class="domain-link" data-domain="design">
+          <span class="num">01</span>
+          <h3>Design</h3>
+          <p>"If this never moved, would it still work?"</p>
+        </a>
+        <a href="cinematography.html" class="domain-link" data-domain="cinematography">
+          <span class="num">02</span>
+          <h3>Cinematography</h3>
+          <p>"Does this feel physically real?"</p>
+        </a>
+        <a href="sound.html" class="domain-link" data-domain="sound">
+          <span class="num">03</span>
+          <h3>Sound</h3>
+          <p>"Would this feel real with eyes closed?"</p>
+        </a>
+        <a href="editing.html" class="domain-link" data-domain="editing">
+          <span class="num">04</span>
+          <h3>Editing</h3>
+          <p>"What does this sequence say?"</p>
+        </a>
+        <a href="motion.html" class="domain-link" data-domain="motion">
+          <span class="num">05</span>
+          <h3>Motion</h3>
+          <p>"Does this feel alive?"</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- KEYWORD DEEP DIVES -->
+    <section id="keywords">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        Keyword Deep Dives</h2>
+      <p style="color: var(--text-2); margin-bottom: 1.5rem; font-size: 0.95rem;">Detailed teaching pages for every
+        concept you need to master. Not definitions — understanding.</p>
+      <div class="domain-grid">
+        <a href="filmmaking-keywords.html" class="domain-link" data-domain="filmmaking">
+          <span class="num">🎬</span>
+          <h3>Filmmaking Core</h3>
+          <p>Visual language, camera, lighting, directing — the non-negotiable foundations.</p>
+        </a>
+        <a href="editing-rhythm.html" class="domain-link" data-domain="editing">
+          <span class="num">✂️</span>
+          <h3>Editing & Rhythm</h3>
+          <p>Continuity, cuts, pacing, montage theory — the invisible architecture.</p>
+        </a>
+        <a href="story-emotion.html" class="domain-link" data-domain="story-emotion">
+          <span class="num">🧠</span>
+          <h3>Story & Emotion</h3>
+          <p>Emotional arcs, internal conflict, visual metaphor — what separates good from great.</p>
+        </a>
+        <a href="mograph-keywords.html" class="domain-link" data-domain="motion">
+          <span class="num">🎞️</span>
+          <h3>Motion Graphics</h3>
+          <p>Animation principles, kinetic typography, easing, compositing — design in time.</p>
+        </a>
+        <a href="ai-visual.html" class="domain-link" data-domain="ai-visual">
+          <span class="num">🧠</span>
+          <h3>AI Visual Generation</h3>
+          <p>60+ keywords for prompt engineering, cinematic AI, characters, and storytelling.</p>
+        </a>
+        <a href="resources.html" class="domain-link" data-domain="resources">
+          <span class="num">🌐</span>
+          <h3>Free Resources</h3>
+          <p>Curated channels, websites, and search phrases. All free, all essential.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- MASTERS -->
+    <section id="masters">
+      <h2 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Study the Masters</h2>
+      <div class="masters-grid">
+        <div class="master">
+          <h4>Roger Deakins</h4>
+          <p>Cinematography</p>
+          <a href="https://www.youtube.com/watch?v=jgaEhPpEzQs" target="_blank">Team Deakins Podcast →</a>
+        </div>
+        <div class="master">
+          <h4>Walter Murch</h4>
+          <p>Editing</p>
+          <a href="https://www.youtube.com/watch?v=EcXPRLKQqeU" target="_blank">In the Blink of an Eye →</a>
+        </div>
+        <div class="master">
+          <h4>Saul Bass</h4>
+          <p>Design</p>
+          <a href="https://www.youtube.com/watch?v=kTQ_lkXL4Xg" target="_blank">Title Sequences →</a>
+        </div>
+        <div class="master">
+          <h4>Ben Burtt</h4>
+          <p>Sound</p>
+          <a href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank">Creating Star Wars Sound →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM ANCHOR -->
+    <section
+      style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); color: white; padding: 2rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
+      <p style="font-family: var(--font-mono); font-size: 1.1rem; opacity: 0.9;">
+        Story leads. Style serves. Domains execute.
+      </p>
+      <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 1rem;">
+        If you feel lost: You're not untalented. You're just letting style drive.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Knowledge is knowledge. Pick any — even if it's not well known.</p>
+  </footer>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    🌙
+  </button>
+
+  <script>
+    // Theme Toggle Script
+    (function () {
+      const toggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+
+      // Check for saved theme preference, default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateToggleIcon(savedTheme);
+
+      toggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleIcon(newTheme);
+      });
+
+      function updateToggleIcon(theme) {
+        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    })();
+  </script>
+</body>
+
+</html>

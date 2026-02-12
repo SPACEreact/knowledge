@@ -14,6 +14,259 @@
         .domain-header h1 {
             color: var(--sound);
         }
+
+        /* ═══════════════════════════════════════════
+           CLEAN CAPTURE — pristine, no noise, crystal
+           ═══════════════════════════════════════════ */
+        .skill-clean-capture {
+            border-left: 3px solid var(--sound);
+            background: var(--surface);
+            border-radius: 0 8px 8px 0;
+            padding: 1.5rem !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-clean-capture h3 {
+            letter-spacing: 0.04em;
+        }
+
+        .skill-clean-capture .desc {
+            font-weight: 300;
+        }
+
+        .skill-clean-capture::after {
+            content: '■ S/N: ∞';
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--sound);
+            opacity: 0.4;
+            display: block;
+            text-align: right;
+            margin-top: 0.4rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           ROOM TONE — subtle noise texture, silence
+           ═══════════════════════════════════════════ */
+        .skill-room-tone {
+            position: relative;
+            border-left-color: #94a3b8;
+        }
+
+        .skill-room-tone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            border-radius: 4px;
+        }
+
+        .skill-room-tone h3 {
+            color: var(--text-3);
+            font-weight: 400;
+        }
+
+        .skill-room-tone .desc {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* ═══════════════════════════════════════════
+           LAYERING — stacked translucent shadows
+           ═══════════════════════════════════════════ */
+        .skill-layering {
+            border-left-color: var(--sound);
+            position: relative;
+        }
+
+        .skill-layering .layer-demo {
+            display: flex;
+            gap: 0;
+            margin: 0.75rem 0;
+            height: 28px;
+            position: relative;
+        }
+
+        .skill-layering .layer {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .skill-layering .layer-1 {
+            left: 0;
+            right: 40%;
+            background: rgba(8, 145, 178, 0.10);
+            z-index: 1;
+        }
+
+        .skill-layering .layer-2 {
+            left: 10%;
+            right: 30%;
+            background: rgba(8, 145, 178, 0.12);
+            z-index: 2;
+        }
+
+        .skill-layering .layer-3 {
+            left: 20%;
+            right: 20%;
+            background: rgba(8, 145, 178, 0.14);
+            z-index: 3;
+        }
+
+        .skill-layering .layer-4 {
+            left: 30%;
+            right: 10%;
+            background: rgba(8, 145, 178, 0.16);
+            z-index: 4;
+        }
+
+        .skill-layering .layer-5 {
+            left: 40%;
+            right: 0;
+            background: rgba(8, 145, 178, 0.18);
+            z-index: 5;
+        }
+
+        .skill-layering .layer-labels {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-3);
+            margin-top: 2px;
+        }
+
+        /* ═══════════════════════════════════════════
+           SWEETENING — enhancement glow
+           ═══════════════════════════════════════════ */
+        .skill-sweetening {
+            border-left-color: #f59e0b;
+            position: relative;
+        }
+
+        .skill-sweetening::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 6px;
+            background: transparent;
+            box-shadow:
+                0 0 0 1px rgba(245, 158, 11, 0.08),
+                0 0 8px rgba(245, 158, 11, 0.06),
+                0 0 20px rgba(245, 158, 11, 0.03);
+            pointer-events: none;
+        }
+
+        .skill-sweetening h3::after {
+            content: ' ✦';
+            font-size: 0.7rem;
+            color: #f59e0b;
+            opacity: 0.5;
+        }
+
+        /* ═══════════════════════════════════════════
+           DIEGETIC VS NON-DIEGETIC — split reality
+           ═══════════════════════════════════════════ */
+        .skill-diegetic {
+            border-left-color: transparent;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding-left: 0 !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-diegetic h3,
+        .skill-diegetic .resources {
+            grid-column: 1 / -1;
+        }
+
+        .skill-diegetic h3 {
+            padding-left: 1rem;
+        }
+
+        .skill-diegetic .resources {
+            padding: 0 1rem;
+        }
+
+        .skill-diegetic .side-diegetic {
+            padding: 0.75rem 1rem;
+            background: var(--surface);
+            border-right: 1px dashed var(--border);
+        }
+
+        .skill-diegetic .side-non-diegetic {
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.04) 0%, rgba(147, 51, 234, 0.08) 100%);
+            font-style: italic;
+        }
+
+        .skill-diegetic .side-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-3);
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-diegetic .side-text {
+            font-size: 0.88rem;
+            color: var(--text-2);
+        }
+
+        /* ═══════════════════════════════════════════
+           SILENCE AS TOOL — sparse, stark, minimal
+           ═══════════════════════════════════════════ */
+        .skill-silence {
+            border-left: 1px solid var(--border);
+            padding: 3rem 2rem !important;
+            text-align: center;
+            min-height: 120px;
+        }
+
+        .skill-silence h3 {
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.8rem !important;
+            color: var(--text-3);
+            margin-bottom: 2rem !important;
+        }
+
+        .skill-silence .desc {
+            max-width: 70%;
+            margin: 0 auto 2rem auto;
+            font-size: 0.9rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           EQ / COMPRESSION — waveform pattern
+           ═══════════════════════════════════════════ */
+        .skill-eq {
+            border-left-color: var(--sound);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-eq .wave-demo {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 24px;
+            margin: 0.75rem 0;
+        }
+
+        .skill-eq .wave-bar {
+            flex: 1;
+            background: var(--sound);
+            border-radius: 1px;
+            opacity: 0.25;
+            min-width: 3px;
+        }
     </style>
 </head>
 
@@ -40,7 +293,7 @@
             </div>
             <p>What you capture on set. The foundation everything is built on.</p>
 
-            <div class="skill">
+            <div class="skill skill-clean-capture">
                 <h3>Clean Capture</h3>
                 <p class="desc">
                     ADR (re-recording in studio) is expensive and never sounds as real. Capture it right on set.
@@ -68,7 +321,7 @@
             </div>
             <p>The sound of silence. Every room has a voice.</p>
 
-            <div class="skill">
+            <div class="skill skill-room-tone">
                 <h3>Capturing Room Tone</h3>
                 <p class="desc">
                     30-60 seconds of "silence" in every location. Used to patch edits, create continuity.
@@ -94,8 +347,22 @@
             </div>
             <p>The art of lying with sound. Making the unreal feel tactile.</p>
 
-            <div class="skill">
+            <div class="skill skill-layering">
                 <h3>Layering</h3>
+                <div class="layer-demo">
+                    <div class="layer layer-1"></div>
+                    <div class="layer layer-2"></div>
+                    <div class="layer layer-3"></div>
+                    <div class="layer layer-4"></div>
+                    <div class="layer layer-5"></div>
+                </div>
+                <div class="layer-labels">
+                    <span>impact</span>
+                    <span>whoosh</span>
+                    <span>thud</span>
+                    <span>echo</span>
+                    <span>rattle</span>
+                </div>
                 <p class="desc">
                     A punch isn't one sound — it's impact + whoosh + thud + echo + body reaction + room rattle.
                     Reality is thin. Movies are thick. Build layers like an oil painting.
@@ -113,7 +380,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-sweetening">
                 <h3>Sweetening</h3>
                 <p class="desc">
                     Adding audio that wasn't there to enhance reality. Car doors get metal clanks.
@@ -139,11 +406,17 @@
             </div>
             <p>The philosophy of what you hear. Rules that guide emotional response.</p>
 
-            <div class="skill">
+            <div class="skill skill-diegetic">
                 <h3>Diegetic vs Non-Diegetic</h3>
-                <p class="desc">
-                    Diegetic: characters can hear it (radio, dialogue). Non-diegetic: only audience hears it (score,
-                    narrator).
+                <div class="side-diegetic">
+                    <div class="side-label">Diegetic</div>
+                    <div class="side-text">Characters hear it: radio, dialogue, footsteps in the scene.</div>
+                </div>
+                <div class="side-non-diegetic">
+                    <div class="side-label">Non-Diegetic</div>
+                    <div class="side-text">Only audience hears it: score, narrator, emotional underscoring.</div>
+                </div>
+                <p class="desc" style="grid-column: 1 / -1; padding: 0.5rem 1rem 0;">
                     Blurring this line creates surrealism — Tarantino's needle drops, Scorsese's anachronistic music.
                 </p>
                 <div class="resources">
@@ -157,7 +430,7 @@
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="skill skill-silence">
                 <h3>Silence as Tool</h3>
                 <p class="desc">
                     Silence isn't the absence of sound — it's the presence of dread. No Country for Old Men has almost
@@ -184,8 +457,40 @@
             </div>
             <p>Balancing the chaos. Making 100 tracks feel like one reality.</p>
 
-            <div class="skill">
+            <div class="skill skill-eq">
                 <h3>EQ, Compression, Dynamics</h3>
+                <div class="wave-demo">
+                    <div class="wave-bar" style="height: 20%"></div>
+                    <div class="wave-bar" style="height: 35%"></div>
+                    <div class="wave-bar" style="height: 60%"></div>
+                    <div class="wave-bar" style="height: 90%"></div>
+                    <div class="wave-bar" style="height: 100%"></div>
+                    <div class="wave-bar" style="height: 85%"></div>
+                    <div class="wave-bar" style="height: 95%"></div>
+                    <div class="wave-bar" style="height: 70%"></div>
+                    <div class="wave-bar" style="height: 100%"></div>
+                    <div class="wave-bar" style="height: 75%"></div>
+                    <div class="wave-bar" style="height: 55%"></div>
+                    <div class="wave-bar" style="height: 80%"></div>
+                    <div class="wave-bar" style="height: 100%"></div>
+                    <div class="wave-bar" style="height: 90%"></div>
+                    <div class="wave-bar" style="height: 65%"></div>
+                    <div class="wave-bar" style="height: 45%"></div>
+                    <div class="wave-bar" style="height: 70%"></div>
+                    <div class="wave-bar" style="height: 85%"></div>
+                    <div class="wave-bar" style="height: 50%"></div>
+                    <div class="wave-bar" style="height: 30%"></div>
+                    <div class="wave-bar" style="height: 60%"></div>
+                    <div class="wave-bar" style="height: 80%"></div>
+                    <div class="wave-bar" style="height: 95%"></div>
+                    <div class="wave-bar" style="height: 70%"></div>
+                    <div class="wave-bar" style="height: 40%"></div>
+                    <div class="wave-bar" style="height: 55%"></div>
+                    <div class="wave-bar" style="height: 75%"></div>
+                    <div class="wave-bar" style="height: 90%"></div>
+                    <div class="wave-bar" style="height: 60%"></div>
+                    <div class="wave-bar" style="height: 35%"></div>
+                </div>
                 <p class="desc">
                     EQ removes mud, reveals clarity. Compression controls dynamic range.
                     Limiting prevents clipping. These are invisible — you only notice when they're wrong.

@@ -7,7 +7,7 @@
     <title>Style Reference | Visual Storytelling</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&family=Press+Start+2P&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -47,41 +47,30 @@
         }
 
         .style-card {
-            padding: 1rem;
-            background: #f8f8f8;
+            padding: 1.25rem;
             border-radius: 6px;
             border-left: 3px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .style-card:hover {
+            transform: translateY(-3px);
         }
 
         .style-card h3 {
             font-size: 0.95rem;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .style-card p {
             font-size: 0.85rem;
-            color: var(--text-2);
             line-height: 1.5;
-        }
-
-        .category-1 .style-card {
-            border-color: #8b5cf6;
-        }
-
-        .category-2 .style-card {
-            border-color: #06b6d4;
-        }
-
-        .category-3 .style-card {
-            border-color: #f59e0b;
-        }
-
-        .category-4 .style-card {
-            border-color: #ec4899;
-        }
-
-        .category-5 .style-card {
-            border-color: #10b981;
+            position: relative;
+            z-index: 1;
         }
 
         .reminder {
@@ -96,6 +85,1219 @@
         .reminder p {
             opacity: 0.85;
             font-size: 0.95rem;
+        }
+
+        /* ===================================
+           1. DEPTH, TEXTURE & LIGHT
+           =================================== */
+
+        /* Glassmorphism / Liquid Glass */
+        .card-glassmorphism {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-left: 3px solid rgba(139, 92, 246, 0.5) !important;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            color: #1e293b;
+        }
+
+        .card-glassmorphism::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.05));
+            border-radius: inherit;
+            z-index: 0;
+        }
+
+        /* Neumorphism (Soft UI) */
+        .card-neumorphism {
+            background: #e0e5ec !important;
+            border: none !important;
+            border-left: none !important;
+            border-radius: 16px;
+            box-shadow: 8px 8px 16px #b8bec7, -8px -8px 16px #ffffff;
+            color: #6b7280;
+        }
+
+        .card-neumorphism h3 {
+            color: #4b5563;
+        }
+
+        /* Chrome-morphism */
+        .card-chrome {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8, #a0a0a0, #d0d0d0, #b0b0b0) !important;
+            border: 1px solid #888 !important;
+            border-left: 3px solid #666 !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            color: #1a1a2e;
+        }
+
+        .card-chrome h3 {
+            background: linear-gradient(90deg, #666, #ddd, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .card-chrome::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+            animation: chrome-shine 3s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes chrome-shine {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        /* Aurora UI */
+        .card-aurora {
+            background: linear-gradient(135deg,
+                    rgba(99, 102, 241, 0.3),
+                    rgba(168, 85, 247, 0.2),
+                    rgba(6, 182, 212, 0.3),
+                    rgba(34, 197, 94, 0.2)) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-left: 3px solid rgba(139, 92, 246, 0.5) !important;
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+            color: #1e293b;
+            animation: aurora-shift 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora-shift {
+            0% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                background-position: 100% 50%;
+                filter: hue-rotate(30deg);
+            }
+        }
+
+        /* Holographic */
+        .card-holographic {
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd) !important;
+            background-size: 300% 300%;
+            animation: holo-shift 4s ease infinite;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-left: 3px solid rgba(255, 255, 255, 0.5) !important;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-holographic h3 {
+            color: #fff;
+        }
+
+        .card-holographic p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes holo-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Claymorphism */
+        .card-claymorphism {
+            background: linear-gradient(145deg, #f0e6ff, #e0d0f5) !important;
+            border: none !important;
+            border-radius: 20px;
+            box-shadow:
+                8px 8px 16px rgba(163, 130, 201, 0.3),
+                -4px -4px 12px rgba(255, 255, 255, 0.8),
+                inset 0 -3px 6px rgba(163, 130, 201, 0.15);
+            color: #5b21b6;
+        }
+
+        .card-claymorphism h3 {
+            color: #7c3aed;
+        }
+
+        .card-claymorphism p {
+            color: #6d28d9;
+        }
+
+        /* Skeuomorphism */
+        .card-skeuomorphism {
+            background: linear-gradient(180deg, #d4a574 0%, #c4956a 50%, #b8865c 100%) !important;
+            border: 2px solid #8b6914 !important;
+            border-left: 4px solid #6b4f12 !important;
+            border-radius: 4px;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+                0 2px 8px rgba(0, 0, 0, 0.3);
+            color: #3d2000;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.03) 3px, rgba(0, 0, 0, 0.03) 4px) !important;
+        }
+
+        .card-skeuomorphism h3 {
+            color: #2c1810;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .card-skeuomorphism p {
+            color: #4a2c17;
+        }
+
+        /* Paperneomorphism */
+        .card-paper {
+            background: #faf6f1 !important;
+            border: 1px solid #e8ddd0 !important;
+            border-left: 3px solid #c4a882 !important;
+            box-shadow:
+                2px 2px 5px rgba(0, 0, 0, 0.08),
+                -1px -1px 3px rgba(255, 255, 255, 0.9);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E") !important;
+            color: #5c4a3a;
+        }
+
+        .card-paper h3 {
+            color: #3d2e1f;
+            font-style: italic;
+        }
+
+        .card-paper p {
+            color: #6b5744;
+        }
+
+        /* ===================================
+           2. STRUCTURAL & LAYOUT
+           =================================== */
+
+        /* Bento Grid */
+        .card-bento {
+            background: #f5f5f7 !important;
+            border: none !important;
+            border-radius: 18px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem !important;
+            color: #1d1d1f;
+        }
+
+        .card-bento h3 {
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        .card-bento p {
+            color: #6e6e73;
+        }
+
+        .card-bento:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Neo Brutalism */
+        .card-brutalism {
+            background: #ffe156 !important;
+            border: 3px solid #000 !important;
+            border-left: 6px solid #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 5px 5px 0px #000;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .card-brutalism h3 {
+            color: #000;
+            text-transform: uppercase;
+            font-size: 1.05rem !important;
+            letter-spacing: 0.05em;
+        }
+
+        .card-brutalism p {
+            color: #000;
+            font-weight: 500;
+        }
+
+        .card-brutalism:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #000;
+        }
+
+        /* Swiss Style */
+        .card-swiss {
+            background: #fff !important;
+            border: none !important;
+            border-left: 6px solid #e60012 !important;
+            border-radius: 0 !important;
+            padding: 1.5rem !important;
+            color: #222;
+        }
+
+        .card-swiss h3 {
+            color: #000;
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem !important;
+        }
+
+        .card-swiss p {
+            color: #444;
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-weight: 300;
+        }
+
+        /* Bauhaus */
+        .card-bauhaus {
+            background: #fff !important;
+            border: 3px solid #000 !important;
+            border-left: 8px solid #e60012 !important;
+            border-radius: 0 !important;
+            position: relative;
+            color: #000;
+        }
+
+        .card-bauhaus::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: #ffd700;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .card-bauhaus::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: #0047ab;
+            z-index: 0;
+        }
+
+        .card-bauhaus h3 {
+            color: #000;
+            font-weight: 700;
+        }
+
+        .card-bauhaus p {
+            color: #333;
+        }
+
+        /* Material Design */
+        .card-material {
+            background: #fff !important;
+            border: none !important;
+            border-left: 4px solid #1a73e8 !important;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            color: #202124;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card-material:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-material h3 {
+            color: #202124;
+            font-family: 'Inter', 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+
+        .card-material p {
+            color: #5f6368;
+            font-family: 'Inter', 'Roboto', sans-serif;
+        }
+
+        /* Flat Design 2.0 */
+        .card-flat2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            border-radius: 10px;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .card-flat2 h3 {
+            color: #fff;
+        }
+
+        .card-flat2 p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ===================================
+           3. RETRO-FUTURISM & NOSTALGIA
+           =================================== */
+
+        /* Y2K Aesthetic */
+        .card-y2k {
+            background: linear-gradient(135deg, #ff69b4, #87ceeb, #dda0dd) !important;
+            border: 2px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 4px solid #ff69b4 !important;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+            color: #4a0033;
+        }
+
+        .card-y2k h3 {
+            color: #800060;
+        }
+
+        .card-y2k p {
+            color: #5a0040;
+        }
+
+        /* Frutiger Aero */
+        .card-frutiger {
+            background: linear-gradient(180deg, #c6e9ff 0%, #e6f7ff 40%, #ffffff 100%) !important;
+            border: 1px solid rgba(135, 206, 250, 0.5) !important;
+            border-left: 3px solid #4fc3f7 !important;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(79, 195, 247, 0.2);
+            color: #0d4f6e;
+        }
+
+        .card-frutiger::before {
+            content: '💧';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.2rem;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .card-frutiger h3 {
+            color: #01579b;
+        }
+
+        .card-frutiger p {
+            color: #0277bd;
+        }
+
+        /* Vaporwave / Synthwave */
+        .card-vaporwave {
+            background: linear-gradient(180deg, #0d0221 0%, #1a0533 50%, #2d1b69 100%) !important;
+            border: 1px solid #ff00ff !important;
+            border-left: 4px solid #ff00ff !important;
+            box-shadow:
+                0 0 15px rgba(255, 0, 255, 0.3),
+                0 0 30px rgba(255, 0, 255, 0.1),
+                inset 0 0 30px rgba(255, 0, 255, 0.05);
+            color: #ff71ce;
+        }
+
+        .card-vaporwave h3 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            font-style: italic;
+        }
+
+        .card-vaporwave p {
+            color: #b967ff;
+        }
+
+        .card-vaporwave::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(255, 0, 255, 0.05) 4px,
+                    rgba(255, 0, 255, 0.05) 5px);
+            z-index: 0;
+        }
+
+        /* Cyberpunk */
+        .card-cyberpunk {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%) !important;
+            border: 1px solid #00fff5 !important;
+            border-left: 4px solid #00fff5 !important;
+            border-radius: 2px;
+            box-shadow:
+                0 0 10px rgba(0, 255, 245, 0.3),
+                inset 0 0 20px rgba(0, 255, 245, 0.05);
+            color: #00fff5;
+        }
+
+        .card-cyberpunk h3 {
+            color: #ff003c;
+            text-shadow: 0 0 8px rgba(255, 0, 60, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem !important;
+        }
+
+        .card-cyberpunk p {
+            color: #00fff5;
+            opacity: 0.8;
+        }
+
+        /* Solarpunk */
+        .card-solarpunk {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #d1fae5 100%) !important;
+            border: 1px solid #86efac !important;
+            border-left: 4px solid #22c55e !important;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.15);
+            color: #166534;
+        }
+
+        .card-solarpunk::before {
+            content: '🌱';
+            position: absolute;
+            bottom: 10px;
+            right: 14px;
+            font-size: 1.6rem;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-solarpunk h3 {
+            color: #15803d;
+        }
+
+        .card-solarpunk p {
+            color: #166534;
+        }
+
+        /* Steampunk */
+        .card-steampunk {
+            background: linear-gradient(135deg, #2c1810, #4a2c17, #3d2000) !important;
+            border: 2px solid #b8860b !important;
+            border-left: 5px solid #cd853f !important;
+            border-radius: 3px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4), 0 3px 10px rgba(0, 0, 0, 0.3);
+            color: #daa520;
+        }
+
+        .card-steampunk::before {
+            content: '⚙️';
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            animation: gear-spin 8s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gear-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .card-steampunk h3 {
+            color: #f4c430;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-steampunk p {
+            color: #daa520;
+        }
+
+        /* Pixel Art / Voxel Art */
+        .card-pixel {
+            background: #1a1c2c !important;
+            border: 3px solid #f4f4f4 !important;
+            border-left: 5px solid #29adff !important;
+            border-radius: 0 !important;
+            box-shadow:
+                4px 4px 0px #29adff,
+                -2px -2px 0px #ff004d;
+            color: #fff1e8;
+            image-rendering: pixelated;
+        }
+
+        .card-pixel h3 {
+            color: #ffec27;
+            font-family: 'Press Start 2P', 'JetBrains Mono', monospace;
+            font-size: 0.65rem !important;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .card-pixel p {
+            color: #c2c3c7;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem !important;
+        }
+
+        /* ===================================
+           4. ARTISTIC & EXPERIMENTAL
+           =================================== */
+
+        /* Maximalism */
+        .card-maximalism {
+            background:
+                linear-gradient(45deg, #ff006e, #ffbe0b, #fb5607, #8338ec, #3a86ff) !important;
+            background-size: 400% 400%;
+            animation: max-bg 3s ease infinite;
+            border: 3px solid #000 !important;
+            border-left: 6px solid #ff006e !important;
+            color: #fff;
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+            box-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(255, 0, 110, 0.3);
+        }
+
+        .card-maximalism h3 {
+            color: #fff;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1rem !important;
+        }
+
+        .card-maximalism p {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        @keyframes max-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Acid Graphic */
+        .card-acid {
+            background: #000 !important;
+            border: 2px solid #39ff14 !important;
+            border-left: 5px solid #39ff14 !important;
+            border-radius: 0;
+            color: #39ff14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+        }
+
+        .card-acid h3 {
+            color: #39ff14;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 20px rgba(57, 255, 20, 0.4);
+            animation: acid-pulse 2s ease-in-out infinite alternate;
+        }
+
+        .card-acid p {
+            color: #7fff00;
+        }
+
+        @keyframes acid-pulse {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.7;
+                letter-spacing: 0.05em;
+            }
+        }
+
+        /* Memphis Design */
+        .card-memphis {
+            background: #ffeaa7 !important;
+            border: 3px solid #000 !important;
+            border-left: 6px solid #e17055 !important;
+            border-radius: 0;
+            position: relative;
+            color: #2d3436;
+        }
+
+        .card-memphis::before {
+            content: '▲ ● ■';
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            color: #e17055;
+            z-index: 0;
+        }
+
+        .card-memphis::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #e17055 0, #e17055 8px, #74b9ff 8px, #74b9ff 16px, #fdcb6e 16px, #fdcb6e 24px);
+        }
+
+        .card-memphis h3 {
+            color: #d63031;
+            font-weight: 700;
+        }
+
+        .card-memphis p {
+            color: #2d3436;
+        }
+
+        /* Grunge */
+        .card-grunge {
+            background: #2b2b2b !important;
+            border: 1px solid #555 !important;
+            border-left: 4px solid #8b0000 !important;
+            border-radius: 2px;
+            color: #ccc;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E") !important;
+        }
+
+        .card-grunge h3 {
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .card-grunge p {
+            color: #999;
+        }
+
+        /* Ukiyo-e (Modern) */
+        .card-ukiyoe {
+            background: linear-gradient(180deg, #fef3e2 0%, #fde8c8 100%) !important;
+            border: 2px solid #8b4513 !important;
+            border-left: 5px solid #c0392b !important;
+            border-radius: 4px;
+            color: #3e2723;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.15);
+        }
+
+        .card-ukiyoe h3 {
+            color: #c0392b;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .card-ukiyoe p {
+            color: #5d4037;
+        }
+
+        .card-ukiyoe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(192, 57, 43, 0.04));
+            z-index: 0;
+        }
+
+        /* Eco-Brutalism */
+        .card-ecobrutalism {
+            background: #d4d4d4 !important;
+            border: 3px solid #374151 !important;
+            border-left: 6px solid #16a34a !important;
+            border-radius: 0;
+            color: #1f2937;
+            box-shadow: 4px 4px 0 #374151;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence baseFrequency='0.05' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.06'/%3E%3C/svg%3E") !important;
+        }
+
+        .card-ecobrutalism::before {
+            content: '🌿';
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            font-size: 1.3rem;
+            z-index: 0;
+        }
+
+        .card-ecobrutalism h3 {
+            color: #15803d;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .card-ecobrutalism p {
+            color: #374151;
+        }
+
+        /* Dreamcore / Weirdcore */
+        .card-dreamcore {
+            background: linear-gradient(180deg, #e8d5f5 0%, #c9daf5 50%, #d5e8d4 100%) !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            border-left: 3px solid #9b59b6 !important;
+            border-radius: 4px;
+            color: #555;
+            filter: contrast(0.9) brightness(1.05);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.1);
+        }
+
+        .card-dreamcore h3 {
+            color: #7f8c8d;
+            font-style: italic;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            font-size: 0.85rem !important;
+        }
+
+        .card-dreamcore p {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        /* ===================================
+           5. CINEMATIC & VISUAL EFFECTS
+           =================================== */
+
+        /* Film Noir */
+        .card-noir {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 40%, #2a2a2a 100%) !important;
+            border: 1px solid #333 !important;
+            border-left: 4px solid #666 !important;
+            border-radius: 2px;
+            color: #d0d0d0;
+            box-shadow:
+                inset -40px 0 60px rgba(0, 0, 0, 0.8),
+                0 4px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-noir h3 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-noir p {
+            color: #888;
+        }
+
+        /* Technicolor */
+        .card-technicolor {
+            background: linear-gradient(135deg, #ff1744, #d500f9, #2979ff) !important;
+            border: 2px solid #fff !important;
+            border-left: 5px solid #ffd600 !important;
+            border-radius: 8px;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(255, 23, 68, 0.3);
+            filter: saturate(1.4);
+        }
+
+        .card-technicolor h3 {
+            color: #ffd600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .card-technicolor p {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pop Art / Comic */
+        .card-popart {
+            background: #fff600 !important;
+            border: 4px solid #000 !important;
+            border-left: 6px solid #ff0000 !important;
+            border-radius: 0;
+            color: #000;
+            box-shadow: 5px 5px 0 #000;
+            background-image: radial-gradient(circle, #000 1px, transparent 1px) !important;
+            background-size: 8px 8px !important;
+        }
+
+        .card-popart h3 {
+            color: #ff0000;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem !important;
+            -webkit-text-stroke: 0.5px #000;
+        }
+
+        .card-popart p {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Tilt-Shift */
+        .card-tiltshift {
+            background: linear-gradient(180deg,
+                    rgba(248, 248, 248, 0.4) 0%,
+                    #f8f8f8 30%,
+                    #f8f8f8 70%,
+                    rgba(248, 248, 248, 0.4) 100%) !important;
+            border: 1px solid #ddd !important;
+            border-left: 3px solid #10b981 !important;
+            border-radius: 8px;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-tiltshift::before,
+        .card-tiltshift::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 25%;
+            backdrop-filter: blur(2px);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .card-tiltshift::before {
+            top: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), transparent);
+        }
+
+        .card-tiltshift::after {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), transparent);
+        }
+
+        .card-tiltshift h3 {
+            color: #111;
+        }
+
+        .card-tiltshift p {
+            color: #555;
+        }
+
+        /* Lo-Fi / VHS */
+        .card-vhs {
+            background: #1a1a2e !important;
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            border-left: 4px solid #e74c3c !important;
+            border-radius: 0;
+            color: #eee;
+            box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 255, 0.1);
+            animation: vhs-flicker 4s infinite;
+        }
+
+        .card-vhs h3 {
+            color: #fff;
+            text-shadow: 2px 0 #ff0000, -2px 0 #0000ff;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-vhs p {
+            color: #aaa;
+        }
+
+        .card-vhs::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.02) 2px,
+                    rgba(255, 255, 255, 0.02) 4px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes vhs-flicker {
+
+            0%,
+            95%,
+            100% {
+                opacity: 1;
+            }
+
+            96% {
+                opacity: 0.9;
+            }
+
+            97% {
+                opacity: 1;
+            }
+
+            98% {
+                opacity: 0.85;
+            }
+        }
+
+        /* Infrared Photography */
+        .card-infrared {
+            background: linear-gradient(135deg, #ff69b4 0%, #ffb6c1 30%, #fff0f5 60%, #ff1493 100%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 4px solid #ff1493 !important;
+            border-radius: 8px;
+            color: #4a0028;
+            box-shadow: 0 4px 20px rgba(255, 20, 147, 0.2);
+        }
+
+        .card-infrared h3 {
+            color: #800040;
+        }
+
+        .card-infrared p {
+            color: #6b0035;
+        }
+
+        /* ===================================
+           DARK MODE OVERRIDES
+           =================================== */
+        [data-theme="dark"] .card-neumorphism {
+            background: #2d3748 !important;
+            box-shadow: 6px 6px 12px #1a202c, -6px -6px 12px #4a5568;
+            color: #a0aec0;
+        }
+
+        [data-theme="dark"] .card-neumorphism h3 {
+            color: #cbd5e0;
+        }
+
+        [data-theme="dark"] .card-bento {
+            background: #1e1e1e !important;
+            color: #e5e5e5;
+        }
+
+        [data-theme="dark"] .card-bento h3 {
+            color: #f5f5f5;
+        }
+
+        [data-theme="dark"] .card-bento p {
+            color: #a3a3a3;
+        }
+
+        [data-theme="dark"] .card-swiss {
+            background: #111 !important;
+            color: #eee;
+        }
+
+        [data-theme="dark"] .card-swiss h3 {
+            color: #fff;
+        }
+
+        [data-theme="dark"] .card-swiss p {
+            color: #bbb;
+        }
+
+        [data-theme="dark"] .card-bauhaus {
+            background: #111 !important;
+            color: #eee;
+        }
+
+        [data-theme="dark"] .card-bauhaus h3 {
+            color: #fff;
+        }
+
+        [data-theme="dark"] .card-material {
+            background: #1e1e1e !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+            color: #e8eaed;
+        }
+
+        [data-theme="dark"] .card-material h3 {
+            color: #e8eaed;
+        }
+
+        [data-theme="dark"] .card-material p {
+            color: #9aa0a6;
+        }
+
+        [data-theme="dark"] .card-paper {
+            background: #3d3528 !important;
+            border-color: #5a4d3a !important;
+            color: #d4c5a9;
+        }
+
+        [data-theme="dark"] .card-paper h3 {
+            color: #e8d5b0;
+        }
+
+        [data-theme="dark"] .card-paper p {
+            color: #c4b48e;
+        }
+
+        [data-theme="dark"] .card-tiltshift {
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.4), #1e1e1e 30%, #1e1e1e 70%, rgba(30, 30, 30, 0.4)) !important;
+            border-color: #444 !important;
+        }
+
+        [data-theme="dark"] .card-tiltshift h3 {
+            color: #eee;
+        }
+
+        [data-theme="dark"] .card-tiltshift p {
+            color: #aaa;
+        }
+
+        [data-theme="dark"] .card-glassmorphism {
+            background: rgba(30, 30, 60, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            color: #e0e0ff;
+        }
+
+        [data-theme="dark"] .card-ecobrutalism {
+            background: #3a3a3a !important;
+            color: #e5e5e5;
+        }
+
+        [data-theme="dark"] .card-ecobrutalism p {
+            color: #ccc;
+        }
+
+        [data-theme="dark"] .card-memphis {
+            background: #4a3f00 !important;
+            color: #ffeaa7;
+        }
+
+        [data-theme="dark"] .card-memphis h3 {
+            color: #ff6b6b;
+        }
+
+        [data-theme="dark"] .card-ukiyoe {
+            background: linear-gradient(180deg, #3e2723, #4e342e) !important;
+            color: #d7ccc8;
+        }
+
+        [data-theme="dark"] .card-ukiyoe h3 {
+            color: #ef5350;
+        }
+
+        [data-theme="dark"] .card-ukiyoe p {
+            color: #bcaaa4;
+        }
+
+        [data-theme="dark"] .card-y2k {
+            background: linear-gradient(135deg, #c2185b, #1565c0, #7b1fa2) !important;
+            color: #fff;
+        }
+
+        [data-theme="dark"] .card-y2k h3 {
+            color: #ff80ab;
+        }
+
+        [data-theme="dark"] .card-y2k p {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .card-frutiger {
+            background: linear-gradient(180deg, #1a3a5c, #0d2137) !important;
+            border-color: rgba(79, 195, 247, 0.3) !important;
+            color: #81d4fa;
+        }
+
+        [data-theme="dark"] .card-frutiger h3 {
+            color: #4fc3f7;
+        }
+
+        [data-theme="dark"] .card-frutiger p {
+            color: #81d4fa;
+        }
+
+        [data-theme="dark"] .card-solarpunk {
+            background: linear-gradient(135deg, #1a3a1a, #0d2e0d) !important;
+            border-color: rgba(34, 197, 94, 0.3) !important;
+            color: #86efac;
+        }
+
+        [data-theme="dark"] .card-solarpunk h3 {
+            color: #4ade80;
+        }
+
+        [data-theme="dark"] .card-solarpunk p {
+            color: #86efac;
+        }
+
+        [data-theme="dark"] .card-claymorphism {
+            background: linear-gradient(145deg, #2d1b4e, #1e1035) !important;
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -4px -4px 10px rgba(100, 50, 150, 0.2), inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+            color: #c4b5fd;
+        }
+
+        [data-theme="dark"] .card-claymorphism h3 {
+            color: #a78bfa;
+        }
+
+        [data-theme="dark"] .card-claymorphism p {
+            color: #8b5cf6;
+        }
+
+        [data-theme="dark"] .card-popart {
+            background: #cc0000 !important;
+            background-image: radial-gradient(circle, #000 1px, transparent 1px) !important;
+            background-size: 8px 8px !important;
+        }
+
+        [data-theme="dark"] .card-popart h3 {
+            color: #fff600;
+        }
+
+        [data-theme="dark"] .card-brutalism {
+            background: #ff6b00 !important;
+        }
+
+        [data-theme="dark"] .card-dreamcore {
+            background: linear-gradient(180deg, #2a1f3d, #1f2d3d, #1f3a2a) !important;
+            color: #888;
+        }
+
+        [data-theme="dark"] .card-dreamcore h3 {
+            color: #666;
+        }
+
+        [data-theme="dark"] .card-dreamcore p {
+            color: #777;
+        }
+
+        [data-theme="dark"] .card-infrared {
+            background: linear-gradient(135deg, #8b0050, #a0006b, #700040, #b50070) !important;
+            color: #ffb6c1;
+        }
+
+        [data-theme="dark"] .card-infrared h3 {
+            color: #ffc0cb;
+        }
+
+        [data-theme="dark"] .card-infrared p {
+            color: #ffb6c1;
         }
     </style>
 </head>
@@ -119,36 +1321,36 @@
             <h2>🔮 1. Depth, Texture & Light</h2>
             <p class="desc">The "Morphisms" — styles focused on physical properties of digital materials.</p>
             <div class="style-grid">
-                <div class="style-card">
+                <div class="style-card card-glassmorphism">
                     <h3>Glassmorphism / Liquid Glass</h3>
                     <p>Frosted glass effect with blur, transparency, and subtle borders. Feels futuristic yet natural.
                     </p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-neumorphism">
                     <h3>Neuomorphism (Soft UI)</h3>
                     <p>Elements extruded from background using soft, monochromatic shadows. Tactile without texture.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-chrome">
                     <h3>Chrome-morphism</h3>
                     <p>Highly reflective, liquid-metal surfaces with high-contrast highlights. Alien and premium.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-aurora">
                     <h3>Aurora UI</h3>
                     <p>Soft, blurred, multi-colored gradients as backgrounds. Ethereal, glowing depth.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-holographic">
                     <h3>Holographic</h3>
                     <p>Shimmering "oil-slick" colors that shift with viewing angle. Iridescent and dynamic.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-claymorphism">
                     <h3>Claymorphism</h3>
                     <p>Soft, rounded 3D elements that look like clay or plastic. Playful and approachable.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-skeuomorphism">
                     <h3>Skeuomorphism</h3>
                     <p>Digital elements mimicking real-world materials (leather, wood, metal). Physical familiarity.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-paper">
                     <h3>Paperneomorphism</h3>
                     <p>Tactile, fibrous paper textures on modern UI layouts. Warm and handmade feeling.</p>
                 </div>
@@ -160,27 +1362,27 @@
             <h2>📐 2. Structural & Layout Styles</h2>
             <p class="desc">How information and visuals are organized.</p>
             <div class="style-grid">
-                <div class="style-card">
+                <div class="style-card card-bento">
                     <h3>Bento Grid</h3>
                     <p>Modular, rounded compartments (Apple/Framer style). Organized and scannable.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-brutalism">
                     <h3>Neo Brutalism</h3>
                     <p>Raw, bold, unapologetic. Heavy borders, stark colors, intentional "ugliness" as honesty.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-swiss">
                     <h3>Swiss Style</h3>
                     <p>Massive grids, bold sans-serif typography, objective photography. Clarity over decoration.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-bauhaus">
                     <h3>Bauhaus</h3>
                     <p>Geometric, functional, primary colors (Red, Blue, Yellow). Form follows function.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-material">
                     <h3>Material Design</h3>
                     <p>Google's "digital paper" that casts realistic shadows. Systematic and accessible.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-flat2">
                     <h3>Flat Design 2.0</h3>
                     <p>Modern flat design with subtle gradients and depth. Clean without being lifeless.</p>
                 </div>
@@ -192,31 +1394,31 @@
             <h2>⏳ 3. Retro-Futurism & Nostalgia</h2>
             <p class="desc">Eras digitally remixed for modern storytelling.</p>
             <div class="style-grid">
-                <div class="style-card">
+                <div class="style-card card-y2k">
                     <h3>Y2K Aesthetic</h3>
                     <p>Glossy plastics, translucent tech (iMac G3 vibes), "blobby" shapes. Late 90s optimism.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-frutiger">
                     <h3>Frutiger Aero</h3>
                     <p>Mid-2000s: bubbles, water droplets, glossy glass, bright nature imagery. Windows Vista era.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-vaporwave">
                     <h3>Vaporwave / Synthwave</h3>
                     <p>80s neon, grid-scapes, sunset gradients, VHS glitches. Nostalgic and ironic.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-cyberpunk">
                     <h3>Cyberpunk</h3>
                     <p>High-tech/low-life. Rainy streets, neon signage, dark industrial textures. Dystopian beauty.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-solarpunk">
                     <h3>Solarpunk</h3>
                     <p>Optimistic future where tech and nature integrate. Greenery, curves, sustainability.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-steampunk">
                     <h3>Steampunk</h3>
                     <p>Victorian-era tech powered by steam. Brass, gears, leather. Analog imagination.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-pixel">
                     <h3>Pixel Art / Voxel Art</h3>
                     <p>8-bit, 16-bit aesthetics or 3D cuboid worlds. Constraint as creativity.</p>
                 </div>
@@ -228,31 +1430,31 @@
             <h2>🎨 4. Artistic & Experimental</h2>
             <p class="desc">"Anti-clean" styles for high-impact creative projects.</p>
             <div class="style-grid">
-                <div class="style-card">
+                <div class="style-card card-maximalism">
                     <h3>Maximalism</h3>
                     <p>"More is more" — clashing colors, layered images, zero white space. Overwhelming by design.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-acid">
                     <h3>Acid Graphic</h3>
                     <p>Distorted "liquid" typography, high-saturation colors, psychedelic patterns. Visual trip.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-memphis">
                     <h3>Memphis Design</h3>
                     <p>1980s pop art: squiggles, triangles, "confetti" patterns in pastels. Playful chaos.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-grunge">
                     <h3>Grunge</h3>
                     <p>Distressed textures, grainy overlays, torn paper, "dirty" typography. Raw and real.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-ukiyoe">
                     <h3>Ukiyo-e (Modern)</h3>
                     <p>Woodblock print styles with modern subjects or digital colors. East meets West.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-ecobrutalism">
                     <h3>Eco-Brutalism</h3>
                     <p>Raw concrete textures with lush, overgrown greenery. Nature reclaiming structure.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-dreamcore">
                     <h3>Dreamcore / Weirdcore</h3>
                     <p>Surreal liminal spaces that feel unsettling yet familiar. Low-quality, found-footage vibe.</p>
                 </div>
@@ -264,27 +1466,27 @@
             <h2>🎬 5. Cinematic & Visual Effects</h2>
             <p class="desc">Styles that define the "look" of the frame.</p>
             <div class="style-grid">
-                <div class="style-card">
+                <div class="style-card card-noir">
                     <h3>Film Noir</h3>
                     <p>High-contrast black and white with dramatic chiaroscuro lighting. Shadow as character.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-technicolor">
                     <h3>Technicolor</h3>
                     <p>Hyper-saturated, vibrant colors of mid-century cinema. Larger than life.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-popart">
                     <h3>Pop Art / Comic</h3>
                     <p>Ben-Day dots, heavy ink outlines, high-action framing. Graphic impact.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-tiltshift">
                     <h3>Tilt-Shift</h3>
                     <p>Making real scenes look like miniature models through selective focus. Dollhouse reality.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-vhs">
                     <h3>Lo-Fi / VHS</h3>
                     <p>Intentionally degraded quality — tracking lines, color bleeding. Nostalgic imperfection.</p>
                 </div>
-                <div class="style-card">
+                <div class="style-card card-infrared">
                     <h3>Infrared Photography</h3>
                     <p>Greens become pinks/whites for alien, otherworldly landscapes. Invisible made visible.</p>
                 </div>

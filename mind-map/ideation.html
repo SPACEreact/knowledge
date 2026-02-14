@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideation Engine | Creative Constraints Randomizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --glow: rgba(245, 158, 11, 0.15);
+        }
+
+        .domain-header h1 {
+            color: #f59e0b;
+        }
+
+        /* ─── GENERATE BUTTON ─── */
+        .generate-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1.1rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 2px solid #f59e0b;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: #fcd34d;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generate-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .generate-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .generate-btn:active {
+            transform: scale(0.97);
+        }
+
+        .generate-btn.spinning {
+            pointer-events: none;
+        }
+
+        /* ─── BRIEF CARD ─── */
+        .brief-container {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .brief-container.visible {
+            display: block;
+        }
+
+        .brief-card {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .brief-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -30%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .brief-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brief-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f59e0b;
+        }
+
+        .brief-number {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ─── INDIVIDUAL CONSTRAINT ─── */
+        .constraint {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .constraint:last-child {
+            border-bottom: none;
+        }
+
+        .constraint-cat {
+            flex: 0 0 110px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding-top: 2px;
+        }
+
+        .cat-composition {
+            color: var(--design, #be185d);
+        }
+
+        .cat-lighting {
+            color: var(--cinematography, #7c3aed);
+        }
+
+        .cat-sound {
+            color: var(--sound, #0891b2);
+        }
+
+        .cat-editing {
+            color: var(--editing, #059669);
+        }
+
+        .cat-motion {
+            color: var(--motion, #ea580c);
+        }
+
+        .cat-style {
+            color: #f59e0b;
+        }
+
+        .cat-time {
+            color: #94a3b8;
+        }
+
+        .constraint-value {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .constraint-reroll {
+            flex: 0 0 28px;
+            height: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .constraint-reroll:hover {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.4);
+            color: #fcd34d;
+        }
+
+        .constraint-reroll:active {
+            transform: rotate(180deg);
+        }
+
+        /* ─── HISTORY ─── */
+        .brief-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .btn-copy {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-copy:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+        }
+
+        .btn-save {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-save:hover {
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+        }
+
+        /* ─── SAVED BRIEFS ─── */
+        .saved-section {
+            margin-top: 3rem;
+        }
+
+        .saved-section h2 {
+            font-size: 1rem;
+            color: var(--text-3);
+            margin-bottom: 1rem;
+        }
+
+        .saved-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .saved-brief {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .saved-brief:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 2px 12px rgba(245, 158, 11, 0.08);
+        }
+
+        .saved-brief .saved-num {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-3);
+            margin-bottom: 0.4rem;
+        }
+
+        .saved-brief .saved-delete {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 22px;
+            height: 22px;
+            border: none;
+            background: none;
+            color: var(--text-3);
+            cursor: pointer;
+            font-size: 0.7rem;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        .saved-brief:hover .saved-delete {
+            opacity: 1;
+        }
+
+        .saved-brief .saved-delete:hover {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        /* ─── DIFFICULTY / LOCK TOGGLES ─── */
+        .settings-bar {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .setting-chip {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
+            padding: 0.35rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-3);
+            background: var(--surface);
+            user-select: none;
+        }
+
+        .setting-chip.active {
+            border-color: #f59e0b;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .setting-chip:hover {
+            border-color: #f59e0b;
+        }
+
+        /* ─── CATEGORY TOGGLE ─── */
+        .category-toggles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            justify-content: center;
+        }
+
+        .cat-toggle {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.04em;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-3);
+            background: var(--surface);
+            user-select: none;
+        }
+
+        .cat-toggle.active {
+            color: white;
+        }
+
+        .cat-toggle.active[data-cat="composition"] {
+            background: var(--design);
+            border-color: var(--design);
+        }
+
+        .cat-toggle.active[data-cat="lighting"] {
+            background: var(--cinematography);
+            border-color: var(--cinematography);
+        }
+
+        .cat-toggle.active[data-cat="sound"] {
+            background: var(--sound);
+            border-color: var(--sound);
+        }
+
+        .cat-toggle.active[data-cat="editing"] {
+            background: var(--editing);
+            border-color: var(--editing);
+        }
+
+        .cat-toggle.active[data-cat="motion"] {
+            background: var(--motion);
+            border-color: var(--motion);
+        }
+
+        .cat-toggle.active[data-cat="style"] {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+
+        .cat-toggle.active[data-cat="time"] {
+            background: #64748b;
+            border-color: #64748b;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 600px) {
+            .constraint {
+                flex-wrap: wrap;
+                gap: 0.4rem;
+            }
+
+            .constraint-cat {
+                flex: 0 0 100%;
+            }
+
+            .brief-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* ─── ANIMATION ─── */
+        @keyframes slot-spin {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            30% {
+                transform: translateY(-15px);
+                opacity: 0;
+            }
+
+            70% {
+                transform: translateY(15px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .constraint-value.spinning {
+            animation: slot-spin 0.4s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <a href="index.html" class="back-link">← Back to Overview</a>
+
+        <div class="domain-header">
+            <h1>🎲 Ideation Engine</h1>
+            <p class="question">Creative constraints breed creative solutions.</p>
+        </div>
+
+        <p style="color: var(--text-2); margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.8;">
+            Random constraints from your study guide, combined into a creative brief.
+            <strong>Limitations force invention</strong> — the Dogme 95 manifesto, Lars von Trier's
+            self-imposed rules, Spielberg's broken shark. Embrace the constraint.
+        </p>
+
+        <!-- Category toggles -->
+        <div class="category-toggles">
+            <button class="cat-toggle active" data-cat="composition">Composition</button>
+            <button class="cat-toggle active" data-cat="lighting">Lighting</button>
+            <button class="cat-toggle active" data-cat="sound">Sound</button>
+            <button class="cat-toggle active" data-cat="editing">Editing</button>
+            <button class="cat-toggle active" data-cat="motion">Motion</button>
+            <button class="cat-toggle active" data-cat="style">Style</button>
+            <button class="cat-toggle active" data-cat="time">Duration</button>
+        </div>
+
+        <!-- Difficulty -->
+        <div class="settings-bar">
+            <span class="setting-chip" data-diff="easy">Easy (3 constraints)</span>
+            <span class="setting-chip active" data-diff="medium">Medium (5)</span>
+            <span class="setting-chip" data-diff="hard">Hard (all 7)</span>
+        </div>
+
+        <!-- The Button -->
+        <button class="generate-btn" id="generateBtn">⚡ GENERATE BRIEF</button>
+
+        <!-- Output -->
+        <div class="brief-container" id="briefContainer">
+            <div class="brief-card" id="briefCard">
+                <div class="brief-header">
+                    <span class="brief-title">Creative Brief</span>
+                    <span class="brief-number" id="briefNumber">#001</span>
+                </div>
+                <div id="constraintsList"></div>
+                <div class="brief-actions">
+                    <button class="btn-action btn-copy" id="copyBtn">📋 Copy as Text</button>
+                    <button class="btn-action btn-save" id="saveBtn">💾 Save Brief</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saved Briefs -->
+        <div class="saved-section" id="savedSection" style="display: none;">
+            <h2>💡 Saved Briefs</h2>
+            <div class="saved-list" id="savedList"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p><a href="index.html">← Back to Overview</a></p>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+    <script>
+        /* ═══════════ CONSTRAINT DATA ═══════════ */
+        const CONSTRAINTS = {
+            composition: [
+                "Use only the Rule of Thirds — no center framing allowed",
+                "Every shot must use negative space as the dominant element",
+                "Build the entire piece using visual hierarchy: large → medium → small",
+                "Use one-point perspective for every composition",
+                "Only symmetrical compositions — Kubrick mode",
+                "Use golden ratio spiral for all key placements",
+                "Diagonal compositions only — nothing horizontal or vertical",
+                "Use frame-within-a-frame for every shot",
+                "Extreme close-ups only — never show full context",
+                "All elements must follow a triangular composition",
+                "Use leading lines to direct the eye in every frame",
+                "Asymmetric balance only — no symmetry allowed",
+            ],
+            lighting: [
+                "Only natural / available light — no artificial sources",
+                "Single key light, no fill — embrace the shadows",
+                "All practicals — every light source must be visible in frame",
+                "Color temperature clash: mix warm and cool deliberately",
+                "Silhouette mode — subject is always backlit",
+                "Hard light only — sharp shadows, high drama",
+                "Soft, diffused light only — no harsh shadows anywhere",
+                "Top-light only — overhead sources like interrogation rooms",
+                "motivated by a single candle / phone screen glow",
+                "Rim light dominant — subjects outlined, faces dark",
+                "Chiaroscuro — extreme contrast between light and dark",
+                "Blue hour lighting — everything in cool twilight tones",
+            ],
+            sound: [
+                "No background music — all diegetic sound only",
+                "Build everything from Foley — no pre-made SFX libraries",
+                "Only ambient sound — no dialogue, no music",
+                "Use silence as the primary dramatic tool",
+                "One continuous room tone under everything — never break it",
+                "Layer at least 5 sounds for every sound event",
+                "Non-diegetic music drives every scene transition",
+                "All audio must be mono — no stereo spread",
+                "Use ASMR-close recording distance for all sounds",
+                "Sound design must contradict the visuals (ironic sound)",
+                "Only percussive sounds — no melodic elements allowed",
+                "Record all sound in one live take — no post-sweetening",
+            ],
+            editing: [
+                "Maximum 3-second shots — rapid-fire cuts only",
+                "No cuts shorter than 8 seconds — long takes, patient rhythm",
+                "Use only jump cuts — no smooth transitions",
+                "Every cut must follow cause → effect logic (Kuleshov)",
+                "Metric montage — cut strictly on a beat/rhythm",
+                "Use match cuts for all transitions",
+                "Cut on action only — never on a still frame",
+                "Cross-cutting between two parallel stories throughout",
+                "One continuous shot — no cuts allowed (oner)",
+                "Use only L-cuts and J-cuts — audio leads or trails the visual",
+                "Rhythmic montage — cut tempo must escalate throughout",
+                "Non-linear timeline — fragment and reassemble",
+            ],
+            motion: [
+                "Everything must follow squash & stretch — exaggerate deformations",
+                "No easing — linear motion only everywhere",
+                "All elements must overshoot and settle (anticipation + follow-through)",
+                "Use parallax depth on every moving element — 3+ layers",
+                "Secondary animation on everything — nothing moves alone",
+                "All motion must have visible motion blur",
+                "Only ease-out — things arrive fast and settle slowly",
+                "Constant velocity for everything — no acceleration at all",
+                "Everything rotates — spinning entry, spinning exit",
+                "Stagger everything — no two elements move simultaneously",
+                "Use only scale animation — nothing translates, only grows/shrinks",
+                "Bounce physics — everything behaves like rubber",
+            ],
+            style: [
+                "Glassmorphism — frosted glass, blur, translucent layers",
+                "Flat design — no shadows, no gradients, solid colors only",
+                "Brutalist — raw, ugly-on-purpose, unpolished edges",
+                "Retro VHS — scanlines, noise, tracking errors, warm grain",
+                "Swiss International — grid-locked, Helvetica, pure geometry",
+                "Cyberpunk neon — dark background, vivid glow, digital rain",
+                "Wabi-sabi — imperfect, weathered, organic textures",
+                "Bauhaus — primary colors, geometric shapes, functional",
+                "Noir — high contrast B&W, dramatic shadows, moody",
+                "Vaporwave — pastels, Greek statues, retro-futurism",
+                "Paper cutout — layered paper textures, craft aesthetic",
+                "Claymorphism — soft inner shadows, puffy 3D surfaces",
+                "Kinetic typography — text IS the visual, no imagery",
+                "Maximalism — fill every pixel, more is more",
+                "Minimalism — only the essential, vast empty space",
+                "Acid graphics — distortion, chrome, liquid metal",
+            ],
+            time: [
+                "6 seconds — Instagram story, one impact",
+                "15 seconds — hook + payoff, no waste",
+                "30 seconds — classic ad: setup → tension → resolve",
+                "45 seconds — short narrative arc, room to breathe",
+                "60 seconds — full micro-story with emotional build",
+                "90 seconds — mini-documentary or brand film",
+                "3 minutes — short film territory, full arc",
+                "5 seconds — one single shot, one idea, maximum impact",
+                "10 seconds — TikTok constraint: hook in frame 1",
+                "2 minutes — exactly, no flexibility, hit it precisely",
+            ],
+        };
+
+        const CAT_LABELS = {
+            composition: 'Composition',
+            lighting: 'Lighting',
+            sound: 'Sound',
+            editing: 'Editing',
+            motion: 'Motion',
+            style: 'Style',
+            time: 'Duration',
+        };
+
+        /* ═══════════ STATE ═══════════ */
+        let briefCount = parseInt(localStorage.getItem('briefCount') || '0');
+        let savedBriefs = JSON.parse(localStorage.getItem('savedBriefs') || '[]');
+        let currentBrief = {};
+        let activeCats = new Set(['composition', 'lighting', 'sound', 'editing', 'motion', 'style', 'time']);
+        let difficulty = 'medium';
+
+        /* ═══════════ ELEMENTS ═══════════ */
+        const generateBtn = document.getElementById('generateBtn');
+        const briefContainer = document.getElementById('briefContainer');
+        const constraintsList = document.getElementById('constraintsList');
+        const briefNumber = document.getElementById('briefNumber');
+        const copyBtn = document.getElementById('copyBtn');
+        const saveBtn = document.getElementById('saveBtn');
+        const savedSection = document.getElementById('savedSection');
+        const savedList = document.getElementById('savedList');
+
+        /* ═══════════ CATEGORY TOGGLES ═══════════ */
+        document.querySelectorAll('.cat-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.cat;
+                if (btn.classList.contains('active')) {
+                    if (activeCats.size <= 2) return; // minimum 2 categories
+                    activeCats.delete(cat);
+                    btn.classList.remove('active');
+                } else {
+                    activeCats.add(cat);
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        /* ═══════════ DIFFICULTY ═══════════ */
+        document.querySelectorAll('.setting-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.setting-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                difficulty = chip.dataset.diff;
+            });
+        });
+
+        function getCatCount() {
+            const active = [...activeCats];
+            if (difficulty === 'easy') return Math.min(3, active.length);
+            if (difficulty === 'hard') return active.length;
+            return Math.min(5, active.length);
+        }
+
+        /* ═══════════ RANDOM PICK ═══════════ */
+        function pick(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        /* ═══════════ GENERATE ═══════════ */
+        function generate() {
+            briefCount++;
+            localStorage.setItem('briefCount', briefCount);
+            briefNumber.textContent = '#' + String(briefCount).padStart(3, '0');
+
+            const cats = shuffle([...activeCats]).slice(0, getCatCount());
+            currentBrief = {};
+            cats.forEach(cat => {
+                currentBrief[cat] = pick(CONSTRAINTS[cat]);
+            });
+
+            renderBrief();
+            briefContainer.classList.add('visible');
+        }
+
+        function renderBrief(animateCat) {
+            constraintsList.innerHTML = '';
+            Object.entries(currentBrief).forEach(([cat, value]) => {
+                const row = document.createElement('div');
+                row.className = 'constraint';
+
+                const catEl = document.createElement('span');
+                catEl.className = `constraint-cat cat-${cat}`;
+                catEl.textContent = CAT_LABELS[cat];
+
+                const valEl = document.createElement('span');
+                valEl.className = 'constraint-value' + (animateCat === cat ? ' spinning' : '');
+                valEl.textContent = value;
+
+                const reroll = document.createElement('button');
+                reroll.className = 'constraint-reroll';
+                reroll.textContent = '🎲';
+                reroll.title = 'Re-roll this constraint';
+                reroll.addEventListener('click', () => {
+                    let next = pick(CONSTRAINTS[cat]);
+                    while (next === currentBrief[cat] && CONSTRAINTS[cat].length > 1) {
+                        next = pick(CONSTRAINTS[cat]);
+                    }
+                    currentBrief[cat] = next;
+                    renderBrief(cat);
+                });
+
+                row.appendChild(catEl);
+                row.appendChild(valEl);
+                row.appendChild(reroll);
+                constraintsList.appendChild(row);
+            });
+        }
+
+        /* ═══════════ COPY ═══════════ */
+        copyBtn.addEventListener('click', () => {
+            const lines = [`CREATIVE BRIEF #${String(briefCount).padStart(3, '0')}\n`];
+            Object.entries(currentBrief).forEach(([cat, value]) => {
+                lines.push(`${CAT_LABELS[cat].toUpperCase()}: ${value}`);
+            });
+            navigator.clipboard.writeText(lines.join('\n')).then(() => {
+                copyBtn.textContent = '✓ Copied!';
+                setTimeout(() => { copyBtn.textContent = '📋 Copy as Text'; }, 1500);
+            });
+        });
+
+        /* ═══════════ SAVE ═══════════ */
+        saveBtn.addEventListener('click', () => {
+            const brief = {
+                id: Date.now(),
+                number: briefCount,
+                constraints: { ...currentBrief },
+            };
+            savedBriefs.unshift(brief);
+            localStorage.setItem('savedBriefs', JSON.stringify(savedBriefs));
+            renderSaved();
+            saveBtn.textContent = '✓ Saved!';
+            setTimeout(() => { saveBtn.textContent = '💾 Save Brief'; }, 1500);
+        });
+
+        function deleteBrief(id) {
+            savedBriefs = savedBriefs.filter(b => b.id !== id);
+            localStorage.setItem('savedBriefs', JSON.stringify(savedBriefs));
+            renderSaved();
+        }
+
+        function renderSaved() {
+            if (savedBriefs.length === 0) {
+                savedSection.style.display = 'none';
+                return;
+            }
+            savedSection.style.display = 'block';
+            savedList.innerHTML = '';
+            savedBriefs.forEach(brief => {
+                const el = document.createElement('div');
+                el.className = 'saved-brief';
+
+                const num = document.createElement('div');
+                num.className = 'saved-num';
+                num.textContent = `Brief #${String(brief.number).padStart(3, '0')}`;
+
+                const text = Object.entries(brief.constraints).map(([cat, val]) =>
+                    `${CAT_LABELS[cat]}: ${val}`
+                ).join(' · ');
+
+                const content = document.createElement('div');
+                content.textContent = text;
+
+                const del = document.createElement('button');
+                del.className = 'saved-delete';
+                del.textContent = '✕';
+                del.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteBrief(brief.id);
+                });
+
+                el.appendChild(num);
+                el.appendChild(content);
+                el.appendChild(del);
+
+                el.addEventListener('click', () => {
+                    currentBrief = { ...brief.constraints };
+                    briefNumber.textContent = '#' + String(brief.number).padStart(3, '0');
+                    renderBrief();
+                    briefContainer.classList.add('visible');
+                    briefContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+
+                savedList.appendChild(el);
+            });
+        }
+
+        /* ═══════════ INIT ═══════════ */
+        generateBtn.addEventListener('click', generate);
+        renderSaved();
+
+        /* ═══════════ THEME ═══════════ */
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            toggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        })();
+    </script>
+</body>
+
+</html>

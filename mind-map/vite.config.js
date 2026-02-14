@@ -24,6 +24,7 @@ export default defineConfig({
         storyEmotion: resolve(__dirname, 'story-emotion.html'),
         mographKeywords: resolve(__dirname, 'mograph-keywords.html'),
         aiVisual: resolve(__dirname, 'ai-visual.html'),
+        ideation: resolve(__dirname, 'ideation.html'),
       }
     }
   },

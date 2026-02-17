@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Playgrounds | Visual Storytelling Study Guide</title>
+    <meta name="description"
+        content="Learn cinematic concepts by doing. Drag lights, adjust focal lengths, draw easing curves, and mix audio — all in your browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="playground.css">
+</head>
+
+<body data-page="playgrounds">
+    <!-- GPU Status Bar -->
+    <div class="gpu-status" id="gpuStatus">
+        <span class="gpu-dot"></span>
+        <span id="gpuLabel">Detecting GPU...</span>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search concepts... (⌘K)"
+                autocomplete="off" spellcheck="false">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="pg-nav">
+        <a href="index.html" class="pg-nav-link">← Overview</a>
+        <a href="#lighting" class="pg-nav-link active" data-section="lighting">🎥 Lighting</a>
+        <a href="#focal-length" class="pg-nav-link" data-section="focal-length">🔭 Lenses</a>
+        <a href="#dof" class="pg-nav-link" data-section="dof">🔘 DOF</a>
+        <a href="#color-temp" class="pg-nav-link" data-section="color-temp">🌡️ Color</a>
+        <a href="#composition" class="pg-nav-link" data-section="composition">📐 Composition</a>
+        <a href="#easing" class="pg-nav-link" data-section="easing">📈 Easing</a>
+        <a href="#timeline" class="pg-nav-link" data-section="timeline">✂️ Timeline</a>
+        <a href="#sound-mixer" class="pg-nav-link" data-section="sound-mixer">🎚️ Sound</a>
+        <button class="pg-nav-link pg-search-btn" id="searchBtn">🔍</button>
+    </nav>
+
+    <main class="pg-main">
+        <!-- Header -->
+        <header class="pg-header">
+            <h1 class="pg-title">Interactive Playgrounds</h1>
+            <p class="pg-subtitle">Learn by doing. Every concept is a playground, not a paragraph.</p>
+            <div class="pg-tech-badges">
+                <span class="pg-badge pg-badge--webgpu" id="badgeWebGPU">WebGPU</span>
+                <span class="pg-badge pg-badge--signals">Signals</span>
+                <span class="pg-badge pg-badge--orama">Orama RAG</span>
+                <span class="pg-badge pg-badge--webllm" id="badgeAI">WebLLM</span>
+            </div>
+        </header>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: 3-POINT LIGHTING
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="lighting">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
+                <h2 class="pg-section-title">Three-Point Lighting</h2>
+                <p class="pg-section-desc">
+                    Drag the <strong style="color:#ffd700">Key</strong>,
+                    <strong style="color:#6699ff">Fill</strong>, and
+                    <strong style="color:#fff">Back</strong> lights around the subject.
+                    Watch shadows and highlights change in real-time.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper">
+                <div class="pg-canvas" id="lightingCanvas"></div>
+                <div class="pg-controls-panel" id="lightingControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: FOCAL LENGTH
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="focal-length">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
+                <h2 class="pg-section-title">Focal Length Psychology</h2>
+                <p class="pg-section-desc">
+                    Slide between <strong>18mm</strong> (wide, dramatic) and <strong>200mm</strong> (telephoto,
+                    compressed).
+                    Notice how the background relationship changes — this is <em>perspective distortion</em>.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper">
+                <div class="pg-canvas" id="focalCanvas"></div>
+                <div class="pg-controls-panel" id="focalControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: DEPTH OF FIELD
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="dof">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
+                <h2 class="pg-section-title">Depth of Field</h2>
+                <p class="pg-section-desc">
+                    Slide the aperture from <strong>f/1.4</strong> (dreamy bokeh) to <strong>f/16</strong> (everything
+                    sharp).
+                    Lower f-stops create the shallow depth of field that gives cinema its signature look.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper">
+                <div class="pg-canvas" id="dofCanvas"></div>
+                <div class="pg-controls-panel" id="dofControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: COLOR TEMPERATURE
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="color-temp">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
+                <h2 class="pg-section-title">Color Temperature</h2>
+                <p class="pg-section-desc">
+                    Shift the scene from warm <strong>candlelight (2000K)</strong> to cold <strong>blue sky
+                        (10000K)</strong>.
+                    Color temperature is one of the most powerful emotional tools in cinematography.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper">
+                <div class="pg-canvas" id="colorTempCanvas"></div>
+                <div class="pg-controls-panel" id="colorTempControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: COMPOSITION
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="composition">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--design)">Design</span>
+                <h2 class="pg-section-title">Composition Rules</h2>
+                <p class="pg-section-desc">
+                    Drag the colored elements to explore how placement affects visual weight.
+                    Toggle overlays to see <strong>Rule of Thirds</strong>, <strong>Golden Ratio</strong>, and
+                    <strong>Diagonal</strong> guides.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+                <div class="pg-canvas pg-canvas--2d" id="compositionCanvas"></div>
+                <div class="pg-controls-panel" id="compositionControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: EASING CURVES
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="easing">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--motion)">Motion</span>
+                <h2 class="pg-section-title">Easing Curve Editor</h2>
+                <p class="pg-section-desc">
+                    Drag the <strong style="color:#22c55e">green</strong> and
+                    <strong style="color:#ef4444">red</strong> control points to shape the motion curve.
+                    The ball below follows your easing in real-time.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+                <div class="pg-canvas pg-canvas--2d" id="easingCanvas"></div>
+                <div class="pg-controls-panel" id="easingControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: EDITING TIMELINE
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="timeline">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--editing)">Editing</span>
+                <h2 class="pg-section-title">Editing Timeline</h2>
+                <p class="pg-section-desc">
+                    Drag <strong style="color:#ef4444">cut markers</strong> to change pacing.
+                    <strong>Double-click</strong> to add new cuts.
+                    The rhythm grid shows if your cuts land on beat.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+                <div class="pg-canvas pg-canvas--2d" id="timelineCanvas"></div>
+                <div class="pg-controls-panel" id="timelineControls"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════
+             PLAYGROUND: SOUND MIXER
+             ═══════════════════════════════════════ -->
+        <section class="pg-section" id="sound-mixer">
+            <div class="pg-section-header">
+                <span class="pg-section-domain" style="--domain-color: var(--sound)">Sound</span>
+                <h2 class="pg-section-title">Sound Mixer</h2>
+                <p class="pg-section-desc">
+                    Four channels: <strong style="color:#22c55e">Dialogue</strong>,
+                    <strong style="color:#8b5cf6">Music</strong>,
+                    <strong style="color:#f59e0b">SFX</strong>, and
+                    <strong style="color:#06b6d4">Ambience</strong>.
+                    Mix them to shape the emotional texture of a scene.
+                </p>
+            </div>
+            <div class="pg-canvas-wrapper pg-canvas-wrapper--mixer">
+                <div class="pg-canvas pg-canvas--mixer" id="mixerCanvas"></div>
+                <div class="pg-controls-panel" id="mixerControls"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Tutor Panel -->
+    <button class="ai-fab" id="aiFab" title="Ask AI Tutor">
+        <span class="ai-fab-icon">🧠</span>
+        <span class="ai-fab-label" id="aiFabLabel">AI Tutor</span>
+    </button>
+
+    <div class="ai-panel" id="aiPanel">
+        <div class="ai-panel-header">
+            <h3>🧠 AI Tutor</h3>
+            <span class="ai-status" id="aiStatusBadge">offline</span>
+            <button class="ai-close" id="aiClose">✕</button>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="ai-msg ai-msg--system">
+                <p>I'm your cinematic storytelling tutor. I run <strong>entirely in your browser</strong> — no cloud, no
+                    API key needed.</p>
+                <p>Ask me about any concept you're exploring!</p>
+            </div>
+        </div>
+        <div class="ai-input-row">
+            <input type="text" class="ai-input" id="aiInput" placeholder="Ask about a concept..." autocomplete="off">
+            <button class="ai-send" id="aiSend">→</button>
+        </div>
+        <div class="ai-progress" id="aiProgress">
+            <div class="ai-progress-bar" id="aiProgressBar"></div>
+            <span class="ai-progress-text" id="aiProgressText"></span>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+    <footer class="pg-footer">
+        <p>Built with <strong>WebGPU</strong> · <strong>Orama</strong> · <strong>WebLLM</strong> ·
+            <strong>Signals</strong> — all running in your browser
+        </p>
+    </footer>
+
+    <script type="module">
+        import { detectGPU, searchQuery } from './src/state/signals.js';
+        import { LightingPlayground } from './src/playgrounds/lightingPlayground.js';
+        import { FocalLengthPlayground } from './src/playgrounds/focalLengthPlayground.js';
+        import { DOFPlayground } from './src/playgrounds/dofPlayground.js';
+        import { ColorTempPlayground } from './src/playgrounds/colorTempPlayground.js';
+        import { CompositionPlayground } from './src/playgrounds/compositionPlayground.js';
+        import { EasingPlayground } from './src/playgrounds/easingPlayground.js';
+        import { TimelinePlayground } from './src/playgrounds/timelinePlayground.js';
+        import { SoundMixerPlayground } from './src/playgrounds/soundMixerPlayground.js';
+        import { initSearch } from './src/search/search.js';
+        import { initAITutor, askTutor } from './src/ai/aiTutor.js';
+        import { effect } from '@preact/signals-core';
+        import {
+            gpuCapabilities, aiStatus, aiMessages, aiModelProgress,
+            searchResults
+        } from './src/state/signals.js';
+
+        // ═══════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════
+
+        async function init() {
+            // 1. Detect GPU
+            const caps = await detectGPU();
+            const gpuLabel = document.getElementById('gpuLabel');
+            const gpuDot = document.querySelector('.gpu-dot');
+            const badge = document.getElementById('badgeWebGPU');
+
+            if (caps.webgpu) {
+                gpuLabel.textContent = `WebGPU Active — ${caps.gpuName || 'GPU'}`;
+                gpuDot.classList.add('gpu-dot--active');
+                badge.classList.add('pg-badge--active');
+            } else {
+                gpuLabel.textContent = 'WebGL Fallback';
+                gpuDot.classList.add('gpu-dot--fallback');
+                badge.textContent = 'WebGL';
+            }
+
+            // 2. Initialize playgrounds (lazy)
+            const playgroundMap = {
+                'lightingCanvas': { Cls: LightingPlayground, controls: 'lightingControls' },
+                'focalCanvas': { Cls: FocalLengthPlayground, controls: 'focalControls' },
+                'dofCanvas': { Cls: DOFPlayground, controls: 'dofControls' },
+                'colorTempCanvas': { Cls: ColorTempPlayground, controls: 'colorTempControls' },
+                'compositionCanvas': { Cls: CompositionPlayground, controls: 'compositionControls' },
+                'easingCanvas': { Cls: EasingPlayground, controls: 'easingControls' },
+                'timelineCanvas': { Cls: TimelinePlayground, controls: 'timelineControls' },
+                'mixerCanvas': { Cls: SoundMixerPlayground, controls: 'mixerControls' },
+            };
+
+            // Use IntersectionObserver for lazy loading
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting || entry.target._pg) return;
+                    const config = playgroundMap[entry.target.id];
+                    if (config) {
+                        try {
+                            const pg = new config.Cls(entry.target);
+                            pg.createControls(document.getElementById(config.controls));
+                            entry.target._pg = pg;
+                            console.log(`✅ ${entry.target.id} initialized`);
+                        } catch (err) {
+                            console.error(`❌ Failed to init ${entry.target.id}:`, err);
+                            entry.target.innerHTML = `<div style="padding:2rem;color:#ef4444;font-family:monospace;text-align:center;">
+                                <p>⚠️ This playground failed to load</p>
+                                <p style="font-size:0.75rem;opacity:0.6">${err.message}</p>
+                            </div>`;
+                        }
+                    }
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.1 });
+
+            Object.keys(playgroundMap).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+
+            // 3. Initialize search
+            try {
+                await initSearch();
+            } catch (e) {
+                console.warn('Search init failed:', e);
+            }
+
+            // 4. Initialize AI (deferred)
+            try {
+                initAITutor();
+            } catch (e) {
+                console.warn('AI tutor init failed:', e);
+            }
+
+            // 5. Wire up search UI
+            setupSearch();
+
+            // 6. Wire up AI panel
+            setupAIPanel();
+
+            // 7. Wire up nav
+            setupNav();
+
+            // 8. Theme toggle
+            setupTheme();
+
+            console.log('🎬 Playgrounds initialized');
+        }
+
+        // ═══════════════════════════════════════
+        // SEARCH UI
+        // ═══════════════════════════════════════
+
+        function setupSearch() {
+            const overlay = document.getElementById('searchOverlay');
+            const input = document.getElementById('searchInput');
+            const resultsEl = document.getElementById('searchResults');
+            const searchBtn = document.getElementById('searchBtn');
+
+            searchBtn.addEventListener('click', () => {
+                overlay.classList.toggle('active');
+                if (overlay.classList.contains('active')) input.focus();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    overlay.classList.toggle('active');
+                    if (overlay.classList.contains('active')) input.focus();
+                }
+                if (e.key === 'Escape') overlay.classList.remove('active');
+            });
+
+            input.addEventListener('input', (e) => {
+                searchQuery.value = e.target.value;
+            });
+
+            // React to results
+            effect(() => {
+                const results = searchResults.value;
+                if (results.length === 0) {
+                    resultsEl.innerHTML = '';
+                    return;
+                }
+
+                const domainColors = {
+                    cinematography: '#e85d75',
+                    design: '#6C63FF',
+                    sound: '#06b6d4',
+                    editing: '#8b5cf6',
+                    motion: '#f59e0b',
+                    storytelling: '#22c55e'
+                };
+
+                resultsEl.innerHTML = results.map(r => `
+                    <a href="${r.link}" class="search-result" data-domain="${r.domain}">
+                        <span class="search-result-type" style="background: ${domainColors[r.domain] || '#666'}">${r.type}</span>
+                        <div class="search-result-body">
+                            <strong>${r.title}</strong>
+                            <p>${r.definition?.substring(0, 100)}...</p>
+                        </div>
+                    </a>
+                `).join('');
+            });
+        }
+
+        // ═══════════════════════════════════════
+        // AI PANEL
+        // ═══════════════════════════════════════
+
+        function setupAIPanel() {
+            const fab = document.getElementById('aiFab');
+            const panel = document.getElementById('aiPanel');
+            const closeBtn = document.getElementById('aiClose');
+            const input = document.getElementById('aiInput');
+            const sendBtn = document.getElementById('aiSend');
+            const messagesEl = document.getElementById('aiMessages');
+            const statusBadge = document.getElementById('aiStatusBadge');
+            const progressBar = document.getElementById('aiProgressBar');
+            const progressText = document.getElementById('aiProgressText');
+            const progressEl = document.getElementById('aiProgress');
+
+            fab.addEventListener('click', () => {
+                panel.classList.toggle('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                panel.classList.remove('active');
+            });
+
+            const sendMessage = async () => {
+                const msg = input.value.trim();
+                if (!msg) return;
+                input.value = '';
+                await askTutor(msg);
+            };
+
+            sendBtn.addEventListener('click', sendMessage);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            // React to AI status
+            effect(() => {
+                const status = aiStatus.value;
+                statusBadge.textContent = status;
+                statusBadge.className = `ai-status ai-status--${status}`;
+
+                const fabLabel = document.getElementById('aiFabLabel');
+                if (status === 'loading') fabLabel.textContent = 'Loading...';
+                else if (status === 'ready') fabLabel.textContent = 'AI Ready';
+                else if (status === 'thinking') fabLabel.textContent = 'Thinking...';
+                else if (status === 'unsupported') fabLabel.textContent = 'No WebGPU';
+                else fabLabel.textContent = 'AI Tutor';
+            });
+
+            // React to AI messages
+            effect(() => {
+                const msgs = aiMessages.value;
+                if (msgs.length === 0) return;
+
+                const html = msgs.map(m => `
+                    <div class="ai-msg ai-msg--${m.role}">
+                        <p>${m.content.replace(/\n/g, '<br>')}</p>
+                    </div>
+                `).join('');
+
+                messagesEl.innerHTML = `
+                    <div class="ai-msg ai-msg--system">
+                        <p>I'm your cinematic tutor. Ask me anything!</p>
+                    </div>
+                    ${html}
+                `;
+
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            });
+
+            // React to model download progress
+            effect(() => {
+                const progress = aiModelProgress.value;
+                if (progress > 0 && progress < 1) {
+                    progressEl.style.display = 'block';
+                    progressBar.style.width = `${progress * 100}%`;
+                    progressText.textContent = `Loading model: ${Math.round(progress * 100)}%`;
+                } else {
+                    progressEl.style.display = 'none';
+                }
+            });
+        }
+
+        // ═══════════════════════════════════════
+        // NAV
+        // ═══════════════════════════════════════
+
+        function setupNav() {
+            const links = document.querySelectorAll('.pg-nav-link[data-section]');
+            const sections = document.querySelectorAll('.pg-section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        links.forEach(l => l.classList.remove('active'));
+                        const link = document.querySelector(`.pg-nav-link[data-section="${entry.target.id}"]`);
+                        if (link) link.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            sections.forEach(s => observer.observe(s));
+        }
+
+        // ═══════════════════════════════════════
+        // THEME
+        // ═══════════════════════════════════════
+
+        function setupTheme() {
+            const toggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'dark'; // Default dark for playgrounds
+            html.setAttribute('data-theme', savedTheme);
+            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+            toggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            });
+        }
+
+        // GO
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

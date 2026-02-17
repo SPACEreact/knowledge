@@ -25,6 +25,8 @@ export default defineConfig({
         mographKeywords: resolve(__dirname, 'mograph-keywords.html'),
         aiVisual: resolve(__dirname, 'ai-visual.html'),
         ideation: resolve(__dirname, 'ideation.html'),
+        emotionGrammar: resolve(__dirname, 'emotion-grammar.html'),
+        sceneGrammar: resolve(__dirname, 'scene-grammar.html'),
       }
     }
   },

@@ -1,6 +1,7 @@
 /**
- * Sticky Sidebar TOC — Auto-generated from page headings
- * Provides scroll-spy, search filtering, and mobile collapse
+ * Sticky Sidebar TOC — Claymorphism Floating Drawer
+ * Auto-generated from page headings
+ * Provides scroll-spy, search filtering, and toggle drawer
  */
 (function () {
     'use strict';
@@ -9,10 +10,14 @@
     const main = document.querySelector('main');
     if (!main) return;
 
+    // Skip sidebar on index page — it has its own nav bar
+    const isIndex = document.querySelector('nav') !== null;
+    if (isIndex) return;
+
     // Collect headings — h2 and h3 inside <main>
     const headings = Array.from(main.querySelectorAll('h2, h3')).filter(h => {
         // Skip headings inside cards/links that are just labels
-        return !h.closest('.domain-link, .framework-card, .core-card, .path-card, .resource-card, .master, .core-principle');
+        return !h.closest('.domain-link, .framework-card, .core-card, .path-card, .resource-card, .master, .core-principle, .exercise-card');
     });
 
     // Need at least 3 headings to justify a sidebar
@@ -22,7 +27,6 @@
     const usedIds = new Set();
     headings.forEach(h => {
         if (!h.id) {
-            // Check if parent section has an id
             const parentSection = h.closest('section, .subgroup');
             if (parentSection && parentSection.id) {
                 h.id = parentSection.id;
@@ -47,6 +51,7 @@
     sidebar.className = 'toc-sidebar';
     sidebar.innerHTML = `
     <button class="toc-toggle" aria-label="Toggle table of contents">☰</button>
+    <div class="toc-overlay"></div>
     <div class="toc-panel">
       <div class="toc-header">
         <span class="toc-title">On this page</span>
@@ -68,6 +73,7 @@
     const tocToggle = sidebar.querySelector('.toc-toggle');
     const tocClose = sidebar.querySelector('.toc-close');
     const tocSearch = sidebar.querySelector('.toc-search');
+    const tocOverlay = sidebar.querySelector('.toc-overlay');
 
     // Populate TOC
     headings.forEach(h => {
@@ -79,21 +85,42 @@
         a.addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Close on mobile
-            if (window.innerWidth < 1100) {
-                tocPanel.classList.remove('toc-open');
-            }
+            closePanel();
         });
         li.appendChild(a);
         tocList.appendChild(li);
     });
 
-    // Toggle mobile
-    tocToggle.addEventListener('click', () => {
-        tocPanel.classList.toggle('toc-open');
-    });
-    tocClose.addEventListener('click', () => {
+    // Open / Close functions
+    function openPanel() {
+        tocPanel.classList.add('toc-open');
+        tocOverlay.classList.add('toc-overlay-active');
+        tocToggle.textContent = '✕';
+    }
+
+    function closePanel() {
         tocPanel.classList.remove('toc-open');
+        tocOverlay.classList.remove('toc-overlay-active');
+        tocToggle.textContent = '☰';
+    }
+
+    // Toggle
+    tocToggle.addEventListener('click', () => {
+        if (tocPanel.classList.contains('toc-open')) {
+            closePanel();
+        } else {
+            openPanel();
+        }
+    });
+
+    tocClose.addEventListener('click', closePanel);
+    tocOverlay.addEventListener('click', closePanel);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && tocPanel.classList.contains('toc-open')) {
+            closePanel();
+        }
     });
 
     // Search filter

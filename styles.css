@@ -432,48 +432,120 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SIDEBAR TOC
+   SIDEBAR TOC — Claymorphism Floating Drawer
    ═══════════════════════════════════════════════════════════════ */
 
 .toc-sidebar {
-    --toc-w: 260px;
+    --toc-w: 280px;
+    --clay-bg: #e8e4df;
+    --clay-bg-dark: #2a3f3f;
+    --clay-text: #3b3530;
+    --clay-text-2: #6b6259;
+    --clay-text-3: #9a9089;
+    --clay-accent: #2563eb;
+    --clay-shadow: 8px 8px 16px rgba(0, 0, 0, 0.12), -4px -4px 12px rgba(255, 255, 255, 0.6);
+    --clay-shadow-dark: 8px 8px 16px rgba(0, 0, 0, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.05);
+    --clay-inset: inset 2px 2px 5px rgba(255, 255, 255, 0.5), inset -2px -2px 5px rgba(0, 0, 0, 0.08);
+    --clay-inset-dark: inset 2px 2px 5px rgba(255, 255, 255, 0.04), inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+    --clay-radius: 20px;
 }
 
+[data-theme="dark"] .toc-sidebar {
+    --clay-text: #e8ddd4;
+    --clay-text-2: #c4b8ad;
+    --clay-text-3: #8a7f76;
+    --clay-accent: #FFD2C2;
+}
+
+/* ── Toggle Button (always visible) ── */
 .toc-toggle {
     position: fixed;
-    top: 5rem;
+    top: 4.5rem;
     left: 1rem;
-    z-index: 200;
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text-2);
-    font-size: 1rem;
+    z-index: 201;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    border: none;
+    background: var(--clay-bg);
+    color: var(--clay-text-2);
+    font-size: 1.1rem;
     cursor: pointer;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--clay-shadow), var(--clay-inset);
+    transition: all 0.2s ease;
 }
 
+.toc-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.7), var(--clay-inset);
+}
+
+.toc-toggle:active {
+    transform: translateY(1px);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.5),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .toc-toggle {
+    background: var(--clay-bg-dark);
+    box-shadow: var(--clay-shadow-dark), var(--clay-inset-dark);
+}
+
+[data-theme="dark"] .toc-toggle:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.06), var(--clay-inset-dark);
+}
+
+/* ── Panel — Floating Drawer ── */
 .toc-panel {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 4rem;
+    left: 1rem;
+    bottom: 1.5rem;
     width: var(--toc-w);
-    height: 100vh;
-    padding: 5.5rem 0 1.5rem;
-    z-index: 150;
+    padding: 4rem 0 1.5rem;
+    z-index: 200;
     overflow-y: auto;
-    background: var(--bg);
-    border-right: 1px solid var(--border);
-    transition: transform 0.25s ease;
+    overflow-x: hidden;
+    background: var(--clay-bg);
+    border-radius: var(--clay-radius);
+    border: none;
+    box-shadow: var(--clay-shadow);
+    transform: translateX(calc(-100% - 2rem));
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+    opacity: 0;
 }
 
+.toc-panel.toc-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+[data-theme="dark"] .toc-panel {
+    background: var(--clay-bg-dark);
+    box-shadow: var(--clay-shadow-dark);
+}
+
+/* Scrollbar styling */
+.toc-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.toc-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+[data-theme="dark"] .toc-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Header ── */
 .toc-header {
-    padding: 0 1rem 0.75rem;
+    padding: 0 1.25rem 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -481,44 +553,72 @@ footer {
 
 .toc-title {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-3);
+    letter-spacing: 0.15em;
+    color: var(--clay-text-3);
+    font-weight: 600;
 }
 
 .toc-close {
-    display: none;
+    display: block;
     background: none;
     border: none;
-    font-size: 1.3rem;
-    color: var(--text-3);
+    font-size: 1.2rem;
+    color: var(--clay-text-3);
     cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    transition: all 0.15s;
 }
 
+.toc-close:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--clay-text);
+}
+
+[data-theme="dark"] .toc-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Search ── */
 .toc-search-wrap {
-    padding: 0 1rem 0.75rem;
+    padding: 0 1.25rem 1rem;
 }
 
 .toc-search {
     width: 100%;
-    padding: 0.4rem 0.6rem;
+    padding: 0.5rem 0.75rem;
     font-family: var(--font-body);
     font-size: 0.8rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: var(--surface);
-    color: var(--text);
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--clay-text);
     outline: none;
-    transition: border-color 0.15s;
+    transition: box-shadow 0.2s;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.06), inset -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .toc-search:focus {
-    border-color: var(--accent);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.08), inset -1px -1px 3px rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
+[data-theme="dark"] .toc-search {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), inset -1px -1px 3px rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .toc-search:focus {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), inset -1px -1px 3px rgba(255, 255, 255, 0.03),
+        0 0 0 2px rgba(255, 210, 194, 0.2);
+}
+
+/* ── Navigation List ── */
 .toc-nav {
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;
 }
 
 .toc-list {
@@ -528,74 +628,68 @@ footer {
 }
 
 .toc-item {
-    margin: 0;
+    margin: 1px 0;
 }
 
 .toc-item a {
     display: block;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.8rem;
-    color: var(--text-2);
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+    color: var(--clay-text-2);
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.15s;
+    border-radius: 10px;
+    transition: all 0.2s ease;
     line-height: 1.4;
 }
 
 .toc-item a:hover {
-    color: var(--text);
-    background: var(--surface);
+    color: var(--clay-text);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.06), -1px -1px 4px rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .toc-item a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), -1px -1px 4px rgba(255, 255, 255, 0.02);
 }
 
 .toc-item.toc-active a {
-    color: var(--accent);
-    background: var(--surface);
-    font-weight: 500;
+    color: var(--clay-accent);
+    background: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.08), -2px -2px 6px rgba(255, 255, 255, 0.8),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .toc-item.toc-active a {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2), -2px -2px 6px rgba(255, 255, 255, 0.03),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.04);
 }
 
 .toc-h3 a {
-    padding-left: 1.5rem;
-    font-size: 0.75rem;
+    padding-left: 1.75rem;
+    font-size: 0.72rem;
 }
 
-/* Desktop: sidebar visible, main with margin */
-@media (min-width: 1100px) {
-    body:has(.toc-sidebar) main {
-        margin-left: var(--toc-w);
-    }
-
-    body:has(.toc-sidebar) header {
-        margin-left: var(--toc-w);
-    }
-
-    body:has(.toc-sidebar) nav {
-        margin-left: var(--toc-w);
-    }
-
-    body:has(.toc-sidebar) footer {
-        margin-left: var(--toc-w);
-    }
+/* ── Overlay backdrop when panel is open ── */
+.toc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 199;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-/* Tablet/Mobile: sidebar as drawer */
-@media (max-width: 1099px) {
-    .toc-toggle {
-        display: flex;
-    }
+.toc-overlay.toc-overlay-active {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    .toc-close {
-        display: block;
-    }
-
-    .toc-panel {
-        transform: translateX(-100%);
-        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-        background: var(--bg);
-    }
-
-    .toc-panel.toc-open {
-        transform: translateX(0);
-    }
+[data-theme="dark"] .toc-overlay {
+    background: rgba(0, 0, 0, 0.35);
 }
 
 /* ═══════════════════════════════════════════════════════════════

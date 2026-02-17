@@ -1016,6 +1016,116 @@
             </div>
         </div>
 
+
+        <!-- ═══════════════════════════════════════
+             VISUAL COMPARISON LAB
+             ═══════════════════════════════════════ -->
+        <div class="subgroup" id="comparison-lab">
+            <div class="subgroup-header">
+                <span class="letter">⚡</span>
+                <h2>Visual Comparison Lab</h2>
+            </div>
+            <p>Side-by-side analysis of default vs constraint-based prompting. See why intent beats aesthetics.</p>
+
+            <h3 style="margin-top: 2rem;">Comparison 1: The Portrait</h3>
+            <div class="comparison">
+                <div class="comparison-side comp-before">
+                    <span class="comp-label">❌ Default Approach</span>
+                    <div class="prompt-example">"beautiful woman, cinematic lighting, dramatic, 8K, ultra detailed, hyper realistic, octane render, trending on ArtStation"</div>
+                    <p>Result: technically impressive, emotionally empty. Over-saturated, symmetrical face, perfect skin, no story.</p>
+                </div>
+                <div class="comparison-side comp-after">
+                    <span class="comp-label">✅ Constraint-Based</span>
+                    <div class="prompt-example">"tired woman, 40s, looking past camera, not posing. Single desk lamp from camera left, harsh shadows. Visible pores, asymmetric expression. Holding back tears. f/2.0, slight underexposure."</div>
+                    <p>Result: a human being in a specific moment. The constraints create authenticity. Emotion from specificity, not adjectives.</p>
+                </div>
+                <div class="comparison-annotation">
+                    <strong>Why it works:</strong> The first prompt describes what it should LOOK LIKE. The second describes what it should FEEL LIKE through concrete physical details. Constraints force the AI into specific emotional territory.
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Comparison 2: The Environment</h3>
+            <div class="comparison">
+                <div class="comparison-side comp-before">
+                    <span class="comp-label">❌ Default Approach</span>
+                    <div class="prompt-example">"abandoned hospital corridor, horror atmosphere, dramatic lighting, foggy, eerie, dark, HDR, volumetric light, cinematic"</div>
+                    <p>Result: generic horror set. Green tint, fog machine aesthetics, predictable composition.</p>
+                </div>
+                <div class="comparison-side comp-after">
+                    <span class="comp-label">✅ Constraint-Based</span>
+                    <div class="prompt-example">"long hospital corridor, daytime. Fluorescent lights ON — half working, half flickering. Clean floor but one wheelchair at the far end. No fog. No dramatic lighting. Documentary photography."</div>
+                    <p>Result: genuinely unsettling. The horror comes from what SHOULD be normal but isn't — daytime, well-lit, but empty.</p>
+                </div>
+                <div class="comparison-annotation">
+                    <strong>Why it works:</strong> Constraints are SUBTRACTIVE — no fog, no dramatic lighting. Removing clichés forces the AI to produce something real and therefore more disturbing.
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Comparison 3: The AI Video Clip</h3>
+            <div class="comparison">
+                <div class="comparison-side comp-before">
+                    <span class="comp-label">❌ Default Approach</span>
+                    <div class="prompt-example">"dramatic cinematic shot of a man walking through a burning city, epic camera movement, slow motion, explosions, smoke, debris flying"</div>
+                    <p>Result: AI motion chaos. Man morphs between frames. Fire looks like paint. Camera is floaty and weightless.</p>
+                </div>
+                <div class="comparison-side comp-after">
+                    <span class="comp-label">✅ Constraint-Based</span>
+                    <div class="prompt-example">"static camera, locked tripod. A man sits on a bench. Far background: barely visible smoke rising. He doesn't look at it. Subtle wind on his collar. 4 seconds. No camera movement."</div>
+                    <p>Result: achievable, emotionally powerful. Static camera and the man's refusal to look tells the story.</p>
+                </div>
+                <div class="comparison-annotation">
+                    <strong>Why it works:</strong> Static camera, no complex motion, one subject — plays to AI video's strengths. Restraint creates meaning that spectacle destroys.
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISES -->
+        <div class="subgroup" id="ai-exercises">
+            <div class="subgroup-header">
+                <span class="letter">✏️</span>
+                <h2>Workshop Exercises</h2>
+            </div>
+            <p>Practice constraint-based thinking. These aren't quizzes — they're creative recalibrations.</p>
+
+            <div class="exercise-card">
+                <span class="exercise-badge">✏️ Exercise</span>
+                <h4>Distill to Intent</h4>
+                <p class="exercise-prompt">
+                    Take this overloaded prompt and reduce it to <strong>emotional intent only</strong> in 15 words or fewer:<br><br>
+                    <em>"A 25-year-old woman with long dark hair wearing a vintage red dress standing in a European café at a window table with rain on the glass and warm interior lighting and she looks pensive while holding a coffee cup and there's a bookshelf behind her, shot on 35mm film, cinematic, moody"</em>
+                </p>
+                <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show Approach</button>
+                <div class="exercise-reveal">
+                    <div class="exercise-reveal-content">
+                        <strong>Possible reductions:</strong><br>
+                        • "woman alone at a rainy window, warm light, lost in thought. 35mm."<br>
+                        • "solitary coffee. rain outside. she's not really here. documentary warmth."<br><br>
+                        <strong>The principle:</strong> The original is inventory. The reductions are intent. AI fills in details coherently when given emotional direction instead of shopping lists.
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <span class="exercise-badge">✏️ Exercise</span>
+                <h4>Constraint Architecture: 3 Shots, No Movement</h4>
+                <p class="exercise-prompt">
+                    Design a 3-shot AI video sequence: <strong>"someone letting go of anger"</strong><br>
+                    • Camera: static, locked tripod<br>
+                    • Motion: micro-movements only<br>
+                    • No facial close-ups (body/hands/environment only)<br>
+                    • One light source per shot
+                </p>
+                <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show Approach</button>
+                <div class="exercise-reveal">
+                    <div class="exercise-reveal-content">
+                        <strong>Shot 1:</strong> "Hands gripping crumpled letter. Knuckles white. Overhead lamp. Static." — Beat: holding anger.<br>
+                        <strong>Shot 2:</strong> "Same hands relaxing. Fingers uncurl. Letter loosens. Same lamp." — Beat: the release.<br>
+                        <strong>Shot 3:</strong> "Empty table. Letter left behind. Wind barely moving its edge. Daylight replacing lamp." — Beat: after. Light source change (artificial → natural) signals the emotional shift.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <p><a href="mograph-keywords.html">← Motion Graphics</a> | <a href="index.html">Overview</a> | <a
@@ -1043,6 +1153,7 @@
             });
         })();
     </script>
+    <script src="sidebar.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visual Storytelling Study Guide</title>
+  <meta name="description"
+    content="A personal framework for thinking like a cinematic architect in the AI era. Study guide for filmmakers, motion designers, and visual thinkers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
@@ -60,30 +62,338 @@
       color: var(--text-3);
       font-size: 1.5rem;
     }
+
+    [data-theme="dark"] .hierarchy {
+      background: var(--surface);
+    }
+
+    /* ═══════════════════════════════════════
+       VALUE PROPOSITION
+       ═══════════════════════════════════════ */
+    .manifesto {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      color: #f59e0b;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .system-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid #f59e0b;
+      color: #f59e0b;
+      border-radius: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ═══════════════════════════════════════
+       FRAMEWORK SECTION
+       ═══════════════════════════════════════ */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .framework-card {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+      color: white;
+      padding: 1.75rem;
+      border-radius: 8px;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .framework-card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .framework-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .framework-card .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(245, 158, 11, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .framework-card h3 {
+      color: #f59e0b;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin: 0.5rem 0;
+    }
+
+    .framework-card p {
+      opacity: 0.85;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .framework-card .link-hint {
+      font-size: 0.8rem;
+      opacity: 0.5;
+      margin-top: 0.75rem;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════
+       LEARNING PATHS
+       ═══════════════════════════════════════ */
+    .paths-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .path-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: all 0.2s;
+    }
+
+    .path-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .path-card .path-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+    }
+
+    .path-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .path-card p {
+      color: var(--text-2);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .path-steps {
+      display: flex;
+      gap: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .path-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.4rem 0;
+      transition: color 0.15s;
+    }
+
+    .path-step:hover {
+      color: var(--accent);
+    }
+
+    .path-step .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .path-arrow {
+      color: var(--text-3);
+      font-size: 0.8rem;
+      margin: 0 0.4rem;
+    }
+
+    .path-card.path-beginner .path-step .step-num {
+      background: #22c55e;
+    }
+
+    .path-card.path-advanced .path-step .step-num {
+      background: #8b5cf6;
+    }
+
+    .path-card.path-ai .path-step .step-num {
+      background: #0ea5e9;
+    }
+
+    /* ═══════════════════════════════════════
+       ROADMAP
+       ═══════════════════════════════════════ */
+    .roadmap-list {
+      margin-top: 1.5rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .roadmap-list::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .roadmap-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .roadmap-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--bg);
+    }
+
+    .roadmap-item h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .roadmap-item p {
+      color: var(--text-2);
+      font-size: 0.9rem;
+    }
+
+    .roadmap-item .roadmap-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .framework-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .path-steps {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .path-arrow {
+        transform: rotate(90deg);
+        margin: 0.2rem 0 0.2rem 0.3rem;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header>
+    <span class="system-badge">Personal System</span>
     <h1>Visual Storytelling</h1>
     <p class="subtitle">A Deep Study Guide for Filmmakers & Visual Thinkers</p>
+    <p class="manifesto">"Not just knowledge — a framework to think like a cinematic architect in the AI era."</p>
     <p class="tagline">Not film school. A curated path through the world's best free knowledge — plus your own
       frameworks.</p>
   </header>
 
   <nav>
+    <a href="#framework">Framework</a>
     <a href="#hierarchy">Structure</a>
     <a href="#core">Core Layer</a>
     <a href="#domains">5 Domains</a>
+    <a href="#learning-paths">Paths</a>
     <a href="#keywords">Keyword Guides</a>
     <a href="style-reference.html">Style Reference</a>
     <a href="craft-notes.html">Craft Notes</a>
     <a href="resources.html">Resources</a>
     <a href="ideation.html" style="color: #f59e0b;">🎲 Ideation</a>
-    <a href="#masters">Masters</a>
+    <a href="#roadmap">Roadmap</a>
   </nav>
 
   <main>
+
+    <!-- ═══════════════════════════════════════
+         MY FRAMEWORK
+         ═══════════════════════════════════════ -->
+    <section id="framework">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        My Framework</h2>
+      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">How to use AI as a cinematic
+        instrument — not a content slot machine.</p>
+
+      <div class="framework-grid">
+        <a href="storytelling.html" class="framework-card">
+          <span class="pillar-num">Pillar 01</span>
+          <h3>Translate Emotion → Image Grammar</h3>
+          <p>Internal states become visual constraints. Before touching any tool, define the emotional logic: what
+            feeling drives this frame? Sadness isn't blue — it's negative space, shallow focus, and drained contrast.
+            Build the grammar first, then let any tool — camera or AI — execute it.</p>
+          <span class="link-hint">↳ Explored in Storytelling & Design</span>
+        </a>
+
+        <a href="ai-visual.html" class="framework-card">
+          <span class="pillar-num">Pillar 02</span>
+          <h3>Impose Constraints on Generative Tools</h3>
+          <p>Less prompt, more intent. AI tools produce better results when you give them less freedom and more
+            structure. Define what you won't allow: no wide shots, no warm colors, only static camera. Constraints
+            aren't
+            limitations — they're the architecture of style.</p>
+          <span class="link-hint">↳ Explored in AI Visual Generation & Ideation Engine</span>
+        </a>
+
+        <a href="editing.html" class="framework-card">
+          <span class="pillar-num">Pillar 03</span>
+          <h3>Sequence AI Visuals into Cinematic Beats</h3>
+          <p>Individual AI images are not cinema. Cinema is sequence, rhythm, and cause-effect. Apply editing logic and
+            pacing structure to AI-generated frames to transform disconnected beauty into coherent visual narrative. The
+            sequencing is where meaning lives.</p>
+          <span class="link-hint">↳ Explored in Editing & Motion</span>
+        </a>
+      </div>
+    </section>
+
     <!-- HIERARCHY VISUAL -->
     <section id="hierarchy" class="hierarchy">
       <p style="font-size: 0.85rem; color: var(--text-2); margin-bottom: 1.5rem;">The System Structure</p>
@@ -150,6 +460,70 @@
           <h3>Motion</h3>
           <p>"Does this feel alive?"</p>
         </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         LEARNING PATHS
+         ═══════════════════════════════════════ -->
+    <section id="learning-paths">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        Learning Paths</h2>
+      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">Don't wander. Pick a path. Follow it
+        through.</p>
+
+      <div class="paths-grid">
+        <!-- Path A: Beginner -->
+        <div class="path-card path-beginner">
+          <span class="path-label">Path A</span>
+          <h3 style="color: #22c55e;">🌱 Start Here — Beginner</h3>
+          <p>Build your foundation. Understand why story comes first, learn the visual language, then explore curated
+            resources.</p>
+          <div class="path-steps">
+            <a href="storytelling.html" class="path-step"><span class="step-num">1</span> Storytelling</a>
+            <span class="path-arrow">→</span>
+            <a href="design.html" class="path-step"><span class="step-num">2</span> Design</a>
+            <span class="path-arrow">→</span>
+            <a href="filmmaking-keywords.html" class="path-step"><span class="step-num">3</span> Filmmaking Core</a>
+            <span class="path-arrow">→</span>
+            <a href="resources.html" class="path-step"><span class="step-num">4</span> Resources</a>
+          </div>
+        </div>
+
+        <!-- Path B: Advanced -->
+        <div class="path-card path-advanced">
+          <span class="path-label">Path B</span>
+          <h3 style="color: #8b5cf6;">🎥 Advanced Filmmaker</h3>
+          <p>You already make things. Now refine your craft — study cinematography language, develop your ear, master
+            editorial rhythm.</p>
+          <div class="path-steps">
+            <a href="cinematography.html" class="path-step"><span class="step-num">1</span> Cinematography</a>
+            <span class="path-arrow">→</span>
+            <a href="sound.html" class="path-step"><span class="step-num">2</span> Sound</a>
+            <span class="path-arrow">→</span>
+            <a href="editing.html" class="path-step"><span class="step-num">3</span> Editing</a>
+            <span class="path-arrow">→</span>
+            <a href="style-reference.html" class="path-step"><span class="step-num">4</span> Style Reference</a>
+          </div>
+        </div>
+
+        <!-- Path C: AI Practitioner -->
+        <div class="path-card path-ai">
+          <span class="path-label">Path C</span>
+          <h3 style="color: #0ea5e9;">🧠 AI Practitioner</h3>
+          <p>You use generative tools. Now learn to think cinematically — impose constraints, build visual grammar, use
+            the ideation engine.</p>
+          <div class="path-steps">
+            <a href="ai-visual.html" class="path-step"><span class="step-num">1</span> AI Visual Generation</a>
+            <span class="path-arrow">→</span>
+            <a href="motion.html" class="path-step"><span class="step-num">2</span> Motion</a>
+            <span class="path-arrow">→</span>
+            <a href="ideation.html" class="path-step"><span class="step-num">3</span> Ideation Engine</a>
+            <span class="path-arrow">→</span>
+            <a href="storytelling.html" class="path-step"><span class="step-num">4</span> Framework</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -228,6 +602,44 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════
+         ROADMAP
+         ═══════════════════════════════════════ -->
+    <section id="roadmap">
+      <h2
+        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
+        Roadmap — Coming Next</h2>
+      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">This system is growing. Here's what's
+        being built.</p>
+
+      <div class="roadmap-list">
+        <div class="roadmap-item">
+          <span class="roadmap-tag">In Development</span>
+          <h4>AI Cinematic Patterns</h4>
+          <p>Reusable visual patterns for AI filmmaking — shot-reverse-shot in AI, establishing sequences, emotional
+            reveals using generative constraints.</p>
+        </div>
+        <div class="roadmap-item">
+          <span class="roadmap-tag">Planned</span>
+          <h4>Prompt Syntax vs Emotional Intent</h4>
+          <p>Why "cinematic, dramatic lighting, 4K" fails. How to prompt from emotion and structure instead of aesthetic
+            keywords.</p>
+        </div>
+        <div class="roadmap-item">
+          <span class="roadmap-tag">Planned</span>
+          <h4>Generative System Design</h4>
+          <p>How to build repeatable visual systems with AI — consistent worlds, characters, lighting setups across
+            multiple generations.</p>
+        </div>
+        <div class="roadmap-item">
+          <span class="roadmap-tag">Exploring</span>
+          <h4>Constraint-Led Storytelling Templates</h4>
+          <p>Downloadable constraints frameworks for different story types: thriller, poetry film, product reveal,
+            documentary micro-essay.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SYSTEM ANCHOR -->
     <section
       style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); color: white; padding: 2rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
@@ -273,6 +685,8 @@
       }
     })();
   </script>
+
+  <script src="sidebar.js"></script>
 </body>
 
 </html>

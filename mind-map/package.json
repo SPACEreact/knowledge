@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.80",
+    "@orama/orama": "^3.1.18",
+    "@preact/signals-core": "^1.13.0",
     "mammoth": "^1.11.0",
-    "three": "^0.160.0"
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "vite": "^5.0.0"

@@ -27,6 +27,7 @@ export default defineConfig({
         ideation: resolve(__dirname, 'ideation.html'),
         emotionGrammar: resolve(__dirname, 'emotion-grammar.html'),
         sceneGrammar: resolve(__dirname, 'scene-grammar.html'),
+        playgrounds: resolve(__dirname, 'playgrounds.html'),
       }
     }
   },

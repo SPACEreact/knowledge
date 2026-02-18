@@ -1,422 +1,493 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion | Visual Storytelling Study Guide</title>
+    <title>Motion — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Design obeying physics over time. 12 Principles, weight, easing, motion blur, secondary action, and parallax.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: var(--motion);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
         }
 
-        /* ═══════════════════════════════════════════
-           12 PRINCIPLES — squash & stretch on hover
-           ═══════════════════════════════════════════ */
-        .skill-12-principles {
-            border-left-color: var(--motion);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        html {
+            scroll-behavior: smooth
         }
 
-        .skill-12-principles:hover {
-            transform: scaleY(0.96) scaleX(1.03);
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
         }
 
-        .skill-12-principles .principle-dots {
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .resources-group {
+            margin-top: .75rem;
+            border-top: 1px solid rgba(39, 39, 42, .5);
+            padding-top: .75rem
+        }
+
+        .resources-group h4 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #52525b;
+            margin-bottom: .4rem
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .35rem .6rem;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 5px;
+            margin-bottom: .3rem;
+            text-decoration: none;
+            font-size: .78rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .55rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .1rem .35rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
+        }
+
+        .principle-dots {
             display: flex;
             gap: 4px;
-            margin: 0.75rem 0;
-            flex-wrap: wrap;
+            margin: .75rem 0;
+            flex-wrap: wrap
         }
 
-        .skill-12-principles .p-dot {
+        .p-dot {
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: rgba(234, 88, 12, 0.15);
-            border: 1.5px solid rgba(234, 88, 12, 0.3);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(234, 88, 12, .15);
+            border: 1.5px solid rgba(234, 88, 12, .3);
+            transition: transform .3s cubic-bezier(.34, 1.56, .64, 1)
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(1) {
-            transform: scaleY(0.7) scaleX(1.3);
-            transition-delay: 0ms;
+        .skill-12:hover {
+            transform: scaleY(.96) scaleX(1.03)
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(2) {
+        .skill-12:hover .p-dot:nth-child(1) {
+            transform: scaleY(.7) scaleX(1.3)
+        }
+
+        .skill-12:hover .p-dot:nth-child(2) {
             transform: translateY(-4px);
-            transition-delay: 30ms;
+            transition-delay: 30ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(3) {
+        .skill-12:hover .p-dot:nth-child(3) {
             transform: scale(1.2);
-            transition-delay: 60ms;
+            transition-delay: 60ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(4) {
+        .skill-12:hover .p-dot:nth-child(4) {
             transform: rotate(15deg);
-            transition-delay: 90ms;
+            transition-delay: 90ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(5) {
+        .skill-12:hover .p-dot:nth-child(5) {
             transform: translateX(3px);
-            transition-delay: 120ms;
+            transition-delay: 120ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(6) {
-            transform: scaleX(0.7) scaleY(1.3);
-            transition-delay: 150ms;
+        .skill-12:hover .p-dot:nth-child(6) {
+            transform: scaleX(.7) scaleY(1.3);
+            transition-delay: 150ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(7) {
+        .skill-12:hover .p-dot:nth-child(7) {
             transform: translateY(3px);
-            transition-delay: 180ms;
+            transition-delay: 180ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(8) {
-            transform: rotate(-10deg) scale(0.9);
-            transition-delay: 210ms;
+        .skill-12:hover .p-dot:nth-child(8) {
+            transform: rotate(-10deg) scale(.9);
+            transition-delay: 210ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(9) {
+        .skill-12:hover .p-dot:nth-child(9) {
             transform: scale(1.15);
-            transition-delay: 240ms;
+            transition-delay: 240ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(10) {
-            transform: scaleY(1.3) scaleX(0.8);
-            transition-delay: 270ms;
+        .skill-12:hover .p-dot:nth-child(10) {
+            transform: scaleY(1.3) scaleX(.8);
+            transition-delay: 270ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(11) {
+        .skill-12:hover .p-dot:nth-child(11) {
             transform: translateX(-3px);
-            transition-delay: 300ms;
+            transition-delay: 300ms
         }
 
-        .skill-12-principles:hover .p-dot:nth-child(12) {
+        .skill-12:hover .p-dot:nth-child(12) {
             transform: scale(1.2) rotate(5deg);
-            transition-delay: 330ms;
+            transition-delay: 330ms
         }
 
-        .skill-12-principles::after {
-            content: '↑ hover to animate';
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--motion);
-            opacity: 0.4;
-            display: block;
-            margin-top: 0.3rem;
-        }
-
-        /* ═══════════════════════════════════════════
-           WEIGHT & INERTIA — heavy settled feel
-           ═══════════════════════════════════════════ */
-        .skill-weight {
-            border-left-color: #78716c;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
-            border-radius: 0 4px 4px 0;
-            padding-bottom: 2.5rem !important;
-            position: relative;
-        }
-
-        .skill-weight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.04), transparent);
-        }
-
-        .skill-weight h3 {
-            font-weight: 700;
-            font-size: 1.15rem !important;
-        }
-
-        /* ═══════════════════════════════════════════
-           SPEED GRAPHS / BEZIER — curve visualization
-           ═══════════════════════════════════════════ */
-        .skill-bezier {
-            border-left-color: var(--motion);
-        }
-
-        .skill-bezier .curve-demo {
+        .curve-demo {
             display: flex;
-            gap: 0.75rem;
-            margin: 0.75rem 0;
-            align-items: flex-end;
+            gap: .75rem;
+            margin: .75rem 0;
+            align-items: flex-end
         }
 
-        .skill-bezier .curve-box {
+        .curve-box {
             flex: 1;
             height: 40px;
-            border: 1px solid var(--border);
+            border: 1px solid #27272a;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
-            background: var(--surface-2);
+            background: rgba(0, 0, 0, .15)
         }
 
-        .skill-bezier .curve-line {
+        .curve-line {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0
         }
 
-        .skill-bezier .curve-linear {
-            background: linear-gradient(to top right, transparent 49%, rgba(234, 88, 12, 0.3) 49%, rgba(234, 88, 12, 0.3) 51%, transparent 51%);
-        }
-
-        .skill-bezier .curve-ease-in {
-            background: radial-gradient(ellipse at 100% 0%, transparent 60%, rgba(234, 88, 12, 0.2) 100%);
-        }
-
-        .skill-bezier .curve-ease-out {
-            background: radial-gradient(ellipse at 0% 100%, transparent 60%, rgba(234, 88, 12, 0.2) 100%);
-        }
-
-        .skill-bezier .curve-label {
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
+        .curve-label {
+            font-family: monospace;
+            font-size: .55rem;
             text-align: center;
-            color: var(--text-3);
-            margin-top: 3px;
+            color: #52525b;
+            margin-top: 3px
         }
 
-        /* ═══════════════════════════════════════════
-           MOTION BLUR / 180° SHUTTER — blurred title
-           ═══════════════════════════════════════════ */
-        .skill-motion-blur {
-            border-left-color: #6366f1;
-        }
-
-        .skill-motion-blur h3 {
-            position: relative;
-            display: inline-block;
-        }
-
-        .skill-motion-blur h3::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 4px;
-            top: 0;
-            color: var(--text);
-            opacity: 0.15;
-            filter: blur(3px);
-            pointer-events: none;
-        }
-
-        .skill-motion-blur .shutter-demo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--text-3);
-        }
-
-        .skill-motion-blur .shutter-sharp {
-            opacity: 1;
-        }
-
-        .skill-motion-blur .shutter-blur {
-            filter: blur(1.5px);
-            opacity: 0.6;
-        }
-
-        /* ═══════════════════════════════════════════
-           FOLLOW THROUGH & OVERLAP — staggered settle
-           ═══════════════════════════════════════════ */
-        .skill-follow-through {
-            border-left-color: #22c55e;
-        }
-
-        .skill-follow-through .overlap-demo {
+        .overlap-demo {
             display: flex;
             gap: 6px;
-            margin: 0.75rem 0;
-            align-items: flex-end;
+            margin: .75rem 0;
+            align-items: flex-end
         }
 
-        .skill-follow-through .overlap-block {
+        .overlap-block {
             width: 24px;
             border-radius: 3px;
-            background: rgba(34, 197, 94, 0.2);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            animation: settle 3s ease-out infinite;
-        }
-
-        .skill-follow-through .ob-1 {
-            height: 30px;
-            animation-delay: 0s;
-        }
-
-        .skill-follow-through .ob-2 {
-            height: 24px;
-            animation-delay: 0.15s;
-        }
-
-        .skill-follow-through .ob-3 {
-            height: 18px;
-            animation-delay: 0.3s;
-        }
-
-        .skill-follow-through .ob-4 {
-            height: 14px;
-            animation-delay: 0.5s;
-        }
-
-        .skill-follow-through .ob-5 {
-            height: 10px;
-            animation-delay: 0.7s;
+            background: rgba(34, 197, 94, .2);
+            border: 1px solid rgba(34, 197, 94, .3);
+            animation: settle 3s ease-out infinite
         }
 
         @keyframes settle {
             0% {
                 transform: translateY(-8px);
-                opacity: 0.5;
+                opacity: .5
             }
 
             30% {
                 transform: translateY(2px);
-                opacity: 1;
+                opacity: 1
             }
 
             50% {
-                transform: translateY(-1px);
+                transform: translateY(-1px)
             }
 
-            70% {
-                transform: translateY(0);
-            }
-
+            70%,
             100% {
                 transform: translateY(0);
-                opacity: 1;
+                opacity: 1
             }
         }
 
-        .skill-follow-through::after {
-            content: '↑ watch them settle with delay';
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: #22c55e;
-            opacity: 0.4;
-            display: block;
-            margin-top: 0.3rem;
-        }
-
-        /* ═══════════════════════════════════════════
-           MULTIPLANE / PARALLAX — layered depth
-           ═══════════════════════════════════════════ */
-        .skill-parallax {
-            border-left-color: #0891b2;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-parallax .parallax-demo {
+        .parallax-demo {
             position: relative;
             height: 50px;
-            margin: 0.75rem 0;
+            margin: .75rem 0;
             border-radius: 4px;
-            overflow: hidden;
+            overflow: hidden
         }
 
-        .skill-parallax .px-layer {
+        .px-layer {
             position: absolute;
             inset: 0;
-            border-radius: 4px;
-        }
-
-        .skill-parallax .px-bg {
-            background: linear-gradient(90deg, rgba(8, 145, 178, 0.05) 0%, rgba(8, 145, 178, 0.08) 100%);
-            animation: parallax-bg 6s ease-in-out infinite alternate;
-        }
-
-        .skill-parallax .px-mid {
-            background: linear-gradient(90deg, transparent 20%, rgba(8, 145, 178, 0.08) 50%, transparent 80%);
-            animation: parallax-mid 6s ease-in-out infinite alternate;
-        }
-
-        .skill-parallax .px-fg {
-            background: linear-gradient(90deg, transparent 40%, rgba(8, 145, 178, 0.12) 60%, transparent 90%);
-            animation: parallax-fg 6s ease-in-out infinite alternate;
+            border-radius: 4px
         }
 
         @keyframes parallax-bg {
             from {
-                transform: translateX(0);
+                transform: translateX(0)
             }
 
             to {
-                transform: translateX(5px);
+                transform: translateX(5px)
             }
         }
 
         @keyframes parallax-mid {
             from {
-                transform: translateX(0);
+                transform: translateX(0)
             }
 
             to {
-                transform: translateX(15px);
+                transform: translateX(15px)
             }
         }
 
         @keyframes parallax-fg {
             from {
-                transform: translateX(0);
+                transform: translateX(0)
             }
 
             to {
-                transform: translateX(30px);
+                transform: translateX(30px)
             }
         }
 
-        .skill-parallax .px-labels {
+        .px-labels {
             display: flex;
             justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-3);
+            font-family: monospace;
+            font-size: .55rem;
+            color: #52525b
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>05 · Motion</h1>
-            <p class="question">"Does this feel alive?"</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link active"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            Motion is <strong>design obeying physics over time</strong>. Life and energy.
-            This is where "vibe" loves to sneak in — but good motion still respects physics.
-            Even stylized motion must have weight, cause, and reaction.
-        </p>
-
-        <!-- A. MOTION PHYSICS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>Motion Physics</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 30% 40%,rgba(234,88,12,.06) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#ea580c;letter-spacing:.2em">Domain 05</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Motion</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"Does this feel alive?"</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Motion is <strong
+                            style="color:#d4d4d8">design obeying physics over time</strong>. Life and energy. This is
+                        where "vibe" loves to sneak in — but good motion still respects physics. Even stylized motion
+                        must have weight, cause, and reaction.</p>
+                </div>
             </div>
-            <p>The 12 Principles of Animation. Invented at Disney. Still undefeated.</p>
+        </header>
 
-            <div class="skill skill-12-principles">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- A. MOTION PHYSICS -->
+            <div class="section-divider fade-up">A · Motion Physics</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The 12 Principles of Animation. Invented at Disney.
+                Still undefeated.</p>
+
+            <div class="skill-card skill-12 fade-up"
+                style="border-left:3px solid #ea580c;transition:transform .3s cubic-bezier(.34,1.56,.64,1)">
                 <h3>The 12 Principles</h3>
                 <div class="principle-dots">
                     <div class="p-dot"></div>
@@ -432,235 +503,194 @@
                     <div class="p-dot"></div>
                     <div class="p-dot"></div>
                 </div>
-                <p class="desc">
-                    Squash & Stretch. Anticipation. Staging. Straight Ahead vs Pose to Pose. Follow Through.
-                    Slow In/Slow Out. Arcs. Secondary Action. Timing. Exaggeration. Solid Drawing. Appeal.
-                    These aren't rules — they're observations of physics applied to movement.
-                </p>
-                <div class="resources">
+                <p>Squash & Stretch. Anticipation. Staging. Straight Ahead vs Pose to Pose. Follow Through. Slow In/Slow
+                    Out. Arcs. Secondary Action. Timing. Exaggeration. Solid Drawing. Appeal. These aren't rules —
+                    they're observations of physics applied to movement.</p>
+                <div style="font-family:monospace;font-size:.55rem;color:#ea580c;opacity:.4;margin-top:.3rem">↑ hover to
+                    animate</div>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=uDqjIdI4bF4" target="_blank">12 Principles
-                                Explained (Disney)</a><span class="tag">6 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=haa7n3UGyDc" target="_blank">The Illusion of Life
-                                (Full)</a><span class="tag">Doc</span></li>
-                        <li><a href="https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707"
-                                target="_blank">The Illusion of Life (Book)</a><span class="tag">Bible</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=uDqjIdI4bF4" target="_blank" class="resource-link">12
+                        Principles Explained (Disney) <span class="resource-tag">6 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=haa7n3UGyDc" target="_blank" class="resource-link">The
+                        Illusion of Life (Full) <span class="resource-tag">Doc</span></a>
+                    <a href="https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707" target="_blank"
+                        class="resource-link">The Illusion of Life (Book) <span class="resource-tag">Bible</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-weight">
-                <h3>Weight & Inertia</h3>
-                <p class="desc">
-                    Heavy objects start slow, stop slow. Light objects react instantly.
-                    A boulder doesn't move like a balloon. Bad animation ignores mass. Good animation worships it.
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up" style="border-left:3px solid #78716c;box-shadow:0 6px 20px rgba(0,0,0,.15)">
+                <h3 style="font-size:1.1rem;font-weight:700">Weight & Inertia</h3>
+                <p>Heavy objects start slow, stop slow. Light objects react instantly. A boulder doesn't move like a
+                    balloon. Bad animation ignores mass. Good animation worships it.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=F8OtE60T8sU" target="_blank">Animator's Survival
-                                Kit</a><span class="tag">Richard Williams</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=5rMycjsIZm8" target="_blank">How to Animate
-                                Weight</a><span class="tag">15 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=F8OtE60T8sU" target="_blank"
+                        class="resource-link">Animator's Survival Kit <span class="resource-tag">Richard
+                            Williams</span></a>
+                    <a href="https://www.youtube.com/watch?v=5rMycjsIZm8" target="_blank" class="resource-link">How to
+                        Animate Weight <span class="resource-tag">15 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- B. EASING -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>Easing & Interpolation</h2>
-            </div>
-            <p>How things accelerate and decelerate. The soul of motion.</p>
+            <!-- B. EASING -->
+            <div class="section-divider fade-up">B · Easing & Interpolation</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">How things accelerate and decelerate. The soul of
+                motion.</p>
 
-            <div class="skill skill-bezier">
+            <div class="skill-card fade-up" style="border-left:3px solid #ea580c">
                 <h3>Speed Graphs & Bezier Curves</h3>
                 <div class="curve-demo">
                     <div>
                         <div class="curve-box">
-                            <div class="curve-line curve-linear"></div>
+                            <div class="curve-line"
+                                style="background:linear-gradient(to top right,transparent 49%,rgba(234,88,12,.3) 49%,rgba(234,88,12,.3) 51%,transparent 51%)">
+                            </div>
                         </div>
                         <div class="curve-label">linear</div>
                     </div>
                     <div>
                         <div class="curve-box">
-                            <div class="curve-line curve-ease-in"></div>
+                            <div class="curve-line"
+                                style="background:radial-gradient(ellipse at 100% 0%,transparent 60%,rgba(234,88,12,.2) 100%)">
+                            </div>
                         </div>
                         <div class="curve-label">ease-in</div>
                     </div>
                     <div>
                         <div class="curve-box">
-                            <div class="curve-line curve-ease-out"></div>
+                            <div class="curve-line"
+                                style="background:radial-gradient(ellipse at 0% 100%,transparent 60%,rgba(234,88,12,.2) 100%)">
+                            </div>
                         </div>
                         <div class="curve-label">ease-out</div>
                     </div>
                 </div>
-                <p class="desc">
-                    Linear motion = robotic, dead. Ease-in = slow start. Ease-out = slow end.
-                    Custom bezier curves = personality. The graph editor is where motion gets its soul.
-                </p>
-                <div class="resources">
+                <p>Linear motion = robotic, dead. Ease-in = slow start. Ease-out = slow end. Custom bezier curves =
+                    personality. The graph editor is where motion gets its soul.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=8uLVnM36XBg" target="_blank">Understanding Bezier
-                                Curves</a><span class="tag">10 min</span></li>
-                        <li><a href="https://cubic-bezier.com/" target="_blank">Cubic Bezier Visualizer</a><span
-                                class="tag">Tool</span></li>
-                        <li><a href="https://easings.net/" target="_blank">Easing Functions Cheatsheet</a><span
-                                class="tag">Reference</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=8uLVnM36XBg" target="_blank"
+                        class="resource-link">Understanding Bezier Curves <span class="resource-tag">10 min</span></a>
+                    <a href="https://cubic-bezier.com/" target="_blank" class="resource-link">Cubic Bezier Visualizer
+                        <span class="resource-tag">Tool</span></a>
+                    <a href="https://easings.net/" target="_blank" class="resource-link">Easing Functions Cheatsheet
+                        <span class="resource-tag">Reference</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- C. MOTION BLUR -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Motion Blur & Shutter</h2>
-            </div>
-            <p>The 180° rule extended to animation.</p>
+            <!-- C. MOTION BLUR -->
+            <div class="section-divider fade-up">C · Motion Blur & Shutter</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The 180° rule extended to animation.</p>
 
-            <div class="skill skill-motion-blur">
-                <h3 data-text="180° Shutter in Motion Graphics">180° Shutter in Motion Graphics</h3>
-                <div class="shutter-demo">
-                    <span class="shutter-sharp">SHARP →</span>
-                    <span class="shutter-blur">BLURRED →</span>
-                    <span style="filter: blur(3px); opacity: 0.3;">MUSHY</span>
+            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
+                <h3>180° Shutter in Motion Graphics</h3>
+                <div
+                    style="display:flex;align-items:center;gap:.5rem;margin:.5rem 0;font-family:monospace;font-size:.65rem;color:#52525b">
+                    <span style="opacity:1">SHARP →</span>
+                    <span style="filter:blur(1.5px);opacity:.6">BLURRED →</span>
+                    <span style="filter:blur(3px);opacity:.3">MUSHY</span>
                 </div>
-                <p class="desc">
-                    Standard film shutter = 180°. This creates natural motion blur.
-                    In After Effects, this means matching blur amount to frame rate.
-                    Too much blur = mushy. Too little = stroboscopic.
-                </p>
-                <div class="resources">
+                <p>Standard film shutter = 180°. This creates natural motion blur. In After Effects, this means matching
+                    blur amount to frame rate. Too much blur = mushy. Too little = stroboscopic.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=w1nTmfZQN9Q" target="_blank">Motion Blur in After
-                                Effects</a><span class="tag">12 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=3GJUM6pCpew" target="_blank">Frame Rate & Shutter
-                                Speed</a><span class="tag">8 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=w1nTmfZQN9Q" target="_blank" class="resource-link">Motion
+                        Blur in After Effects <span class="resource-tag">12 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=3GJUM6pCpew" target="_blank" class="resource-link">Frame
+                        Rate & Shutter Speed <span class="resource-tag">8 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- D. SECONDARY ACTION -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
-                <h2>Secondary Animation</h2>
-            </div>
-            <p>The details that sell reality. Life leakage.</p>
+            <!-- D. SECONDARY ACTION -->
+            <div class="section-divider fade-up">D · Secondary Animation</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The details that sell reality. Life leakage.</p>
 
-            <div class="skill skill-follow-through">
+            <div class="skill-card fade-up" style="border-left:3px solid #22c55e">
                 <h3>Follow Through & Overlap</h3>
                 <div class="overlap-demo">
-                    <div class="overlap-block ob-1"></div>
-                    <div class="overlap-block ob-2"></div>
-                    <div class="overlap-block ob-3"></div>
-                    <div class="overlap-block ob-4"></div>
-                    <div class="overlap-block ob-5"></div>
+                    <div class="overlap-block" style="height:30px;animation-delay:0s"></div>
+                    <div class="overlap-block" style="height:24px;animation-delay:.15s"></div>
+                    <div class="overlap-block" style="height:18px;animation-delay:.3s"></div>
+                    <div class="overlap-block" style="height:14px;animation-delay:.5s"></div>
+                    <div class="overlap-block" style="height:10px;animation-delay:.7s"></div>
                 </div>
-                <p class="desc">
-                    When a body stops, its parts don't stop simultaneously. Hair keeps moving. Clothes settle.
-                    Earrings swing. This is the difference between animation and motion graphics.
-                </p>
-                <div class="resources">
+                <div style="font-family:monospace;font-size:.55rem;color:#22c55e;opacity:.4;margin-bottom:.3rem">↑ watch
+                    them settle with delay</div>
+                <p>When a body stops, its parts don't stop simultaneously. Hair keeps moving. Clothes settle. Earrings
+                    swing. This is the difference between animation and motion graphics.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=4OxphYV8W3E" target="_blank">Secondary Action
-                                Explained</a><span class="tag">8 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=4W4F6fW4P3c" target="_blank">Adding Life to Motion
-                                Design</a><span class="tag">15 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=4OxphYV8W3E" target="_blank"
+                        class="resource-link">Secondary Action Explained <span class="resource-tag">8 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=4W4F6fW4P3c" target="_blank" class="resource-link">Adding
+                        Life to Motion Design <span class="resource-tag">15 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- E. PARALLAX -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
-                <h2>Parallax & Depth</h2>
-            </div>
-            <p>2.5D space. The illusion of three dimensions in two.</p>
+            <!-- E. PARALLAX -->
+            <div class="section-divider fade-up">E · Parallax & Depth</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">2.5D space. The illusion of three dimensions in two.
+            </p>
 
-            <div class="skill skill-parallax">
+            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
                 <h3>Multiplane Camera</h3>
                 <div class="parallax-demo">
-                    <div class="px-layer px-bg"></div>
-                    <div class="px-layer px-mid"></div>
-                    <div class="px-layer px-fg"></div>
+                    <div class="px-layer"
+                        style="background:linear-gradient(90deg,rgba(8,145,178,.05) 0%,rgba(8,145,178,.08) 100%);animation:parallax-bg 6s ease-in-out infinite alternate">
+                    </div>
+                    <div class="px-layer"
+                        style="background:linear-gradient(90deg,transparent 20%,rgba(8,145,178,.08) 50%,transparent 80%);animation:parallax-mid 6s ease-in-out infinite alternate">
+                    </div>
+                    <div class="px-layer"
+                        style="background:linear-gradient(90deg,transparent 40%,rgba(8,145,178,.12) 60%,transparent 90%);animation:parallax-fg 6s ease-in-out infinite alternate">
+                    </div>
                 </div>
-                <div class="px-labels">
-                    <span>background (slow)</span>
-                    <span>midground</span>
-                    <span>foreground (fast)</span>
-                </div>
-                <p class="desc">
-                    Disney invented the multiplane camera in 1937. Layers move at different speeds = depth.
-                    Foreground moves fast, background moves slow. This is now standard in every motion toolkit.
-                </p>
-                <div class="resources">
+                <div class="px-labels"><span>background (slow)</span><span>midground</span><span>foreground
+                        (fast)</span></div>
+                <p>Disney invented the multiplane camera in 1937. Layers move at different speeds = depth. Foreground
+                    moves fast, background moves slow. This is now standard in every motion toolkit.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank">Disney Multiplane
-                                Camera</a><span class="tag">History</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=qPdV8wRPgRg" target="_blank">Parallax in After
-                                Effects</a><span class="tag">Tutorial</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank" class="resource-link">Disney
+                        Multiplane Camera <span class="resource-tag">History</span></a>
+                    <a href="https://www.youtube.com/watch?v=qPdV8wRPgRg" target="_blank" class="resource-link">Parallax
+                        in After Effects <span class="resource-tag">Tutorial</span></a>
                 </div>
+            </div>
+
+            <!-- UNCONVENTIONAL -->
+            <div class="skill-card fade-up"
+                style="margin-top:2rem;background:linear-gradient(135deg,rgba(234,88,12,.04),rgba(139,92,246,.03))">
+                <h3>🧠 Unconventional Learning</h3>
+                <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0" target="_blank" class="resource-link">School of
+                    Motion: Manifesto <span class="resource-tag">15 min</span></a>
+                <a href="https://www.youtube.com/watch?v=P0P7LqMCgmY" target="_blank" class="resource-link">Beeple's
+                    Daily Renders <span class="resource-tag">Process</span></a>
+                <a href="https://www.youtube.com/watch?v=FVQgd1CLeEU" target="_blank" class="resource-link">Why Anime
+                    Feels Different <span class="resource-tag">Analysis</span></a>
+                <a href="https://www.youtube.com/c/BenMarriott" target="_blank" class="resource-link">Ben Marriott
+                    Channel <span class="resource-tag">Motion Design</span></a>
+                <a href="https://www.youtube.com/watch?v=hZIOADaemvA" target="_blank" class="resource-link">GMUNK:
+                    Process <span class="resource-tag">Pro Interview</span></a>
             </div>
         </div>
 
-        <!-- UNCONVENTIONAL -->
-        <div class="subgroup" style="background: #f8f8f8; padding: 2rem; border-radius: 8px; border: none;">
-            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">🧠 Unconventional Learning</h2>
-            <ul class="resources" style="background: white;">
-                <li><a href="https://www.youtube.com/watch?v=0fKBhvDjuy0" target="_blank">School of Motion:
-                        Manifesto</a><span class="tag">15 min</span></li>
-                <li><a href="https://www.youtube.com/watch?v=P0P7LqMCgmY" target="_blank">Beeple's Daily
-                        Renders</a><span class="tag">Process</span></li>
-                <li><a href="https://www.youtube.com/watch?v=FVQgd1CLeEU" target="_blank">Why Anime Feels
-                        Different</a><span class="tag">Analysis</span></li>
-                <li><a href="https://www.youtube.com/c/BenMarriott" target="_blank">Ben Marriott Channel</a><span
-                        class="tag">Motion Design</span></li>
-                <li><a href="https://www.youtube.com/watch?v=hZIOADaemvA" target="_blank">GMUNK: Process</a><span
-                        class="tag">Pro Interview</span></li>
-            </ul>
-        </div>
-
-    </main>
-    <footer>
-        <p><a href="editing.html">← Editing</a> | <a href="index.html">Back to Overview</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="editing.html" class="hover:underline" style="color:#71717a">←
+                        Editing</a><a href="index.html" class="hover:underline" style="color:#71717a">Back to
+                        Overview</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

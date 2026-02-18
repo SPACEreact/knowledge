@@ -1,242 +1,406 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story & Emotion | Visual Storytelling Study Guide</title>
+    <title>Story × Emotion — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="The layer that separates polished work from work that makes you feel something. Emotional architecture, pressure, tension, and visual metaphor.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: var(--story-emotion);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .skill-card strong {
+            color: #d4d4d8
         }
 
         .warning-block {
-            background: #fef2f2;
-            border: 1px solid #fca5a5;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 2rem 0;
-        }
-
-        [data-theme="dark"] .warning-block {
-            background: #3d2424;
-            border-color: #7f4040;
+            background: rgba(239, 68, 68, .06);
+            border: 1px solid rgba(239, 68, 68, .2);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: .85rem;
+            color: #fca5a5;
+            line-height: 1.7
         }
 
         .warning-block strong {
-            color: #b91c1c;
-        }
-
-        [data-theme="dark"] .warning-block strong {
-            color: #fca5a5;
+            color: #fca5a5
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>🧠 Story & Emotion</h1>
-            <p class="question">Most people skip this section and fail. Don't be most people.</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link active"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            This is the layer that separates work that <em>looks</em> good from work that <strong>makes you feel
-                something</strong>.
-            Every technique in filmmaking, motion graphics, and AI generation is ultimately in service of emotion.
-            If you skip emotional architecture, your work will always feel hollow — no matter how polished.
-        </p>
-
-        <div class="warning-block">
-            <strong>⚠️ Why people fail:</strong> They learn camera, lighting, editing, and color — then wonder why
-            their film feels empty. The answer is always the same: they never learned how to construct emotional truth.
-            Technique without emotion is decoration.
-        </div>
-
-        <!-- A. EMOTIONAL ARCHITECTURE -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>Emotional Architecture</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 50% 30%,rgba(236,72,153,.06) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#ec4899;letter-spacing:.2em">Advanced System</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Story × Emotion</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">Most people skip this section and fail. Don't
+                        be most people.</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">This is the layer that
+                        separates work that <em>looks</em> good from work that <strong style="color:#d4d4d8">makes you
+                            feel something</strong>. Every technique in filmmaking, motion graphics, and AI generation
+                        is ultimately in service of emotion. If you skip emotional architecture, your work will always
+                        feel hollow — no matter how polished.</p>
+                </div>
             </div>
-            <p>The structural engineering of feeling. How stories create, sustain, and release emotional pressure.</p>
+        </header>
 
-            <div class="skill">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <div class="warning-block fade-up">
+                <strong>⚠️ Why people fail:</strong> They learn camera, lighting, editing, and color — then wonder why
+                their film feels empty. The answer is always the same: they never learned how to construct emotional
+                truth. Technique without emotion is decoration.
+            </div>
+
+            <!-- A. EMOTIONAL ARCHITECTURE -->
+            <div class="section-divider fade-up">A · Emotional Architecture</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The structural engineering of feeling. How stories
+                create, sustain, and release emotional pressure.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #ec4899">
                 <h3>Emotional Arc</h3>
-                <p class="desc">
-                    An emotional arc is the <strong>trajectory of feeling</strong> across a story — for the character
+                <p>An emotional arc is the <strong>trajectory of feeling</strong> across a story — for the character
                     and, more importantly, for the audience. It's not a plot arc (what happens) but a feeling arc (how
                     it feels). A great emotional arc moves through distinct phases: comfort → disruption → struggle →
                     transformation → resolution. But the key insight is that the arc must have <strong>variance</strong>
                     — ups and downs, tension and release. A story that stays at one emotional intensity is monotone. Joy
-                    needs to follow despair for either to land. The audience needs to breathe between emotional peaks —
-                    otherwise they go numb.
-                </p>
-                <p class="desc" style="margin-top: 1rem;">
-                    <strong>Practical application:</strong> Before you edit, write down the emotional arc of your piece
-                    in one sentence: "The audience should go from curious → anxious → devastated → quietly hopeful."
-                    This sentence becomes your editing compass — every cut, hold, music choice, and pacing decision
-                    serves this trajectory.
-                </p>
+                    needs to follow despair for either to land.</p>
+                <p style="margin-top:.75rem"><strong>Practical application:</strong> Before you edit, write down the
+                    emotional arc of your piece in one sentence: "The audience should go from curious → anxious →
+                    devastated → quietly hopeful." This sentence becomes your editing compass — every cut, hold, music
+                    choice, and pacing decision serves this trajectory.</p>
             </div>
 
-            <div class="skill">
+            <div class="skill-card fade-up">
                 <h3>Internal Conflict Visualized</h3>
-                <p class="desc">
-                    The hardest challenge in visual storytelling: how do you show what a character feels <em>inside</em>
+                <p>The hardest challenge in visual storytelling: how do you show what a character feels <em>inside</em>
                     without dialogue? Internal conflict must be <strong>externalized through behavior, environment, and
                         visual metaphor</strong>. A character struggling with guilt might obsessively clean (external
                     behavior reflecting internal state). A room that progressively darkens as a conversation turns
                     difficult (environment as emotion). A mirror that shows a different expression than the character's
                     face (the self divided). The tools: body language, spatial positioning, lighting shifts, weather,
-                    objects, and most powerfully — the held close-up where the audience reads micro-expressions.
-                </p>
+                    objects, and most powerfully — the held close-up where the audience reads micro-expressions.</p>
             </div>
 
-            <div class="skill">
-                <h3>Show Don't Tell (Advanced Examples)</h3>
-                <p class="desc">
-                    Everyone knows "show don't tell" — but most people understand it superficially. The advanced version
+            <div class="skill-card fade-up" style="border-left:3px solid #8b5cf6">
+                <h3>Show Don't Tell (Advanced)</h3>
+                <p>Everyone knows "show don't tell" — but most people understand it superficially. The advanced version
                     isn't just "show actions instead of stating feelings." It's about <strong>trusting the audience to
-                        decode meaning without direct statement</strong>. Advanced examples:<br><br>
-                    <strong>❌ Basic:</strong> A character says "I'm lonely."<br>
-                    <strong>✅ Intermediate:</strong> A character eats dinner alone. (Visual but obvious.)<br>
-                    <strong>✅✅ Advanced:</strong> A character sets two plates on a table, pauses, then silently puts one
-                    back. (The absence tells the story. The action of setting two plates reveals habit — they're used to
-                    company. Putting one back reveals loss. The silence lets the audience fill in the grief.)<br><br>
-                    The most powerful version of "show don't tell" is <strong>show then withhold</strong> — give the
+                        decode meaning without direct statement</strong>.</p>
+                <div style="margin:.75rem 0;font-size:.85rem;line-height:2">
+                    <div style="color:#71717a"><strong style="color:#ef4444">❌ Basic:</strong> A character says "I'm
+                        lonely."</div>
+                    <div style="color:#a1a1aa"><strong style="color:#22c55e">✅ Intermediate:</strong> A character eats
+                        dinner alone. (Visual but obvious.)</div>
+                    <div style="color:#d4d4d8"><strong style="color:#22c55e">✅✅ Advanced:</strong> A character sets two
+                        plates on a table, pauses, then silently puts one back. (The absence tells the story.)</div>
+                </div>
+                <p>The most powerful version of "show don't tell" is <strong>show then withhold</strong> — give the
                     audience just enough information to construct the emotion themselves. What they imagine is always
-                    more powerful than what you show them.
-                </p>
+                    more powerful than what you show them.</p>
             </div>
-        </div>
 
-        <!-- B. PRESSURE & TENSION -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>Pressure & Tension</h2>
-            </div>
-            <p>Every great scene has a force pressing down. Learn the types of pressure and you'll know how to create
-                tension anywhere.</p>
+            <!-- B. PRESSURE & TENSION -->
+            <div class="section-divider fade-up">B · Pressure & Tension</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Every great scene has a force pressing down. Learn the
+                types of pressure and you'll know how to create tension anywhere.</p>
 
-            <div class="skill">
+            <div class="skill-card fade-up" style="border-left:3px solid #ef4444">
                 <h3>Time Pressure in Scenes</h3>
-                <p class="desc">
-                    Time pressure is the simplest and most effective form of dramatic tension: <strong>something must
+                <p>Time pressure is the simplest and most effective form of dramatic tension: <strong>something must
                         happen before a deadline</strong>. The bomb is ticking. The sun is setting. The bus is leaving.
-                    The exam starts in five minutes. Time pressure works because the audience's brain automatically
-                    starts a countdown. Every moment that passes without resolution increases anxiety. Hitchcock called
-                    the bomb under the table the purest form of suspense — the audience knows it's there, the characters
-                    don't, and the clock is ticking. In editing, you create time pressure through cross-cutting
-                    (parallel action), increasing cut speed, removing pauses, and using rhythmic sound design.
-                </p>
+                    Time pressure works because the audience's brain automatically starts a countdown. Every moment that
+                    passes without resolution increases anxiety. Hitchcock called the bomb under the table the purest
+                    form of suspense — the audience knows it's there, the characters don't, and the clock is ticking. In
+                    editing, you create time pressure through cross-cutting (parallel action), increasing cut speed,
+                    removing pauses, and using rhythmic sound design.</p>
             </div>
 
-            <div class="skill">
+            <div class="skill-card fade-up">
                 <h3>Spatial Pressure in Scenes</h3>
-                <p class="desc">
-                    Space itself can create emotional pressure. <strong>Confined spaces</strong> (closets, elevators,
+                <p>Space itself can create emotional pressure. <strong>Confined spaces</strong> (closets, elevators,
                     interrogation rooms, submarines) create claustrophobia and force character confrontation — there's
                     literally no escape. <strong>Vast empty spaces</strong> (deserts, empty fields, abandoned buildings)
                     create existential dread — there's nowhere to hide. <strong>Shrinking spaces</strong> — where the
-                    environment progressively closes in — create escalating panic. The walls are closing in, literally
-                    or figuratively. Spatial pressure is achieved through framing (tighter shots = more pressure),
-                    production design (smaller rooms), lens choice (wide lenses distort and exaggerate proximity), and
-                    blocking (characters physically closer than comfortable).
-                </p>
+                    environment progressively closes in — create escalating panic. Spatial pressure is achieved through
+                    framing (tighter shots = more pressure), production design (smaller rooms), lens choice (wide lenses
+                    distort and exaggerate proximity), and blocking (characters physically closer than comfortable).</p>
             </div>
 
-            <div class="skill">
-                <h3>Presence vs Absence in Film</h3>
-                <p class="desc">
-                    One of cinema's most powerful but least understood tools: the emotional weight of what is
-                    <strong>not there</strong>. An empty chair at a dinner table. A room full of someone's belongings
-                    but no one home. A photo frame turned face-down. Absence makes the audience do the emotional work —
-                    they imagine who should be there, why they're gone, what happened. This is more powerful than
-                    showing the event itself because the audience's imagination personalizes the grief. In horror: the
-                    monster you never see is scarier than the one you do. In drama: the conversation that never happens
-                    is more devastating than the fight that does.
-                </p>
+            <div class="skill-card fade-up" style="padding:2rem;text-align:center;border:1px solid #27272a">
+                <h3
+                    style="font-weight:300;letter-spacing:.15em;text-transform:uppercase;font-size:.82rem;color:#52525b;margin-bottom:1.5rem">
+                    Presence vs Absence</h3>
+                <p style="max-width:75%;margin:0 auto">One of cinema's most powerful but least understood tools: the
+                    emotional weight of what is <strong>not there</strong>. An empty chair at a dinner table. A room
+                    full of someone's belongings but no one home. A photo frame turned face-down. Absence makes the
+                    audience do the emotional work — they imagine who should be there, why they're gone, what happened.
+                    This is more powerful than showing the event itself because the audience's imagination personalizes
+                    the grief. In horror: the monster you never see is scarier than the one you do. In drama: the
+                    conversation that never happens is more devastating than the fight that does.</p>
             </div>
-        </div>
 
-        <!-- C. VISUAL METAPHOR -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Visual Metaphor & Symbolism</h2>
-            </div>
-            <p>The poetic layer of visual storytelling. Where images say what words cannot.</p>
+            <!-- C. VISUAL METAPHOR -->
+            <div class="section-divider fade-up">C · Visual Metaphor & Symbolism</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The poetic layer of visual storytelling. Where images
+                say what words cannot.</p>
 
-            <div class="skill">
+            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
                 <h3>Visual Metaphor (Non-Literal)</h3>
-                <p class="desc">
-                    A visual metaphor uses an image to represent something beyond its literal meaning. It's not about
+                <p>A visual metaphor uses an image to represent something beyond its literal meaning. It's not about
                     being "deep" — it's about <strong>efficient emotional communication</strong>. A cage doesn't always
                     mean a cage — it might represent a marriage, a routine, a belief system. Rain doesn't always mean
                     rain — it might represent grief, cleansing, or renewal. The key is that the metaphor must feel
                     <em>organic</em>, not imposed. If you have to explain it, it failed. If the audience feels it before
-                    they can articulate it, it worked.<br><br>
-                    <strong>Examples:</strong> In <em>The Shawshank Redemption</em>, rain during Andy's escape = freedom
-                    and purification. In <em>Parasite</em>, the stairs represent social hierarchy. In <em>Blade Runner
-                        2049</em>, the barren landscapes reflect the protagonist's emotional emptiness. The metaphor
-                    doesn't announce itself — it accumulates meaning through repetition and context.
-                </p>
+                    they can articulate it, it worked.</p>
+                <p style="margin-top:.5rem"><strong>Examples:</strong> In <em>The Shawshank Redemption</em>, rain during
+                    Andy's escape = freedom and purification. In <em>Parasite</em>, the stairs represent social
+                    hierarchy. In <em>Blade Runner 2049</em>, the barren landscapes reflect the protagonist's emotional
+                    emptiness.</p>
             </div>
 
-            <div class="skill">
+            <div class="skill-card fade-up">
                 <h3>Symbolism vs Obvious Imagery</h3>
-                <p class="desc">
-                    <strong>Symbolism</strong> is subtle — it reveals itself over time and rewards careful viewing. A
+                <p><strong>Symbolism</strong> is subtle — it reveals itself over time and rewards careful viewing. A
                     recurring color, object, or composition that gains meaning through repetition and context. The
-                    audience <em>discovers</em> it.<br>
-                    <strong>Obvious imagery</strong> is blunt — a character walking through a door labeled "NEW LIFE" or
-                    a dove flying away to represent "freedom." The audience doesn't discover; they're told.<br><br>
-                    The difference: symbolism trusts the audience. Obvious imagery talks down to them. The goal is
-                    imagery where the meaning is available to those paying attention but doesn't interrupt the narrative
-                    for those who aren't. A candle that burns lower as an argument intensifies (subtle). A character
-                    literally drowning to represent "feeling overwhelmed" (obvious). Symbolism is a whisper. Obvious
-                    imagery is a sign on the wall.
-                </p>
+                    audience <em>discovers</em> it.</p>
+                <p style="margin-top:.5rem"><strong>Obvious imagery</strong> is blunt — a character walking through a
+                    door labeled "NEW LIFE" or a dove flying away to represent "freedom." The audience doesn't discover;
+                    they're told.</p>
+                <p style="margin-top:.5rem">The difference: symbolism trusts the audience. Obvious imagery talks down to
+                    them. A candle that burns lower as an argument intensifies (subtle). A character literally drowning
+                    to represent "feeling overwhelmed" (obvious). Symbolism is a whisper. Obvious imagery is a sign on
+                    the wall.</p>
             </div>
         </div>
 
-    </main>
-    <footer>
-        <p><a href="editing-rhythm.html">← Editing & Rhythm</a> | <a href="index.html">Overview</a> | <a
-                href="mograph-keywords.html">Motion Graphics →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+                        Back to Overview</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

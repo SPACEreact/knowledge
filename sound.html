@@ -1,555 +1,572 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound | Visual Storytelling Study Guide</title>
+    <title>Sound — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="The invisible reality glue. Production sound, room tone, foley, sound design logic, and mixing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: var(--sound);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
         }
 
-        /* ═══════════════════════════════════════════
-           CLEAN CAPTURE — pristine, no noise, crystal
-           ═══════════════════════════════════════════ */
-        .skill-clean-capture {
-            border-left: 3px solid var(--sound);
-            background: var(--surface);
-            border-radius: 0 8px 8px 0;
-            padding: 1.5rem !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        html {
+            scroll-behavior: smooth
         }
 
-        .skill-clean-capture h3 {
-            letter-spacing: 0.04em;
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
         }
 
-        .skill-clean-capture .desc {
-            font-weight: 300;
-        }
-
-        .skill-clean-capture::after {
-            content: '■ S/N: ∞';
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--sound);
-            opacity: 0.4;
-            display: block;
-            text-align: right;
-            margin-top: 0.4rem;
-        }
-
-        /* ═══════════════════════════════════════════
-           ROOM TONE — subtle noise texture, silence
-           ═══════════════════════════════════════════ */
-        .skill-room-tone {
-            position: relative;
-            border-left-color: #94a3b8;
-        }
-
-        .skill-room-tone::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            border-radius: 4px;
-        }
-
-        .skill-room-tone h3 {
-            color: var(--text-3);
-            font-weight: 400;
-        }
-
-        .skill-room-tone .desc {
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        /* ═══════════════════════════════════════════
-           LAYERING — stacked translucent shadows
-           ═══════════════════════════════════════════ */
-        .skill-layering {
-            border-left-color: var(--sound);
-            position: relative;
-        }
-
-        .skill-layering .layer-demo {
-            display: flex;
-            gap: 0;
-            margin: 0.75rem 0;
-            height: 28px;
-            position: relative;
-        }
-
-        .skill-layering .layer {
-            position: absolute;
-            height: 100%;
-            border-radius: 4px;
-        }
-
-        .skill-layering .layer-1 {
+        .sidebar {
+            position: fixed;
+            top: 0;
             left: 0;
-            right: 40%;
-            background: rgba(8, 145, 178, 0.10);
-            z-index: 1;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
         }
 
-        .skill-layering .layer-2 {
-            left: 10%;
-            right: 30%;
-            background: rgba(8, 145, 178, 0.12);
-            z-index: 2;
+        .sidebar.open {
+            transform: translateX(0)
         }
 
-        .skill-layering .layer-3 {
-            left: 20%;
-            right: 20%;
-            background: rgba(8, 145, 178, 0.14);
-            z-index: 3;
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
         }
 
-        .skill-layering .layer-4 {
-            left: 30%;
-            right: 10%;
-            background: rgba(8, 145, 178, 0.16);
-            z-index: 4;
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
         }
 
-        .skill-layering .layer-5 {
-            left: 40%;
-            right: 0;
-            background: rgba(8, 145, 178, 0.18);
-            z-index: 5;
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
         }
 
-        .skill-layering .layer-labels {
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .skill-card strong {
+            color: #d4d4d8
+        }
+
+        .resources-group {
+            margin-top: .75rem;
+            border-top: 1px solid rgba(39, 39, 42, .5);
+            padding-top: .75rem
+        }
+
+        .resources-group h4 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #52525b;
+            margin-bottom: .4rem
+        }
+
+        .resource-link {
             display: flex;
             justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-3);
-            margin-top: 2px;
+            align-items: center;
+            padding: .35rem .6rem;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 5px;
+            margin-bottom: .3rem;
+            text-decoration: none;
+            font-size: .78rem;
+            color: #a1a1aa;
+            transition: all .2s
         }
 
-        /* ═══════════════════════════════════════════
-           SWEETENING — enhancement glow
-           ═══════════════════════════════════════════ */
-        .skill-sweetening {
-            border-left-color: #f59e0b;
-            position: relative;
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
         }
 
-        .skill-sweetening::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 6px;
-            background: transparent;
-            box-shadow:
-                0 0 0 1px rgba(245, 158, 11, 0.08),
-                0 0 8px rgba(245, 158, 11, 0.06),
-                0 0 20px rgba(245, 158, 11, 0.03);
-            pointer-events: none;
-        }
-
-        .skill-sweetening h3::after {
-            content: ' ✦';
-            font-size: 0.7rem;
-            color: #f59e0b;
-            opacity: 0.5;
-        }
-
-        /* ═══════════════════════════════════════════
-           DIEGETIC VS NON-DIEGETIC — split reality
-           ═══════════════════════════════════════════ */
-        .skill-diegetic {
-            border-left-color: transparent;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            padding-left: 0 !important;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-diegetic h3,
-        .skill-diegetic .resources {
-            grid-column: 1 / -1;
-        }
-
-        .skill-diegetic h3 {
-            padding-left: 1rem;
-        }
-
-        .skill-diegetic .resources {
-            padding: 0 1rem;
-        }
-
-        .skill-diegetic .side-diegetic {
-            padding: 0.75rem 1rem;
-            background: var(--surface);
-            border-right: 1px dashed var(--border);
-        }
-
-        .skill-diegetic .side-non-diegetic {
-            padding: 0.75rem 1rem;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.04) 0%, rgba(147, 51, 234, 0.08) 100%);
-            font-style: italic;
-        }
-
-        .skill-diegetic .side-label {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
+        .resource-tag {
+            font-size: .55rem;
+            font-weight: 600;
+            letter-spacing: .06em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-3);
-            margin-bottom: 0.3rem;
+            color: #52525b;
+            padding: .1rem .35rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
         }
 
-        .skill-diegetic .side-text {
-            font-size: 0.88rem;
-            color: var(--text-2);
-        }
-
-        /* ═══════════════════════════════════════════
-           SILENCE AS TOOL — sparse, stark, minimal
-           ═══════════════════════════════════════════ */
-        .skill-silence {
-            border-left: 1px solid var(--border);
-            padding: 3rem 2rem !important;
-            text-align: center;
-            min-height: 120px;
-        }
-
-        .skill-silence h3 {
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            font-size: 0.8rem !important;
-            color: var(--text-3);
-            margin-bottom: 2rem !important;
-        }
-
-        .skill-silence .desc {
-            max-width: 70%;
-            margin: 0 auto 2rem auto;
-            font-size: 0.9rem;
-        }
-
-        /* ═══════════════════════════════════════════
-           EQ / COMPRESSION — waveform pattern
-           ═══════════════════════════════════════════ */
-        .skill-eq {
-            border-left-color: var(--sound);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-eq .wave-demo {
+        .wave-demo {
             display: flex;
             align-items: center;
             gap: 2px;
             height: 24px;
-            margin: 0.75rem 0;
+            margin: .75rem 0
         }
 
-        .skill-eq .wave-bar {
+        .wave-bar {
             flex: 1;
-            background: var(--sound);
+            background: #0891b2;
             border-radius: 1px;
-            opacity: 0.25;
-            min-width: 3px;
+            opacity: .25;
+            min-width: 3px
+        }
+
+        .layer-demo {
+            position: relative;
+            height: 28px;
+            margin: .75rem 0
+        }
+
+        .layer {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px
+        }
+
+        .layer-labels {
+            display: flex;
+            justify-content: space-between;
+            font-family: monospace;
+            font-size: .55rem;
+            color: #52525b;
+            margin-top: 2px
+        }
+
+        .diegetic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: .75rem 0
+        }
+
+        .side-diegetic,
+        .side-non-diegetic {
+            padding: .75rem 1rem
+        }
+
+        .side-diegetic {
+            background: rgba(0, 0, 0, .15);
+            border-right: 1px dashed #27272a
+        }
+
+        .side-non-diegetic {
+            background: rgba(139, 92, 246, .04);
+            font-style: italic
+        }
+
+        .side-label {
+            font-family: monospace;
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: #52525b;
+            margin-bottom: .2rem
+        }
+
+        .side-text {
+            font-size: .82rem;
+            color: #a1a1aa
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>03 · Sound</h1>
-            <p class="question">"Would this feel real with eyes closed?"</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link active"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            Sound is the <strong>invisible reality glue</strong>. Half of filmmaking is audio, yet beginners
-            spend 90% on visuals. Bad sound destroys great footage. Good sound saves mediocre footage.
-            Close your eyes — that's where truth lives.
-        </p>
-
-        <!-- A. PRODUCTION SOUND -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>Production Sound</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 50% 40%,rgba(8,145,178,.08) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#0891b2;letter-spacing:.2em">Domain 03</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Sound</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"Would this feel real with eyes closed?"</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Sound is the <strong
+                            style="color:#d4d4d8">invisible reality glue</strong>. Half of filmmaking is audio, yet
+                        beginners spend 90% on visuals. Bad sound destroys great footage. Good sound saves mediocre
+                        footage. Close your eyes — that's where truth lives.</p>
+                </div>
             </div>
-            <p>What you capture on set. The foundation everything is built on.</p>
+        </header>
 
-            <div class="skill skill-clean-capture">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- A. PRODUCTION SOUND -->
+            <div class="section-divider fade-up">A · Production Sound</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">What you capture on set. The foundation everything is
+                built on.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
                 <h3>Clean Capture</h3>
-                <p class="desc">
-                    ADR (re-recording in studio) is expensive and never sounds as real. Capture it right on set.
-                    Lavaliers for reliability, boom for naturalism. Signal-to-noise ratio is everything.
-                </p>
-                <div class="resources">
+                <p>ADR (re-recording in studio) is expensive and never sounds as real. Capture it right on set.
+                    Lavaliers for reliability, boom for naturalism. Signal-to-noise ratio is everything.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=4t3vvvLgNcQ" target="_blank">Curtis Judd: Location
-                                Sound Complete Guide</a><span class="tag">35 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=sdFIcPMIbF8" target="_blank">Deity Microphones:
-                                Boom Technique</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=b0djDYNxhJk" target="_blank">Film Riot: Audio on a
-                                Budget</a><span class="tag">12 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=4t3vvvLgNcQ" target="_blank" class="resource-link">Curtis
+                        Judd: Location Sound Complete Guide <span class="resource-tag">35 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=sdFIcPMIbF8" target="_blank" class="resource-link">Deity
+                        Microphones: Boom Technique <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=b0djDYNxhJk" target="_blank" class="resource-link">Film
+                        Riot: Audio on a Budget <span class="resource-tag">12 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- B. ROOM TONE -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>Room Tone & Ambience</h2>
-            </div>
-            <p>The sound of silence. Every room has a voice.</p>
+            <!-- B. ROOM TONE -->
+            <div class="section-divider fade-up">B · Room Tone & Ambience</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The sound of silence. Every room has a voice.</p>
 
-            <div class="skill skill-room-tone">
-                <h3>Capturing Room Tone</h3>
-                <p class="desc">
-                    30-60 seconds of "silence" in every location. Used to patch edits, create continuity.
-                    Without it, cuts sound like cuts. With it, cuts are invisible.
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up">
+                <h3 style="font-weight:400;color:#71717a">Capturing Room Tone</h3>
+                <p style="font-style:italic;opacity:.85">30-60 seconds of "silence" in every location. Used to patch
+                    edits, create continuity. Without it, cuts sound like cuts. With it, cuts are invisible.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=Ot2-2bWQZNA" target="_blank">Why Room Tone
-                                Matters</a><span class="tag">8 min</span></li>
-                        <li><a href="https://freesound.org/" target="_blank">FreeSound: Royalty-Free Ambiences</a><span
-                                class="tag">Library</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=Ot2-2bWQZNA" target="_blank" class="resource-link">Why Room
+                        Tone Matters <span class="resource-tag">8 min</span></a>
+                    <a href="https://freesound.org/" target="_blank" class="resource-link">FreeSound: Royalty-Free
+                        Ambiences <span class="resource-tag">Library</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- C. FOLEY & SFX -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Foley & Sound Effects</h2>
-            </div>
-            <p>The art of lying with sound. Making the unreal feel tactile.</p>
+            <!-- C. FOLEY & SFX -->
+            <div class="section-divider fade-up">C · Foley & Sound Effects</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The art of lying with sound. Making the unreal feel
+                tactile.</p>
 
-            <div class="skill skill-layering">
+            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
                 <h3>Layering</h3>
                 <div class="layer-demo">
-                    <div class="layer layer-1"></div>
-                    <div class="layer layer-2"></div>
-                    <div class="layer layer-3"></div>
-                    <div class="layer layer-4"></div>
-                    <div class="layer layer-5"></div>
+                    <div class="layer" style="left:0;right:40%;background:rgba(8,145,178,.1);z-index:1"></div>
+                    <div class="layer" style="left:10%;right:30%;background:rgba(8,145,178,.12);z-index:2"></div>
+                    <div class="layer" style="left:20%;right:20%;background:rgba(8,145,178,.14);z-index:3"></div>
+                    <div class="layer" style="left:30%;right:10%;background:rgba(8,145,178,.16);z-index:4"></div>
+                    <div class="layer" style="left:40%;right:0;background:rgba(8,145,178,.18);z-index:5"></div>
                 </div>
                 <div class="layer-labels">
-                    <span>impact</span>
-                    <span>whoosh</span>
-                    <span>thud</span>
-                    <span>echo</span>
-                    <span>rattle</span>
-                </div>
-                <p class="desc">
-                    A punch isn't one sound — it's impact + whoosh + thud + echo + body reaction + room rattle.
-                    Reality is thin. Movies are thick. Build layers like an oil painting.
-                </p>
-                <div class="resources">
+                    <span>impact</span><span>whoosh</span><span>thud</span><span>echo</span><span>rattle</span></div>
+                <p>A punch isn't one sound — it's impact + whoosh + thud + echo + body reaction + room rattle. Reality
+                    is thin. Movies are thick. Build layers like an oil painting.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank">How Star Wars Sound
-                                Was Made</a><span class="tag">Ben Burtt</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=K93k_5rAYUM" target="_blank">Foley: Creating Sound
-                                Effects</a><span class="tag">Documentary</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=Y2qbqkn0WoI" target="_blank">Skywalker Sound: The
-                                Art of Foley</a><span class="tag">10 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank" class="resource-link">How Star
+                        Wars Sound Was Made <span class="resource-tag">Ben Burtt</span></a>
+                    <a href="https://www.youtube.com/watch?v=K93k_5rAYUM" target="_blank" class="resource-link">Foley:
+                        Creating Sound Effects <span class="resource-tag">Documentary</span></a>
+                    <a href="https://www.youtube.com/watch?v=Y2qbqkn0WoI" target="_blank"
+                        class="resource-link">Skywalker Sound: The Art of Foley <span class="resource-tag">10
+                            min</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-sweetening">
-                <h3>Sweetening</h3>
-                <p class="desc">
-                    Adding audio that wasn't there to enhance reality. Car doors get metal clanks.
-                    Kisses get louder. Footsteps get rhythm. The lie that makes truth believable.
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
+                <h3>Sweetening ✦</h3>
+                <p>Adding audio that wasn't there to enhance reality. Car doors get metal clanks. Kisses get louder.
+                    Footsteps get rhythm. The lie that makes truth believable.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=UozhOo0Dt4o" target="_blank">How A Quiet Place Uses
-                                Sound</a><span class="tag">Analysis</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=WUlE3i_La8s" target="_blank">John Wick Sound
-                                Design</a><span class="tag">15 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=UozhOo0Dt4o" target="_blank" class="resource-link">How A
+                        Quiet Place Uses Sound <span class="resource-tag">Analysis</span></a>
+                    <a href="https://www.youtube.com/watch?v=WUlE3i_La8s" target="_blank" class="resource-link">John
+                        Wick Sound Design <span class="resource-tag">15 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- D. SOUND DESIGN LOGIC -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
-                <h2>Sound Design Logic</h2>
-            </div>
-            <p>The philosophy of what you hear. Rules that guide emotional response.</p>
+            <!-- D. SOUND DESIGN LOGIC -->
+            <div class="section-divider fade-up">D · Sound Design Logic</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The philosophy of what you hear. Rules that guide
+                emotional response.</p>
 
-            <div class="skill skill-diegetic">
+            <div class="skill-card fade-up">
                 <h3>Diegetic vs Non-Diegetic</h3>
-                <div class="side-diegetic">
-                    <div class="side-label">Diegetic</div>
-                    <div class="side-text">Characters hear it: radio, dialogue, footsteps in the scene.</div>
+                <div class="diegetic-grid">
+                    <div class="side-diegetic">
+                        <div class="side-label">Diegetic</div>
+                        <div class="side-text">Characters hear it: radio, dialogue, footsteps in the scene.</div>
+                    </div>
+                    <div class="side-non-diegetic">
+                        <div class="side-label">Non-Diegetic</div>
+                        <div class="side-text">Only audience hears it: score, narrator, emotional underscoring.</div>
+                    </div>
                 </div>
-                <div class="side-non-diegetic">
-                    <div class="side-label">Non-Diegetic</div>
-                    <div class="side-text">Only audience hears it: score, narrator, emotional underscoring.</div>
-                </div>
-                <p class="desc" style="grid-column: 1 / -1; padding: 0.5rem 1rem 0;">
-                    Blurring this line creates surrealism — Tarantino's needle drops, Scorsese's anachronistic music.
-                </p>
-                <div class="resources">
+                <p>Blurring this line creates surrealism — Tarantino's needle drops, Scorsese's anachronistic music.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=4VmGfYzB4Bk" target="_blank">StudioBinder: Diegetic
-                                Sound</a><span class="tag">10 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=ES43vY3t7n4" target="_blank">Baby Driver: Music
-                                Integration</a><span class="tag">Analysis</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=4VmGfYzB4Bk" target="_blank"
+                        class="resource-link">StudioBinder: Diegetic Sound <span class="resource-tag">10 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=ES43vY3t7n4" target="_blank" class="resource-link">Baby
+                        Driver: Music Integration <span class="resource-tag">Analysis</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-silence">
-                <h3>Silence as Tool</h3>
-                <p class="desc">
-                    Silence isn't the absence of sound — it's the presence of dread. No Country for Old Men has almost
-                    no score.
-                    The silence is deafening. Contrast makes sound meaningful.
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up"
+                style="padding:2.5rem;text-align:center;min-height:120px;border:1px solid #27272a">
+                <h3
+                    style="font-weight:300;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;color:#52525b;margin-bottom:1.5rem">
+                    Silence as Tool</h3>
+                <p style="max-width:70%;margin:0 auto">Silence isn't the absence of sound — it's the presence of dread.
+                    No Country for Old Men has almost no score. The silence is deafening. Contrast makes sound
+                    meaningful.</p>
+                <div class="resources-group" style="max-width:70%;margin:.75rem auto 0">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=yvFJ7Uwth2g" target="_blank">No Country for Old
-                                Men: Sound Design</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=nL-x5CzXL_A" target="_blank">The Power of Silence
-                                in Film</a><span class="tag">12 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=yvFJ7Uwth2g" target="_blank" class="resource-link">No
+                        Country for Old Men: Sound Design <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=nL-x5CzXL_A" target="_blank" class="resource-link">The
+                        Power of Silence in Film <span class="resource-tag">12 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- E. MIXING -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
-                <h2>Mixing & Post</h2>
-            </div>
-            <p>Balancing the chaos. Making 100 tracks feel like one reality.</p>
+            <!-- E. MIXING -->
+            <div class="section-divider fade-up">E · Mixing & Post</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Balancing the chaos. Making 100 tracks feel like one
+                reality.</p>
 
-            <div class="skill skill-eq">
+            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
                 <h3>EQ, Compression, Dynamics</h3>
                 <div class="wave-demo">
-                    <div class="wave-bar" style="height: 20%"></div>
-                    <div class="wave-bar" style="height: 35%"></div>
-                    <div class="wave-bar" style="height: 60%"></div>
-                    <div class="wave-bar" style="height: 90%"></div>
-                    <div class="wave-bar" style="height: 100%"></div>
-                    <div class="wave-bar" style="height: 85%"></div>
-                    <div class="wave-bar" style="height: 95%"></div>
-                    <div class="wave-bar" style="height: 70%"></div>
-                    <div class="wave-bar" style="height: 100%"></div>
-                    <div class="wave-bar" style="height: 75%"></div>
-                    <div class="wave-bar" style="height: 55%"></div>
-                    <div class="wave-bar" style="height: 80%"></div>
-                    <div class="wave-bar" style="height: 100%"></div>
-                    <div class="wave-bar" style="height: 90%"></div>
-                    <div class="wave-bar" style="height: 65%"></div>
-                    <div class="wave-bar" style="height: 45%"></div>
-                    <div class="wave-bar" style="height: 70%"></div>
-                    <div class="wave-bar" style="height: 85%"></div>
-                    <div class="wave-bar" style="height: 50%"></div>
-                    <div class="wave-bar" style="height: 30%"></div>
-                    <div class="wave-bar" style="height: 60%"></div>
-                    <div class="wave-bar" style="height: 80%"></div>
-                    <div class="wave-bar" style="height: 95%"></div>
-                    <div class="wave-bar" style="height: 70%"></div>
-                    <div class="wave-bar" style="height: 40%"></div>
-                    <div class="wave-bar" style="height: 55%"></div>
-                    <div class="wave-bar" style="height: 75%"></div>
-                    <div class="wave-bar" style="height: 90%"></div>
-                    <div class="wave-bar" style="height: 60%"></div>
-                    <div class="wave-bar" style="height: 35%"></div>
+                    <div class="wave-bar" style="height:20%"></div>
+                    <div class="wave-bar" style="height:35%"></div>
+                    <div class="wave-bar" style="height:60%"></div>
+                    <div class="wave-bar" style="height:90%"></div>
+                    <div class="wave-bar" style="height:100%"></div>
+                    <div class="wave-bar" style="height:85%"></div>
+                    <div class="wave-bar" style="height:95%"></div>
+                    <div class="wave-bar" style="height:70%"></div>
+                    <div class="wave-bar" style="height:100%"></div>
+                    <div class="wave-bar" style="height:75%"></div>
+                    <div class="wave-bar" style="height:55%"></div>
+                    <div class="wave-bar" style="height:80%"></div>
+                    <div class="wave-bar" style="height:100%"></div>
+                    <div class="wave-bar" style="height:90%"></div>
+                    <div class="wave-bar" style="height:65%"></div>
+                    <div class="wave-bar" style="height:45%"></div>
+                    <div class="wave-bar" style="height:70%"></div>
+                    <div class="wave-bar" style="height:85%"></div>
+                    <div class="wave-bar" style="height:50%"></div>
+                    <div class="wave-bar" style="height:30%"></div>
+                    <div class="wave-bar" style="height:60%"></div>
+                    <div class="wave-bar" style="height:80%"></div>
+                    <div class="wave-bar" style="height:95%"></div>
+                    <div class="wave-bar" style="height:70%"></div>
+                    <div class="wave-bar" style="height:40%"></div>
+                    <div class="wave-bar" style="height:55%"></div>
+                    <div class="wave-bar" style="height:75%"></div>
+                    <div class="wave-bar" style="height:90%"></div>
+                    <div class="wave-bar" style="height:60%"></div>
+                    <div class="wave-bar" style="height:35%"></div>
                 </div>
-                <p class="desc">
-                    EQ removes mud, reveals clarity. Compression controls dynamic range.
-                    Limiting prevents clipping. These are invisible — you only notice when they're wrong.
-                </p>
-                <div class="resources">
+                <p>EQ removes mud, reveals clarity. Compression controls dynamic range. Limiting prevents clipping.
+                    These are invisible — you only notice when they're wrong.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=OEy2R-fT3gw" target="_blank">In The Mix: Complete
-                                EQ Guide</a><span class="tag">25 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=yi0J9JsRdI4" target="_blank">Dialogue Editing
-                                Tutorial</a><span class="tag">20 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=OEy2R-fT3gw" target="_blank" class="resource-link">In The
+                        Mix: Complete EQ Guide <span class="resource-tag">25 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=yi0J9JsRdI4" target="_blank" class="resource-link">Dialogue
+                        Editing Tutorial <span class="resource-tag">20 min</span></a>
                 </div>
+            </div>
+
+            <!-- UNCONVENTIONAL -->
+            <div class="skill-card fade-up"
+                style="margin-top:2rem;background:linear-gradient(135deg,rgba(8,145,178,.04),rgba(139,92,246,.03))">
+                <h3>🧠 Unconventional Learning</h3>
+                <a href="https://www.youtube.com/watch?v=Gc_tlXQlgtg" target="_blank" class="resource-link">Walter Murch
+                    on Sound <span class="resource-tag">1 hour</span></a>
+                <a href="https://www.youtube.com/watch?v=c1BdQJYdm7M" target="_blank" class="resource-link">ASMR & Why
+                    It Works <span class="resource-tag">Psychology</span></a>
+                <a href="https://www.youtube.com/watch?v=j2gHZhFNyKA" target="_blank" class="resource-link">The Science
+                    of Sound <span class="resource-tag">Physics</span></a>
+                <a href="https://tonebenders.net/" target="_blank" class="resource-link">Tonebenders Podcast <span
+                        class="resource-tag">Pro Sound Design</span></a>
             </div>
         </div>
 
-        <!-- UNCONVENTIONAL -->
-        <div class="subgroup" style="background: #f8f8f8; padding: 2rem; border-radius: 8px; border: none;">
-            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">🧠 Unconventional Learning</h2>
-            <ul class="resources" style="background: white;">
-                <li><a href="https://www.youtube.com/watch?v=Gc_tlXQlgtg" target="_blank">Walter Murch on Sound</a><span
-                        class="tag">1 hour</span> — The legend speaks</li>
-                <li><a href="https://www.youtube.com/watch?v=c1BdQJYdm7M" target="_blank">ASMR & Why It Works</a><span
-                        class="tag">Psychology</span></li>
-                <li><a href="https://www.youtube.com/watch?v=j2gHZhFNyKA" target="_blank">The Science of Sound</a><span
-                        class="tag">Physics</span></li>
-                <li><a href="https://tonebenders.net/" target="_blank">Tonebenders Podcast</a><span class="tag">Pro
-                        Sound Design</span></li>
-            </ul>
-        </div>
-
-    </main>
-    <footer>
-        <p><a href="cinematography.html">← Cinematography</a> | <a href="index.html">Overview</a> | <a
-                href="editing.html">Editing →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="cinematography.html" class="hover:underline"
+                        style="color:#71717a">← Cinematography</a><a href="index.html" class="hover:underline"
+                        style="color:#71717a">Overview</a><a href="editing.html" class="hover:underline"
+                        style="color:#71717a">Editing →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

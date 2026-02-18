@@ -1,647 +1,560 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design | Visual Storytelling Study Guide</title>
+    <title>Design — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Still frame thinking. Composition, hierarchy, typography, color, shape language, and grid systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&family=Georgia&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600&family=JetBrains+Mono&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: var(--design);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
         }
 
-        /* ═══════════════════════════════════════════
-           VISUAL HIERARCHY — exaggerated size cascade
-           ═══════════════════════════════════════════ */
-        .skill-visual-hierarchy {
-            border-left: 4px solid var(--design);
-            position: relative;
+        html {
+            scroll-behavior: smooth
         }
 
-        .skill-visual-hierarchy h3 {
-            font-size: 1.8rem !important;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
         }
 
-        .skill-visual-hierarchy .desc {
-            font-size: 0.88rem !important;
-            line-height: 1.7;
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
         }
 
-        .skill-visual-hierarchy .resources {
-            font-size: 0.72rem;
-            opacity: 0.7;
+        .sidebar.open {
+            transform: translateX(0)
         }
 
-        .skill-visual-hierarchy::before {
-            content: '1ST';
-            position: absolute;
-            top: -8px;
-            right: 0;
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: var(--design);
-            opacity: 0.5;
-            letter-spacing: 0.15em;
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
         }
 
-        /* ═══════════════════════════════════════════
-           RULE OF THIRDS — grid overlay
-           ═══════════════════════════════════════════ */
-        .skill-rule-thirds {
-            position: relative;
-            border-left-color: #d97706;
-        }
-
-        .skill-rule-thirds::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(to right, transparent 32%, rgba(217, 119, 6, 0.12) 32%, rgba(217, 119, 6, 0.12) 33%, transparent 33%,
-                    transparent 65%, rgba(217, 119, 6, 0.12) 65%, rgba(217, 119, 6, 0.12) 66%, transparent 66%),
-                linear-gradient(to bottom, transparent 32%, rgba(217, 119, 6, 0.12) 32%, rgba(217, 119, 6, 0.12) 33%, transparent 33%,
-                    transparent 65%, rgba(217, 119, 6, 0.12) 65%, rgba(217, 119, 6, 0.12) 66%, transparent 66%);
-            pointer-events: none;
-            border-radius: 4px;
-        }
-
-        .skill-rule-thirds::after {
-            content: '⊞';
-            position: absolute;
-            top: -6px;
-            right: 4px;
-            font-size: 0.8rem;
-            color: #d97706;
-            opacity: 0.5;
-        }
-
-        /* ═══════════════════════════════════════════
-           NEGATIVE SPACE — extreme breathing room
-           ═══════════════════════════════════════════ */
-        .skill-negative-space {
-            padding: 2.5rem 2rem !important;
-            border-left-color: transparent;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--surface);
-        }
-
-        .skill-negative-space h3 {
-            margin-bottom: 2rem !important;
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-size: 0.85rem !important;
-        }
-
-        .skill-negative-space .desc {
-            max-width: 60%;
-            margin-bottom: 2.5rem !important;
-            line-height: 2.2;
-        }
-
-        /* ═══════════════════════════════════════════
-           FONT PERSONALITY — each line is a typeface
-           ═══════════════════════════════════════════ */
-        .skill-font-personality .desc {
-            line-height: 2.4;
-        }
-
-        .skill-font-personality .line-helvetica {
-            font-family: 'Inter', Helvetica, Arial, sans-serif;
-            font-weight: 300;
-            letter-spacing: 0.03em;
-            color: var(--text-3);
-        }
-
-        .skill-font-personality .line-garamond {
-            font-family: 'Playfair Display', 'Georgia', serif;
-            font-style: italic;
-            color: #78350f;
-        }
-
-        .skill-font-personality .line-mono {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.82rem;
-            background: var(--surface-2);
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-
-        [data-theme="dark"] .skill-font-personality .line-garamond {
-            color: #fcd34d;
-        }
-
-        /* ═══════════════════════════════════════════
-           KERNING / TRACKING / LEADING — visible spacing
-           ═══════════════════════════════════════════ */
-        .skill-kerning h3 {
-            letter-spacing: 0.35em !important;
-            font-weight: 400;
-        }
-
-        .skill-kerning .desc {
-            line-height: 2.8 !important;
-        }
-
-        .skill-kerning .tracking-demo {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            margin: 0.75rem 0;
-            padding: 0.5rem;
-            background: var(--surface-2);
-            border-radius: 4px;
+        .sidebar-link {
             display: flex;
-            justify-content: space-between;
-        }
-
-        .skill-kerning .tight {
-            letter-spacing: -0.05em;
-        }
-
-        .skill-kerning .normal {
-            letter-spacing: 0;
-        }
-
-        .skill-kerning .wide {
-            letter-spacing: 0.3em;
-        }
-
-        /* ═══════════════════════════════════════════
-           COLOR PSYCHOLOGY — warm-to-cool gradient
-           ═══════════════════════════════════════════ */
-        .skill-color-psych {
-            border-left: 5px solid transparent;
-            border-image: linear-gradient(to bottom, #ef4444, #f59e0b, #3b82f6, #6366f1) 1;
-            position: relative;
-        }
-
-        .skill-color-psych::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg,
-                    rgba(239, 68, 68, 0.04) 0%,
-                    rgba(245, 158, 11, 0.04) 25%,
-                    rgba(59, 130, 246, 0.04) 75%,
-                    rgba(99, 102, 241, 0.04) 100%);
-            pointer-events: none;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .skill-color-psych .warm {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .skill-color-psych .cool {
-            color: #3b82f6;
-            font-weight: 600;
-        }
-
-        [data-theme="dark"] .skill-color-psych .warm {
-            color: #fca5a5;
-        }
-
-        [data-theme="dark"] .skill-color-psych .cool {
-            color: #93c5fd;
-        }
-
-        /* ═══════════════════════════════════════════
-           COLOR HARMONY — complementary color strips
-           ═══════════════════════════════════════════ */
-        .skill-color-harmony {
-            border-left-color: transparent;
-            padding-left: 0 !important;
-            position: relative;
-        }
-
-        .skill-color-harmony .harmony-bar {
-            display: flex;
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        .skill-color-harmony .harmony-bar span {
-            flex: 1;
-        }
-
-        .skill-color-harmony .comp-bar span:nth-child(1) {
-            background: #3b82f6;
-        }
-
-        .skill-color-harmony .comp-bar span:nth-child(2) {
-            background: #f97316;
-        }
-
-        .skill-color-harmony .analog-bar span:nth-child(1) {
-            background: #3b82f6;
-        }
-
-        .skill-color-harmony .analog-bar span:nth-child(2) {
-            background: #6366f1;
-        }
-
-        .skill-color-harmony .analog-bar span:nth-child(3) {
-            background: #8b5cf6;
-        }
-
-        .skill-color-harmony .triad-bar span:nth-child(1) {
-            background: #ef4444;
-        }
-
-        .skill-color-harmony .triad-bar span:nth-child(2) {
-            background: #22c55e;
-        }
-
-        .skill-color-harmony .triad-bar span:nth-child(3) {
-            background: #3b82f6;
-        }
-
-        /* ═══════════════════════════════════════════
-           SHAPE LANGUAGE — CSS shapes as decoration
-           ═══════════════════════════════════════════ */
-        .skill-shape-lang {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-shape-lang .shapes-demo {
-            display: flex;
-            gap: 1.2rem;
             align-items: center;
-            margin: 1rem 0;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
         }
 
-        .skill-shape-lang .shape-circle {
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
             width: 40px;
             height: 40px;
-            background: rgba(59, 130, 246, 0.15);
-            border: 2px solid rgba(59, 130, 246, 0.4);
-            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
         }
 
-        .skill-shape-lang .shape-square {
-            width: 36px;
-            height: 36px;
-            background: rgba(34, 197, 94, 0.15);
-            border: 2px solid rgba(34, 197, 94, 0.4);
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
         }
 
-        .skill-shape-lang .shape-triangle {
-            width: 0;
-            height: 0;
-            border-left: 22px solid transparent;
-            border-right: 22px solid transparent;
-            border-bottom: 38px solid rgba(239, 68, 68, 0.25);
-        }
-
-        .skill-shape-lang .shape-label {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            text-align: center;
-            color: var(--text-3);
-            margin-top: 4px;
-        }
-
-        /* ═══════════════════════════════════════════
-           GRID SYSTEMS — visible grid background
-           ═══════════════════════════════════════════ */
-        .skill-grid-systems {
-            position: relative;
-            border-left-color: #0891b2;
-        }
-
-        .skill-grid-systems::before {
-            content: '';
-            position: absolute;
+        .sidebar-overlay {
+            position: fixed;
             inset: 0;
-            background:
-                repeating-linear-gradient(90deg, rgba(8, 145, 178, 0.06) 0px, rgba(8, 145, 178, 0.06) 1px, transparent 1px, transparent 60px),
-                repeating-linear-gradient(0deg, rgba(8, 145, 178, 0.06) 0px, rgba(8, 145, 178, 0.06) 1px, transparent 1px, transparent 40px);
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity .3s
         }
 
-        .skill-grid-systems h3::after {
-            content: ' ┃';
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: #0891b2;
-            opacity: 0.4;
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .skill-card strong {
+            color: #d4d4d8
+        }
+
+        .resources-group {
+            margin-top: .75rem;
+            border-top: 1px solid rgba(39, 39, 42, .5);
+            padding-top: .75rem
+        }
+
+        .resources-group h4 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #52525b;
+            margin-bottom: .4rem
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .35rem .6rem;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 5px;
+            margin-bottom: .3rem;
+            text-decoration: none;
+            font-size: .78rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .55rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .1rem .35rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
+        }
+
+        .harmony-bar {
+            display: flex;
+            height: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: .5rem
+        }
+
+        .harmony-bar span {
+            flex: 1
+        }
+
+        .shapes-demo {
+            display: flex;
+            gap: 1.25rem;
+            margin: .75rem 0;
+            align-items: center
+        }
+
+        .shape-label {
+            font-family: monospace;
+            font-size: .6rem;
+            text-align: center;
+            color: #52525b;
+            margin-top: 4px
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>01 · Design</h1>
-            <p class="question">"If this never moved, would it still work?"</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link active"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            Design is <strong>still frame thinking</strong>. What something looks like frozen in time.
-            The moment you add time or movement, you've left design and entered motion.
-            Design is the skeleton — motion is the dance.
-        </p>
-
-        <!-- A. COMPOSITION & HIERARCHY -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>Composition & Hierarchy</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 40% 30%,rgba(217,119,6,.08) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#d97706;letter-spacing:.2em">Domain 01</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Design</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"If this never moved, would it still work?"</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Design is <strong
+                            style="color:#d4d4d8">still frame thinking</strong>. What something looks like frozen in
+                        time. The moment you add time or movement, you've left design and entered motion. Design is the
+                        skeleton — motion is the dance.</p>
+                </div>
             </div>
-            <p>Where the eye goes first, second, third. The invisible hand guiding attention.</p>
+        </header>
 
-            <div class="skill skill-visual-hierarchy">
-                <h3>Visual Hierarchy</h3>
-                <p class="desc">
-                    Every frame is a negotiation for attention. Size, contrast, isolation, and proximity
-                    determine what the brain processes first. Master this and you control thought sequence.
-                </p>
-                <div class="resources">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- A. COMPOSITION & HIERARCHY -->
+            <div class="section-divider fade-up">A · Composition & Hierarchy</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Where the eye goes first, second, third. The invisible
+                hand guiding attention.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #d97706">
+                <h3 style="font-size:1.4rem;letter-spacing:-.02em">Visual Hierarchy</h3>
+                <p>Every frame is a negotiation for attention. Size, contrast, isolation, and proximity determine what
+                    the brain processes first. Master this and you control thought sequence.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=a5KYlHNKQB8" target="_blank">The Futur: Visual
-                                Hierarchy Explained</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/"
-                                target="_blank">Nielsen Norman: F-Pattern Eye Tracking</a><span
-                                class="tag">Research</span></li>
-                        <li><a href="https://practicaltypography.com/what-is-good-typography.html"
-                                target="_blank">Butterick's Practical Typography</a><span class="tag">Deep Read</span>
-                        </li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=a5KYlHNKQB8" target="_blank" class="resource-link">The
+                        Futur: Visual Hierarchy Explained <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/" target="_blank"
+                        class="resource-link">Nielsen Norman: F-Pattern Eye Tracking <span
+                            class="resource-tag">Research</span></a>
+                    <a href="https://practicaltypography.com/what-is-good-typography.html" target="_blank"
+                        class="resource-link">Butterick's Practical Typography <span class="resource-tag">Deep
+                            Read</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-rule-thirds">
+            <div class="skill-card fade-up">
                 <h3>Rule of Thirds & Golden Ratio</h3>
-                <p class="desc">
-                    Not rules — hypotheses. The golden ratio appears in nature, but don't worship it.
-                    Know when to use it, when to break it. Breaking it creates tension; following it creates calm.
-                </p>
-                <div class="resources">
+                <p>Not rules — hypotheses. The golden ratio appears in nature, but don't worship it. Know when to use
+                    it, when to break it. Breaking it creates tension; following it creates calm.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=0roYlAIgNkM" target="_blank">Filmmaker IQ:
-                                Composition in Film</a><span class="tag">30 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=fUEN8Uro4GM" target="_blank">Every Frame a
-                                Painting: Spielberg Oner</a><span class="tag">6 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=5IHwPXsE3Os" target="_blank">Kubrick's One-Point
-                                Perspective</a><span class="tag">Analysis</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=0roYlAIgNkM" target="_blank"
+                        class="resource-link">Filmmaker IQ: Composition in Film <span class="resource-tag">30
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=fUEN8Uro4GM" target="_blank" class="resource-link">Every
+                        Frame a Painting: Spielberg Oner <span class="resource-tag">6 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=5IHwPXsE3Os" target="_blank"
+                        class="resource-link">Kubrick's One-Point Perspective <span
+                            class="resource-tag">Analysis</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-negative-space">
-                <h3>Negative Space</h3>
-                <p class="desc">
-                    What you don't show is as powerful as what you show. Empty space isn't empty —
-                    it's breathing room for the eye. Japanese "ma" (間) — the pregnant pause.
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up" style="padding:2rem;border:1px solid #27272a">
+                <h3
+                    style="font-weight:300;letter-spacing:.15em;text-transform:uppercase;font-size:.82rem;margin-bottom:1.5rem">
+                    Negative Space</h3>
+                <p style="max-width:65%;line-height:2">What you don't show is as powerful as what you show. Empty space
+                    isn't empty — it's breathing room for the eye. Japanese "ma" (間) — the pregnant pause.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=aQHrsKqAjq8" target="_blank">Nerdwriter: Ozu's
-                                Tokyo Story</a><span class="tag">9 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=8BQKBvgN9RQ" target="_blank">China: Negative Space
-                                in Design</a><span class="tag">7 min</span></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Ma_(negative_space)" target="_blank">Wikipedia: Ma
-                                (negative space)</a><span class="tag">Concept</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=aQHrsKqAjq8" target="_blank"
+                        class="resource-link">Nerdwriter: Ozu's Tokyo Story <span class="resource-tag">9 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=8BQKBvgN9RQ" target="_blank" class="resource-link">China:
+                        Negative Space in Design <span class="resource-tag">7 min</span></a>
+                    <a href="https://en.wikipedia.org/wiki/Ma_(negative_space)" target="_blank"
+                        class="resource-link">Wikipedia: Ma (negative space) <span
+                            class="resource-tag">Concept</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- B. TYPOGRAPHY -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>Typography</h2>
-            </div>
-            <p>Text is voice made visible. Every font has a personality, every kerning choice a mood.</p>
+            <!-- B. TYPOGRAPHY -->
+            <div class="section-divider fade-up">B · Typography</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Text is voice made visible. Every font has a
+                personality, every kerning choice a mood.</p>
 
-            <div class="skill skill-font-personality">
+            <div class="skill-card fade-up">
                 <h3>Font Personality</h3>
-                <p class="desc">
-                    <span class="line-helvetica">Helvetica whispers neutrality.</span><br>
-                    <span class="line-garamond">Garamond speaks old money.</span><br>
-                    <span class="line-mono">Comic Sans screams amateur.</span><br>
-                    Typography is casting — wrong font is like wrong actor for the role.
-                </p>
-                <div class="resources">
+                <p style="line-height:2.2"><span
+                        style="font-family:'Inter',sans-serif;font-weight:300;letter-spacing:.03em;color:#52525b">Helvetica
+                        whispers neutrality.</span><br><span
+                        style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#fcd34d">Garamond
+                        speaks old money.</span><br><span
+                        style="font-family:'JetBrains Mono',monospace;font-size:.82rem;background:rgba(0,0,0,.2);padding:2px 6px;border-radius:3px">Comic
+                        Sans screams amateur.</span><br>Typography is casting — wrong font is like wrong actor for the
+                    role.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=wOgIkxAfJsk" target="_blank">Documentary: Helvetica
-                                (2007)</a><span class="tag">80 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=sByzHoiYFX0" target="_blank">Vox: How Typography
-                                Affects You</a><span class="tag">8 min</span></li>
-                        <li><a href="https://fonts.google.com/knowledge" target="_blank">Google Fonts Knowledge
-                                Base</a><span class="tag">Free Course</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=wOgIkxAfJsk" target="_blank"
+                        class="resource-link">Documentary: Helvetica (2007) <span class="resource-tag">80 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=sByzHoiYFX0" target="_blank" class="resource-link">Vox: How
+                        Typography Affects You <span class="resource-tag">8 min</span></a>
+                    <a href="https://fonts.google.com/knowledge" target="_blank" class="resource-link">Google Fonts
+                        Knowledge Base <span class="resource-tag">Free Course</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-kerning">
-                <h3>Kerning, Tracking & Leading</h3>
-                <p class="desc">
-                    The space between letters (kerning/tracking) and between lines (leading) is where
-                    readability lives or dies. Bad kerning is like someone speaking with marbles in their mouth.
+            <div class="skill-card fade-up">
+                <h3 style="letter-spacing:.25em;font-weight:400">Kerning, Tracking & Leading</h3>
+                <p style="line-height:2.2">The space between letters (kerning/tracking) and between lines (leading) is
+                    where readability lives or dies. Bad kerning is like someone speaking with marbles in their mouth.
                 </p>
-                <div class="tracking-demo">
-                    <span class="tight">T I G H T</span>
-                    <span class="normal">NORMAL</span>
-                    <span class="wide">W I D E</span>
+                <div
+                    style="font-family:monospace;font-size:.78rem;margin:.75rem 0;padding:.5rem;background:rgba(0,0,0,.2);border-radius:5px;display:flex;justify-content:space-between">
+                    <span style="letter-spacing:-.05em">T I G H T</span><span>NORMAL</span><span
+                        style="letter-spacing:.3em">W I D E</span>
                 </div>
-                <div class="resources">
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://type.method.ac/" target="_blank">Kern Type: The Kerning Game</a><span
-                                class="tag">Practice</span></li>
-                        <li><a href="https://betterwebtype.com/triangle" target="_blank">Better Web Type: Free
-                                Course</a><span class="tag">Email Course</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=QrNi9FmdlxY" target="_blank">The Beginner's Guide
-                                to Typography</a><span class="tag">10 min</span></li>
-                    </ul>
+                    <a href="https://type.method.ac/" target="_blank" class="resource-link">Kern Type: The Kerning Game
+                        <span class="resource-tag">Practice</span></a>
+                    <a href="https://betterwebtype.com/triangle" target="_blank" class="resource-link">Better Web Type:
+                        Free Course <span class="resource-tag">Email Course</span></a>
+                    <a href="https://www.youtube.com/watch?v=QrNi9FmdlxY" target="_blank" class="resource-link">The
+                        Beginner's Guide to Typography <span class="resource-tag">10 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- C. COLOR -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Color & Tone</h2>
-            </div>
-            <p>Color is emotion before thought. You feel blue before you think "sadness."</p>
+            <!-- C. COLOR & TONE -->
+            <div class="section-divider fade-up">C · Color & Tone</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Color is emotion before thought. You feel blue before
+                you think "sadness."</p>
 
-            <div class="skill skill-color-psych">
+            <div class="skill-card fade-up"
+                style="border-left:4px solid transparent;border-image:linear-gradient(to bottom,#ef4444,#f59e0b,#3b82f6,#6366f1) 1">
                 <h3>Color Psychology</h3>
-                <p class="desc">
-                    Red doesn't mean danger everywhere — in China it's luck. Context matters.
-                    But <span class="warm">warm colors advance</span>, <span class="cool">cool colors recede</span>.
-                    That's physics, not culture.
+                <p>Red doesn't mean danger everywhere — in China it's luck. Context matters. But <span
+                        style="color:#fca5a5;font-weight:600">warm colors advance</span>, <span
+                        style="color:#93c5fd;font-weight:600">cool colors recede</span>. That's physics, not culture.
                 </p>
-                <div class="resources">
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=Qj1FK8n7WgY" target="_blank">StudioBinder: Color in
-                                Film</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=aXgFcNUWqX0" target="_blank">Wes Anderson's Color
-                                Palette</a><span class="tag">Analysis</span></li>
-                        <li><a href="https://color.adobe.com/create/color-wheel" target="_blank">Adobe Color
-                                Wheel</a><span class="tag">Tool</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=Qj1FK8n7WgY" target="_blank"
+                        class="resource-link">StudioBinder: Color in Film <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=aXgFcNUWqX0" target="_blank" class="resource-link">Wes
+                        Anderson's Color Palette <span class="resource-tag">Analysis</span></a>
+                    <a href="https://color.adobe.com/create/color-wheel" target="_blank" class="resource-link">Adobe
+                        Color Wheel <span class="resource-tag">Tool</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-color-harmony">
+            <div class="skill-card fade-up">
                 <h3>Color Harmony</h3>
-                <div class="harmony-bar comp-bar"><span></span><span></span></div>
-                <div class="harmony-bar analog-bar"><span></span><span></span><span></span></div>
-                <div class="harmony-bar triad-bar"><span></span><span></span><span></span></div>
-                <p class="desc">
-                    Complementary colors vibrate against each other (tension). Analogous colors soothe (harmony).
-                    Triadic colors are bold but balanced. Learn the wheel, then forget it — let intuition guide.
-                </p>
-                <div class="resources">
+                <div class="harmony-bar"><span style="background:#3b82f6"></span><span
+                        style="background:#f97316"></span></div>
+                <div class="harmony-bar"><span style="background:#3b82f6"></span><span
+                        style="background:#6366f1"></span><span style="background:#8b5cf6"></span></div>
+                <div class="harmony-bar"><span style="background:#ef4444"></span><span
+                        style="background:#22c55e"></span><span style="background:#3b82f6"></span></div>
+                <p>Complementary colors vibrate against each other (tension). Analogous colors soothe (harmony). Triadic
+                    colors are bold but balanced. Learn the wheel, then forget it — let intuition guide.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=L1CK9bE3H_s" target="_blank">Blender Guru:
-                                Understanding Color</a><span class="tag">30 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=1i4rHW8BDSo" target="_blank">Kubrick's Use of
-                                Red</a><span class="tag">7 min</span></li>
-                        <li><a href="https://coolors.co/" target="_blank">Coolors: Palette Generator</a><span
-                                class="tag">Tool</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=L1CK9bE3H_s" target="_blank" class="resource-link">Blender
+                        Guru: Understanding Color <span class="resource-tag">30 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=1i4rHW8BDSo" target="_blank"
+                        class="resource-link">Kubrick's Use of Red <span class="resource-tag">7 min</span></a>
+                    <a href="https://coolors.co/" target="_blank" class="resource-link">Coolors: Palette Generator <span
+                            class="resource-tag">Tool</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- D. VECTOR & ASSET DESIGN -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
-                <h2>Vector & Asset Design</h2>
-            </div>
-            <p>Clean geometry that scales infinitely. The DNA of icons, logos, and motion graphics.</p>
+            <!-- D. VECTOR & ASSET DESIGN -->
+            <div class="section-divider fade-up">D · Vector & Asset Design</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Clean geometry that scales infinitely. The DNA of
+                icons, logos, and motion graphics.</p>
 
-            <div class="skill skill-shape-lang">
+            <div class="skill-card fade-up">
                 <h3>Shape Language</h3>
                 <div class="shapes-demo">
                     <div>
-                        <div class="shape-circle"></div>
+                        <div
+                            style="width:40px;height:40px;background:rgba(59,130,246,.12);border:2px solid rgba(59,130,246,.3);border-radius:50%">
+                        </div>
                         <div class="shape-label">friendly</div>
                     </div>
                     <div>
-                        <div class="shape-square"></div>
+                        <div
+                            style="width:36px;height:36px;background:rgba(34,197,94,.12);border:2px solid rgba(34,197,94,.3)">
+                        </div>
                         <div class="shape-label">stable</div>
                     </div>
                     <div>
-                        <div class="shape-triangle"></div>
+                        <div
+                            style="width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:38px solid rgba(239,68,68,.2)">
+                        </div>
                         <div class="shape-label">dynamic</div>
                     </div>
                 </div>
-                <p class="desc">
-                    Circles = friendly, organic. Squares = stable, trustworthy. Triangles = dynamic, dangerous.
-                    Disney villains have angular faces. Heroes have round ones. It's primal.
-                </p>
-                <div class="resources">
+                <p>Circles = friendly, organic. Squares = stable, trustworthy. Triangles = dynamic, dangerous. Disney
+                    villains have angular faces. Heroes have round ones. It's primal.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=vHRd2bsrPm0" target="_blank">Pixar's Shape
-                                Language</a><span class="tag">5 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=8wm9ti-gzLM" target="_blank">Character Design:
-                                Shape Theory</a><span class="tag">12 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=LJtiMXeL0Ic" target="_blank">Aaron Blaise: Design
-                                Principles</a><span class="tag">20 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=vHRd2bsrPm0" target="_blank" class="resource-link">Pixar's
+                        Shape Language <span class="resource-tag">5 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=8wm9ti-gzLM" target="_blank"
+                        class="resource-link">Character Design: Shape Theory <span class="resource-tag">12
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=LJtiMXeL0Ic" target="_blank" class="resource-link">Aaron
+                        Blaise: Design Principles <span class="resource-tag">20 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- E. LAYOUT SYSTEMS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
-                <h2>Layout Systems</h2>
-            </div>
-            <p>The invisible grid that holds everything together. Order from chaos.</p>
+            <!-- E. LAYOUT SYSTEMS -->
+            <div class="section-divider fade-up">E · Layout Systems</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The invisible grid that holds everything together.
+                Order from chaos.</p>
 
-            <div class="skill skill-grid-systems">
+            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
                 <h3>Grid Systems</h3>
-                <p class="desc">
-                    Grids aren't prisons — they're languages. Josef Müller-Brockmann's grid system became
-                    the Swiss International Style. But know when to break the grid for emphasis.
-                </p>
-                <div class="resources">
+                <p>Grids aren't prisons — they're languages. Josef Müller-Brockmann's grid system became the Swiss
+                    International Style. But know when to break the grid for emphasis.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=XtU5_R3xtyA" target="_blank">The Grid System: A
-                                Visual Introduction</a><span class="tag">10 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=YME6eIzXeOQ" target="_blank">Swiss Style
-                                History</a><span class="tag">Documentary</span></li>
-                        <li><a href="https://gridbyexample.com/" target="_blank">Grid by Example: CSS Grid</a><span
-                                class="tag">Practice</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=XtU5_R3xtyA" target="_blank" class="resource-link">The Grid
+                        System: A Visual Introduction <span class="resource-tag">10 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=YME6eIzXeOQ" target="_blank" class="resource-link">Swiss
+                        Style History <span class="resource-tag">Documentary</span></a>
+                    <a href="https://gridbyexample.com/" target="_blank" class="resource-link">Grid by Example: CSS Grid
+                        <span class="resource-tag">Practice</span></a>
                 </div>
+            </div>
+
+            <!-- UNCONVENTIONAL -->
+            <div class="skill-card fade-up"
+                style="margin-top:2rem;background:linear-gradient(135deg,rgba(217,119,6,.04),rgba(139,92,246,.03))">
+                <h3>🧠 Unconventional Learning</h3>
+                <p style="margin-bottom:.75rem">Design thinking from outside design:</p>
+                <a href="https://www.youtube.com/watch?v=M9i2HAE-ZSw" target="_blank" class="resource-link">John Berger:
+                    Ways of Seeing (1972) <span class="resource-tag">BBC</span></a>
+                <a href="https://www.youtube.com/watch?v=rJ35jHCMCLY" target="_blank" class="resource-link">Gestalt
+                    Principles in UX <span class="resource-tag">Psychology</span></a>
+                <a href="https://www.youtube.com/watch?v=djV11Xbc914" target="_blank" class="resource-link">Abstract:
+                    Paula Scher <span class="resource-tag">Netflix Doc</span></a>
+                <a href="https://www.youtube.com/watch?v=eaKq_r4CfvI" target="_blank" class="resource-link">Dieter Rams:
+                    10 Principles <span class="resource-tag">10 min</span></a>
             </div>
         </div>
 
-        <!-- UNCONVENTIONAL SOURCES -->
-        <div class="subgroup" style="background: #f8f8f8; padding: 2rem; border-radius: 8px; border: none;">
-            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">🧠 Unconventional Learning</h2>
-            <p style="margin-bottom: 1.5rem;">Design thinking from outside design:</p>
-            <ul class="resources" style="background: white;">
-                <li><a href="https://www.youtube.com/watch?v=M9i2HAE-ZSw" target="_blank">John Berger: Ways of Seeing
-                        (1972)</a><span class="tag">BBC</span> — How we perceive images</li>
-                <li><a href="https://www.youtube.com/watch?v=rJ35jHCMCLY" target="_blank">Gestalt Principles in
-                        UX</a><span class="tag">Psychology</span> — How the brain groups objects</li>
-                <li><a href="https://www.youtube.com/watch?v=djV11Xbc914" target="_blank">Abstract: Paula Scher</a><span
-                        class="tag">Netflix Doc</span> — Legendary designer's process</li>
-                <li><a href="https://www.youtube.com/watch?v=eaKq_r4CfvI" target="_blank">Dieter Rams: 10
-                        Principles</a><span class="tag">10 min</span> — Industrial design philosophy</li>
-            </ul>
-        </div>
-
-    </main>
-    <footer>
-        <p>← <a href="index.html">Back to Overview</a> | Next: <a href="cinematography.html">Cinematography →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+                        Back to Overview</a><a href="cinematography.html" class="hover:underline"
+                        style="color:#71717a">Cinematography →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

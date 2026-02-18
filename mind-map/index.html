@@ -1,740 +1,936 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visual Storytelling Study Guide</title>
+  <title>Visual Storytelling Framework — Think Like a Cinematic Architect</title>
   <meta name="description"
-    content="A personal framework for thinking like a cinematic architect in the AI era. Study guide for filmmakers, motion designers, and visual thinkers.">
+    content="A comprehensive visual storytelling knowledge base. Master storytelling, design, cinematography, editing, sound, motion, AI visuals, and emotional grammar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#09090b',
+              50: '#18181b',
+              100: '#1c1c20',
+              200: '#27272a',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    .core-card {
-      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-      color: white;
-      border: none;
-      margin-bottom: 2rem;
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #3f3f46 transparent;
     }
 
-    .core-card h3 {
-      color: #f59e0b;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .core-card p {
-      opacity: 0.85;
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #09090b;
+      color: #e4e4e7;
     }
 
-    .core-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    /* ─── Sidebar ─── */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: #0c0c0f;
+      border-right: 1px solid #27272a;
+      padding: 1.5rem 0;
+      overflow-y: auto;
+      z-index: 50;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
     }
 
-    .hierarchy {
-      text-align: center;
-      margin: 3rem 0;
-      padding: 2rem;
-      background: #f8f8f8;
-      border-radius: 8px;
+    .sidebar.open {
+      transform: translateX(0);
     }
 
-    .hierarchy-level {
-      margin: 1rem 0;
+    @media (min-width: 1024px) {
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 260px;
+      }
     }
 
-    .hierarchy-level .label {
-      font-size: 0.7rem;
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      color: #a1a1aa;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .sidebar-link:hover {
+      color: #e4e4e7;
+      background: rgba(63, 63, 70, 0.3);
+    }
+
+    .sidebar-link.active {
+      color: #3b82f6;
+      border-left-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.06);
+    }
+
+    .sidebar-section-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-3);
-    }
-
-    .hierarchy-level .name {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
+      color: #52525b;
+      padding: 1.25rem 1.25rem 0.4rem;
       font-weight: 600;
     }
 
-    .arrow {
-      color: var(--text-3);
-      font-size: 1.5rem;
-    }
-
-    [data-theme="dark"] .hierarchy {
-      background: var(--surface);
-    }
-
-    /* ═══════════════════════════════════════
-       VALUE PROPOSITION
-       ═══════════════════════════════════════ */
-    .manifesto {
-      font-family: var(--font-mono);
-      font-size: 1.05rem;
-      color: #f59e0b;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-
-    .system-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 0.25rem 0.75rem;
-      border: 1px solid #f59e0b;
-      color: #f59e0b;
-      border-radius: 3px;
-      margin-bottom: 1.5rem;
-    }
-
-    /* ═══════════════════════════════════════
-       FRAMEWORK SECTION
-       ═══════════════════════════════════════ */
-    .framework-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .framework-card {
-      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-      color: white;
-      padding: 1.75rem;
-      border-radius: 8px;
-      transition: all 0.25s;
-      text-decoration: none;
-      display: block;
+    /* ─── Domain Cards ─── */
+    .domain-card {
       position: relative;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
-    .framework-card::before {
+    .domain-card::before {
       content: '';
       position: absolute;
-      top: -40%;
-      right: -15%;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      opacity: 0;
+      transition: opacity 0.35s ease;
     }
 
-    .framework-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    .domain-card:hover {
+      border-color: #3f3f46;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .framework-card .pillar-num {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: rgba(245, 158, 11, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .domain-card:hover::before {
+      opacity: 1;
     }
 
-    .framework-card h3 {
+    /* Accent colors per domain */
+    .card-storytelling::before {
+      background: #f59e0b;
+    }
+
+    .card-design::before {
+      background: #d97706;
+    }
+
+    .card-cinematography::before {
+      background: #3b82f6;
+    }
+
+    .card-sound::before {
+      background: #0891b2;
+    }
+
+    .card-editing::before {
+      background: #059669;
+    }
+
+    .card-motion::before {
+      background: #ea580c;
+    }
+
+    .card-ai::before {
+      background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    }
+
+    .card-emotion::before {
+      background: linear-gradient(90deg, #ec4899, #f59e0b);
+    }
+
+    .card-scene::before {
+      background: #6366f1;
+    }
+
+    .card-style::before {
+      background: linear-gradient(90deg, #ec4899, #8b5cf6);
+    }
+
+    .card-ideation::before {
+      background: #f59e0b;
+    }
+
+    .card-craft::before {
+      background: #10b981;
+    }
+
+    .card-resources::before {
+      background: #64748b;
+    }
+
+    .card-storytelling .domain-icon {
       color: #f59e0b;
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      margin: 0.5rem 0;
     }
 
-    .framework-card p {
-      opacity: 0.85;
-      font-size: 0.92rem;
-      line-height: 1.6;
+    .card-design .domain-icon {
+      color: #d97706;
     }
 
-    .framework-card .link-hint {
-      font-size: 0.8rem;
-      opacity: 0.5;
-      margin-top: 0.75rem;
-      display: block;
+    .card-cinematography .domain-icon {
+      color: #3b82f6;
     }
 
-    /* ═══════════════════════════════════════
-       LEARNING PATHS
-       ═══════════════════════════════════════ */
-    .paths-grid {
-      display: grid;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+    .card-sound .domain-icon {
+      color: #0891b2;
     }
 
-    .path-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+    .card-editing .domain-icon {
+      color: #059669;
+    }
+
+    .card-motion .domain-icon {
+      color: #ea580c;
+    }
+
+    .card-ai .domain-icon {
+      color: #8b5cf6;
+    }
+
+    .card-emotion .domain-icon {
+      color: #ec4899;
+    }
+
+    .card-scene .domain-icon {
+      color: #6366f1;
+    }
+
+    .card-style .domain-icon {
+      color: #ec4899;
+    }
+
+    .card-ideation .domain-icon {
+      color: #f59e0b;
+    }
+
+    .card-craft .domain-icon {
+      color: #10b981;
+    }
+
+    .card-resources .domain-icon {
+      color: #64748b;
+    }
+
+    /* ─── Hierarchy Visual ─── */
+    .layer-ring {
+      border: 2px solid;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .layer-ring:hover {
+      transform: scale(1.02);
+    }
+
+    /* ─── Fade-in animation ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Mobile menu button ─── */
+    .menu-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 60;
+      background: #18181b;
+      border: 1px solid #27272a;
       border-radius: 8px;
-      padding: 1.75rem;
-      transition: all 0.2s;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a1a1aa;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .menu-btn:hover {
+      color: #e4e4e7;
+      border-color: #3f3f46;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-btn {
+        display: none;
+      }
+    }
+
+    /* ─── Overlay ─── */
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ─── Learning Path Cards ─── */
+    .path-card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
     }
 
     .path-card:hover {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-color: #3f3f46;
     }
 
-    .path-card .path-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-3);
-    }
-
-    .path-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0.75rem;
-    }
-
-    .path-card p {
-      color: var(--text-2);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .path-steps {
-      display: flex;
-      gap: 0;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .path-step {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.4rem 0;
-      transition: color 0.15s;
-    }
-
-    .path-step:hover {
-      color: var(--accent);
-    }
-
-    .path-step .step-num {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: white;
+    /* ─── Tag pills ─── */
+    .tag {
+      display: inline-block;
       font-size: 0.65rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .path-arrow {
-      color: var(--text-3);
-      font-size: 0.8rem;
-      margin: 0 0.4rem;
-    }
-
-    .path-card.path-beginner .path-step .step-num {
-      background: #22c55e;
-    }
-
-    .path-card.path-advanced .path-step .step-num {
-      background: #8b5cf6;
-    }
-
-    .path-card.path-ai .path-step .step-num {
-      background: #0ea5e9;
-    }
-
-    /* ═══════════════════════════════════════
-       ROADMAP
-       ═══════════════════════════════════════ */
-    .roadmap-list {
-      margin-top: 1.5rem;
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .roadmap-list::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: var(--border);
-    }
-
-    .roadmap-item {
-      position: relative;
-      margin-bottom: 1.5rem;
-      padding-left: 0.5rem;
-    }
-
-    .roadmap-item::before {
-      content: '';
-      position: absolute;
-      left: -1.95rem;
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 2px solid var(--accent);
-      background: var(--bg);
-    }
-
-    .roadmap-item h4 {
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .roadmap-item p {
-      color: var(--text-2);
-      font-size: 0.9rem;
-    }
-
-    .roadmap-item .roadmap-tag {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-3);
-      margin-bottom: 0.25rem;
-      display: block;
     }
 
-    @media (max-width: 768px) {
-      .framework-grid {
-        grid-template-columns: 1fr;
-      }
+    .tag-core {
+      background: rgba(245, 158, 11, 0.12);
+      color: #f59e0b;
+    }
 
-      .path-steps {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .tag-domain {
+      background: rgba(59, 130, 246, 0.12);
+      color: #3b82f6;
+    }
 
-      .path-arrow {
-        transform: rotate(90deg);
-        margin: 0.2rem 0 0.2rem 0.3rem;
-      }
+    .tag-ai {
+      background: rgba(139, 92, 246, 0.12);
+      color: #8b5cf6;
+    }
+
+    .tag-advanced {
+      background: rgba(236, 72, 153, 0.12);
+      color: #ec4899;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <span class="badge badge-outline" style="color: var(--resources); margin-bottom: 1.5rem;">Personal System</span>
-    <h1 style="letter-spacing: -0.02em;">Visual Storytelling</h1>
-    <p class="subtitle">A Deep Study Guide for Filmmakers & Visual Thinkers</p>
-    <p class="manifesto"
-      style="font-family: var(--font-mono); font-size: 1rem; color: var(--resources); margin: 1.5rem 0 0.75rem;">"Not
-      just knowledge — a framework to think like a cinematic architect in the AI era."</p>
-    <p class="tagline">Not film school. A curated path through the world's best free knowledge — plus your own
-      frameworks.</p>
-  </header>
+  <!-- Mobile Menu Button -->
+  <button class="menu-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="17" y2="6" />
+      <line x1="3" y1="10" x2="17" y2="10" />
+      <line x1="3" y1="14" x2="17" y2="14" />
+    </svg>
+  </button>
 
-  <nav>
-    <a href="#framework">Framework</a>
-    <a href="#hierarchy">Structure</a>
-    <a href="#core">Core Layer</a>
-    <a href="#domains">5 Domains</a>
-    <a href="#learning-paths">Paths</a>
-    <a href="#keywords">Keyword Guides</a>
-    <a href="style-reference.html">Style Reference</a>
-    <a href="craft-notes.html">Craft Notes</a>
-    <a href="resources.html">Resources</a>
-    <a href="emotion-grammar.html" style="color: #a78bfa;">🎭 Emotion</a>
-    <a href="scene-grammar.html" style="color: #a78bfa;">🎬 Scenes</a>
-    <a href="ideation.html" style="color: #f59e0b;">🎲 Ideation</a>
-    <a href="playgrounds.html" style="color: #22c55e; font-weight: 600;">🎮 Playgrounds</a>
-    <a href="#roadmap">Roadmap</a>
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- ═══════════════════════════════════════
+         SIDEBAR NAVIGATION
+         ═══════════════════════════════════════ -->
+  <nav class="sidebar" id="sidebar">
+    <div style="padding: 0 1.25rem 1rem;">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: #e4e4e7;">VISUAL
+        STORYTELLING</div>
+      <div style="font-size: 0.6rem; color: #52525b; margin-top: 2px;">Knowledge Framework</div>
+    </div>
+
+    <div class="sidebar-section-title">Core</div>
+    <a href="index.html" class="sidebar-link active">
+      <span>◈</span> Overview
+    </a>
+    <a href="storytelling.html" class="sidebar-link">
+      <span>00</span> Storytelling
+    </a>
+
+    <div class="sidebar-section-title">Domains</div>
+    <a href="design.html" class="sidebar-link">
+      <span>01</span> Design
+    </a>
+    <a href="cinematography.html" class="sidebar-link">
+      <span>02</span> Cinematography
+    </a>
+    <a href="sound.html" class="sidebar-link">
+      <span>03</span> Sound
+    </a>
+    <a href="editing.html" class="sidebar-link">
+      <span>04</span> Editing
+    </a>
+    <a href="motion.html" class="sidebar-link">
+      <span>05</span> Motion
+    </a>
+
+    <div class="sidebar-section-title">Advanced Systems</div>
+    <a href="ai-visual.html" class="sidebar-link">
+      <span>⬡</span> AI Visual Generation
+    </a>
+    <a href="emotion-grammar.html" class="sidebar-link">
+      <span>♡</span> Emotion Grammar
+    </a>
+    <a href="scene-grammar.html" class="sidebar-link">
+      <span>▣</span> Scene Grammar
+    </a>
+    <a href="story-emotion.html" class="sidebar-link">
+      <span>◉</span> Story × Emotion
+    </a>
+
+    <div class="sidebar-section-title">Tools & Reference</div>
+    <a href="ideation.html" class="sidebar-link">
+      <span>⚡</span> Ideation Engine
+    </a>
+    <a href="style-reference.html" class="sidebar-link">
+      <span>◎</span> Style Reference
+    </a>
+    <a href="craft-notes.html" class="sidebar-link">
+      <span>✎</span> Craft Notes
+    </a>
+    <a href="resources.html" class="sidebar-link">
+      <span>☷</span> Resources
+    </a>
+
+    <div class="sidebar-section-title">Keyword Maps</div>
+    <a href="filmmaking-keywords.html" class="sidebar-link">
+      <span>🎬</span> Filmmaking Keywords
+    </a>
+    <a href="mograph-keywords.html" class="sidebar-link">
+      <span>◐</span> Motion Graphics KW
+    </a>
+    <a href="editing-rhythm.html" class="sidebar-link">
+      <span>♫</span> Editing Rhythm
+    </a>
   </nav>
 
-  <main>
+  <!-- ═══════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- ─── Hero Section ─── -->
+    <header class="relative overflow-hidden" style="min-height: 75vh;">
+      <!-- Subtle gradient background -->
+      <div class="absolute inset-0"
+        style="background: radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.04) 0%, transparent 50%);">
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-6 pt-24 pb-16 lg:pt-32 lg:pb-24">
+        <div class="fade-up">
+          <p class="text-xs font-semibold tracking-widest uppercase text-blue-500 mb-4" style="letter-spacing: 0.2em;">
+            Visual Storytelling Framework
+          </p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6"
+            style="color: #fafafa;">
+            Think Like a<br>
+            <span
+              style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              Cinematic Architect
+            </span>
+          </h1>
+          <p class="text-lg md:text-xl leading-relaxed max-w-2xl" style="color: #a1a1aa;">
+            A structured system for visual storytelling mastery — from foundational story craft to AI-era
+            cinematic language. Not tutorials. Not vibes. <strong style="color: #d4d4d8;">A thinking
+              framework.</strong>
+          </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="fade-up mt-12 flex flex-wrap gap-8" style="transition-delay: 0.15s;">
+          <div>
+            <div class="text-2xl font-bold" style="color: #3b82f6;">5</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Domains</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #8b5cf6;">24</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Emotions Mapped</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #10b981;">10</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Scene Archetypes</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #f59e0b;">100+</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">AI Techniques</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-24"
+        style="background: linear-gradient(to top, #09090b, transparent);"></div>
+    </header>
+
+    <!-- ─── Framework Philosophy ─── -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+      <div class="fade-up">
+        <h2 class="text-2xl font-bold tracking-tight mb-4" style="color: #fafafa;">The Framework</h2>
+        <p class="text-base leading-relaxed mb-6" style="color: #a1a1aa;">
+          Every frame is a decision. Every cut is an argument. Every sound cue is emotional architecture.
+          This framework treats visual storytelling as a <strong style="color: #d4d4d8;">system</strong>, not a
+          collection of tips.
+        </p>
+      </div>
+
+      <!-- Hierarchy Visual (Concentric Rings) -->
+      <div class="fade-up flex justify-center py-10" style="transition-delay: 0.1s;">
+        <div class="layer-ring"
+          style="width: 320px; height: 320px; border-color: rgba(59,130,246,0.2); background: rgba(59,130,246,0.02);">
+          <div class="text-center absolute" style="top: 8px; left: 50%; transform: translateX(-50%);">
+            <span class="text-xs font-medium tracking-wider uppercase"
+              style="color: rgba(59,130,246,0.6);">Domains</span>
+          </div>
+          <div class="layer-ring"
+            style="width: 220px; height: 220px; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.03);">
+            <div class="text-center absolute" style="top: 6px; left: 50%; transform: translateX(-50%);">
+              <span class="text-xs font-medium tracking-wider uppercase"
+                style="color: rgba(245,158,11,0.7);">Story</span>
+            </div>
+            <div class="layer-ring"
+              style="width: 120px; height: 120px; border-color: rgba(236,72,153,0.4); background: rgba(236,72,153,0.05);">
+              <span class="text-xs font-semibold" style="color: rgba(236,72,153,0.8);">Intent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up mt-4" style="transition-delay: 0.2s;">
+        <div class="grid md:grid-cols-3 gap-4 text-center text-sm" style="color: #71717a;">
+          <div class="p-4 rounded-lg"
+            style="background: rgba(236,72,153,0.04); border: 1px solid rgba(236,72,153,0.1);">
+            <div class="font-semibold mb-1" style="color: #ec4899;">Intent</div>
+            <div>Why does this exist? What should the viewer <em>feel</em>?</div>
+          </div>
+          <div class="p-4 rounded-lg"
+            style="background: rgba(245,158,11,0.04); border: 1px solid rgba(245,158,11,0.1);">
+            <div class="font-semibold mb-1" style="color: #f59e0b;">Story</div>
+            <div>The emotional architecture. Desire → Friction → Shift.</div>
+          </div>
+          <div class="p-4 rounded-lg"
+            style="background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.1);">
+            <div class="font-semibold mb-1" style="color: #3b82f6;">Domains</div>
+            <div>Design, Cinematography, Sound, Editing, Motion — the craft layer.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══════════════════════════════════════
-         MY FRAMEWORK
-         ═══════════════════════════════════════ -->
-    <section id="framework">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        My Framework</h2>
-      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">How to use AI as a cinematic
-        instrument — not a content slot machine.</p>
-
-      <div class="framework-grid" style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
-        <a href="storytelling.html" class="card card-clay">
-          <span class="pillar-num"
-            style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--resources); text-transform: uppercase; opacity: 0.7;">Pillar
-            01</span>
-          <h3 style="color: var(--resources); margin: 0.5rem 0;">Translate Emotion → Image Grammar</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">Internal states become visual constraints. Before touching
-            any tool, define the emotional logic: what
-            feeling drives this frame? Sadness isn't blue — it's negative space, shallow focus, and drained contrast.
-            Build the grammar first, then let any tool — camera or AI — execute it.</p>
-          <span class="link-hint" style="font-size: 0.8rem; opacity: 0.5; margin-top: 1rem; display: block;">↳ Explored
-            in Storytelling & Design</span>
-        </a>
-
-        <a href="ai-visual.html" class="card card-clay">
-          <span class="pillar-num"
-            style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--resources); text-transform: uppercase; opacity: 0.7;">Pillar
-            02</span>
-          <h3 style="color: var(--resources); margin: 0.5rem 0;">Impose Constraints on Generative Tools</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">Less prompt, more intent. AI tools produce better results
-            when you give them less freedom and more
-            structure. Define what you won't allow: no wide shots, no warm colors, only static camera. Constraints
-            aren't
-            limitations — they're the architecture of style.</p>
-          <span class="link-hint" style="font-size: 0.8rem; opacity: 0.5; margin-top: 1rem; display: block;">↳ Explored
-            in AI Visual Generation & Ideation Engine</span>
-        </a>
-
-        <a href="editing.html" class="card card-clay">
-          <span class="pillar-num"
-            style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--resources); text-transform: uppercase; opacity: 0.7;">Pillar
-            03</span>
-          <h3 style="color: var(--resources); margin: 0.5rem 0;">Sequence AI Visuals into Cinematic Beats</h3>
-          <p style="font-size: 0.92rem; line-height: 1.6;">Individual AI images are not cinema. Cinema is sequence,
-            rhythm, and cause-effect. Apply editing logic and
-            pacing structure to AI-generated frames to transform disconnected beauty into coherent visual narrative. The
-            sequencing is where meaning lives.</p>
-          <span class="link-hint" style="font-size: 0.8rem; opacity: 0.5; margin-top: 1rem; display: block;">↳ Explored
-            in Editing & Motion</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- HIERARCHY VISUAL -->
-    <section id="hierarchy" class="card card-clay"
-      style="text-align: center; margin: 3rem auto; padding: 2.5rem; max-width: 600px;">
-      <p
-        style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; color: var(--text-3); margin-bottom: 2rem; letter-spacing: 0.1em;">
-        The System Structure</p>
-
-      <div style="margin: 1rem 0;">
-        <div
-          style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.25rem;">
-          Core Layer</div>
-        <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--resources);">
-          Storytelling</div>
-        <div style="font-size: 0.85rem; color: var(--text-2);">Why does this matter?</div>
+             CORE LAYER
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #f59e0b; letter-spacing: 0.15em;">
+          Core Layer
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Storytelling</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">The foundation. Everything else is execution of story.</p>
       </div>
 
-      <div style="color: var(--text-3); font-size: 1.5rem; margin: 0.5rem 0;">↓</div>
-
-      <div style="margin: 1rem 0;">
-        <div
-          style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.25rem;">
-          Execution Layers</div>
-        <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 600;">5 Domains</div>
-        <div style="font-size: 0.85rem; color: var(--text-2);">Design · Cinematography · Sound · Editing · Motion</div>
-      </div>
-
-      <div style="color: var(--text-3); font-size: 1.5rem; margin: 0.5rem 0;">↓</div>
-
-      <div style="margin: 1rem 0;">
-        <div
-          style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.25rem;">
-          Expression</div>
-        <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--text-2);">Style
+      <a href="storytelling.html" class="domain-card card-storytelling fade-up" style="transition-delay: 0.05s;">
+        <div class="flex items-start gap-4">
+          <div class="domain-icon text-2xl flex-shrink-0 mt-1">🎭</div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2" style="color: #fafafa;">00 · Storytelling</h3>
+            <p class="text-sm leading-relaxed mb-3" style="color: #a1a1aa;">
+              Domains execute. Story leads. If you skip this, everything below becomes beautiful nonsense.
+              Learn the multiplier formula: <span style="font-family: monospace; color: #f59e0b;">Story × Craft =
+                Impact</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag tag-core">Core Principle</span>
+              <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Story vs
+                Style</span>
+              <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Desire / Friction /
+                Relief</span>
+            </div>
+          </div>
         </div>
-        <div style="font-size: 0.85rem; color: var(--text-3);">Lives inside each domain, never above</div>
-      </div>
-    </section>
-
-    <!-- CORE LAYER -->
-    <section id="core">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        Core Layer</h2>
-      <a href="story-emotion.html" class="card card-clay" style="margin-bottom: 2rem;">
-        <span class="badge badge-outline" style="color: var(--resources); margin-bottom: 0.5rem;">Pillar 01</span>
-        <h3
-          style="color: var(--resources); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem;">
-          Storytelling: The Invisible Architecture</h3>
-        <p style="font-size: 0.95rem; line-height: 1.7;">Before you pick a lens, you pick a feeling. This domain
-          explores why stories work and how to translate abstract emotions into concrete visual beats. This is the
-          foundation that all other domains rest upon.</p>
-        <span
-          style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-top: 1rem; display: block;">↵
-          Enter Domain</span>
       </a>
     </section>
 
-    <!-- DOMAINS -->
-    <section id="domains">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        Execution Domains</h2>
-      <div class="domain-grid">
-        <a href="design.html" class="card card-clay" style="padding: 1.5rem;">
-          <span class="badge badge-outline" style="color: var(--design); margin-bottom: 0.5rem;">01</span>
-          <h3 style="color: var(--design); font-size: 1.1rem; margin-bottom: 0.25rem;">Design</h3>
-          <p style="font-size: 0.85rem; color: var(--text-2);">"If this never moved, would it still work?"</p>
+    <!-- ═══════════════════════════════════════
+             EXECUTION DOMAINS (5 Cards)
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #3b82f6; letter-spacing: 0.15em;">
+          Execution Domains
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">The Five Pillars</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Each domain has its own question. Each question reveals
+          whether you're thinking or just vibing.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="design.html" class="domain-card card-design fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">◆</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">01 · Design</h3>
+          <p class="text-xs italic mb-2" style="color: #d97706;">"If this never moved, would it still work?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Composition, hierarchy, typography, color psychology, negative
+            space, grid systems, shape language.</p>
         </a>
-        <a href="cinematography.html" class="card card-clay" style="padding: 1.5rem;">
-          <span class="badge badge-outline" style="color: var(--cinematography); margin-bottom: 0.5rem;">02</span>
-          <h3 style="color: var(--cinematography); font-size: 1.1rem; margin-bottom: 0.25rem;">Cinematography</h3>
-          <p style="font-size: 0.85rem; color: var(--text-2);">"Does this feel physically real?"</p>
+
+        <a href="cinematography.html" class="domain-card card-cinematography fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">◎</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">02 · Cinematography</h3>
+          <p class="text-xs italic mb-2" style="color: #3b82f6;">"Does this feel physically real?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Light physics, color temperature, focal length, exposure, camera
+            movement, depth of field.</p>
         </a>
-        <a href="sound.html" class="card card-clay" style="padding: 1.5rem;">
-          <span class="badge badge-outline" style="color: var(--sound); margin-bottom: 0.5rem;">03</span>
-          <h3 style="color: var(--sound); font-size: 1.1rem; margin-bottom: 0.25rem;">Sound</h3>
-          <p style="font-size: 0.85rem; color: var(--text-2);">"Would this feel real with eyes closed?"</p>
+
+        <a href="sound.html" class="domain-card card-sound fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">◌</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">03 · Sound</h3>
+          <p class="text-xs italic mb-2" style="color: #0891b2;">"Would this feel real with eyes closed?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Production sound, room tone, foley, layering,
+            diegetic/non-diegetic, silence, EQ & compression.</p>
         </a>
-        <a href="editing.html" class="card card-clay" style="padding: 1.5rem;">
-          <span class="badge badge-outline" style="color: var(--editing); margin-bottom: 0.5rem;">04</span>
-          <h3 style="color: var(--editing); font-size: 1.1rem; margin-bottom: 0.25rem;">Editing</h3>
-          <p style="font-size: 0.85rem; color: var(--text-2);">"What does this sequence say?"</p>
+
+        <a href="editing.html" class="domain-card card-editing fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">▤</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">04 · Editing</h3>
+          <p class="text-xs italic mb-2" style="color: #059669;">"What does this sequence say?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Kuleshov effect, cause & effect, the blink, rhythm & tension,
+            Eisenstein's montage methods.</p>
         </a>
-        <a href="motion.html" class="card card-clay" style="padding: 1.5rem;">
-          <span class="badge badge-outline" style="color: var(--motion); margin-bottom: 0.5rem;">05</span>
-          <h3 style="color: var(--motion); font-size: 1.1rem; margin-bottom: 0.25rem;">Motion</h3>
-          <p style="font-size: 0.85rem; color: var(--text-2);">"Does this feel alive?"</p>
+
+        <a href="motion.html" class="domain-card card-motion fade-up md:col-span-2" style="transition-delay: 0.25s;">
+          <div class="domain-icon text-xl mb-3">↻</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">05 · Motion</h3>
+          <p class="text-xs italic mb-2" style="color: #ea580c;">"Does this feel alive?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">12 principles of animation, weight & physics, speed graphs, motion
+            blur, follow-through, parallax. Even stylized motion must have weight, cause, and reaction.</p>
         </a>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         LEARNING PATHS
-         ═══════════════════════════════════════ -->
-    <section id="learning-paths">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        Learning Paths</h2>
-      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">Don't wander. Pick a path. Follow it
-        through.</p>
-
-      <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
-        <div class="card card-clay" style="border-left: 5px solid #22c55e;">
-          <span class="badge" style="color: #22c55e; padding-left: 0;">Path A</span>
-          <h3 style="font-size: 1.3rem; margin: 0.25rem 0 0.75rem;">🌱 Start Here — Beginner</h3>
-          <p style="font-size: 0.9rem; color: var(--text-2);">Build your foundation. Understand why story comes first,
-            learn the visual language.</p>
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-            <a href="storytelling.html" class="btn btn-outline"
-              style="border-color:#22c55e; color:#22c55e; padding: 0.3rem 0.8rem; font-size: 0.75rem;">1.
-              Storytelling</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="design.html" class="btn btn-outline"
-              style="border-color:#22c55e; color:#22c55e; padding: 0.3rem 0.8rem; font-size: 0.75rem;">2. Design</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="resources.html" class="btn btn-outline"
-              style="border-color:#22c55e; color:#22c55e; padding: 0.3rem 0.8rem; font-size: 0.75rem;">3. Resources</a>
-          </div>
-        </div>
-
-        <div class="card card-clay" style="border-left: 5px solid #8b5cf6;">
-          <span class="badge" style="color: #8b5cf6; padding-left: 0;">Path B</span>
-          <h3 style="font-size: 1.3rem; margin: 0.25rem 0 0.75rem;">🎥 Advanced Filmmaker</h3>
-          <p style="font-size: 0.9rem; color: var(--text-2);">Refine your craft — study cinematography language, master
-            editorial rhythm.</p>
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-            <a href="cinematography.html" class="btn btn-outline"
-              style="border-color:#8b5cf6; color:#8b5cf6; padding: 0.3rem 0.8rem; font-size: 0.75rem;">1.
-              Cinematography</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="emotion-grammar.html" class="btn btn-outline"
-              style="border-color:#8b5cf6; color:#8b5cf6; padding: 0.3rem 0.8rem; font-size: 0.75rem;">2. Emotion</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="style-reference.html" class="btn btn-outline"
-              style="border-color:#8b5cf6; color:#8b5cf6; padding: 0.3rem 0.8rem; font-size: 0.75rem;">3. Style Ref</a>
-          </div>
-        </div>
-
-        <div class="card card-clay" style="border-left: 5px solid #0ea5e9;">
-          <span class="badge" style="color: #0ea5e9; padding-left: 0;">Path C</span>
-          <h3 style="font-size: 1.3rem; margin: 0.25rem 0 0.75rem;">🧠 AI Practitioner</h3>
-          <p style="font-size: 0.9rem; color: var(--text-2);">Learn to think cinematically — impose constraints, build
-            visual grammar.</p>
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-            <a href="ai-visual.html" class="btn btn-outline"
-              style="border-color:#0ea5e9; color:#0ea5e9; padding: 0.3rem 0.8rem; font-size: 0.75rem;">1. AI Visuals</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="ideation.html" class="btn btn-outline"
-              style="border-color:#0ea5e9; color:#0ea5e9; padding: 0.3rem 0.8rem; font-size: 0.75rem;">2. Ideation</a>
-            <span style="color: var(--text-3); font-size: 0.8rem;">→</span>
-            <a href="scene-grammar.html" class="btn btn-outline"
-              style="border-color:#0ea5e9; color:#0ea5e9; padding: 0.3rem 0.8rem; font-size: 0.75rem;">3. Scenes</a>
-          </div>
-        </div>
+             ADVANCED SYSTEMS
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #8b5cf6; letter-spacing: 0.15em;">
+          Advanced Systems
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Beyond Craft</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Structured grammars for emotion, scenes, and AI-native
+          visual thinking.</p>
       </div>
-    </section>
 
-    <!-- KEYWORD DEEP DIVES -->
-    <section id="keywords">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        Keyword Deep Dives</h2>
-      <p style="color: var(--text-2); margin-bottom: 1.5rem; font-size: 0.95rem;">Detailed teaching pages for concept
-        you need to master.</p>
-      <div class="domain-grid">
-        <a href="filmmaking-keywords.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--filmmaking); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🎬</span>
-          <h3 style="color: var(--filmmaking); font-size: 1rem;">Filmmaking Core</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Visual language, camera, lighting foundations.</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="ai-visual.html" class="domain-card card-ai fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">⬡</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">AI Visual Generation</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            Concepts and vocabulary for AI image & video generation. Achieve cinematic results, avoid
+            "sludge." Covers prompt engineering, visual control, camera motivation, and constraint-based
+            thinking.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-ai">AI</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Prompt
+              Structure</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Visual
+              Control</span>
+          </div>
         </a>
-        <a href="editing-rhythm.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--editing); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">✂️</span>
-          <h3 style="color: var(--editing); font-size: 1rem;">Editing & Rhythm</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Continuity, cuts, pacing theory.</p>
-        </a>
-        <a href="story-emotion.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--story-emotion); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🧠</span>
-          <h3 style="color: var(--story-emotion); font-size: 1rem;">Story & Emotion</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Emotional arcs and visual metaphor.</p>
-        </a>
-        <a href="mograph-keywords.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--motion); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🎞️</span>
-          <h3 style="color: var(--motion); font-size: 1rem;">Motion Graphics</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Animation principles and design in time.</p>
-        </a>
-        <a href="ai-visual.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--ai-visual); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🤖</span>
-          <h3 style="color: var(--ai-visual); font-size: 1rem;">AI Visual Generation</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Cinematic prompt logic for AI tools.</p>
-        </a>
-        <a href="resources.html" class="card card-clay" style="padding: 1.25rem;">
-          <span class="badge badge-outline"
-            style="color: var(--resources); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🌐</span>
-          <h3 style="color: var(--resources); font-size: 1rem;">Free Resources</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Curated channels and learning sites.</p>
-        </a>
-        <a href="ideation.html" class="card card-clay"
-          style="padding: 1.25rem; border-left: 4px solid var(--resources);">
-          <span class="badge badge-outline"
-            style="color: var(--resources); border-radius: 50%; padding: 0.4rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">🎲</span>
-          <h3 style="color: var(--resources); font-size: 1rem;">Ideation Engine</h3>
-          <p style="font-size: 0.8rem; color: var(--text-3);">Random creative briefs and constraints.</p>
-        </a>
-      </div>
-    </section>
 
-    <!-- MASTERS -->
-    <section id="masters">
-      <h2 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem;">Study the Masters</h2>
-      <div class="masters-grid">
-        <div class="master">
-          <h4>Roger Deakins</h4>
-          <p>Cinematography</p>
-          <a href="https://www.youtube.com/watch?v=jgaEhPpEzQs" target="_blank">Team Deakins Podcast →</a>
-        </div>
-        <div class="master">
-          <h4>Walter Murch</h4>
-          <p>Editing</p>
-          <a href="https://www.youtube.com/watch?v=EcXPRLKQqeU" target="_blank">In the Blink of an Eye →</a>
-        </div>
-        <div class="master">
-          <h4>Saul Bass</h4>
-          <p>Design</p>
-          <a href="https://www.youtube.com/watch?v=kTQ_lkXL4Xg" target="_blank">Title Sequences →</a>
-        </div>
-        <div class="master">
-          <h4>Ben Burtt</h4>
-          <p>Sound</p>
-          <a href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank">Creating Star Wars Sound →</a>
-        </div>
+        <a href="emotion-grammar.html" class="domain-card card-emotion fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">♡</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Cinematic Emotion Grammar</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            24 emotions mapped to cinematic language. Each with space, light, lens, movement, editing,
+            sound, and texture. Includes direct AI prompt translations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-advanced">Advanced</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">24 Emotions</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">AI Prompts</span>
+          </div>
+        </a>
+
+        <a href="scene-grammar.html" class="domain-card card-scene fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">▣</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Scene Grammar & Pressure System</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            10 universal scene archetypes with complete spatial, light, lens, movement, and editing grammars.
+            Confrontation, Reunion, Death, Revelation, Betrayal, and more.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-advanced">Advanced</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">10
+              Archetypes</span>
+          </div>
+        </a>
+
+        <a href="story-emotion.html" class="domain-card card-storytelling fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">◉</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Story × Emotion</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            The intersection of narrative structure and emotional architecture. Where character, conflict,
+            and internal world collide. Presence vs Absence, Time Pressure, Memory vs Reality.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-core">Core</span>
+            <span class="tag tag-advanced">Advanced</span>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════
-         ROADMAP
-         ═══════════════════════════════════════ -->
-    <section id="roadmap">
-      <h2
-        style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3);">
-        Roadmap — Coming Next</h2>
-      <p style="color: var(--text-2); margin-bottom: 0.5rem; font-size: 0.95rem;">This system is growing. Here's what's
-        being built.</p>
+             TOOLS & REFERENCE
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #10b981; letter-spacing: 0.15em;">
+          Tools & Reference
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Practice & Apply</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Hands-on tools, curated references, and personal craft
+          notes.</p>
+      </div>
 
-      <div class="roadmap-list">
-        <div class="roadmap-item">
-          <span class="roadmap-tag">In Development</span>
-          <h4>AI Cinematic Patterns</h4>
-          <p>Reusable visual patterns for AI filmmaking — shot-reverse-shot in AI, establishing sequences, emotional
-            reveals using generative constraints.</p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="ideation.html" class="domain-card card-ideation fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">⚡</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Ideation Engine</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Creative constraints randomizer. Generate briefs from
+            curated categories.</p>
+        </a>
+
+        <a href="style-reference.html" class="domain-card card-style fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">◎</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Style Reference</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Visual encyclopedia of design styles — Glassmorphism,
+            Brutalism, Bauhaus, Y2K, and more.</p>
+        </a>
+
+        <a href="craft-notes.html" class="domain-card card-craft fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">✎</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Craft Notes</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Personal working notes — character creation, story
+            structure, dialogue, world-building.</p>
+        </a>
+
+        <a href="resources.html" class="domain-card card-resources fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">☷</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Resources</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Best free YouTube channels, courses, articles, and tools.
+            Curated, not dumped.</p>
+        </a>
+
+        <a href="filmmaking-keywords.html" class="domain-card fade-up" style="transition-delay: 0.25s;">
+          <div class="domain-icon text-xl mb-3" style="color: #64748b;">🎬</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Filmmaking Keywords</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Searchable keyword map for filmmaking terminology.</p>
+        </a>
+
+        <a href="mograph-keywords.html" class="domain-card fade-up" style="transition-delay: 0.3s;">
+          <div class="domain-icon text-xl mb-3" style="color: #64748b;">◐</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Motion Graphics Keywords</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Motion design vocabulary and keyword reference.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             LEARNING PATHS
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #06b6d4; letter-spacing: 0.15em;">
+          Getting Started
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Learning Paths</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Choose your starting point based on where you are.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <!-- Beginner Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.05s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #10b981;">
+            Beginner
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Start with "Why"</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="storytelling.html" class="hover:underline" style="color: #a1a1aa;">Storytelling</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="design.html" class="hover:underline" style="color: #a1a1aa;">Design fundamentals</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="cinematography.html" class="hover:underline" style="color: #a1a1aa;">Cinematography basics</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="resources.html" class="hover:underline" style="color: #a1a1aa;">Resources (YouTube)</a>
+            </li>
+          </ol>
         </div>
-        <div class="roadmap-item">
-          <span class="roadmap-tag">Planned</span>
-          <h4>Prompt Syntax vs Emotional Intent</h4>
-          <p>Why "cinematic, dramatic lighting, 4K" fails. How to prompt from emotion and structure instead of aesthetic
-            keywords.</p>
+
+        <!-- Filmmaker Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.1s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #3b82f6;">
+            Advanced Filmmaker
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Master the Grammar</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="emotion-grammar.html" class="hover:underline" style="color: #a1a1aa;">Emotion Grammar</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="scene-grammar.html" class="hover:underline" style="color: #a1a1aa;">Scene Grammar</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="editing.html" class="hover:underline" style="color: #a1a1aa;">Editing deep-dive</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="craft-notes.html" class="hover:underline" style="color: #a1a1aa;">Craft Notes</a>
+            </li>
+          </ol>
         </div>
-        <div class="roadmap-item">
-          <span class="roadmap-tag">Planned</span>
-          <h4>Generative System Design</h4>
-          <p>How to build repeatable visual systems with AI — consistent worlds, characters, lighting setups across
-            multiple generations.</p>
-        </div>
-        <div class="roadmap-item">
-          <span class="roadmap-tag">Exploring</span>
-          <h4>Constraint-Led Storytelling Templates</h4>
-          <p>Downloadable constraints frameworks for different story types: thriller, poetry film, product reveal,
-            documentary micro-essay.</p>
+
+        <!-- AI Practitioner Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.15s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #8b5cf6;">
+            AI Practitioner
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Cinematic AI Thinking</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="ai-visual.html" class="hover:underline" style="color: #a1a1aa;">AI Visual Generation</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="emotion-grammar.html" class="hover:underline" style="color: #a1a1aa;">Emotion → AI Prompts</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="cinematography.html" class="hover:underline" style="color: #a1a1aa;">Cinematography for
+                prompts</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="ideation.html" class="hover:underline" style="color: #a1a1aa;">Ideation Engine</a>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- SYSTEM ANCHOR -->
-    <section class="card card-clay"
-      style="text-align: center; background: linear-gradient(145deg, #2d2a26, #1a1714); color: white; margin-top: 3rem; padding: 3rem;">
-      <p style="font-family: var(--font-mono); font-size: 1.2rem; margin-bottom: 1rem; color: var(--resources);">
-        Story leads. Style serves. Domains execute.
-      </p>
-      <p style="font-size: 0.9rem; opacity: 0.7; max-width: 500px; margin: 0 auto;">
-        If you feel lost: You're not untalented. You're just letting style drive. Build the framework, the execution
-        will follow.
-      </p>
-    </section>
-  </main>
+    <!-- ─── Footer ─── -->
+    <footer class="max-w-4xl mx-auto px-6 py-12 mt-8" style="border-top: 1px solid #27272a;">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider mb-1" style="color: #52525b;">Visual Storytelling
+            Framework</div>
+          <div class="text-xs" style="color: #3f3f46;">A system for thinking like a cinematic architect in the
+            AI era.</div>
+        </div>
+        <div class="text-xs" style="color: #3f3f46;">
+          Built with intent. Updated 2026.
+        </div>
+      </div>
+    </footer>
+  </div>
 
-  <footer>
-    <p>Knowledge is knowledge. Pick any — even if it's not well known.</p>
-  </footer>
-
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-    🌙
-  </button>
-
+  <!-- ═══════════════════════════════════════
+         SCRIPTS
+         ═══════════════════════════════════════ -->
   <script>
-    // Theme Toggle Script
-    (function () {
-      const toggle = document.getElementById('themeToggle');
-      const html = document.documentElement;
+    // ─── Sidebar Toggle ───
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
 
-      // Check for saved theme preference, default to light
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      html.setAttribute('data-theme', savedTheme);
-      updateToggleIcon(savedTheme);
-
-      toggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateToggleIcon(newTheme);
+    // ─── Intersection Observer for fade-in ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-      function updateToggleIcon(theme) {
-        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ─── Close sidebar on escape ───
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('sidebar').classList.remove('open');
+        document.querySelector('.sidebar-overlay').classList.remove('active');
       }
-    })();
+    });
   </script>
-
-  <script src="sidebar.js"></script>
 </body>
 
 </html>

@@ -1,436 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft Notes | Personal Knowledge</title>
+    <title>Craft Notes — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Raw working notes on character creation, story structure, scene writing, storyboarding, lighting, and screenplay conventions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: #10b981;
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .note-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid #10b981
+        }
+
+        .note-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .note-card p,
+        .note-card li {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .note-card strong {
+            color: #d4d4d8
+        }
+
+        .note-card ul {
+            margin: .5rem 0 .5rem 1.25rem;
+            list-style: disc
+        }
+
+        .note-card li {
+            margin-bottom: .35rem
+        }
+
+        .note-card ol {
+            margin: .5rem 0 .5rem 1.25rem;
+            list-style: decimal
+        }
+
+        .insight {
+            background: rgba(16, 185, 129, .06);
+            border: 1px solid rgba(16, 185, 129, .2);
+            padding: .75rem 1rem;
+            border-radius: 6px;
+            margin: .75rem 0;
+            font-style: italic;
+            font-size: .85rem;
+            color: #6ee7b7
+        }
+
+        .raw-note {
+            background: rgba(245, 158, 11, .04);
+            border-left: 3px solid rgba(245, 158, 11, .3);
+            padding: .75rem 1rem;
+            margin: .75rem 0;
+            font-size: .82rem;
+            color: #fcd34d;
+            line-height: 1.7
+        }
+
+        .formula {
+            font-family: monospace;
+            background: rgba(0, 0, 0, .2);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: .75rem 0;
+            font-size: .82rem;
+            line-height: 2;
+            color: #a1a1aa
+        }
+
+        .formula strong {
+            color: #d4d4d8
+        }
+
+        .grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: .75rem 0;
+            font-size: .78rem
+        }
+
+        .grid-table th,
+        .grid-table td {
+            border: 1px solid #27272a;
+            padding: .6rem .75rem;
+            text-align: left
+        }
+
+        .grid-table th {
+            background: rgba(0, 0, 0, .15);
+            font-weight: 500;
+            color: #d4d4d8
+        }
+
+        .grid-table td {
+            color: #a1a1aa
         }
 
         .personal-tag {
             display: inline-block;
             background: #10b981;
             color: white;
-            font-size: 0.65rem;
-            padding: 0.2rem 0.5rem;
+            font-size: .55rem;
+            padding: .15rem .4rem;
             border-radius: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-left: 0.5rem;
-        }
-
-        .note-section {
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            border-left: 4px solid #10b981;
-        }
-
-        .note-section h2 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .note-section h3 {
-            font-size: 1rem;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--text);
-        }
-
-        .note-section p,
-        .note-section li {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: var(--text-2);
-        }
-
-        .note-section ul {
-            margin-left: 1.5rem;
-        }
-
-        .note-section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .insight {
-            background: #ecfdf5;
-            border: 1px solid #a7f3d0;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            font-style: italic;
-        }
-
-        .grid-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-        }
-
-        .grid-table th,
-        .grid-table td {
-            border: 1px solid var(--border);
-            padding: 0.75rem;
-            text-align: left;
-        }
-
-        .grid-table th {
-            background: #f8f8f8;
-            font-weight: 500;
-        }
-
-        .formula {
-            font-family: var(--font-mono);
-            background: #f8f8f8;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-        }
-
-        .raw-note {
-            background: #fffbeb;
-            border-left: 3px solid #f59e0b;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-size: 0.9rem;
+            letter-spacing: .05em;
+            margin-left: .5rem;
+            vertical-align: middle
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+        </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link active"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <div class="domain-header">
-            <h1>Craft Notes <span class="personal-tag">Personal</span></h1>
-            <p class="question">Your raw thinking, organized but unpolished</p>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 40% 30%,rgba(16,185,129,.06) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#10b981;letter-spacing:.2em">Personal Notes</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Craft Notes <span class="personal-tag">Personal</span></h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">Your raw thinking, organized but unpolished</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">These are your working notes —
+                        ideas captured in the moment. They're organized by craft discipline but kept raw to preserve the
+                        insight.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- CHARACTER CREATION -->
+            <div class="section-divider fade-up">🎭 Character Creation</div>
+
+            <div class="note-card fade-up">
+                <h3>The Character Grid</h3>
+                <p>Characters pursue either a <strong>Need</strong> (soul-growth, truth, internal shift) or a
+                    <strong>Want</strong> (external goal, desire, image). The World/Power can support or oppose each.
+                </p>
+                <table class="grid-table" style="margin-top:.75rem">
+                    <tr>
+                        <th>Character Type</th>
+                        <th>Pursues</th>
+                        <th>Power Supports</th>
+                        <th>Power Opposes</th>
+                    </tr>
+                    <tr>
+                        <td>Conscious</td>
+                        <td>Need</td>
+                        <td>Harmonious story of growth</td>
+                        <td>Tragic hero, painful but transformative</td>
+                    </tr>
+                    <tr>
+                        <td>Conscious</td>
+                        <td>Want</td>
+                        <td>Success arc, fulfillment</td>
+                        <td>Moral dilemma, sacrifice needed</td>
+                    </tr>
+                    <tr>
+                        <td>Unconscious</td>
+                        <td>Need</td>
+                        <td>Accidental healing, fate helps</td>
+                        <td>Resistance until awakening</td>
+                    </tr>
+                    <tr>
+                        <td>Unconscious</td>
+                        <td>Want</td>
+                        <td>Hollow success, irony</td>
+                        <td>Self-destruction, powerful conflict</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Core Layers of a Character</h3>
+                <ul>
+                    <li><strong>Outer Mask</strong> — Who they pretend to be (public persona)</li>
+                    <li><strong>Private Self</strong> — Who they think they are (with trusted people)</li>
+                    <li><strong>Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
+                </ul>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Social Reaction Shifts</h3>
+                <p>Characters shift depending on who's watching:</p>
+                <ul>
+                    <li><strong>With someone they admire</strong> — Performative, seeking validation</li>
+                    <li><strong>With someone they fear</strong> — Obedient, deceptive, or defensive</li>
+                    <li><strong>With someone they hate</strong> — Aggressive, mocking, combative</li>
+                    <li><strong>With someone they love</strong> — Vulnerable or scared to be vulnerable</li>
+                    <li><strong>With someone they pity</strong> — Superior, nurturing, or manipulative</li>
+                </ul>
+                <div class="insight">"We are who we think they think we are."</div>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Enneagram Types (Shorthand)</h3>
+                <ul>
+                    <li><strong>Type 9</strong> — Feels they have potential but chooses unhealthy way to come on top.
+                        Obsessive about achieving it. If they come on top and drop negative habits → good leader.</li>
+                    <li><strong>Type 8</strong> — Less ego, more control. Wants to dominate to protect. Easy to write,
+                        straightforward. Won't show emotions. Learned they need to be tough.</li>
+                    <li><strong>Type 7</strong> — Avoids the darkness which stops them from becoming true self. Will do
+                        multiple things just to avoid the pain.</li>
+                </ul>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Character Introduction Rules</h3>
+                <ul>
+                    <li>What is the first thing the character says? (Sherlock's first dialogue is deduction — that's
+                        first impression)</li>
+                    <li>Show what is the problem of the character</li>
+                    <li>Make them likeable</li>
+                    <li>Widen audience perception about themselves (Walter White says it's for family, but it was ego)
+                    </li>
+                    <li>Break the stereotype (old lady we imagine to be "go with the flow" — what if they're mean?)</li>
+                    <li>Make them do something that contradicts expected behavior</li>
+                </ul>
+                <div class="raw-note"><strong>Character should be split between 3 times:</strong><br>Past — A past that
+                    affects their present<br>Present — Immediate problem (one personal conflict + one internal conflict)
+                </div>
+            </div>
+
+            <!-- STORY STRUCTURE -->
+            <div class="section-divider fade-up">📐 Story Structure</div>
+
+            <div class="note-card fade-up">
+                <h3>Dan Harmon's Story Circle</h3>
+                <div class="formula">
+                    1. <strong>You</strong> — Character in their zone of comfort<br>
+                    2. <strong>Need</strong> — Wants something<br>
+                    3. <strong>Go!</strong> — Enters an unfamiliar situation<br>
+                    4. <strong>Struggle</strong> — Has to adapt<br>
+                    5. <strong>Find</strong> — Gets what they want (or a version)<br>
+                    6. <strong>Suffer</strong> — Has to make a sacrifice<br>
+                    7. <strong>Return</strong> — Returns to familiar situation<br>
+                    8. <strong>Change</strong> — Having changed fundamentally
+                </div>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Conflict Rules</h3>
+                <div class="insight">"The real unity of opposites is one in which compromise is impossible."</div>
+                <p><strong>The Unity of Opposites:</strong> Great conflict comes from characters with opposing needs,
+                    values, or goals, who are locked together in a situation where neither can back down or walk away.
+                </p>
+                <ul>
+                    <li>Don't make inciting incident same for everyone — protagonist should have higher stakes</li>
+                    <li>It's never too soon to push character out of comfort zone (inciting incident)</li>
+                    <li>Don't make conflict too easily resolved</li>
+                    <li>A chain reaction of conflict should happen</li>
+                </ul>
+                <div class="raw-note"><strong>For audience connection:</strong> Highlight the ordinary, make it
+                    extraordinary. People should relate but think "I'm not even in that bad a situation."</div>
+            </div>
+
+            <!-- SCENE WRITING -->
+            <div class="section-divider fade-up">✍️ Scene Writing</div>
+
+            <div class="note-card fade-up">
+                <h3>The Three Questions</h3>
+                <div class="formula">
+                    1. Who wants what from whom?<br>
+                    2. What happens if they don't get it?<br>
+                    3. Why now?
+                </div>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Scene Writing Process</h3>
+                <ol>
+                    <li>Write it simply: what does my character want, how did the scene change them?</li>
+                    <li>Rewrite with deeper context: how did the character react, what's the new correlation between
+                        characters now?</li>
+                </ol>
+                <div class="insight">"Dialogue becomes powerful when characters have hidden agendas."</div>
+                <div class="raw-note">Add subtext in scene to represent something but don't demand any conclusion — just
+                    leave it there.</div>
+            </div>
+
+            <!-- STORYBOARD -->
+            <div class="section-divider fade-up">🎬 Storyboard Techniques</div>
+
+            <div class="note-card fade-up">
+                <h3>What to Include</h3>
+                <ul>
+                    <li>Lighting</li>
+                    <li>Sound</li>
+                    <li>Camera movement</li>
+                    <li>Aspect ratio</li>
+                    <li>Character movement</li>
+                    <li>Framing & composition</li>
+                    <li>Angle</li>
+                    <li>Transition between frames</li>
+                    <li>Depth of field (cross out out-of-focus elements)</li>
+                </ul>
+                <h3 style="margin-top:1rem">Visual Storytelling Rules</h3>
+                <ul>
+                    <li>Movement of character should give sense of what they would do — audience should anticipate</li>
+                    <li>Show weather, time of day</li>
+                    <li>Cut on action</li>
+                    <li>Switch between full to medium shot in a single scene</li>
+                </ul>
+            </div>
+
+            <!-- LIGHTING -->
+            <div class="section-divider fade-up">💡 Lighting Notes</div>
+
+            <div class="note-card fade-up">
+                <h3>Types of Light Sources</h3>
+                <ul>
+                    <li><strong>Natural Light</strong> — Sunlight, moonlight. Changes throughout the day.</li>
+                    <li><strong>Practical Light</strong> — Existing lights in a scene (lamps, candles, screens).</li>
+                    <li><strong>Artificial Light</strong> — Studio lights, LEDs, flash, strobes.</li>
+                </ul>
+                <h3 style="margin-top:1rem">Three-Point Lighting</h3>
+                <ul>
+                    <li><strong>Key Light</strong> — Strongest, main source, shapes the subject</li>
+                    <li><strong>Fill Light</strong> — Softer, reduces shadows from key light</li>
+                    <li><strong>Backlight</strong> — Behind subject, separates from background</li>
+                    <li><strong>Kicker Light</strong> — Side/back, adds highlight on edge</li>
+                    <li><strong>Motivated Lighting</strong> — Artificial lights mimicking natural sources</li>
+                </ul>
+            </div>
+
+            <div class="note-card fade-up">
+                <h3>Lighting Styles</h3>
+                <table class="grid-table">
+                    <tr>
+                        <th>Style</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Rembrandt</td>
+                        <td>Small triangle of light on one cheek, dramatic yet natural</td>
+                    </tr>
+                    <tr>
+                        <td>Loop</td>
+                        <td>Slight shadow under nose, common for portraits</td>
+                    </tr>
+                    <tr>
+                        <td>Split</td>
+                        <td>One half lit, other dark — high contrast</td>
+                    </tr>
+                    <tr>
+                        <td>Butterfly</td>
+                        <td>Shadow under nose, used for beauty shots</td>
+                    </tr>
+                    <tr>
+                        <td>Clamshell</td>
+                        <td>Two soft lights above/below, smooth look</td>
+                    </tr>
+                    <tr>
+                        <td>Silhouette</td>
+                        <td>Light from behind, subject appears dark</td>
+                    </tr>
+                    <tr>
+                        <td>Low-Key</td>
+                        <td>High contrast, dramatic shadows (film noir)</td>
+                    </tr>
+                    <tr>
+                        <td>High-Key</td>
+                        <td>Bright, low contrast (commercials, comedies)</td>
+                    </tr>
+                </table>
+                <h3 style="margin-top:1rem">Light Softness Rules</h3>
+                <ul>
+                    <li>Larger light source = Softer shadows</li>
+                    <li>Smaller light source = Harsher shadows</li>
+                    <li>Closer light = Softer (wraps around subject)</li>
+                    <li>Farther light = Harsher (more directional)</li>
+                </ul>
+                <div class="raw-note"><strong>Shoot from the Dark Side</strong> — Position camera on shadowed side of
+                    face for depth and drama.<br><br><strong>Broad Lighting</strong> — Bright side faces camera (makes
+                    face look wider)<br><strong>Short Lighting</strong> — Shadowed side faces camera (adds contrast and
+                    depth)</div>
+            </div>
+
+            <!-- SCREENPLAY -->
+            <div class="section-divider fade-up">📝 Screenplay Conventions</div>
+
+            <div class="note-card fade-up">
+                <h3>Formatting Rules</h3>
+                <ul>
+                    <li>Keep it visual and in present tense</li>
+                    <li>Write <code
+                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">V.O.</code>
+                        for voice over</li>
+                    <li>Add <code
+                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">CUT TO</code>
+                        or <code
+                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">BACK TO</code>
+                        for scene change</li>
+                    <li><code
+                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE START</code>
+                        and <code
+                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE END</code>
+                    </li>
+                    <li>Dialogues in the centre</li>
+                </ul>
+            </div>
+
+            <!-- QUICK WISDOM -->
+            <div class="section-divider fade-up">⚡ Quick Wisdom</div>
+
+            <div class="note-card fade-up" style="border-left-color:#f59e0b">
+                <div class="raw-note" style="background:rgba(245,158,11,.06)">So what does audience think when they see
+                    the world... How it makes them connect to their idea... How they communicate.... Is character funny
+                    in a horror world... Is character hiding something that can change the world... or is there fight
+                    between two people whom we know what their desires are, what their flaws are, and how they are
+                    changed throughout the entire time and what theme do they follow.</div>
+            </div>
         </div>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            These are your working notes — ideas captured in the moment.
-            They're organized by craft discipline but kept raw to preserve the insight.
-        </p>
-
-        <!-- CHARACTER CREATION -->
-        <div class="note-section" id="character">
-            <h2>🎭 Character Creation</h2>
-
-            <h3>The Character Grid</h3>
-            <p>Characters pursue either a <strong>Need</strong> (soul-growth, truth, internal shift) or a
-                <strong>Want</strong> (external goal, desire, image). The World/Power can support or oppose each.
-            </p>
-
-            <table class="grid-table">
-                <tr>
-                    <th>Character Type</th>
-                    <th>Pursues</th>
-                    <th>Power Supports</th>
-                    <th>Power Opposes</th>
-                </tr>
-                <tr>
-                    <td>Conscious</td>
-                    <td>Need</td>
-                    <td>Harmonious story of growth</td>
-                    <td>Tragic hero, painful but transformative</td>
-                </tr>
-                <tr>
-                    <td>Conscious</td>
-                    <td>Want</td>
-                    <td>Success arc, fulfillment</td>
-                    <td>Moral dilemma, sacrifice needed</td>
-                </tr>
-                <tr>
-                    <td>Unconscious</td>
-                    <td>Need</td>
-                    <td>Accidental healing, fate helps</td>
-                    <td>Resistance until awakening</td>
-                </tr>
-                <tr>
-                    <td>Unconscious</td>
-                    <td>Want</td>
-                    <td>Hollow success, irony</td>
-                    <td>Self-destruction, powerful conflict</td>
-                </tr>
-            </table>
-
-            <h3>Core Layers of a Character</h3>
-            <ul>
-                <li><strong>Outer Mask</strong> — Who they pretend to be (public persona)</li>
-                <li><strong>Private Self</strong> — Who they think they are (with trusted people)</li>
-                <li><strong>Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
-            </ul>
-
-            <h3>Social Reaction Shifts</h3>
-            <p>Characters shift depending on who's watching:</p>
-            <ul>
-                <li><strong>With someone they admire</strong> — Performative, seeking validation</li>
-                <li><strong>With someone they fear</strong> — Obedient, deceptive, or defensive</li>
-                <li><strong>With someone they hate</strong> — Aggressive, mocking, combative</li>
-                <li><strong>With someone they love</strong> — Vulnerable or scared to be vulnerable</li>
-                <li><strong>With someone they pity</strong> — Superior, nurturing, or manipulative</li>
-            </ul>
-
-            <div class="insight">
-                "We are who we think they think we are."
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+                        Back to Overview</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
             </div>
-
-            <h3>Enneagram Types (Shorthand)</h3>
-            <ul>
-                <li><strong>Type 9</strong> — Feels they have potential but chooses unhealthy way to come on top.
-                    Obsessive about achieving it. If they come on top and drop negative habits → good leader.</li>
-                <li><strong>Type 8</strong> — Less ego, more control. Wants to dominate to protect. Easy to write,
-                    straightforward. Won't show emotions. Learned they need to be tough.</li>
-                <li><strong>Type 7</strong> — Avoids the darkness which stops them from becoming true self. Will do
-                    multiple things just to avoid the pain.</li>
-            </ul>
-
-            <h3>Character Introduction Rules</h3>
-            <ul>
-                <li>What is the first thing the character says? (Sherlock's first dialogue is deduction — that's first
-                    impression)</li>
-                <li>Show what is the problem of the character</li>
-                <li>Make them likeable</li>
-                <li>Widen audience perception about themselves (Walter White says it's for family, but it was ego)</li>
-                <li>Break the stereotype (old lady we imagine to be "go with the flow" — what if they're mean?)</li>
-                <li>Make them do something that contradicts expected behavior</li>
-            </ul>
-
-            <div class="raw-note">
-                <strong>Character should be split between 3 times:</strong><br>
-                Past — A past that affects their present<br>
-                Present — Immediate problem (one personal conflict + one internal conflict)
-            </div>
-        </div>
-
-        <!-- STORY STRUCTURE -->
-        <div class="note-section" id="structure">
-            <h2>📐 Story Structure</h2>
-
-            <h3>Dan Harmon's Story Circle</h3>
-            <div class="formula">
-                1. <strong>You</strong> — Character in their zone of comfort<br>
-                2. <strong>Need</strong> — Wants something<br>
-                3. <strong>Go!</strong> — Enters an unfamiliar situation<br>
-                4. <strong>Struggle</strong> — Has to adapt<br>
-                5. <strong>Find</strong> — Gets what they want (or a version)<br>
-                6. <strong>Suffer</strong> — Has to make a sacrifice<br>
-                7. <strong>Return</strong> — Returns to familiar situation<br>
-                8. <strong>Change</strong> — Having changed fundamentally
-            </div>
-
-            <h3>Conflict Rules</h3>
-            <div class="insight">
-                "The real unity of opposites is one in which compromise is impossible."
-            </div>
-            <p><strong>The Unity of Opposites:</strong> Great conflict comes from characters with opposing needs,
-                values, or goals, who are locked together in a situation where neither can back down or walk away.</p>
-
-            <ul>
-                <li>Don't make inciting incident same for everyone — protagonist should have higher stakes</li>
-                <li>It's never too soon to push character out of comfort zone (inciting incident)</li>
-                <li>Don't make conflict too easily resolved</li>
-                <li>A chain reaction of conflict should happen</li>
-            </ul>
-
-            <div class="raw-note">
-                <strong>For audience connection:</strong> Highlight the ordinary, make it extraordinary. People should
-                relate but think "I'm not even in that bad a situation."
-            </div>
-        </div>
-
-        <!-- SCENE WRITING -->
-        <div class="note-section" id="scenes">
-            <h2>✍️ Scene Writing</h2>
-
-            <h3>The Three Questions</h3>
-            <div class="formula">
-                1. Who wants what from whom?<br>
-                2. What happens if they don't get it?<br>
-                3. Why now?
-            </div>
-
-            <h3>Scene Writing Process</h3>
-            <ol>
-                <li>Write it simply: what does my character want, how did the scene change them?</li>
-                <li>Rewrite with deeper context: how did the character react, what's the new correlation between
-                    characters now?</li>
-            </ol>
-
-            <div class="insight">
-                "Dialogue becomes powerful when characters have hidden agendas."
-            </div>
-
-            <div class="raw-note">
-                Add subtext in scene to represent something but don't demand any conclusion — just leave it there.
-            </div>
-        </div>
-
-        <!-- STORYBOARD -->
-        <div class="note-section" id="storyboard">
-            <h2>🎬 Storyboard Techniques</h2>
-
-            <h3>What to Include</h3>
-            <ul>
-                <li>Lighting</li>
-                <li>Sound</li>
-                <li>Camera movement</li>
-                <li>Aspect ratio</li>
-                <li>Character movement</li>
-                <li>Framing & composition</li>
-                <li>Angle</li>
-                <li>Transition between frames</li>
-                <li>Depth of field (cross out out-of-focus elements)</li>
-            </ul>
-
-            <h3>Visual Storytelling Rules</h3>
-            <ul>
-                <li>Movement of character should give sense of what they would do — audience should anticipate</li>
-                <li>Show weather, time of day</li>
-                <li>Cut on action</li>
-                <li>Switch between full to medium shot in a single scene</li>
-            </ul>
-        </div>
-
-        <!-- LIGHTING -->
-        <div class="note-section" id="lighting">
-            <h2>💡 Lighting Notes</h2>
-
-            <h3>Types of Light Sources</h3>
-            <ul>
-                <li><strong>Natural Light</strong> — Sunlight, moonlight. Changes throughout the day.</li>
-                <li><strong>Practical Light</strong> — Existing lights in a scene (lamps, candles, screens).</li>
-                <li><strong>Artificial Light</strong> — Studio lights, LEDs, flash, strobes.</li>
-            </ul>
-
-            <h3>Three-Point Lighting</h3>
-            <ul>
-                <li><strong>Key Light</strong> — Strongest, main source, shapes the subject</li>
-                <li><strong>Fill Light</strong> — Softer, reduces shadows from key light</li>
-                <li><strong>Backlight</strong> — Behind subject, separates from background</li>
-                <li><strong>Kicker Light</strong> — Side/back, adds highlight on edge</li>
-                <li><strong>Motivated Lighting</strong> — Artificial lights mimicking natural sources</li>
-            </ul>
-
-            <h3>Lighting Styles</h3>
-            <table class="grid-table">
-                <tr>
-                    <th>Style</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>Rembrandt</td>
-                    <td>Small triangle of light on one cheek, dramatic yet natural</td>
-                </tr>
-                <tr>
-                    <td>Loop</td>
-                    <td>Slight shadow under nose, common for portraits</td>
-                </tr>
-                <tr>
-                    <td>Split</td>
-                    <td>One half lit, other dark — high contrast</td>
-                </tr>
-                <tr>
-                    <td>Butterfly</td>
-                    <td>Shadow under nose, used for beauty shots</td>
-                </tr>
-                <tr>
-                    <td>Clamshell</td>
-                    <td>Two soft lights above/below, smooth look</td>
-                </tr>
-                <tr>
-                    <td>Silhouette</td>
-                    <td>Light from behind, subject appears dark</td>
-                </tr>
-                <tr>
-                    <td>Low-Key</td>
-                    <td>High contrast, dramatic shadows (film noir)</td>
-                </tr>
-                <tr>
-                    <td>High-Key</td>
-                    <td>Bright, low contrast (commercials, comedies)</td>
-                </tr>
-            </table>
-
-            <h3>Light Softness Rules</h3>
-            <ul>
-                <li>Larger light source = Softer shadows</li>
-                <li>Smaller light source = Harsher shadows</li>
-                <li>Closer light = Softer (wraps around subject)</li>
-                <li>Farther light = Harsher (more directional)</li>
-            </ul>
-
-            <div class="raw-note">
-                <strong>Shoot from the Dark Side</strong> — Position camera on shadowed side of face for depth and
-                drama.<br><br>
-                <strong>Broad Lighting</strong> — Bright side faces camera (makes face look wider)<br>
-                <strong>Short Lighting</strong> — Shadowed side faces camera (adds contrast and depth)
-            </div>
-        </div>
-
-        <!-- SCREENPLAY -->
-        <div class="note-section" id="screenplay">
-            <h2>📝 Screenplay Conventions</h2>
-
-            <ul>
-                <li>Keep it visual and in present tense</li>
-                <li>Write <code>V.O.</code> for voice over</li>
-                <li>Add <code>CUT TO</code> or <code>BACK TO</code> for scene change</li>
-                <li><code>MONTAGE START</code> and <code>MONTAGE END</code></li>
-                <li>Dialogues in the centre</li>
-            </ul>
-        </div>
-
-        <!-- QUICK WISDOM -->
-        <div class="note-section" id="wisdom" style="border-left-color: #f59e0b;">
-            <h2>⚡ Quick Wisdom (Raw Notes)</h2>
-
-            <div class="raw-note" style="background: #fef3c7;">
-                So what does audience think when they see the world... How it makes them connect to their idea... How
-                they communicate.... Is character funny in a horror world... Is character hiding something that can
-                change the world... or is there fight between two people whom we know what their desires are, what their
-                flaws are, and how they are changed throughout the entire time and what theme do they follow.
-            </div>
-        </div>
-
-    </main>
-    <footer>
-        <p><a href="index.html">← Back to Overview</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

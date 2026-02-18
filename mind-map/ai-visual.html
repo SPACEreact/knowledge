@@ -1,1159 +1,1151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Visual Generation | Visual Storytelling Study Guide</title>
+    <title>AI Visual Generation — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Master AI image and video generation with cinematic intent. Prompt engineering, visual control, motion reality, and constraint-based thinking.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+        }
+    </script>
     <style>
-        .domain-header h1 {
-            color: var(--ai-visual);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent;
         }
 
-        .critical-block {
-            background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 100%);
-            color: white;
-            padding: 1.5rem;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 260px;
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, 0.3);
+        }
+
+        .sidebar-link.active {
+            color: #8b5cf6;
+            border-left-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.06);
+        }
+
+        .sidebar-section-title {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem 0.4rem;
+            font-weight: 600;
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
             border-radius: 8px;
-            margin: 2rem 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer;
         }
 
-        .critical-block strong {
-            color: #7dd3fc;
+        @media (min-width: 1024px) {
+            .menu-btn {
+                display: none;
+            }
         }
 
-        .avoid-block {
-            background: #fef2f2;
-            border: 1px solid #fca5a5;
-            border-left: 4px solid #dc2626;
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .concept-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 10px;
             padding: 1.5rem;
-            border-radius: 6px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .concept-card:hover {
+            border-color: #3f3f46;
+        }
+
+        .concept-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fafafa;
+            margin-bottom: 0.5rem;
+        }
+
+        .concept-card p {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: #a1a1aa;
+        }
+
+        .concept-card strong {
+            color: #d4d4d8;
+        }
+
+        .concept-card em {
+            color: #a1a1aa;
+        }
+
+        .concept-card code {
+            font-size: 0.8rem;
+            background: #27272a;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            color: #8b5cf6;
+            font-family: monospace;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-letter {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .avoid-card {
+            background: rgba(220, 38, 38, 0.06);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+            border-left: 3px solid #dc2626;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .avoid-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fca5a5;
+            margin-bottom: 0.5rem;
+        }
+
+        .avoid-card p {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: #a1a1aa;
+        }
+
+        .avoid-card strong {
+            color: #fca5a5;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
             margin: 1rem 0;
         }
 
-        [data-theme="dark"] .avoid-block {
-            background: #3d2424;
-            border-color: #7f4040;
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comp-bad {
+            background: rgba(220, 38, 38, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .comp-good {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+
+        .comp-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .comp-bad .comp-label {
+            color: #f87171;
+        }
+
+        .comp-good .comp-label {
+            color: #34d399;
+        }
+
+        .prompt-box {
+            font-family: monospace;
+            font-size: 0.78rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: #d4d4d8;
+        }
+
+        .annotation {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.82rem;
+            color: #a1a1aa;
+        }
+
+        .annotation strong {
+            color: #8b5cf6;
+        }
+
+        .exercise-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(245, 158, 11, 0.02));
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .reveal-btn {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .reveal-btn:hover {
+            background: rgba(245, 158, 11, 0.15);
+        }
+
+        .exercise-reveal {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .exercise-reveal.open {
+            max-height: 500px;
+        }
+
+        .exercise-reveal-content {
+            padding: 1rem 0 0;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+            line-height: 1.7;
+        }
+
+        .exercise-reveal-content strong {
+            color: #fbbf24;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.3rem 0;
+            font-size: 0.78rem;
+            color: #71717a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc-link:hover {
+            color: #e4e4e7;
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg>
+    </button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
-        <div class="domain-header">
-            <h1>🧠 AI Visual Generation</h1>
-            <p class="question">The keyword map for AI image + video that separates cinematic from sludge</p>
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+        <div style="padding: 0 1.25rem 1rem;">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#e4e4e7;">VISUAL STORYTELLING
+            </div>
+            <div style="font-size:0.6rem;color:#52525b;margin-top:2px;">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link active"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+        <div class="sidebar-section-title">Keyword Maps</div>
+        <a href="filmmaking-keywords.html" class="sidebar-link"><span>🎬</span> Filmmaking Keywords</a>
+        <a href="mograph-keywords.html" class="sidebar-link"><span>◐</span> Motion Graphics KW</a>
+        <a href="editing-rhythm.html" class="sidebar-link"><span>♫</span> Editing Rhythm</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.8;">
-            This is not about tools. This is not about hype. These are the <strong>concepts and vocabulary</strong>
-            you must internalize to avoid generic AI output. Every concept here decides whether your output
-            looks cinematic or looks like AI sludge. Bookmark this. Study these exact concepts.
-        </p>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- Hero -->
+        <header class="relative overflow-hidden" style="min-height: 50vh;">
+            <div class="absolute inset-0"
+                style="background: radial-gradient(ellipse at 30% 30%, rgba(139,92,246,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(6,182,212,0.05) 0%, transparent 50%);">
+            </div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-12 lg:pt-28 lg:pb-16">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color: #8b5cf6; letter-spacing: 0.2em;">Advanced System</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color: #fafafa;">AI Visual Generation</h1>
+                    <p class="text-base md:text-lg leading-relaxed max-w-2xl" style="color: #a1a1aa;">The concepts and
+                        vocabulary you must internalize to avoid generic AI output. Every concept here decides whether
+                        your output looks <strong style="color:#d4d4d8;">cinematic or sludge</strong>.</p>
+                </div>
+                <!-- Critical Block -->
+                <div class="fade-up mt-8 p-5 rounded-xl"
+                    style="background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.05)); border: 1px solid rgba(139,92,246,0.15); transition-delay: 0.1s;">
+                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;"><strong style="color: #c4b5fd;">The hard
+                            truth:</strong> AI tools are getting better at generation, but they cannot think
+                        cinematically. That's your job. The AI generates pixels — <em>you</em> generate meaning. Without
+                        these concepts, you'll produce technically impressive garbage.</p>
+                </div>
+            </div>
+        </header>
 
-        <div class="critical-block">
-            <strong>The hard truth:</strong> AI tools are getting better at generation, but they cannot think
-            cinematically.
-            That's your job. The AI generates pixels — <em>you</em> generate meaning. Without these concepts,
-            you'll produce technically impressive garbage.
+        <!-- Table of Contents -->
+        <div class="max-w-4xl mx-auto px-6 py-6">
+            <div class="fade-up p-5 rounded-xl" style="background: #18181b; border: 1px solid #27272a;">
+                <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #52525b;">On this page
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1">
+                    <a href="#foundation" class="toc-link">A. Foundation</a>
+                    <a href="#prompt-structure" class="toc-link">B. Prompt Structure</a>
+                    <a href="#visual-control" class="toc-link">C. Visual Control</a>
+                    <a href="#cinematic-image" class="toc-link">D. Cinematic Image</a>
+                    <a href="#video-motion" class="toc-link">E. Video Motion</a>
+                    <a href="#prompting-motion" class="toc-link">F. Prompting Motion</a>
+                    <a href="#cinematic-video" class="toc-link">G. Cinematic Video</a>
+                    <a href="#keyframes" class="toc-link">H. Keyframes</a>
+                    <a href="#characters" class="toc-link">I. Characters</a>
+                    <a href="#cinematography" class="toc-link">J. Cinematography</a>
+                    <a href="#storytelling" class="toc-link">K. Storytelling</a>
+                    <a href="#avoid" class="toc-link">L. What to Avoid</a>
+                    <a href="#comparison-lab" class="toc-link">⚡ Comparison Lab</a>
+                    <a href="#exercises" class="toc-link">✏️ Exercises</a>
+                </div>
+            </div>
         </div>
 
         <!-- A. FOUNDATION -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>AI Visual Thinking Foundation</h2>
+        <section id="foundation" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">A</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Visual Thinking Foundation</h2>
+                        <p class="text-xs" style="color: #71717a;">Understand the machine to control the machine.</p>
+                    </div>
+                </div>
             </div>
-            <p>These decide whether your AI output has intention or is random. Understand the machine to control the
-                machine.</p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Prompt Engineering Fundamentals</h3>
+                    <p>Prompt engineering is not "writing descriptions." It's the skill of <strong>communicating intent
+                            to a neural network</strong> using its native language — which is not human language.
+                        Effective prompts are structured hierarchically: subject first, then context, then style
+                        modifiers, then quality tokens. The critical insight: AI models don't understand meaning — they
+                        understand statistical associations. "A sad woman" doesn't mean sadness to the model; it means
+                        the visual patterns that co-occurred with "sad" in training data. This is why <strong>specific,
+                            concrete descriptions</strong> outperform abstract emotional instructions.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Latent Space Explained</h3>
+                    <p>Latent space is the mathematical universe where AI images "live" before they become pixels. It's
+                        a high-dimensional space where every possible image is a point. Similar images cluster together
+                        — all "portraits" in one region, all "landscapes" in another. When you prompt, you're navigating
+                        through this space, selecting a region. Understanding latent space helps you understand
+                        <em>why</em> certain prompts produce certain results, why small prompt changes can cause
+                        dramatic visual shifts (crossing a boundary between clusters), and why some combinations produce
+                        incoherent results (landing between clusters).</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Conditioning vs Randomness</h3>
+                    <p>Every AI generation balances two forces: <strong>conditioning</strong> (following your prompt
+                        closely) and <strong>randomness</strong> (the model's own statistical entropy). More
+                        conditioning → more prompt adherence, less surprise. More randomness → more unexpected results,
+                        less control. The sweet spot is where the model follows your intent but adds details you didn't
+                        explicitly request — but details that feel right. Pure conditioning produces stiff, lifeless
+                        images. Pure randomness produces chaos. The art is calibrating the balance.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Sampling Steps & CFG Scale</h3>
+                    <p>AI images are generated through iterative <strong>denoising</strong> — starting from pure noise
+                        and progressively refining. Each "step" resolves ambiguity: early steps establish composition,
+                        middle steps define objects, late steps refine textures. 20 steps is usually sufficient; 150
+                        wastes time. <strong>CFG (Classifier-Free Guidance)</strong> controls prompt obedience vs
+                        creative freedom. Low (1–5) = dreamy, loose. Medium (7–12) = balanced sweet spot. High (15–30) =
+                        rigid, over-saturated. Higher CFG doesn't mean "better" — it means "more obedient at any cost."
+                    </p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Overfitting & Prompt Collapse</h3>
+                    <p><strong>Overfitting:</strong> When a model has memorized training data rather than generalizing.
+                        Signs: faces that look like specific celebrities, stock-photo compositions. Push toward the
+                        model's generative zones instead.<br><strong>Prompt collapse:</strong> When a prompt is too long
+                        or contradictory, the model ignores parts — typically concepts mentioned later. The model has
+                        limited "attention." The solution: shorter, focused prompts. Quality > quantity.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Model Bias & Determinism</h3>
+                    <p><strong>Model bias:</strong> Every model carries training data biases — default beauty standards,
+                        Western photography aesthetics, centered compositions. Awareness helps you push past
+                        defaults.<br><strong>Determinism vs Variation:</strong> Same prompt + same seed = same image.
+                        Change the seed = variation. Use fixed seeds to iterate on composition while changing style. Use
+                        random seeds to explore. Understanding determinism lets you treat AI as a precision tool, not a
+                        slot machine.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Why AI Images Look Artificial</h3>
+                    <p><strong>Over-perfection</strong> — clinical sharpness everywhere. <strong>Lighting
+                            inconsistency</strong> — conflicting sources, sourceless ambient light. <strong>Texture
+                            homogeneity</strong> — same detail level everywhere vs real focal hierarchies.
+                        <strong>Compositional safety</strong> — centered, balanced, "correct." <strong>Emotional
+                            emptiness</strong> — rendered faces without genuine internal state. The fix: prompt for
+                        imperfection, specify focal planes, use cinematic lighting terms, accept that the best AI images
+                        look slightly "wrong" on purpose.</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="skill">
-                <h3>Prompt Engineering Fundamentals</h3>
-                <p class="desc">
-                    Prompt engineering is not "writing descriptions." It's the skill of <strong>communicating intent to
-                        a neural network</strong> using its native language — which is not human language. Effective
-                    prompts are structured hierarchically: subject first, then context, then style modifiers, then
-                    quality tokens. The critical insight: AI models don't understand meaning — they understand
-                    statistical associations. "A sad woman" doesn't mean sadness to the model; it means the visual
-                    patterns that co-occurred with "sad" in training data. This is why <strong>specific, concrete
-                        descriptions</strong> outperform abstract emotional instructions.
-                </p>
+        <!-- B. PROMPT STRUCTURE -->
+        <section id="prompt-structure" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">B</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Image Prompt Structure</h2>
+                        <p class="text-xs" style="color: #71717a;">How you structure a prompt determines whether the AI
+                            understands your intent.</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Latent Space Explained</h3>
-                <p class="desc">
-                    Latent space is the mathematical universe where AI images "live" before they become pixels. It's a
-                    high-dimensional space where every possible image is a point. Similar images cluster together — all
-                    "portraits" are in one region, all "landscapes" in another. When you prompt, you're navigating
-                    through this space, selecting a region. Understanding latent space helps you understand <em>why</em>
-                    certain prompts produce certain results, why small prompt changes can cause dramatic visual shifts
-                    (crossing a boundary between clusters), and why some combinations produce incoherent results
-                    (landing between clusters).
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Subject Hierarchy in Prompts</h3>
+                    <p>The subject mentioned first receives the most attention. <strong>Primary subject</strong> = what
+                        the image is about. <strong>Secondary</strong> = supporting elements. <strong>Context</strong> =
+                        background. <strong>Style modifiers</strong> = how it looks. "Cinematic dramatic lighting of a
+                        woman in rain" prioritizes "cinematic" over "woman." "A woman in rain, cinematic lighting"
+                        centers the person. Order isn't grammar — it's <em>attention allocation</em>.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Prompt Weighting & Negative Prompts</h3>
+                    <p><strong>Weighting</strong> (<code>::</code> syntax):
+                        <code>woman::1.5 rain::0.8 cinematic::1.2</code> gives precise control over hierarchy. Warning:
+                        extreme weights (above 2.0) cause artifacts.<br><strong>Negative prompts</strong> are as
+                        important as positive. Strategic negatives: "oversaturated" prevents candy colors, "stock photo"
+                        pushes past generic compositions, "symmetrical" encourages natural asymmetry, "perfect skin"
+                        allows realistic texture. Build a library for your use case.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Style Anchoring vs Style Theft</h3>
+                    <p><strong>Style anchoring</strong> = describing aesthetic properties: "warm tones, soft focus,
+                        golden hour, slightly desaturated." You understand what creates a look. <strong>Style
+                            theft</strong> = using an artist's name as shortcut: "in the style of [artist]." Anchoring
+                        is skill — you describe the look in technical terms. Theft is lazy — you outsource your
+                        aesthetic decisions. Learn to describe styles technically for more control and originality.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Prompt Minimalism</h3>
+                    <p>The counterintuitive truth: <strong>shorter prompts often produce better results</strong>. Fewer
+                        instructions = fewer conflicts. "Tired fisherman, dawn, documentary photography" gives creative
+                        space while maintaining intent. A 200-word prompt leads to prompt collapse and confused outputs.
+                        Describe the <em>essence</em>, not the <em>inventory</em>. If you can say it in 10 words, don't
+                        use 50.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Conditioning vs Randomness</h3>
-                <p class="desc">
-                    Every AI generation balances two forces: <strong>conditioning</strong> (following your prompt
-                    closely) and <strong>randomness</strong> (the model's own statistical entropy). More conditioning →
-                    more prompt adherence, less surprise. More randomness → more unexpected results, less control. The
-                    sweet spot is where the model follows your intent but adds details you didn't explicitly request —
-                    but details that feel right. This is controlled by CFG scale, seed, and sampling parameters. Pure
-                    conditioning produces stiff, lifeless images. Pure randomness produces chaos. The art is calibrating
-                    the balance.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Sampling Steps Meaning</h3>
-                <p class="desc">
-                    AI images are generated through iterative <strong>denoising</strong> — starting from pure noise and
-                    progressively refining into an image. Each "step" is one iteration of refinement. More steps = more
-                    refinement = more detail and coherence, but with diminishing returns. 20 steps is usually sufficient
-                    for Stable Diffusion. 50 steps adds subtle refinement. 150 steps wastes time with minimal
-                    improvement. The important concept: each step isn't adding detail — it's <em>resolving
-                        ambiguity</em>. Early steps establish composition. Middle steps define objects. Late steps
-                    refine textures.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>CFG Scale Explained</h3>
-                <p class="desc">
-                    CFG (Classifier-Free Guidance) scale controls how aggressively the model follows your prompt vs how
-                    much creative freedom it has. <strong>Low CFG (1–5)</strong> = dreamy, loose, creative, often
-                    incoherent. The model interprets your prompt loosely. <strong>Medium CFG (7–12)</strong> = balanced.
-                    The sweet spot for most work. <strong>High CFG (15–30)</strong> = rigid prompt adherence, often
-                    over-saturated, over-sharpened, artifacts appear. The model forces your prompt at the expense of
-                    coherence. The insight: higher CFG doesn't mean "better quality" — it means "more prompt obedience
-                    at any cost."
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Overfitting in AI Images</h3>
-                <p class="desc">
-                    When an AI model has seen too many examples of a specific thing, it memorizes rather than
-                    generalizes. Overfitting produces images that look like copies of training data rather than original
-                    creations. Signs: faces that look like specific celebrities when you didn't ask for them,
-                    over-detailed textures that feel "stock photo-like," and compositions that look exactly like known
-                    photographs. Understanding overfitting helps you avoid prompts that trigger memorized outputs and
-                    instead push toward the model's generative (creative) zones.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Prompt Collapse</h3>
-                <p class="desc">
-                    Prompt collapse happens when a prompt is so long or contradictory that the model can't resolve all
-                    the instructions simultaneously. Instead of attempting everything, it <strong>ignores parts of the
-                        prompt</strong>, typically the concepts mentioned later. The model has limited "attention" — it
-                    can only focus on so many concurrent ideas. The solution: shorter, more focused prompts. Separate
-                    complex ideas into multiple generations. Prioritize what matters most at the beginning of the
-                    prompt. Quality > quantity in prompt writing.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Model Bias in Visuals</h3>
-                <p class="desc">
-                    Every AI model carries the biases of its training data. If the training set contains mostly Western
-                    photography, the model defaults to Western aesthetics — certain skin tones, lighting styles,
-                    compositions, and subject matter. Model bias affects: default beauty standards (what "beautiful"
-                    generates), cultural representations (how different ethnicities are rendered), stylistic defaults
-                    (photorealistic Western photography as "quality"), and compositional habits (center-framed,
-                    well-lit, technically "correct" images). Awareness of bias isn't just ethical — it's practical.
-                    Understanding bias helps you push past defaults toward more unique, authentic output.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Determinism vs Variation</h3>
-                <p class="desc">
-                    Given the same prompt and same seed, a model produces the same image — that's
-                    <strong>determinism</strong>. Change the seed, and you get a <strong>variation</strong>. This
-                    interplay is crucial for workflows: use fixed seeds when you want to iterate on composition while
-                    changing style tokens. Use random seeds when exploring possibilities. Batch generation with 10
-                    different seeds gives you 10 variations of the same concept — your job is to curate, not create.
-                    Understanding determinism lets you treat AI generation as a precision tool, not a slot machine.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Why AI Images Look Artificial</h3>
-                <p class="desc">
-                    AI images often feel "off" even when technically impressive. The reasons:<br>
-                    <strong>Over-perfection</strong> — Real images have imperfections: grain, slight blur, uneven focus.
-                    AI defaults to clinical sharpness everywhere.<br>
-                    <strong>Lighting inconsistency</strong> — Multiple light sources that conflict, shadows falling in
-                    wrong directions, ambient light that feels sourceless.<br>
-                    <strong>Texture homogeneity</strong> — AI tends to apply the same level of detail everywhere. Real
-                    images have focal hierarchies — sharp subjects, soft backgrounds.<br>
-                    <strong>Compositional safety</strong> — AI defaults to centered, balanced, "correct" compositions.
-                    Real photography breaks rules for emotional effect.<br>
-                    <strong>Emotional emptiness</strong> — AI can render a face but cannot understand the internal state
-                    that produces a genuine expression. The result feels like acting, not being.<br>
-                    The fix: prompt for imperfection, specify focal planes, use cinematic lighting terms, and accept
-                    that the best AI images look slightly "wrong" on purpose.
-                </p>
-            </div>
-        </div>
-
-        <!-- B. IMAGE PROMPTING -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>AI Image Prompt Structure</h2>
-            </div>
-            <p>How you structure a prompt determines whether the AI understands your intent or produces random beauty.
-            </p>
-
-            <div class="skill">
-                <h3>Subject Hierarchy in Prompts</h3>
-                <p class="desc">
-                    The subject mentioned first in a prompt receives the most attention from the model. <strong>Primary
-                        subject</strong> = what the image is about. <strong>Secondary subject</strong> = supporting
-                    elements. <strong>Context/environment</strong> = background and setting. <strong>Style
-                        modifiers</strong> = how it looks. Putting style first ("cinematic dramatic lighting of a woman
-                    standing in rain") makes the model prioritize "cinematic" over "woman." Putting subject first ("a
-                    woman standing in rain, cinematic dramatic lighting") centers the person. Order isn't grammar — it's
-                    <em>attention allocation</em>.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Prompt Weighting (:: Syntax)</h3>
-                <p class="desc">
-                    Many AI tools support prompt weighting — assigning numerical importance to different parts of a
-                    prompt. In Stable Diffusion/ComfyUI, the <code>::</code> syntax works like:
-                    <code>woman::1.5 rain::0.8 cinematic::1.2</code>. Higher weight = more influence on the final image.
-                    This gives precise control over the hierarchy of elements. Use it to ensure your primary subject
-                    dominates, prevent style modifiers from overwhelming content, and balance competing visual concepts.
-                    The warning: extreme weights (above 2.0) cause artifacts. Subtlety wins.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Negative Prompts Strategy</h3>
-                <p class="desc">
-                    Negative prompts tell the model what to <em>avoid</em>. They're as important as positive prompts.
-                    Standard negative prompt: "blurry, low quality, distorted, extra fingers, watermark." But strategic
-                    negative prompts go deeper: "oversaturated" prevents candy-colored output. "Stock photo" pushes past
-                    generic compositions. "Symmetrical" encourages natural asymmetry. "Perfect skin" allows realistic
-                    texture. Build a library of negative prompt phrases that counteract AI's most common failures for
-                    your specific use case.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Style Anchoring vs Style Theft</h3>
-                <p class="desc">
-                    <strong>Style anchoring</strong> means using descriptive terms that evoke a visual sensibility:
-                    "warm tones, soft focus, golden hour, slightly desaturated." You're describing the <em>aesthetic
-                        properties</em> you want. <strong>Style theft</strong> means using an artist's name as a
-                    shortcut: "in the style of [artist]." The difference matters: anchoring is skill — you understand
-                    what creates a look and describe it. Theft is lazy — you outsource your aesthetic decisions to the
-                    model's memory of someone else's work. Learn to describe the style you want in technical terms, and
-                    you'll have more control and more originality.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Prompt Minimalism</h3>
-                <p class="desc">
-                    The counterintuitive truth: <strong>shorter prompts often produce better results</strong> than long,
-                    detailed ones. Why? Fewer instructions means fewer conflicts. The model has more room to interpret
-                    coherently. A prompt like "tired fisherman, dawn, documentary photography" gives the model creative
-                    space while maintaining intent. A 200-word prompt trying to specify every detail leads to prompt
-                    collapse, averaging, and confused outputs. The rule: describe the <em>essence</em> of what you want,
-                    not the <em>inventory</em>. If you can say it in 10 words, don't use 50.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- C. VISUAL CONTROL -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Visual Control in AI</h2>
+        <section id="visual-control" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(6,182,212,0.1); color: #06b6d4;">C</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Visual Control in AI</h2>
+                        <p class="text-xs" style="color: #71717a;">The filmmaker's vocabulary applied to AI generation.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p>Controlling camera, lighting, and texture through prompts. The filmmaker's vocabulary applied to AI.</p>
-
-            <div class="skill">
-                <h3>Camera Angle Prompting</h3>
-                <p class="desc">
-                    AI models respond to camera angle terminology: "low angle shot," "bird's eye view," "eye level,"
-                    "Dutch angle," "worm's eye view." But the power is in specificity: "camera positioned at knee height
-                    looking slightly upward" is more reliable than "low angle." Combine with lens terms: "wide angle low
-                    shot" creates distortion and drama. "Telephoto high angle" creates compression and surveillance
-                    feeling. The filmmaking vocabulary you learned in camera angles directly translates to AI prompt
-                    language — but concrete descriptions outperform abstract terms.
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Camera Angle & Lens Simulation</h3>
+                    <p>AI responds to camera terms: "low angle," "bird's eye view," "Dutch angle." But specificity wins:
+                        "camera at knee height looking slightly upward" > "low angle." Combine with lens: "wide angle
+                        low shot" = distortion + drama. "Telephoto high angle" = compression + surveillance. Specific
+                        focal lengths affect output: "24mm" = wide + distorted depth. "85mm" = compressed portraits.
+                        "135mm" = dreamy bokeh. Even specific lens names work: "anamorphic lens flare," "Helios 44-2
+                        swirly bokeh."</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Depth of Field & Lighting Direction</h3>
+                    <p><strong>DOF:</strong> "f/1.4 aperture, creamy bokeh" > "blurry background." You can prompt rack
+                        focus: "focus on foreground hands, face slightly soft."<br><strong>Lighting:</strong> "Dramatic
+                        lighting" is vague. "Single hard key light from camera left, 45° above, no fill, deep shadows on
+                        right side of face" is specific. AI responds to: <strong>direction</strong> (from
+                        left/behind/above), <strong>quality</strong> (hard/soft/diffused), <strong>temperature</strong>
+                        (warm tungsten/cool daylight), <strong>motivation</strong> (window light/neon/candlelight),
+                        <strong>style</strong> (Rembrandt/split/silhouette).</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Texture, Skin & Fabric Realism</h3>
+                    <p>AI defaults to "perfect" = fake. <strong>Skin:</strong> "visible pores, subtle skin texture,
+                        minor imperfections" instead of smooth AI skin. <strong>Fabric:</strong> "slight wrinkles,
+                        natural drape, visible weave" instead of CG cloth. <strong>Surfaces:</strong> "worn wood
+                        texture, fingerprint smudges on glass, weather staining" instead of pristine materials.
+                        Imperfection is realism. The human brain detects perfection as uncanny.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Lens Simulation in AI</h3>
-                <p class="desc">
-                    AI models have learned lens characteristics from training data. Prompting with specific focal
-                    lengths affects the output: "shot on 24mm lens" creates wide, slightly distorted images with
-                    exaggerated depth. "Shot on 85mm lens" creates compressed, portrait-like images with subject
-                    isolation. "Shot on 135mm" creates heavily compressed backgrounds with dreamy bokeh. You can even
-                    reference specific lenses: "anamorphic lens flare," "vintage Helios 44-2 swirly bokeh." The model
-                    won't perfectly simulate these, but it captures the statistical essence of the look.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Depth of Field Prompts</h3>
-                <p class="desc">
-                    Control focus behavior through prompts: "shallow depth of field, subject in sharp focus, background
-                    heavily blurred" vs "deep focus, everything sharp from foreground to background." Specificity
-                    matters: "f/1.4 aperture, creamy bokeh" is more effective than "blurry background." You can prompt
-                    for rack focus effects in AI images: "focus on the foreground hands, face slightly soft."
-                    Understanding actual photography DOF — how aperture, focal length, and distance interact — makes
-                    your prompts more precise and your results more cinematic.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Lighting Direction Prompts</h3>
-                <p class="desc">
-                    "Dramatic lighting" is vague. "Single hard key light from camera left, 45° above subject, no fill,
-                    deep shadows on right side of face" is specific and produces consistent results. AI responds to:
-                    <strong>direction</strong> (from left, from behind, from above), <strong>quality</strong> (hard,
-                    soft, diffused), <strong>temperature</strong> (warm tungsten, cool daylight, mixed),
-                    <strong>motivation</strong> (window light, neon, candlelight), and <strong>style</strong>
-                    (Rembrandt, split lighting, silhouette). The more your lighting prompt reads like a
-                    cinematographer's note, the more cinematic your output.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Texture, Skin & Fabric Realism</h3>
-                <p class="desc">
-                    AI defaults to "perfect" — which looks fake. For realism, prompt against perfection:<br>
-                    <strong>Skin:</strong> "visible pores, subtle skin texture, minor imperfections, natural skin
-                    variation" instead of smooth AI skin.<br>
-                    <strong>Fabric:</strong> "slight wrinkles in the fabric, natural drape, visible weave texture"
-                    instead of perfect CG cloth.<br>
-                    <strong>Surfaces:</strong> "worn wood texture, fingerprint smudges on glass, concrete with weather
-                    staining" instead of pristine materials.<br>
-                    The principle: imperfection is realism. Human brains detect perfection as uncanny. Prompting for
-                    controlled imperfection produces images that feel photographed rather than rendered.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- D. CINEMATIC IMAGE LANGUAGE -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
-                <h2>Cinematic Image Language</h2>
+        <section id="cinematic-image" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(236,72,153,0.1); color: #ec4899;">D</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Cinematic Image Language</h2>
+                        <p class="text-xs" style="color: #71717a;">Making AI images feel like frames from a film, not
+                            renders from a machine.</p>
+                    </div>
+                </div>
             </div>
-            <p>Making AI images feel like frames from a film, not renders from a machine.</p>
-
-            <div class="skill">
-                <h3>Environmental Storytelling AI</h3>
-                <p class="desc">
-                    The environment tells a story before any character appears. Prompt for environments that
-                    <strong>imply narrative</strong>: "a kitchen with two cold cups of coffee and an unfinished letter"
-                    is richer than "a kitchen." Every object is a clue. Every detail implies a before and after. The
-                    environment becomes a character. AI can generate rich environmental detail — your job is to make
-                    that detail meaningful. Prompt for specificity that implies story: "dusty bookshelf with one book
-                    removed, a circle of clean dust where it was."
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Environmental Storytelling</h3>
+                    <p>The environment tells a story before any character appears. "A kitchen with two cold cups of
+                        coffee and an unfinished letter" > "a kitchen." Every object is a clue. Every detail implies a
+                        before and after. Prompt for specificity that implies story: "dusty bookshelf with one book
+                        removed, a circle of clean dust where it was."</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Implied Narrative & Mood Over Detail</h3>
+                    <p><strong>Implied narrative:</strong> Capture a <strong>moment between moments</strong> — "a woman
+                        mid-step turning to look behind her," "an empty swing still moving," "a man holding an unopened
+                        letter." The image becomes a question, not an answer.<br><strong>Mood over detail:</strong>
+                        "Melancholy, quiet, early morning solitude" produces more resonant images than listing objects.
+                        Mood activates entire clusters of visual concepts at once.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Silence, Asymmetry & Imperfect Framing</h3>
+                    <p><strong>Visual silence</strong> = negative space + stillness + restraint. "Empty room, single
+                        shaft of light, dust particles." Most overprompted AI images are visually
+                        noisy.<br><strong>Asymmetry:</strong> "Subject in the left third, looking into empty space" >
+                        centered compositions. Asymmetry implies dynamism and reality.<br><strong>Imperfect
+                            framing:</strong> "Slightly off-center, horizon tilted, subject partially out of frame."
+                        Break AI's geometric perfection. Controlled imperfection separates cinematic from clinical.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Implied Narrative Images</h3>
-                <p class="desc">
-                    The most powerful AI images are those that make viewers ask "what happened here?" or "what's about
-                    to happen?" Implied narrative is about capturing a <strong>moment between moments</strong> — the
-                    instant before action, the aftermath of an event, the unresolved tension. Prompt for: "a woman
-                    mid-step turning to look behind her" (what's behind her?). "An empty swing still moving" (who was
-                    just here?). "A man holding an unopened letter, staring at the name" (what does it say?). The image
-                    becomes a question, not an answer.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Mood Over Detail Prompting</h3>
-                <p class="desc">
-                    Prompt for how the image should <em>feel</em>, not what it should <em>contain</em>. "Melancholy,
-                    quiet, early morning solitude" produces more emotionally resonant images than listing specific
-                    objects. The model interprets mood through color palette, lighting, composition, and subject
-                    expression simultaneously. Mood prompts work because they activate entire clusters of associated
-                    visual concepts at once — the model draws from thousands of images that carry that mood. The detail
-                    follows the feeling, not the other way around.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Silence in Visual Frames</h3>
-                <p class="desc">
-                    Visual silence = negative space + stillness + restraint. In AI generation, this means prompting for
-                    images that feel <strong>quiet</strong>: "empty room, single shaft of light, dust particles,
-                    silence." "A sleeping city street at 4am, no people, soft streetlight glow." Images with visual
-                    silence give the viewer space to project their own emotions. They're the AI equivalent of "hold the
-                    shot" — the image doesn't shout, it whispers. Most overprompted AI images are visually noisy. Visual
-                    silence requires courage and restraint.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Asymmetry in Composition</h3>
-                <p class="desc">
-                    AI defaults to centered, symmetrical compositions — safe and boring. Prompt for asymmetry: "subject
-                    positioned in the left third of frame, looking right into empty space." "Off-center composition,
-                    subject partially cropped by frame edge." Asymmetry implies dynamism, imperfection, and reality. It
-                    makes images feel captured, not constructed. Real photographs are rarely perfectly centered — the
-                    photographer composed in the moment, and that imperfection is what makes images feel human.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Imperfect Framing & Natural Chaos</h3>
-                <p class="desc">
-                    <strong>Imperfect framing:</strong> Prompt for compositions that feel like real photography —
-                    "slightly off-center," "horizon slightly tilted," "subject partially out of frame." This breaks AI's
-                    tendency toward geometric perfection and creates images that feel caught, not staged.<br>
-                    <strong>Natural chaos:</strong> Real scenes have uncontrolled elements — wind-blown hair, scattered
-                    papers, imperfect arrangements. Prompt: "messy desk, natural arrangement, not staged," "wind-caught
-                    clothing, natural movement." The goal is to resist AI's instinct to make everything neat, ordered,
-                    and perfect. Controlled imperfection is what separates cinematic from clinical.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- E. AI VIDEO MOTION -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
-                <h2>AI Video: Motion Reality</h2>
+        <section id="video-motion" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(234,88,12,0.1); color: #ea580c;">E</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Video: Motion Reality</h2>
+                        <p class="text-xs" style="color: #71717a;">Understanding why AI motion feels fake — and how to
+                            fight it.</p>
+                    </div>
+                </div>
             </div>
-            <p>Understanding why AI-generated motion feels fake — and how to fight it.</p>
-
-            <div class="skill">
-                <h3>Temporal Consistency</h3>
-                <p class="desc">
-                    Temporal consistency is the quality of maintaining <strong>visual coherence across frames</strong>.
-                    In real video, objects maintain their appearance from frame to frame. In AI video, objects subtly
-                    shift shape, texture, and color between frames — this creates a "breathing," morphing quality that
-                    the human eye immediately reads as fake. Temporal consistency is the single biggest challenge in AI
-                    video and the primary differentiator between consumer-grade and cinematic AI output. Models that
-                    maintain character appearance, clothing detail, and environmental stability across frames produce
-                    watchable footage.
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Temporal Consistency & Frame Coherence</h3>
+                    <p><strong>Temporal consistency</strong> = maintaining visual coherence across frames. AI objects
+                        subtly shift shape/texture/color between frames, creating a "morphing" quality the eye reads as
+                        fake. This is the single biggest challenge in AI video.<br><strong>Frame coherence</strong> =
+                        each frame being internally consistent — objects with stable geometry, directional lighting,
+                        logical spatial relationships. If individual frames don't make physical sense, motion between
+                        them can't either.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Motion Continuity & Camera Motivation</h3>
+                    <p><strong>Continuity:</strong> Real movement is continuous — AI objects change direction
+                        mid-motion, vary speed randomly. Design prompts for simple, unidirectional movements: "camera
+                        slowly panning right across a landscape" > "camera orbits around a person while
+                        zooming."<br><strong>Motivation:</strong> AI cameras move without reason. In cinema, every
+                        movement has emotional motivation. "Camera slowly pushes in as tension builds" > "camera moves
+                        forward."</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>AI Motion Artifacts</h3>
+                    <p><strong>Floating camera</strong> — weightless movement lacking real-camera physics.
+                        <strong>Morphing objects</strong> — shapes changing between frames. <strong>Cloth/hair
+                            swimming</strong> — movement without physical cause. <strong>Temporal flickering</strong> —
+                        textures pulsing between frames. AI motion feels fake because it lacks <strong>physical
+                            consequence</strong> — movement without inertia, friction, weight, reaction. Design scenes
+                        where limitations become aesthetic choices.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Frame Coherence</h3>
-                <p class="desc">
-                    Each individual frame must be internally coherent — objects should have consistent geometry,
-                    lighting should be directionally stable, and spatial relationships should make physical sense. AI
-                    video often produces frames where individual elements look realistic but their relationship to each
-                    other is physically impossible: shadows going in wrong directions, objects intersecting, scale
-                    inconsistencies. Frame coherence is the building block of temporal consistency — if individual
-                    frames don't make physical sense, the motion between them can't either.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Motion Continuity AI</h3>
-                <p class="desc">
-                    In real video, movement is continuous — an object moving left continues to move left until a force
-                    interrupts. AI video struggles with this: objects change direction mid-motion, speed varies
-                    randomly, and movements start and stop without physical motivation. Understanding this limitation
-                    lets you design prompts that minimize the problem: prompt for simple, unidirectional movements
-                    rather than complex multi-stage actions. "Camera slowly panning right across a landscape" is far
-                    more achievable than "camera orbits around a person while zooming."
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Camera Motivation in AI Video</h3>
-                <p class="desc">
-                    AI video cameras often move without reason — drifting, rotating, and shifting in ways that feel
-                    arbitrary. In cinema, every camera movement has emotional motivation. Apply the same principle to AI
-                    video prompts: specify <em>why</em> the camera moves, not just how. "Camera slowly pushes in as
-                    tension builds" vs "camera moves forward." The motivation won't literally change the output, but
-                    framing your prompt in motivational terms helps you choose the right movement for the right moment.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>AI Motion Artifacts & Floating Camera Problem</h3>
-                <p class="desc">
-                    Common AI video failures: <br>
-                    <strong>Floating camera</strong> — Movement that feels weightless, lacking the subtle vibrations and
-                    physics of real camera rigs. No handheld shake, no mechanical smoothness, just eerie floating.<br>
-                    <strong>Morphing objects</strong> — Shapes that subtly change between frames, especially at edges
-                    and in complex geometry.<br>
-                    <strong>Cloth/hair swimming</strong> — Fabric and hair that move independently of physics, flowing
-                    without wind or body movement.<br>
-                    <strong>Temporal flickering</strong> — Textures and colors that pulse or shimmer between frames.<br>
-                    Knowing these artifacts lets you design around them — choose subjects and motions that minimize
-                    their visibility.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Why AI Motion Feels Fake</h3>
-                <p class="desc">
-                    AI motion feels fake because it lacks <strong>physical consequence</strong>. In reality, every
-                    movement has inertia, friction, weight, and reaction. A person turning their head causes their hair
-                    to follow with delay, their body to shift weight, their clothes to rustle. AI generates the primary
-                    movement but often misses the cascade of secondary effects. The result: movement that looks smooth
-                    but feels empty — like watching a ghost that walks perfectly but leaves no footprints. The fix:
-                    prompt for fewer movements, accept imperfection, and design scenes where the AI's limitations become
-                    aesthetic choices (intentional stillness, slow cinema, locked-off compositions).
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- F. PROMPTING FOR MOTION -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">F</span>
-                <h2>Prompting for Motion</h2>
+        <section id="prompting-motion" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">F</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Prompting for Motion</h2>
+                        <p class="text-xs" style="color: #71717a;">Less motion, more intention = better AI video.</p>
+                    </div>
+                </div>
             </div>
-            <p>Not all motion is created equal. Less motion, more intention = better AI video.</p>
-
-            <div class="skill">
-                <h3>Camera Locked vs Moving</h3>
-                <p class="desc">
-                    <strong>Locked camera (static shot)</strong> prompts are far more reliable in AI video than moving
-                    camera prompts. A static shot with subtle subject motion produces dramatically better results than
-                    complex camera movements. When AI doesn't need to generate camera motion, it can devote its
-                    "attention" to maintaining temporal consistency. Start with locked cameras and add movement only
-                    when the emotional purpose is clear. "Static shot of rain falling on a window, camera locked" >
-                    "dramatic sweeping shot through a rainy city."
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Locked Camera & Micro-Movement</h3>
+                    <p><strong>Static shots</strong> are far more reliable than moving camera. When AI doesn't generate
+                        camera motion, it can maintain temporal consistency. "Static shot of rain falling on a window,
+                        camera locked" > "dramatic sweeping shot through a rainy
+                        city."<br><strong>Micro-movements</strong> — a slight breath, blinking eyes, swaying curtains —
+                        create life without artifacts. "Barely perceptible camera drift," "still portrait with only eyes
+                        blinking." These feel more cinematic than dramatic action.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Intentional Stillness & Physical Realism</h3>
+                    <p><strong>Stillness</strong> is a deliberate choice, not absence. "A frozen landscape, only
+                        snowflakes drifting." Turns AI's limitation into aesthetic strength. Ozu, Tarkovsky, Dreyer
+                        built cinema on stillness.<br><strong>Physical inertia:</strong> "Heavy, labored movement,"
+                        "natural human sway," "imperfect posture." Add "handheld camera movement," "documentary-style"
+                        to push toward physical honesty.<br><strong>Breathing motion:</strong> Chest rising, shoulder
+                        movement. Prompt: "visible breathing, gentle chest movement." Also applies to camera — "camera
+                        breathing" separates cinematic handheld from robotic smoothness.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Micro-Movement Prompting</h3>
-                <p class="desc">
-                    The most cinematic AI video often has the <em>least</em> movement. Micro-movements — a slight
-                    breath, blinking eyes, swaying curtains, flickering candlelight — create life without the complexity
-                    that causes artifacts. Prompt: "barely perceptible camera drift," "subtle wind moving the subject's
-                    hair," "still portrait with only eyes blinking." These micro-movements are achievable for current AI
-                    and feel more cinematic than dramatic action because they suggest a living moment captured, not
-                    performed.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Intentional Stillness</h3>
-                <p class="desc">
-                    Stillness is not the absence of motion — it's a <strong>deliberate choice</strong>. Prompt for
-                    scenes where nothing is supposed to move: "a frozen landscape, only snowflakes drifting," "a
-                    sleeping face, only the chest gently rising." Intentional stillness turns AI's limitation
-                    (unreliable complex motion) into an aesthetic strength. Some of the most powerful cinema is built on
-                    stillness — Ozu, Tarkovsky, Dreyer. Apply the same philosophy to AI: the more still your frame, the
-                    more the viewer projects their own emotion into it.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Physical Inertia & Human Imperfection</h3>
-                <p class="desc">
-                    Real objects have weight. Real humans have imperfect, asymmetric motion. Prompt for these: "heavy,
-                    labored movement," "natural human sway," "imperfect posture." The goal is to counteract AI's
-                    tendency toward unnatural smoothness. Real movement has micro-hesitations, weight shifts, and
-                    corrections that AI doesn't generate automatically. Adding terms like "handheld camera movement,"
-                    "natural breathing motion," and "documentary-style" can push AI toward more physically honest
-                    output.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Breathing Motion Realism</h3>
-                <p class="desc">
-                    The subtlest and most important micro-motion in any scene with humans: breathing. Chest rising and
-                    falling, slight shoulder movement, the rhythm of inhalation. AI video that includes breathing motion
-                    feels dramatically more alive. Prompt: "visible breathing, gentle chest movement, relaxed but
-                    alive." Breathing also applies to the camera itself — a slight, rhythmic drift that mimics the
-                    subtle instability of a handheld camera. This "camera breathing" separates cinematic handheld from
-                    robotic smoothness.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- G. CINEMATIC AI VIDEO -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">G</span>
-                <h2>Cinematic AI Video</h2>
+        <section id="cinematic-video" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(16,185,129,0.1); color: #10b981;">G</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Cinematic AI Video</h2>
+                        <p class="text-xs" style="color: #71717a;">How to make AI video that feels like cinema, not tech
+                            demo.</p>
+                    </div>
+                </div>
             </div>
-            <p>How to make AI video that feels like cinema, not tech demo.</p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Single Emotional Beat & Internal Conflict</h3>
+                    <p>One scene, one emotion, one beat. "A man realizes he's been crying, wipes his face, looks up." AI
+                        excels at sustaining mood for seconds — fails at transitioning between moods. Design clips as
+                        <strong>emotional snapshots</strong>, edit together traditionally.<br><strong>Internal
+                            conflict:</strong> Use environment/lighting/behavior as metaphor. "Walls subtly closing in"
+                        (anxiety). "Warm sunlight becoming harsh" (painful truth). "Hand gripping cup, knuckles
+                        whitening" (suppressed emotion). Don't prompt "sad person" — prompt the <em>physical
+                            symptoms</em>.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Environmental Pressure, Minimalism & Non-Performance</h3>
+                    <p><strong>Environmental pressure:</strong> Use environment as antagonist — "rain intensifying,"
+                        "room darkening," "walls closing in."<br><strong>Slow cinema:</strong> Minimal action + patient
+                        contemplation. AI does this well. "Empty bench in a park, leaves falling slowly, late afternoon
+                        light fading" — plays to AI's strengths.<br><strong>Minimalist shots:</strong> One subject, one
+                        light, one texture. "Single candle in darkness, flame barely
+                        flickering."<br><strong>Non-performative acting:</strong> "Natural, unguarded expression,"
+                        "caught off-guard, not posing," "looking away from camera." Documentary quality over theatrical
+                        performance.</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="skill">
-                <h3>Single Emotional Beat Scenes</h3>
-                <p class="desc">
-                    The most reliable AI video structure: one scene, one emotion, one beat. Don't ask the AI to tell a
-                    story with multiple phases. Instead, capture a single emotional moment: "a man realizes he's been
-                    crying, wipes his face, looks up." One beat. One feeling. AI excels at sustaining a mood for a few
-                    seconds — it fails at transitioning between moods. Design your AI clips as <strong>emotional
-                        snapshots</strong>, then edit multiple clips together (using traditional editing) to build
-                    narrative.
-                </p>
+        <!-- H. KEYFRAMES -->
+        <section id="keyframes" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(99,102,241,0.1); color: #6366f1;">H</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Keyframes & Structure</h2>
+                        <p class="text-xs" style="color: #71717a;">Where professionals separate from amateurs.</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Internal Conflict Visualization</h3>
-                <p class="desc">
-                    Making internal states visible through AI video requires indirect prompting: environment, lighting,
-                    and physical behavior as metaphor. "A person sitting perfectly still in a room where the walls
-                    subtly close in" (anxiety). "Warm sunlight slowly becoming harsh and overexposed" (truth becoming
-                    painful). "A hand gripping a cup tightly, knuckles whitening" (suppressed emotion). Don't prompt
-                    "sad person" — prompt the <em>physical symptoms and environmental evidence</em> of sadness.
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Keyframe Prompting & Anchor Tokens</h3>
+                    <p><strong>Keyframe prompting:</strong> Different prompts at different timeline points. Keep
+                        keyframes conceptually connected. Frame 0: "calm ocean at dawn." Frame 48: "ocean becoming
+                        turbulent." Avoid dramatic concept jumps.<br><strong>Anchor tokens:</strong> Descriptive terms
+                        that stay constant across all prompts. If your character wears "a dark green wool coat," use
+                        those exact words every time. Change verbs and context, keep subject descriptions identical.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Visual Memory & Drift Control</h3>
+                    <p><strong>Visual memory</strong> must be imposed externally — AI has no memory between generations.
+                        Use: consistent seeds, identical descriptions, reference images (img2img),
+                        ControlNet/IP-Adapter. Shot-to-shot inconsistency is the #1 reason AI video projects
+                        fail.<br><strong>Drift control:</strong> Over extended sequences, visuals gradually "drift."
+                        Control with fixed seeds, reference anchors, consistent post-processing (LUTs, color
+                        correction). Accept some drift is inevitable — integrate it into your aesthetic.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Environmental Pressure & Slow Cinema AI</h3>
-                <p class="desc">
-                    <strong>Environmental pressure:</strong> Use the environment as antagonist. "Rain intensifying on a
-                    window," "room gradually darkening," "walls closing in." The environment becomes the source of
-                    tension.<br>
-                    <strong>Slow cinema AI:</strong> The aesthetic of minimal action, long observation, and patient
-                    contemplation. AI video does this surprisingly well because it requires minimal motion. "A empty
-                    bench in a park, leaves falling slowly, late afternoon light fading" — this prompt plays to AI's
-                    strengths (atmosphere, texture, subtle change) while avoiding its weaknesses (complex motion,
-                    action, facial performance).
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Minimalist AI Shots & Holding the Frame</h3>
-                <p class="desc">
-                    <strong>Minimalist shots:</strong> Reduce elements to essentials. One subject. One light source. One
-                    texture. The simpler the composition, the more reliable and cinematic the AI output. "A single
-                    candle in darkness, flame barely flickering" is achievable and powerful.<br>
-                    <strong>Holding the frame:</strong> AI's equivalent of the held shot in cinema. Prompt for a scene
-                    that barely changes over several seconds. The lack of change IS the content — the viewer's attention
-                    shifts from "what's happening" to "what am I feeling." This controlled patience is rare in AI work
-                    and immediately stands out.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Non-Performative Acting Prompts</h3>
-                <p class="desc">
-                    AI-generated human performances often feel performed — exaggerated expressions, theatrical poses.
-                    Counter this with prompts for <strong>non-performance</strong>: "natural, unguarded expression,"
-                    "caught off-guard, not posing," "looking away from camera, unaware of being observed." The goal is
-                    documentary quality — humans existing rather than acting. "A woman reading, occasionally pushing
-                    hair behind her ear, not looking at camera" feels more human than "a beautiful smiling woman looking
-                    at camera with confident expression."
-                </p>
-            </div>
-        </div>
-
-        <!-- H. KEYFRAMES & STRUCTURE -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">H</span>
-                <h2>Keyframes & Structure</h2>
-            </div>
-            <p>This is where professionals separate from amateurs — maintaining control across frames and sequences.</p>
-
-            <div class="skill">
-                <h3>Keyframe Prompting Strategy</h3>
-                <p class="desc">
-                    Advanced AI video tools allow you to set different prompts at different points in the timeline. This
-                    is <strong>keyframe prompting</strong> — telling the AI what the scene should look like at specific
-                    moments, and letting it interpolate between them. The strategy: keep keyframes conceptually
-                    connected. Frame 0: "calm ocean at dawn." Frame 48: "ocean becoming turbulent, clouds gathering."
-                    The transition should be gradual and physically possible. Avoid dramatic concept changes between
-                    keyframes — "calm ocean" to "burning forest" creates incoherent transitions.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Prompt Continuity & Anchor Tokens</h3>
-                <p class="desc">
-                    When generating multiple frames or clips that need to maintain consistency, use <strong>anchor
-                        tokens</strong> — specific descriptive terms that remain constant across all prompts. If your
-                    character wears "a dark green wool coat," use those exact words in every prompt. The consistent
-                    tokens act as anchors, pulling the model toward consistency. Change the verbs and context between
-                    prompts, but keep subject descriptions identical. Anchor tokens = the words that should NOT change
-                    between frames.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Visual Memory & Shot-to-Shot Consistency</h3>
-                <p class="desc">
-                    AI models have no memory between generations. Each frame or clip is generated independently.
-                    <strong>Visual memory</strong> must be imposed externally through: consistent seed values, identical
-                    style/subject descriptions, reference images (img2img), and ControlNet/IP-Adapter for structural
-                    consistency. The challenge of shot-to-shot consistency is the #1 reason AI video projects fail — a
-                    character looks different in every shot, breaking narrative immersion.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Visual Drift Control</h3>
-                <p class="desc">
-                    Over extended sequences, AI-generated visuals gradually "drift" — colors shift, proportions change,
-                    style evolves. This is like the telephone game played across frames. Control drift by: fixing seed
-                    values where possible, using reference images as anchors, applying consistent post-processing per
-                    project (LUTs, color correction), and generating key frames first then filling in between. Accept
-                    that some drift is inevitable — integrate it into your aesthetic rather than fighting it completely.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- I. AI CHARACTERS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">I</span>
-                <h2>AI Characters & Humans</h2>
+        <section id="characters" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(244,63,94,0.1); color: #f43f5e;">I</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Characters & Humans</h2>
+                        <p class="text-xs" style="color: #71717a;">The uncanny valley is about understanding what makes
+                            humans look human.</p>
+                    </div>
+                </div>
             </div>
-            <p>The uncanny valley is not about technology — it's about understanding what makes humans look human.</p>
-
-            <div class="skill">
-                <h3>Human Likeness Consistency</h3>
-                <p class="desc">
-                    Maintaining a consistent character face across multiple generations is one of AI's hardest
-                    challenges. Techniques: use reference face images with IP-Adapter or similar tools. Use detailed,
-                    consistent subject descriptions as anchor tokens. Generate multiple images and curate for
-                    consistency. Accept slight variation and use editing/compositing to smooth differences. The
-                    technology improves constantly, but the fundamental truth remains: the human brain is
-                    extraordinarily sensitive to facial inconsistency. Even 5% variation in face shape between shots
-                    reads as "a different person."
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Consistency, Micro-Expressions & Eye Focus</h3>
+                    <p><strong>Consistency:</strong> Use IP-Adapter, detailed anchor tokens, curation. The brain is
+                        extraordinarily sensitive — 5% face variation reads as "different
+                        person."<br><strong>Micro-expressions:</strong> Prompt for <strong>held expressions</strong>
+                        rather than transitions. "A face holding back tears" > "transitioning from happy to
+                        sad."<br><strong>Eye focus:</strong> AI eyes often fail subtly — different focus points, painted
+                        irises, inconsistent catchlights, the "dead eye" effect. Prompt: "natural eye moisture,"
+                        "realistic catchlights," "eyes focused on a specific point."</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Mannequin Effect, Subtle Emotion & Asymmetry</h3>
+                    <p><strong>Mannequin effect:</strong> Plastic, posed, lifeless despite good rendering. Combat with:
+                        asymmetric features, natural skin texture, environmental context, candid positioning, imperfect
+                        lighting. The person should look like they existed before the camera found
+                        them.<br><strong>Subtle emotion:</strong> Use compound descriptions: "quiet determination mixed
+                        with exhaustion" > "determined." Behavioral: "trying not to smile," "holding back
+                        tears."<br><strong>Asymmetry:</strong> Real faces have one eye higher, crooked smiles. Prompt:
+                        "natural facial asymmetry," "candid with natural imperfection." Perfection is the enemy of
+                        believability.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Facial Micro-Expressions AI</h3>
-                <p class="desc">
-                    Micro-expressions — tiny, involuntary facial movements lasting fractions of a second — are what make
-                    faces feel alive. AI struggles with these because they require temporally precise, physiologically
-                    accurate muscle group activation. The current workaround: prompt for <strong>held
-                        expressions</strong> rather than transitioning expressions. "A face holding back tears" (a
-                    single complex expression) is more achievable than "a face transitioning from happy to sad" (which
-                    requires precise temporal control). The emotional power of a static micro-expression — caught in the
-                    moment — can be immense.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Eye Focus Realism</h3>
-                <p class="desc">
-                    Eyes are the first thing viewers assess in any face. AI eyes often fail in subtle ways: both eyes
-                    focusing at slightly different points, iris detail that looks painted rather than organic,
-                    catchlights (reflected light in the eyes) that are inconsistent with the scene's lighting, and the
-                    "dead eye" effect where eyes look technically correct but emotionally empty. Prompt for: "natural
-                    eye moisture," "realistic catchlights," "eyes focused on a specific point," "natural eye asymmetry."
-                    The eyes sell reality more than any other element.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Avoiding Mannequin Effect</h3>
-                <p class="desc">
-                    The "mannequin effect" is when AI humans look plastic, posed, and lifeless despite being technically
-                    well-rendered. Causes: over-smooth skin, symmetrical features, uniform lighting, neutral
-                    backgrounds, and "too good" proportions. Combat it with: asymmetric features, natural skin texture
-                    prompts, environmental context (a person IN a place, not composited against one), candid vs posed
-                    positioning, and slightly imperfect lighting. The goal: the person should look like they existed in
-                    this moment before the camera found them.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Subtle Emotion & Neutral Expression Control</h3>
-                <p class="desc">
-                    AI defaults to either exaggerated expressions or blank faces. The space between — <strong>subtle,
-                        complex emotion</strong> — is the hardest to achieve but the most cinematic. Prompt techniques:
-                    use compound emotional descriptions like "quiet determination mixed with exhaustion" instead of
-                    "determined." Use behavioral descriptions: "trying not to smile," "holding back tears." For neutral
-                    expressions, specify: "neutral but not blank, inner tension visible in the jaw." The goal is faces
-                    that make the viewer ask "what are they thinking?" rather than telling them.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Human Asymmetry Realism</h3>
-                <p class="desc">
-                    Real human faces are asymmetric — one eye slightly higher, one eyebrow raised more, a slightly
-                    crooked smile. AI defaults to symmetry, which reads as uncanny. Prompt for: "natural facial
-                    asymmetry," "one side of face slightly more illuminated than the other," "candid expression with
-                    natural imperfection." The asymmetry principle extends to bodies: natural weight distribution
-                    (leaning slightly), imperfect posture, and non-uniform clothing drape. Perfection is the enemy of
-                    believability.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- J. AI CINEMATOGRAPHY -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">J</span>
-                <h2>AI Cinematography Prompts</h2>
+        <section id="cinematography" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">J</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Cinematography Prompts</h2>
+                        <p class="text-xs" style="color: #71717a;">Where filmmaking education pays off in AI generation.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p>Applying real cinematography knowledge to AI generation. This is where filmmaking education pays off.</p>
-
-            <div class="skill">
-                <h3>Natural Light Simulation AI</h3>
-                <p class="desc">
-                    AI can simulate natural light convincingly when prompted with specificity: "late afternoon sunlight
-                    entering from a west-facing window, warm golden tones, long shadows on the floor." The time of day,
-                    direction, and quality of light all work as prompts. Avoid "natural lighting" as a generic term —
-                    specify the exact character of the light. "Overcast sky diffused light, flat illumination, soft
-                    shadows" produces dramatically different results from "direct midday sun, harsh shadows, high
-                    contrast." Real cinematographers think in these terms — bring that precision to AI.
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Natural & Practical Light</h3>
+                    <p><strong>Natural light:</strong> "Late afternoon sunlight from a west-facing window, warm golden
+                        tones, long shadows." Avoid generic "natural lighting" — specify character of light. "Overcast
+                        diffused" ≠ "direct midday harsh."<br><strong>Practical lights:</strong> Visible light sources
+                        as primary illumination. "Lit only by desk lamp, warm pool, darkness surrounding." "Face
+                        illuminated by phone screen in dark room." Gives the model a logical light source instead of
+                        invisible omnidirectional default.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Backlight, Shadows & Imperfect Exposure</h3>
+                    <p><strong>Backlight:</strong> "Subject backlit by sunset, hair glowing, face in shadow."
+                        <strong>Rim light:</strong> "Subtle rim light on right shoulder and cheek, dark background."
+                        Both create cinematic separation AI understands well.<br><strong>Shadow storytelling:</strong>
+                        "Half face in shadow" (duality). "Shadow of window bars across subject" (imprisonment). Specify
+                        contrast: "high contrast, deep blacks, no fill" for noir.<br><strong>Imperfect
+                            exposure:</strong> "Slightly overexposed highlights, blown-out window" — intentional DP
+                        decisions. <strong>Film grain:</strong> "ISO 3200 noise, subtle digital noise in shadows" — adds
+                        organic quality and smooths AI artifacts.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Practical Lights Prompts</h3>
-                <p class="desc">
-                    Prompt for visible light sources in the scene that also serve as the primary illumination: "lit only
-                    by a desk lamp, warm pool of light, darkness surrounding." "Face illuminated by phone screen in dark
-                    room, cool blue light on skin." "Neon sign reflecting on wet pavement, colored light on subject's
-                    face." Practical light prompts produce more believable AI images because they give the model a
-                    logical light source to base all illumination on — instead of the invisible, omnidirectional
-                    lighting AI defaults to.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Backlight vs Rim Light AI</h3>
-                <p class="desc">
-                    <strong>Backlight:</strong> Light from behind the subject, creating a halo/glow around edges.
-                    "Subject backlit by sunset, hair glowing, face in shadow." Creates drama, beauty, and separation
-                    from background.<br>
-                    <strong>Rim light:</strong> A thin line of light on the subject's edge/contour, separating them from
-                    the background. "Subtle rim light on the right shoulder and cheek, dark background." Creates depth
-                    and cinematic separation.<br>
-                    Both are powerful in AI because they create strong visual contrast — a clear foreground/background
-                    separation that AI understands well. They're also inherently cinematic, immediately elevating an
-                    image from "photo" to "frame from a film."
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Shadow Storytelling & Contrast Control</h3>
-                <p class="desc">
-                    Shadows in AI images can be directed: "half the face in shadow, the lit half shows a calm
-                    expression" (duality). "Long shadow stretching toward camera" (approach, danger). "Shadow of window
-                    bars across the subject" (imprisonment). Prompt contrast specifically: "high contrast, deep blacks,
-                    no fill light" for dramatic noir. "Low contrast, lifted shadows, overall gentle" for soft,
-                    contemplative images. Don't let AI choose your contrast — specify it like a cinematographer would.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Imperfect Exposure & Sensor Noise Realism</h3>
-                <p class="desc">
-                    Real cameras produce imperfections that AI usually removes. Bring them back:<br>
-                    <strong>Imperfect exposure:</strong> "slightly overexposed highlights, blown-out window" or
-                    "underexposed, detail lost in shadows" — these imperfections are what real DP decisions look like.
-                    Not every frame is perfectly exposed, and that's intentional.<br>
-                    <strong>Sensor noise/grain:</strong> "film grain, ISO 3200 noise pattern," "subtle digital noise in
-                    shadow areas." Noise adds texture, age, and an organic quality that sterile AI images lack. It also
-                    smooths out AI artifacts by adding a uniform texture layer across the image.<br>
-                    These imperfections transform AI renders into images that feel captured by a real camera in a real
-                    moment.
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- K. AI STORYTELLING -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">K</span>
-                <h2>AI Storytelling</h2>
+        <section id="storytelling" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">K</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Storytelling</h2>
+                        <p class="text-xs" style="color: #71717a;">The most important section. Everything else is craft.
+                            This is meaning.</p>
+                    </div>
+                </div>
             </div>
-            <p>The most important section. Everything else is craft. This is meaning.</p>
-
-            <div class="skill">
-                <h3>Visual Storytelling Without Dialogue</h3>
-                <p class="desc">
-                    AI can't write dialogue, and that's a gift. It forces you to think in pure images. Every
-                    AI-generated scene must communicate through behavior, environment, light, and composition alone.
-                    This is the highest form of visual storytelling — the same principles that make silent cinema
-                    powerful. Design your AI scenes as if the viewer can't hear anything. If the image doesn't convey
-                    the emotion on its own, no caption or voiceover will save it.
-                </p>
+            <div class="mt-6 space-y-3">
+                <div class="concept-card fade-up">
+                    <h3>Visual Storytelling Without Dialogue</h3>
+                    <p>AI can't write dialogue, and that's a gift. It forces pure image thinking. Every scene must
+                        communicate through behavior, environment, light, composition alone — the highest form of visual
+                        storytelling, the same principles that make silent cinema powerful.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Presence vs Absence</h3>
+                    <p>What's missing is often more powerful. "An empty chair with a still-warm cup of coffee" = recent
+                        departure. "A child's room, perfectly preserved, untouched" = loss. Prompt for scenes defined by
+                        what ISN'T there — the viewer fills the void with personal emotion.</p>
+                </div>
+                <div class="concept-card fade-up">
+                    <h3>Time Pressure, Memory & Symbolism</h3>
+                    <p><strong>Time pressure:</strong> "Hourglass with last grains," "clock at 11:59," "sunset
+                        disappearing." Inherent tension in a single frame.<br><strong>Space as antagonist:</strong>
+                        "Vast empty desert," "claustrophobic room," "corridor narrowing into
+                        darkness."<br><strong>Memory vs reality:</strong> Memories = warmer, softer, golden. Reality =
+                        sharper, cooler, unflattering. Cutting between registers creates living in two
+                        times.<br><strong>Repetition with variation:</strong> Same composition with subtle changes —
+                        same window at different times of day. The viewer notices what changed and asks
+                        why.<br><strong>Non-literal symbolism:</strong> "A tree with one branch broken among healthy
+                        trees" = isolation, damage. Images working on two levels — surface and subtext.</p>
+                </div>
             </div>
-
-            <div class="skill">
-                <h3>Presence vs Absence in AI Scenes</h3>
-                <p class="desc">
-                    What's missing is often more powerful than what's present. An AI scene showing "an empty chair with
-                    a still-warm cup of coffee" tells a story of recent departure. "A child's room, perfectly preserved,
-                    untouched" implies loss. The absence of the expected creates emotional resonance. Prompt for scenes
-                    defined by what ISN'T there — the viewer fills the void with their own emotional interpretation,
-                    creating a personal connection that no amount of visual detail could achieve.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Time Pressure Visuals & Space as Antagonist</h3>
-                <p class="desc">
-                    <strong>Time pressure visuals:</strong> Communicate urgency through visual metaphor — "hourglass
-                    with last grains falling," "clock hands at 11:59," "sunset with last light disappearing behind
-                    mountains." Time pressure creates inherent tension in a single frame.<br>
-                    <strong>Space as antagonist:</strong> Make the environment hostile — "vast empty desert stretching
-                    endlessly," "claustrophobic room with low ceiling," "corridor that narrows into darkness." When
-                    space itself is the threat, you don't need a villain or conflict — the composition generates anxiety
-                    automatically.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Memory vs Reality Imagery</h3>
-                <p class="desc">
-                    AI can visually represent the difference between memory and reality through visual markers: memories
-                    can be slightly warmer, softer, more saturated — or conversely, hazier, partially obscured, with
-                    vignetting. Reality can be sharper, cooler, more grounded. Prompt: "scene as if remembered — slight
-                    warmth, soft edges, golden tinting, slightly dreamlike." vs "harsh present reality — neutral tones,
-                    sharp detail, unflattering light." Cutting between these two visual registers creates the internal
-                    experience of a character living in two times simultaneously.
-                </p>
-            </div>
-
-            <div class="skill">
-                <h3>Repetition with Variation & Non-Literal Symbolism</h3>
-                <p class="desc">
-                    <strong>Repetition with variation:</strong> Generate the same composition multiple times with subtle
-                    changes — the same window at different times of day, the same chair with different occupants (or
-                    empty). Repetition creates expectation; variation creates meaning. The viewer notices what changed
-                    and asks why.<br>
-                    <strong>Non-literal symbolism:</strong> AI images don't need to be literal. "A tree with one branch
-                    broken, surrounded by healthy trees" doesn't need to be about trees. It's about isolation, damage,
-                    and the contrast between individual suffering and collective thriving. Prompt for images that work
-                    on two levels — the surface (what you see) and the subtext (what it means).
-                </p>
-            </div>
-        </div>
+        </section>
 
         <!-- L. WHAT TO AVOID -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">L</span>
-                <h2>What to Avoid</h2>
-            </div>
-            <p>Knowing what NOT to do is as valuable as knowing what to do. Study these failures.</p>
-
-            <div class="avoid-block">
-                <h3>Why AI Videos Feel Soulless</h3>
-                <p class="desc">
-                    Because they're generated without intention. The AI produces motion — but motion without purpose is
-                    just pixels changing. The fix: every AI clip you generate should answer "what should the viewer
-                    feel?" before you write the prompt. If you can't answer that question, you aren't ready to generate.
-                </p>
-            </div>
-
-            <div class="avoid-block">
-                <h3>Over-Stylization in AI Art</h3>
-                <p class="desc">
-                    The most common AI sin: piling on style modifiers until the image is drowning in aesthetic. "Ultra
-                    detailed, hyper realistic, volumetric lighting, cinematic, octane render, 8K, trending on
-                    ArtStation" produces images that look technically impressive but feel soulless. Style without
-                    purpose is decoration. Before adding any style modifier, ask: "Does this serve the emotional
-                    intent?" If not, remove it.
-                </p>
-            </div>
-
-            <div class="avoid-block">
-                <h3>Hyperrealism Fatigue</h3>
-                <p class="desc">
-                    When everything is hyper-realistic, nothing feels real. The brain detects the uncanny — it's "too
-                    real," which paradoxically feels fake. Some of the most effective AI images embrace stylization,
-                    grain, imperfection, and abstraction. The goal isn't "indistinguishable from a photograph" — it's
-                    "emotionally convincing." These are different standards.
-                </p>
-            </div>
-
-            <div class="avoid-block">
-                <h3>AI Cinematic Clichés</h3>
-                <p class="desc">
-                    Recognizable AI defaults that have become clichés: the orange-teal color grade, dramatic lens flare,
-                    a person standing in a beam of light, epic mountain vistas with "perfect" golden hour, brooding
-                    character in rain with backlight. These are the stock photos of AI — technically competent,
-                    emotionally empty. Break free by prompting for unfamiliar compositions, unusual lighting, and
-                    human-scale moments instead of epic ones.
-                </p>
-            </div>
-
-            <div class="avoid-block">
-                <h3>Unreal Camera Movement & Too Much Motion</h3>
-                <p class="desc">
-                    AI camera movement that would be physically impossible — floating through walls, drone shots at
-                    microscopic scale, orbits that ignore gravity. These movements announce "this is AI" immediately.
-                    Effective AI video uses physically possible camera work. Also: more motion ≠ more cinematic.
-                    Restraint. Shot holds. Slight movements. The best AI video is often the one where almost nothing
-                    happens — but what does happen feels inevitable.
-                </p>
-            </div>
-
-            <div class="avoid-block">
-                <h3>Overprompting Mistakes</h3>
-                <p class="desc">
-                    The #1 mistake: writing prompts that try to describe everything. "A 35-year-old woman with brown
-                    hair wearing a green dress standing in a kitchen with granite countertops and a window showing a
-                    garden and she's holding a coffee cup and there's a cat on the table and morning light coming in and
-                    she looks contemplative." This overloaded prompt forces the model to average all concepts, producing
-                    a muddy compromise. The fix: <strong>distill to essence</strong>. "A woman alone with her coffee,
-                    morning light, contemplative." Let the AI fill in the details from its own coherence. Your job is
-                    intent, not inventory.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- ═══════════════════════════════════════
-             VISUAL COMPARISON LAB
-             ═══════════════════════════════════════ -->
-        <div class="subgroup" id="comparison-lab">
-            <div class="subgroup-header">
-                <span class="letter">⚡</span>
-                <h2>Visual Comparison Lab</h2>
-            </div>
-            <p>Side-by-side analysis of default vs constraint-based prompting. See why intent beats aesthetics.</p>
-
-            <h3 style="margin-top: 2rem;">Comparison 1: The Portrait</h3>
-            <div class="comparison">
-                <div class="comparison-side comp-before">
-                    <span class="comp-label">❌ Default Approach</span>
-                    <div class="prompt-example">"beautiful woman, cinematic lighting, dramatic, 8K, ultra detailed, hyper realistic, octane render, trending on ArtStation"</div>
-                    <p>Result: technically impressive, emotionally empty. Over-saturated, symmetrical face, perfect skin, no story.</p>
-                </div>
-                <div class="comparison-side comp-after">
-                    <span class="comp-label">✅ Constraint-Based</span>
-                    <div class="prompt-example">"tired woman, 40s, looking past camera, not posing. Single desk lamp from camera left, harsh shadows. Visible pores, asymmetric expression. Holding back tears. f/2.0, slight underexposure."</div>
-                    <p>Result: a human being in a specific moment. The constraints create authenticity. Emotion from specificity, not adjectives.</p>
-                </div>
-                <div class="comparison-annotation">
-                    <strong>Why it works:</strong> The first prompt describes what it should LOOK LIKE. The second describes what it should FEEL LIKE through concrete physical details. Constraints force the AI into specific emotional territory.
+        <section id="avoid" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(220,38,38,0.1); color: #dc2626;">L</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">What to Avoid</h2>
+                        <p class="text-xs" style="color: #71717a;">Knowing what NOT to do is as valuable as knowing what
+                            to do.</p>
+                    </div>
                 </div>
             </div>
-
-            <h3 style="margin-top: 2rem;">Comparison 2: The Environment</h3>
-            <div class="comparison">
-                <div class="comparison-side comp-before">
-                    <span class="comp-label">❌ Default Approach</span>
-                    <div class="prompt-example">"abandoned hospital corridor, horror atmosphere, dramatic lighting, foggy, eerie, dark, HDR, volumetric light, cinematic"</div>
-                    <p>Result: generic horror set. Green tint, fog machine aesthetics, predictable composition.</p>
+            <div class="mt-6 space-y-3">
+                <div class="avoid-card fade-up">
+                    <h3>Soulless Video</h3>
+                    <p>Generated without intention. Motion without purpose = pixels changing. Every AI clip should
+                        answer "what should the viewer feel?" <em>before</em> you write the prompt.</p>
                 </div>
-                <div class="comparison-side comp-after">
-                    <span class="comp-label">✅ Constraint-Based</span>
-                    <div class="prompt-example">"long hospital corridor, daytime. Fluorescent lights ON — half working, half flickering. Clean floor but one wheelchair at the far end. No fog. No dramatic lighting. Documentary photography."</div>
-                    <p>Result: genuinely unsettling. The horror comes from what SHOULD be normal but isn't — daytime, well-lit, but empty.</p>
+                <div class="avoid-card fade-up">
+                    <h3>Over-Stylization</h3>
+                    <p>"Ultra detailed, hyper realistic, volumetric lighting, cinematic, octane render, 8K, trending on
+                        ArtStation" = technically impressive, emotionally empty. Before any style modifier, ask: "Does
+                        this serve the emotional intent?" If not, remove it.</p>
                 </div>
-                <div class="comparison-annotation">
-                    <strong>Why it works:</strong> Constraints are SUBTRACTIVE — no fog, no dramatic lighting. Removing clichés forces the AI to produce something real and therefore more disturbing.
+                <div class="avoid-card fade-up">
+                    <h3>Hyperrealism Fatigue</h3>
+                    <p>When everything is hyper-realistic, nothing feels real. "Too real" paradoxically feels fake.
+                        Effective AI images embrace stylization, grain, imperfection. The goal isn't "indistinguishable
+                        from photograph" — it's "emotionally convincing."</p>
                 </div>
-            </div>
-
-            <h3 style="margin-top: 2rem;">Comparison 3: The AI Video Clip</h3>
-            <div class="comparison">
-                <div class="comparison-side comp-before">
-                    <span class="comp-label">❌ Default Approach</span>
-                    <div class="prompt-example">"dramatic cinematic shot of a man walking through a burning city, epic camera movement, slow motion, explosions, smoke, debris flying"</div>
-                    <p>Result: AI motion chaos. Man morphs between frames. Fire looks like paint. Camera is floaty and weightless.</p>
+                <div class="avoid-card fade-up">
+                    <h3>AI Clichés</h3>
+                    <p>Orange-teal color grade, dramatic lens flare, person in beam of light, epic golden hour
+                        mountains, brooding character in rain. These are the stock photos of AI. Break free with
+                        unfamiliar compositions, unusual lighting, human-scale moments.</p>
                 </div>
-                <div class="comparison-side comp-after">
-                    <span class="comp-label">✅ Constraint-Based</span>
-                    <div class="prompt-example">"static camera, locked tripod. A man sits on a bench. Far background: barely visible smoke rising. He doesn't look at it. Subtle wind on his collar. 4 seconds. No camera movement."</div>
-                    <p>Result: achievable, emotionally powerful. Static camera and the man's refusal to look tells the story.</p>
-                </div>
-                <div class="comparison-annotation">
-                    <strong>Why it works:</strong> Static camera, no complex motion, one subject — plays to AI video's strengths. Restraint creates meaning that spectacle destroys.
+                <div class="avoid-card fade-up">
+                    <h3>Unreal Camera & Overprompting</h3>
+                    <p><strong>Camera:</strong> Floating through walls, impossible orbits. Use physically possible
+                        camera work. More motion ≠ more cinematic.<br><strong>Overprompting:</strong> The #1 mistake.
+                        50-word inventory prompts force muddy compromises. <strong>Distill to essence.</strong> "A woman
+                        alone with her coffee, morning light, contemplative." Your job is intent, not inventory.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- EXERCISES -->
-        <div class="subgroup" id="ai-exercises">
-            <div class="subgroup-header">
-                <span class="letter">✏️</span>
-                <h2>Workshop Exercises</h2>
-            </div>
-            <p>Practice constraint-based thinking. These aren't quizzes — they're creative recalibrations.</p>
-
-            <div class="exercise-card">
-                <span class="exercise-badge">✏️ Exercise</span>
-                <h4>Distill to Intent</h4>
-                <p class="exercise-prompt">
-                    Take this overloaded prompt and reduce it to <strong>emotional intent only</strong> in 15 words or fewer:<br><br>
-                    <em>"A 25-year-old woman with long dark hair wearing a vintage red dress standing in a European café at a window table with rain on the glass and warm interior lighting and she looks pensive while holding a coffee cup and there's a bookshelf behind her, shot on 35mm film, cinematic, moody"</em>
-                </p>
-                <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show Approach</button>
-                <div class="exercise-reveal">
-                    <div class="exercise-reveal-content">
-                        <strong>Possible reductions:</strong><br>
-                        • "woman alone at a rainy window, warm light, lost in thought. 35mm."<br>
-                        • "solitary coffee. rain outside. she's not really here. documentary warmth."<br><br>
-                        <strong>The principle:</strong> The original is inventory. The reductions are intent. AI fills in details coherently when given emotional direction instead of shopping lists.
+        <!-- VISUAL COMPARISON LAB -->
+        <section id="comparison-lab" class="max-w-4xl mx-auto px-6 py-8">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">⚡</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Visual Comparison Lab</h2>
+                        <p class="text-xs" style="color: #71717a;">Default vs constraint-based prompting. See why intent
+                            beats aesthetics.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="exercise-card">
-                <span class="exercise-badge">✏️ Exercise</span>
-                <h4>Constraint Architecture: 3 Shots, No Movement</h4>
-                <p class="exercise-prompt">
-                    Design a 3-shot AI video sequence: <strong>"someone letting go of anger"</strong><br>
-                    • Camera: static, locked tripod<br>
-                    • Motion: micro-movements only<br>
-                    • No facial close-ups (body/hands/environment only)<br>
-                    • One light source per shot
-                </p>
-                <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show Approach</button>
-                <div class="exercise-reveal">
-                    <div class="exercise-reveal-content">
-                        <strong>Shot 1:</strong> "Hands gripping crumpled letter. Knuckles white. Overhead lamp. Static." — Beat: holding anger.<br>
-                        <strong>Shot 2:</strong> "Same hands relaxing. Fingers uncurl. Letter loosens. Same lamp." — Beat: the release.<br>
-                        <strong>Shot 3:</strong> "Empty table. Letter left behind. Wind barely moving its edge. Daylight replacing lamp." — Beat: after. Light source change (artificial → natural) signals the emotional shift.
+            <div class="mt-8 fade-up">
+                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 1: The Portrait</h3>
+                <div class="comparison-grid">
+                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
+                        <div class="prompt-box">"beautiful woman, cinematic lighting, dramatic, 8K, ultra detailed,
+                            hyper realistic, octane render, trending on ArtStation"</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: technically impressive, emotionally empty.
+                            Over-saturated, symmetrical, no story.</p>
+                    </div>
+                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
+                        <div class="prompt-box">"tired woman, 40s, looking past camera, not posing. Single desk lamp
+                            from camera left, harsh shadows. Visible pores, asymmetric expression. Holding back tears.
+                            f/2.0, slight underexposure."</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: a human being in a specific moment. Emotion
+                            from specificity, not adjectives.</p>
+                    </div>
+                </div>
+                <div class="annotation"><strong>Why it works:</strong> The first describes what it should LOOK LIKE. The
+                    second describes what it should FEEL LIKE through concrete physical details.</div>
+            </div>
+
+            <div class="mt-8 fade-up">
+                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 2: The Environment</h3>
+                <div class="comparison-grid">
+                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
+                        <div class="prompt-box">"abandoned hospital corridor, horror atmosphere, dramatic lighting,
+                            foggy, eerie, dark, HDR, volumetric light, cinematic"</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: generic horror set. Green tint, fog machine
+                            aesthetics, predictable.</p>
+                    </div>
+                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
+                        <div class="prompt-box">"long hospital corridor, daytime. Fluorescent lights ON — half working,
+                            half flickering. Clean floor but one wheelchair at the far end. No fog. No dramatic
+                            lighting. Documentary photography."</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: genuinely unsettling. Horror from what SHOULD
+                            be normal but isn't.</p>
+                    </div>
+                </div>
+                <div class="annotation"><strong>Why it works:</strong> Constraints are SUBTRACTIVE — no fog, no dramatic
+                    lighting. Removing clichés forces something real and therefore more disturbing.</div>
+            </div>
+
+            <div class="mt-8 fade-up">
+                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 3: The AI Video Clip</h3>
+                <div class="comparison-grid">
+                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
+                        <div class="prompt-box">"dramatic cinematic shot of a man walking through a burning city, epic
+                            camera movement, slow motion, explosions, smoke, debris flying"</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: motion chaos. Man morphs. Fire looks like
+                            paint. Camera is floaty.</p>
+                    </div>
+                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
+                        <div class="prompt-box">"static camera, locked tripod. A man sits on a bench. Far background:
+                            barely visible smoke rising. He doesn't look at it. Subtle wind on his collar. 4 seconds. No
+                            camera movement."</div>
+                        <p class="text-xs" style="color:#a1a1aa;">Result: achievable, emotionally powerful. Static
+                            camera and refusal to look tells the story.</p>
+                    </div>
+                </div>
+                <div class="annotation"><strong>Why it works:</strong> Static camera, no complex motion, one subject —
+                    plays to AI's strengths. Restraint creates meaning that spectacle destroys.</div>
+            </div>
+        </section>
+
+        <!-- WORKSHOP EXERCISES -->
+        <section id="exercises" class="max-w-4xl mx-auto px-6 py-8 pb-16">
+            <div class="fade-up">
+                <div class="section-header">
+                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">✏️</div>
+                    <div>
+                        <h2 class="text-xl font-bold" style="color: #fafafa;">Workshop Exercises</h2>
+                        <p class="text-xs" style="color: #71717a;">Practice constraint-based thinking. Creative
+                            recalibrations.</p>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="mt-6 space-y-4">
+                <div class="exercise-card fade-up">
+                    <span class="exercise-badge">Exercise</span>
+                    <h4>Distill to Intent</h4>
+                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;">Take this overloaded prompt and reduce it
+                        to <strong style="color:#fbbf24;">emotional intent only</strong> in 15 words or
+                        fewer:<br><br><em>"A 25-year-old woman with long dark hair wearing a vintage red dress standing
+                            in a European café at a window table with rain on the glass and warm interior lighting and
+                            she looks pensive while holding a coffee cup and there's a bookshelf behind her, shot on
+                            35mm film, cinematic, moody"</em></p>
+                    <button class="reveal-btn"
+                        onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
+                        Approach</button>
+                    <div class="exercise-reveal">
+                        <div class="exercise-reveal-content"><strong>Possible reductions:</strong><br>• "woman alone at
+                            a rainy window, warm light, lost in thought. 35mm."<br>• "solitary coffee. rain outside.
+                            she's not really here. documentary warmth."<br><br><strong>The principle:</strong> The
+                            original is inventory. The reductions are intent.</div>
+                    </div>
+                </div>
+                <div class="exercise-card fade-up">
+                    <span class="exercise-badge">Exercise</span>
+                    <h4>Constraint Architecture: 3 Shots, No Movement</h4>
+                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;">Design a 3-shot AI video sequence:
+                        <strong style="color:#fbbf24;">"someone letting go of anger"</strong><br>• Camera: static,
+                        locked tripod<br>• Motion: micro-movements only<br>• No facial close-ups (body/hands/environment
+                        only)<br>• One light source per shot</p>
+                    <button class="reveal-btn"
+                        onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
+                        Approach</button>
+                    <div class="exercise-reveal">
+                        <div class="exercise-reveal-content"><strong>Shot 1:</strong> "Hands gripping crumpled letter.
+                            Knuckles white. Overhead lamp. Static." — Holding anger.<br><strong>Shot 2:</strong> "Same
+                            hands relaxing. Fingers uncurl. Letter loosens. Same lamp." — The release.<br><strong>Shot
+                                3:</strong> "Empty table. Letter left behind. Wind barely moving its edge. Daylight
+                            replacing lamp." — After. Light source change (artificial → natural) signals the emotional
+                            shift.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </main>
-    <footer>
-        <p><a href="mograph-keywords.html">← Motion Graphics</a> | <a href="index.html">Overview</a> | <a
-                href="resources.html">Resources →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <!-- Footer -->
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top: 1px solid #27272a;">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="mograph-keywords.html" class="hover:underline"
+                        style="color:#71717a;">← Motion Graphics KW</a><a href="index.html" class="hover:underline"
+                        style="color:#71717a;">Overview</a><a href="resources.html" class="hover:underline"
+                        style="color:#71717a;">Resources →</a></div>
+                <div class="text-xs" style="color: #3f3f46;">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active'); }
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('active'); } });
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

@@ -1,600 +1,540 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematography | Visual Storytelling Study Guide</title>
+    <title>Cinematography — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Writing with light and space. Light physics, motivated lighting, camera optics, exposure control, and blocking.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
-            color: var(--cinematography);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
         }
 
-        /* ═══════════════════════════════════════════
-           THREE-POINT LIGHTING — triple light sources
-           ═══════════════════════════════════════════ */
-        .skill-three-point {
-            position: relative;
-            border-left-color: var(--cinematography);
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(255, 220, 120, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 60%, rgba(180, 180, 220, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 30%);
-            border-radius: 0 6px 6px 0;
+        html {
+            scroll-behavior: smooth
         }
 
-        .skill-three-point::after {
-            content: 'KEY ◐  FILL ◑  BACK ◒';
-            position: absolute;
-            top: -8px;
-            right: 4px;
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--cinematography);
-            opacity: 0.5;
-            letter-spacing: 0.05em;
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
         }
 
-        /* ═══════════════════════════════════════════
-           HARD VS SOFT LIGHT — split card
-           ═══════════════════════════════════════════ */
-        .skill-hard-soft {
-            position: relative;
-            overflow: hidden;
-            border-left-color: #f59e0b;
-        }
-
-        .skill-hard-soft::before {
-            content: '';
-            position: absolute;
+        .sidebar {
+            position: fixed;
             top: 0;
-            bottom: 0;
             left: 0;
-            width: 50%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.06) 0%, transparent 100%);
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
-            pointer-events: none;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
         }
 
-        .skill-hard-soft::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            width: 50%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.4) 100%);
-            pointer-events: none;
+        .sidebar.open {
+            transform: translateX(0)
         }
 
-        .skill-hard-soft .hard-label,
-        .skill-hard-soft .soft-label {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: var(--text-3);
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
         }
 
-        .skill-hard-soft .hard-label {
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
         }
 
-        .skill-hard-soft .soft-label {
-            text-shadow: 0 0 8px rgba(255, 200, 100, 0.3);
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
         }
 
-        [data-theme="dark"] .skill-hard-soft::before {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
         }
 
-        [data-theme="dark"] .skill-hard-soft::after {
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
         }
 
-        /* ═══════════════════════════════════════════
-           COLOR TEMPERATURE — warm left, cool right
-           ═══════════════════════════════════════════ */
-        .skill-color-temp {
-            border-left: 5px solid transparent;
-            border-image: linear-gradient(to bottom, #f59e0b, #3b82f6) 1;
-            position: relative;
-            overflow: hidden;
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
         }
 
-        .skill-color-temp::before {
-            content: '';
-            position: absolute;
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
             inset: 0;
-            background: linear-gradient(90deg,
-                    rgba(245, 158, 11, 0.08) 0%,
-                    transparent 50%,
-                    rgba(59, 130, 246, 0.08) 100%);
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity .3s
         }
 
-        .skill-color-temp .temp-bar {
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .skill-card strong {
+            color: #d4d4d8
+        }
+
+        .resources-group {
+            margin-top: .75rem;
+            border-top: 1px solid rgba(39, 39, 42, .5);
+            padding-top: .75rem
+        }
+
+        .resources-group h4 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #52525b;
+            margin-bottom: .4rem
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .35rem .6rem;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 5px;
+            margin-bottom: .3rem;
+            text-decoration: none;
+            font-size: .78rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .55rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .1rem .35rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
+        }
+
+        .lens-demo {
+            display: flex;
+            gap: .75rem;
+            margin: .75rem 0;
+            align-items: center
+        }
+
+        .lens {
+            font-family: monospace;
+            font-size: .7rem;
+            padding: .4rem .8rem;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, .2);
+            border: 1px solid #27272a;
+            text-align: center;
+            color: #a1a1aa
+        }
+
+        .temp-bar {
             height: 4px;
             border-radius: 2px;
             background: linear-gradient(90deg, #f59e0b, #fbbf24, #fef3c7, #dbeafe, #93c5fd, #3b82f6);
-            margin: 0.75rem 0;
+            margin: .75rem 0
         }
 
-        .skill-color-temp .temp-labels {
+        .temp-labels {
             display: flex;
             justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--text-3);
+            font-family: monospace;
+            font-size: .65rem
         }
 
-        .skill-color-temp .temp-warm {
-            color: #d97706;
-        }
-
-        .skill-color-temp .temp-cool {
-            color: #2563eb;
-        }
-
-        /* ═══════════════════════════════════════════
-           PRACTICAL LIGHTS — warm glow
-           ═══════════════════════════════════════════ */
-        .skill-practicals {
-            position: relative;
-            border-left-color: #fbbf24;
-        }
-
-        .skill-practicals::before {
-            content: '💡';
-            position: absolute;
-            top: 50%;
-            right: 12px;
-            transform: translateY(-50%);
-            font-size: 1.4rem;
-            opacity: 0.3;
-        }
-
-        .skill-practicals::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 120px;
-            height: 120px;
-            transform: translate(10%, -50%);
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.05) 40%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* ═══════════════════════════════════════════
-           FOCAL LENGTH — perspective distortion
-           ═══════════════════════════════════════════ */
-        .skill-focal-length {
-            border-left-color: var(--cinematography);
-        }
-
-        .skill-focal-length .lens-demo {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            align-items: center;
-        }
-
-        .skill-focal-length .lens {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            background: var(--surface-2);
-            text-align: center;
-        }
-
-        .skill-focal-length .lens-wide {
-            transform: scaleX(1.15);
-            letter-spacing: 0.05em;
-        }
-
-        .skill-focal-length .lens-normal {
-            transform: none;
-        }
-
-        .skill-focal-length .lens-tele {
-            transform: scaleX(0.85);
-            letter-spacing: -0.02em;
-        }
-
-        /* ═══════════════════════════════════════════
-           DEPTH OF FIELD — blurred background
-           ═══════════════════════════════════════════ */
-        .skill-dof {
-            position: relative;
-            border-left-color: #8b5cf6;
-        }
-
-        .skill-dof h3 {
-            position: relative;
-            z-index: 2;
-        }
-
-        .skill-dof .desc {
-            position: relative;
-            z-index: 2;
-        }
-
-        .skill-dof .resources {
-            filter: blur(1.2px);
-            opacity: 0.6;
-            transition: filter 0.4s, opacity 0.4s;
-        }
-
-        .skill-dof:hover .resources {
-            filter: blur(0);
-            opacity: 1;
-        }
-
-        .skill-dof::after {
-            content: 'hover to focus ↓';
-            position: absolute;
-            bottom: -4px;
-            right: 4px;
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: #8b5cf6;
-            opacity: 0.5;
-        }
-
-        /* ═══════════════════════════════════════════
-           EXPOSURE TRIANGLE — three segments
-           ═══════════════════════════════════════════ */
-        .skill-exposure {
-            border-left-color: #059669;
-        }
-
-        .skill-exposure .triangle-demo {
+        .tri-demo {
             display: flex;
             gap: 0;
-            margin: 0.75rem 0;
-            height: 6px;
+            margin: .75rem 0;
+            height: 5px;
             border-radius: 3px;
-            overflow: hidden;
+            overflow: hidden
         }
 
-        .skill-exposure .tri-aperture {
-            flex: 1;
-            background: #8b5cf6;
-        }
-
-        .skill-exposure .tri-shutter {
-            flex: 1;
-            background: #059669;
-        }
-
-        .skill-exposure .tri-iso {
-            flex: 1;
-            background: #f59e0b;
-        }
-
-        .skill-exposure .tri-labels {
+        .tri-labels {
             display: flex;
             justify-content: space-around;
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: var(--text-3);
-            margin-top: 2px;
-        }
-
-        /* ═══════════════════════════════════════════
-           MOTIVATED CAMERA MOVEMENT — subtle animation
-           ═══════════════════════════════════════════ */
-        .skill-camera-move {
-            border-left-color: var(--cinematography);
-            animation: subtle-dolly 8s ease-in-out infinite;
-        }
-
-        @keyframes subtle-dolly {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(3px);
-            }
-
-            75% {
-                transform: translateX(-3px);
-            }
-        }
-
-        .skill-camera-move::after {
-            content: '↔ motivated movement';
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--cinematography);
-            opacity: 0.4;
-            display: block;
-            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: .65rem;
+            color: #52525b;
+            margin-top: 3px
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>02 · Cinematography</h1>
-            <p class="question">"Does this feel physically real?"</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link active"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            Cinematography is <strong>writing with light and space</strong>. How reality is photographed.
-            Cinematography stops when the clip ends — meaning is created later, in editing.
-            This is physics, optics, and controlled chaos.
-        </p>
-
-        <!-- A. LIGHT PHYSICS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
-                <h2>Light Physics</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 20% 30%,rgba(255,220,120,.1) 0%,transparent 50%),radial-gradient(ellipse at 80% 60%,rgba(180,180,220,.06) 0%,transparent 40%)">
             </div>
-            <p>Light is the only thing the camera sees. Everything else is inference.</p>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#f59e0b;letter-spacing:.2em">Domain 02</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Cinematography</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"Does this feel physically real?"</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Cinematography is <strong
+                            style="color:#d4d4d8">writing with light and space</strong>. How reality is photographed.
+                        Cinematography stops when the clip ends — meaning is created later, in editing. This is physics,
+                        optics, and controlled chaos.</p>
+                </div>
+            </div>
+        </header>
 
-            <div class="skill skill-three-point">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- A. LIGHT PHYSICS -->
+            <div class="section-divider fade-up" id="light-physics">A · Light Physics</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Light is the only thing the camera sees. Everything
+                else is inference.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
+                <div
+                    style="position:absolute;top:-8px;right:8px;font-family:monospace;font-size:.5rem;color:#52525b;letter-spacing:.05em">
+                    KEY ◐ FILL ◑ BACK ◒</div>
                 <h3>Three-Point Lighting</h3>
-                <p class="desc">
-                    Key light creates the main illumination. Fill light softens shadows. Back light separates subject
-                    from background.
-                    This isn't a formula — it's vocabulary. Learn it, then improvise.
-                </p>
-                <div class="resources">
+                <p>Key light creates the main illumination. Fill light softens shadows. Back light separates subject
+                    from background. This isn't a formula — it's vocabulary. Learn it, then improvise.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=j_Sov3xmgwg" target="_blank">Filmmaker IQ: History
-                                of Lighting</a><span class="tag">30 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=cIbLaDB3bnE" target="_blank">Roger Deakins:
-                                Lighting Philosophy</a><span class="tag">Interview</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=pYCkWmqONAA" target="_blank">Cinematography
-                                Database: Lighting Breakdowns</a><span class="tag">Channel</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=j_Sov3xmgwg" target="_blank"
+                        class="resource-link">Filmmaker IQ: History of Lighting <span class="resource-tag">30
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=cIbLaDB3bnE" target="_blank" class="resource-link">Roger
+                        Deakins: Lighting Philosophy <span class="resource-tag">Interview</span></a>
+                    <a href="https://www.youtube.com/watch?v=pYCkWmqONAA" target="_blank"
+                        class="resource-link">Cinematography Database: Lighting Breakdowns <span
+                            class="resource-tag">Channel</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-hard-soft">
+            <div class="skill-card fade-up">
                 <h3>Hard vs Soft Light</h3>
-                <p class="desc">
-                    <span class="hard-label">HARD ▌</span> Hard light = small source = harsh shadows = drama.
-                    <span class="soft-label">SOFT ○</span> Soft light = large source = gentle shadows = beauty.
-                    The sun at noon is hard. The sun through clouds is soft. Control shadow edge, control mood.
-                </p>
-                <div class="resources">
+                <p><span style="font-family:monospace;font-size:.7rem;color:#52525b">HARD ▌</span> Hard light = small
+                    source = harsh shadows = drama. <span
+                        style="font-family:monospace;font-size:.7rem;color:#52525b">SOFT ○</span> Soft light = large
+                    source = gentle shadows = beauty. The sun at noon is hard. The sun through clouds is soft. Control
+                    shadow edge, control mood.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=DYy0gwKsmWE" target="_blank">Wandering DP: Soft
-                                Light Tutorial</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=hxBfTDzF9_w" target="_blank">How Godfather Was
-                                Lit</a><span class="tag">Analysis</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=ynL9jXBCWpI" target="_blank">Practical vs Studio
-                                Lighting</a><span class="tag">12 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=DYy0gwKsmWE" target="_blank"
+                        class="resource-link">Wandering DP: Soft Light Tutorial <span class="resource-tag">15
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=hxBfTDzF9_w" target="_blank" class="resource-link">How
+                        Godfather Was Lit <span class="resource-tag">Analysis</span></a>
+                    <a href="https://www.youtube.com/watch?v=ynL9jXBCWpI" target="_blank"
+                        class="resource-link">Practical vs Studio Lighting <span class="resource-tag">12 min</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-color-temp">
+            <div class="skill-card fade-up">
                 <h3>Color Temperature</h3>
                 <div class="temp-bar"></div>
-                <div class="temp-labels">
-                    <span class="temp-warm">3200K Tungsten</span>
-                    <span class="temp-cool">5600K Daylight</span>
-                </div>
-                <p class="desc">
-                    Tungsten is warm (3200K). Daylight is cool (5600K). Mixed lighting creates tension.
-                    Michael Mann uses it to separate worlds. Fincher controls it obsessively.
-                </p>
-                <div class="resources">
+                <div class="temp-labels"><span style="color:#d97706">3200K Tungsten</span><span
+                        style="color:#2563eb">5600K Daylight</span></div>
+                <p>Tungsten is warm (3200K). Daylight is cool (5600K). Mixed lighting creates tension. Michael Mann uses
+                    it to separate worlds. Fincher controls it obsessively.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=U-eTAcHzfVQ" target="_blank">In Depth Cine: Color
-                                Temperature</a><span class="tag">20 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=Bo3lUw9GUJA" target="_blank">Michael Mann's Heat:
-                                Lighting</a><span class="tag">Analysis</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=U-eTAcHzfVQ" target="_blank" class="resource-link">In Depth
+                        Cine: Color Temperature <span class="resource-tag">20 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=Bo3lUw9GUJA" target="_blank" class="resource-link">Michael
+                        Mann's Heat: Lighting <span class="resource-tag">Analysis</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- B. MOTIVATED LIGHTING -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
-                <h2>Motivated Lighting</h2>
-            </div>
-            <p>Every light needs a reason. If you can't point to the source, you're lying to the audience.</p>
+            <!-- B. MOTIVATED LIGHTING -->
+            <div class="section-divider fade-up" id="motivated-lighting">B · Motivated Lighting</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Every light needs a reason. If you can't point to the
+                source, you're lying to the audience.</p>
 
-            <div class="skill skill-practicals">
-                <h3>Practical Lights</h3>
-                <p class="desc">
-                    Lamps, candles, TVs, windows — lights visible in frame. They justify your lighting setup.
-                    Deakins often builds entire scenes around practicals. It's believable because it's "real."
-                </p>
-                <div class="resources">
+            <div class="skill-card fade-up" style="border-left:3px solid #fbbf24">
+                <h3>💡 Practical Lights</h3>
+                <p>Lamps, candles, TVs, windows — lights visible in frame. They justify your lighting setup. Deakins
+                    often builds entire scenes around practicals. It's believable because it's "real."</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=PBqMCT4wKRU" target="_blank">Roger Deakins Podcast:
-                                Practical Lighting</a><span class="tag">Audio</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=vfoNBvNdZew" target="_blank">Blade Runner 2049
-                                Cinematography</a><span class="tag">25 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=GfqD5WqChUY" target="_blank">Skyfall: Lighting
-                                Breakdown</a><span class="tag">15 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=PBqMCT4wKRU" target="_blank" class="resource-link">Roger
+                        Deakins Podcast: Practical Lighting <span class="resource-tag">Audio</span></a>
+                    <a href="https://www.youtube.com/watch?v=vfoNBvNdZew" target="_blank" class="resource-link">Blade
+                        Runner 2049 Cinematography <span class="resource-tag">25 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=GfqD5WqChUY" target="_blank" class="resource-link">Skyfall:
+                        Lighting Breakdown <span class="resource-tag">15 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- C. CAMERA OPTICS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
-                <h2>Camera Optics</h2>
-            </div>
-            <p>Lenses don't capture reality — they interpret it. Each focal length tells a different lie.</p>
+            <!-- C. CAMERA OPTICS -->
+            <div class="section-divider fade-up" id="camera-optics">C · Camera Optics</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Lenses don't capture reality — they interpret it. Each
+                focal length tells a different lie.</p>
 
-            <div class="skill skill-focal-length">
+            <div class="skill-card fade-up">
                 <h3>Focal Length Psychology</h3>
                 <div class="lens-demo">
-                    <div class="lens lens-wide">24mm<br>wide</div>
-                    <div class="lens lens-normal">50mm<br>normal</div>
-                    <div class="lens lens-tele">85mm+<br>telephoto</div>
+                    <div class="lens" style="transform:scaleX(1.15);letter-spacing:.05em">24mm<br><span
+                            style="font-size:.6rem">wide</span></div>
+                    <div class="lens">50mm<br><span style="font-size:.6rem">normal</span></div>
+                    <div class="lens" style="transform:scaleX(.85);letter-spacing:-.02em">85mm+<br><span
+                            style="font-size:.6rem">telephoto</span></div>
                 </div>
-                <p class="desc">
-                    Wide lenses (24mm) exaggerate space, create intimacy or unease. Telephoto (85mm+) compresses space,
-                    isolates subjects, feels voyeuristic. 50mm is "normal" — closest to human vision.
-                </p>
-                <div class="resources">
+                <p>Wide lenses (24mm) exaggerate space, create intimacy or unease. Telephoto (85mm+) compresses space,
+                    isolates subjects, feels voyeuristic. 50mm is "normal" — closest to human vision.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=wt5lJ5Zowyo" target="_blank">Every Frame a
-                                Painting: Hitchcock's Vertigo Effect</a><span class="tag">5 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=qPMA4dVjkCA" target="_blank">Filmmaker IQ: Science
-                                of Lenses</a><span class="tag">25 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=ABcNkWN9BmY" target="_blank">How Spielberg Uses
-                                Wide Lenses</a><span class="tag">10 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=wt5lJ5Zowyo" target="_blank" class="resource-link">Every
+                        Frame a Painting: Hitchcock's Vertigo Effect <span class="resource-tag">5 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=qPMA4dVjkCA" target="_blank"
+                        class="resource-link">Filmmaker IQ: Science of Lenses <span class="resource-tag">25
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=ABcNkWN9BmY" target="_blank" class="resource-link">How
+                        Spielberg Uses Wide Lenses <span class="resource-tag">10 min</span></a>
                 </div>
             </div>
 
-            <div class="skill skill-dof">
+            <div class="skill-card fade-up" style="border-left:3px solid #8b5cf6">
                 <h3>Depth of Field</h3>
-                <p class="desc">
-                    Shallow DOF (blurry background) isolates subjects, feels cinematic. Deep DOF (everything sharp)
-                    feels documentary, democratic. Orson Welles loved deep focus. Wong Kar Wai loves shallow.
-                </p>
-                <div class="resources">
+                <p>Shallow DOF (blurry background) isolates subjects, feels cinematic. Deep DOF (everything sharp) feels
+                    documentary, democratic. Orson Welles loved deep focus. Wong Kar Wai loves shallow.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=_bGKNq-faUk" target="_blank">Citizen Kane: Deep
-                                Focus Revolution</a><span class="tag">Analysis</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=4hPaWnxj1-o" target="_blank">Wong Kar Wai's Visual
-                                Style</a><span class="tag">15 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=_bGKNq-faUk" target="_blank" class="resource-link">Citizen
+                        Kane: Deep Focus Revolution <span class="resource-tag">Analysis</span></a>
+                    <a href="https://www.youtube.com/watch?v=4hPaWnxj1-o" target="_blank" class="resource-link">Wong Kar
+                        Wai's Visual Style <span class="resource-tag">15 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- D. EXPOSURE CONTROL -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
-                <h2>Exposure Control</h2>
-            </div>
-            <p>The triangle of light: aperture, shutter, ISO. Master this or master nothing.</p>
+            <!-- D. EXPOSURE CONTROL -->
+            <div class="section-divider fade-up" id="exposure">D · Exposure Control</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The triangle of light: aperture, shutter, ISO. Master
+                this or master nothing.</p>
 
-            <div class="skill skill-exposure">
+            <div class="skill-card fade-up" style="border-left:3px solid #059669">
                 <h3>The Exposure Triangle</h3>
-                <div class="triangle-demo">
-                    <div class="tri-aperture"></div>
-                    <div class="tri-shutter"></div>
-                    <div class="tri-iso"></div>
+                <div class="tri-demo">
+                    <div style="flex:1;background:#8b5cf6"></div>
+                    <div style="flex:1;background:#059669"></div>
+                    <div style="flex:1;background:#f59e0b"></div>
                 </div>
-                <div class="tri-labels">
-                    <span>Aperture</span>
-                    <span>Shutter</span>
-                    <span>ISO</span>
-                </div>
-                <p class="desc">
-                    Aperture controls depth. Shutter controls motion blur. ISO controls sensitivity (and noise).
-                    Change one, compensate with another. It's a negotiation.
-                </p>
-                <div class="resources">
+                <div class="tri-labels"><span>Aperture</span><span>Shutter</span><span>ISO</span></div>
+                <p>Aperture controls depth. Shutter controls motion blur. ISO controls sensitivity (and noise). Change
+                    one, compensate with another. It's a negotiation.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=LxO-6Fkey-Q" target="_blank">DSLR Video Shooter:
-                                Exposure Basics</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=F8T94sdiNjc" target="_blank">180° Shutter Rule
-                                Explained</a><span class="tag">10 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=LxO-6Fkey-Q" target="_blank" class="resource-link">DSLR
+                        Video Shooter: Exposure Basics <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=F8T94sdiNjc" target="_blank" class="resource-link">180°
+                        Shutter Rule Explained <span class="resource-tag">10 min</span></a>
                 </div>
             </div>
-        </div>
 
-        <!-- E. BLOCKING & MOVEMENT -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
-                <h2>Blocking & Camera Movement</h2>
-            </div>
-            <p>Where actors move and where camera follows. Choreography without dance.</p>
+            <!-- E. BLOCKING & MOVEMENT -->
+            <div class="section-divider fade-up" id="blocking">E · Blocking & Camera Movement</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Where actors move and where camera follows.
+                Choreography without dance.</p>
 
-            <div class="skill skill-camera-move">
+            <div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
                 <h3>Motivated Camera Movement</h3>
-                <p class="desc">
-                    Every dolly, pan, tilt needs emotional justification. Unmotivated movement is noise.
-                    Kubrick's steadicam in The Shining is supernatural pursuit. Without reason, it's just smooth
-                    footage.
-                </p>
-                <div class="resources">
+                <p>Every dolly, pan, tilt needs emotional justification. Unmotivated movement is noise. Kubrick's
+                    steadicam in The Shining is supernatural pursuit. Without reason, it's just smooth footage.</p>
+                <div class="resources-group">
                     <h4>Study Resources</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/watch?v=ufEkGBs-O68" target="_blank">Every Frame a
-                                Painting: Camera Movement</a><span class="tag">7 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=d2fgKYAXf0I" target="_blank">David Fincher's Camera
-                                Movement</a><span class="tag">15 min</span></li>
-                        <li><a href="https://www.youtube.com/watch?v=GxO-4vOq1Uk" target="_blank">Spielberg's Blocking
-                                Masterclass</a><span class="tag">12 min</span></li>
-                    </ul>
+                    <a href="https://www.youtube.com/watch?v=ufEkGBs-O68" target="_blank" class="resource-link">Every
+                        Frame a Painting: Camera Movement <span class="resource-tag">7 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=d2fgKYAXf0I" target="_blank" class="resource-link">David
+                        Fincher's Camera Movement <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=GxO-4vOq1Uk" target="_blank"
+                        class="resource-link">Spielberg's Blocking Masterclass <span class="resource-tag">12
+                            min</span></a>
                 </div>
+            </div>
+
+            <!-- UNCONVENTIONAL -->
+            <div class="skill-card fade-up"
+                style="margin-top:2rem;background:linear-gradient(135deg,rgba(245,158,11,.04),rgba(139,92,246,.03))">
+                <h3>🧠 Unconventional Learning</h3>
+                <p style="margin-bottom:.75rem">Cinematography thinking from unexpected places:</p>
+                <a href="https://www.youtube.com/watch?v=3h_eBl3sRWM" target="_blank" class="resource-link">Painting
+                    with Light: Vermeer's Camera <span class="resource-tag">Art History</span></a>
+                <a href="https://www.youtube.com/watch?v=doaQC-S8de8" target="_blank" class="resource-link">Roger
+                    Deakins: Full Interview <span class="resource-tag">2 hours</span></a>
+                <a href="https://www.youtube.com/watch?v=seUVa7d4DoM" target="_blank" class="resource-link">Emmanuel
+                    Lubezki: Natural Light <span class="resource-tag">20 min</span></a>
+                <a href="https://ascmag.com/" target="_blank" class="resource-link">American Cinematographer Magazine
+                    <span class="resource-tag">Free Articles</span></a>
             </div>
         </div>
 
-        <!-- UNCONVENTIONAL -->
-        <div class="subgroup" style="background: #f8f8f8; padding: 2rem; border-radius: 8px; border: none;">
-            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">🧠 Unconventional Learning</h2>
-            <p style="margin-bottom: 1.5rem;">Cinematography thinking from unexpected places:</p>
-            <ul class="resources" style="background: white;">
-                <li><a href="https://www.youtube.com/watch?v=3h_eBl3sRWM" target="_blank">Painting with Light: Vermeer's
-                        Camera</a><span class="tag">Art History</span></li>
-                <li><a href="https://www.youtube.com/watch?v=doaQC-S8de8" target="_blank">Roger Deakins: Full
-                        Interview</a><span class="tag">2 hours</span></li>
-                <li><a href="https://www.youtube.com/watch?v=seUVa7d4DoM" target="_blank">Emmanuel Lubezki: Natural
-                        Light</a><span class="tag">20 min</span></li>
-                <li><a href="https://ascmag.com/" target="_blank">American Cinematographer Magazine</a><span
-                        class="tag">Free Articles</span></li>
-            </ul>
-        </div>
-
-    </main>
-    <footer>
-        <p><a href="design.html">← Design</a> | <a href="index.html">Overview</a> | <a href="sound.html">Sound →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="design.html" class="hover:underline" style="color:#71717a">←
+                        Design</a><a href="index.html" class="hover:underline" style="color:#71717a">Overview</a><a
+                        href="sound.html" class="hover:underline" style="color:#71717a">Sound →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

@@ -1,445 +1,503 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storytelling | The Core Layer</title>
+    <title>Storytelling — The Core Layer — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Story leads. Style serves. Domains execute. The core layer of meaning architecture for visual storytelling.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
     <style>
-        .domain-header h1 {
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
             color: #f59e0b;
-        }
-
-        /* ═══════════════════════════════════════════
-           CORE PRINCIPLE — dark cinematic blocks
-           ═══════════════════════════════════════════ */
-        .core-principle {
-            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .core-principle::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .core-principle h3 {
-            color: #f59e0b;
-            margin-bottom: 1rem;
-        }
-
-        .core-principle p {
-            opacity: 0.9;
-        }
-
-        /* ═══════════════════════════════════════════
-           FORMULA — monospace, computation aesthetic
-           ═══════════════════════════════════════════ */
-        .formula {
-            font-family: var(--font-mono);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            letter-spacing: 0.02em;
-            position: relative;
-        }
-
-        /* ═══════════════════════════════════════════
-           STYLE MULTIPLIER — multiplication visual
-           ═══════════════════════════════════════════ */
-        .skill-multiplier {
             border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
         }
 
-        .skill-multiplier .formula {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            color: var(--text);
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
         }
 
-        .skill-multiplier .formula .mult-zero {
-            color: #ef4444;
-            font-weight: 700;
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
         }
 
-        .skill-multiplier .formula .mult-one {
-            color: #64748b;
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
         }
 
-        .skill-multiplier .formula .mult-five {
-            color: #22c55e;
-            font-weight: 700;
-            font-size: 1.1em;
-        }
-
-        /* ═══════════════════════════════════════════
-           WHEN STYLE LEADS — warning state, red border
-           ═══════════════════════════════════════════ */
-        .warning {
-            background: #fef2f2;
-            border: 1px solid #fca5a5;
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 1rem 0;
-            position: relative;
-        }
-
-        .warning strong {
-            color: #b91c1c;
-        }
-
-        .warning::before {
-            content: '';
-            position: absolute;
-            left: -3px;
-            top: -3px;
-            bottom: -3px;
-            width: 4px;
-            background: #ef4444;
-            border-radius: 4px 0 0 4px;
-        }
-
-        [data-theme="dark"] .warning {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: rgba(239, 68, 68, 0.3);
-        }
-
-        /* ═══════════════════════════════════════════
-           WHEN STORY LEADS — subtle glow, success
-           ═══════════════════════════════════════════ */
-        .skill-story-leads {
-            border-left: 4px solid #22c55e;
-            position: relative;
-        }
-
-        .skill-story-leads::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 6px;
-            box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.1),
-                0 0 12px rgba(34, 197, 94, 0.06);
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity .3s
         }
 
-        .skill-story-leads h3 {
-            color: #059669;
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
         }
 
-        [data-theme="dark"] .skill-story-leads h3 {
-            color: #34d399;
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
         }
 
-        /* ═══════════════════════════════════════════
-           CHECKLIST — golden amber, structured
-           ═══════════════════════════════════════════ */
-        .checklist {
-            background: #fffbeb;
-            border: 1px solid #fcd34d;
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .concept-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
             padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1.5rem 0;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s
         }
 
-        .checklist h4 {
-            color: #92400e;
-            margin-bottom: 1rem;
+        .concept-card:hover {
+            border-color: #3f3f46
         }
 
-        .checklist li {
-            margin-bottom: 0.5rem;
+        .concept-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
         }
 
-        .checklist ol {
-            counter-reset: checklist-counter;
-            list-style: none;
+        .concept-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .concept-card strong {
+            color: #d4d4d8
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, .06);
+            border: 1px solid rgba(239, 68, 68, .15);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: .75rem 0
+        }
+
+        .warning-box strong {
+            color: #ef4444
+        }
+
+        .warning-box ul {
+            margin: .5rem 0 0 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa
+        }
+
+        .warning-box ul li {
+            margin-bottom: .25rem
+        }
+
+        .success-box {
+            background: rgba(34, 197, 94, .06);
+            border: 1px solid rgba(34, 197, 94, .15);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: .75rem 0
+        }
+
+        .success-box strong {
+            color: #22c55e
+        }
+
+        .formula-block {
+            font-family: monospace;
+            padding: 1rem;
+            background: rgba(245, 158, 11, .06);
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 8px;
+            margin: .75rem 0;
+            font-size: .85rem;
+            color: #f59e0b;
+            text-align: center
+        }
+
+        .checklist-box {
+            background: rgba(245, 158, 11, .04);
+            border: 1px solid rgba(245, 158, 11, .1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0
+        }
+
+        .checklist-box h4 {
+            font-size: .85rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: .75rem
+        }
+
+        .checklist-box ol {
+            margin: 0;
             padding-left: 0;
+            list-style: none;
+            counter-reset: steps
         }
 
-        .checklist ol li {
-            counter-increment: checklist-counter;
-            padding-left: 2rem;
+        .checklist-box ol li {
+            counter-increment: steps;
+            padding: .35rem 0 .35rem 2.25rem;
             position: relative;
+            font-size: .82rem;
+            color: #a1a1aa
         }
 
-        .checklist ol li::before {
-            content: counter(checklist-counter);
+        .checklist-box ol li::before {
+            content: counter(steps);
             position: absolute;
             left: 0;
             width: 1.4rem;
             height: 1.4rem;
             background: #f59e0b;
-            color: white;
+            color: #09090b;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            top: 2px;
+            font-size: .65rem;
+            font-weight: 700;
+            top: .4rem
         }
 
-        [data-theme="dark"] .checklist {
-            background: rgba(245, 158, 11, 0.08);
-            border-color: rgba(245, 158, 11, 0.3);
-        }
-
-        [data-theme="dark"] .checklist h4 {
-            color: #fbbf24;
-        }
-
-        /* ═══════════════════════════════════════════
-           DESIRE / FRICTION / RELIEF — three-act flow
-           ═══════════════════════════════════════════ */
-        .skill-desire {
-            border-left: 4px solid #22c55e;
-        }
-
-        .skill-desire h3::before {
-            content: '▲ ';
-            color: #22c55e;
-            font-size: 0.7rem;
-        }
-
-        .skill-friction {
-            border-left: 4px solid #ef4444;
-            background: rgba(239, 68, 68, 0.02);
-        }
-
-        .skill-friction h3::before {
-            content: '■ ';
-            color: #ef4444;
-            font-size: 0.7rem;
-        }
-
-        .skill-relief {
-            border-left: 4px solid #3b82f6;
-        }
-
-        .skill-relief h3::before {
-            content: '● ';
-            color: #3b82f6;
-            font-size: 0.7rem;
-        }
-
-        /* ═══════════════════════════════════════════
-           BRAND ROLE — three columns
-           ═══════════════════════════════════════════ */
-        .skill-brand-role {
-            border-left-color: #f59e0b;
-        }
-
-        .skill-brand-role .roles-grid {
+        .roles-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-            margin: 1rem 0;
+            gap: .75rem;
+            margin: .75rem 0
         }
 
-        .skill-brand-role .role-card {
-            padding: 0.75rem;
-            border-radius: 6px;
+        .role-card {
+            padding: .75rem;
+            border-radius: 8px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: .78rem
         }
 
-        .skill-brand-role .role-helper {
-            background: rgba(59, 130, 246, 0.08);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .skill-brand-role .role-guide {
-            background: rgba(34, 197, 94, 0.08);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .skill-brand-role .role-authority {
-            background: rgba(139, 92, 246, 0.08);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-
-        .skill-brand-role .role-icon {
-            font-size: 1.4rem;
+        .role-icon {
+            font-size: 1.5rem;
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: .25rem
         }
 
-        .skill-brand-role .role-name {
+        .role-name {
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: .65rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: .08em;
+            color: #d4d4d8
         }
 
-        /* ═══════════════════════════════════════════
-           MICRO-ARCS — compressed timeline
-           ═══════════════════════════════════════════ */
-        .skill-micro-arcs {
-            border-left-color: #f59e0b;
-        }
-
-        .skill-micro-arcs .arc-flow {
+        .arc-flow {
             display: flex;
             gap: 0;
-            margin: 0.75rem 0;
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
+            margin: .75rem 0;
+            font-family: monospace;
+            font-size: .65rem;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 6px
         }
 
-        .skill-micro-arcs .arc-step {
+        .arc-step {
             flex: 1;
-            padding: 0.5rem 0.3rem;
+            padding: .5rem .3rem;
             text-align: center;
             color: white;
-            position: relative;
+            font-weight: 600
         }
 
-        .skill-micro-arcs .arc-hook {
-            background: #ef4444;
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
         }
 
-        .skill-micro-arcs .arc-recog {
-            background: #f59e0b;
+        .core-principle {
+            background: linear-gradient(135deg, rgba(245, 158, 11, .08) 0%, rgba(236, 72, 153, .03) 100%);
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem
         }
 
-        .skill-micro-arcs .arc-pressure {
-            background: #b91c1c;
+        .core-principle h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: .75rem
         }
 
-        .skill-micro-arcs .arc-shift {
-            background: #3b82f6;
+        .core-principle p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.6
         }
 
-        .skill-micro-arcs .arc-close {
-            background: #22c55e;
-        }
-
-        /* ═══════════════════════════════════════════
-           FINAL ANCHOR — monumental
-           ═══════════════════════════════════════════ */
         .final-anchor {
-            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-            color: white;
+            background: linear-gradient(135deg, rgba(245, 158, 11, .06), rgba(139, 92, 246, .04));
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-anchor::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-conic-gradient(rgba(245, 158, 11, 0.03) 0% 25%, transparent 25% 50%);
-            pointer-events: none;
+            margin: 2.5rem 0
         }
 
         .final-anchor h2 {
-            color: #f59e0b;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .75rem
         }
 
-        .final-anchor .formula {
-            font-size: 1.1rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .5rem .75rem;
+            background: rgba(0, 0, 0, .2);
+            border-radius: 6px;
+            margin-bottom: .4rem;
+            text-decoration: none;
+            font-size: .82rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .6rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .15rem .4rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
-            <h1>00 · Storytelling</h1>
-            <p class="question">"Why does this matter?"</p>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
         </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link active"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            <strong>Storytelling is the core layer</strong> — meaning architecture that sits above all domains.
-            Domains execute. Story leads. If you skip this, everything below becomes beautiful nonsense.
-        </p>
-
-        <!-- STORY VS STYLE -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <h2>Story vs Style</h2>
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 30% 40%,rgba(245,158,11,.1) 0%,transparent 60%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#f59e0b;letter-spacing:.2em">Domain 00 · The Core Layer</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Storytelling</h1>
+                    <p class="text-base md:text-lg leading-relaxed max-w-2xl" style="color:#a1a1aa"><strong
+                            style="color:#d4d4d8">Storytelling is the core layer</strong> — meaning architecture that
+                        sits above all domains. Domains execute. Story leads. If you skip this, everything below becomes
+                        beautiful nonsense.</p>
+                </div>
             </div>
-            <p>The anti-confusion guide. This prevents one failure: beautiful work that means nothing.</p>
+        </header>
 
-            <div class="core-principle">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- STORY VS STYLE -->
+            <div class="section-divider fade-up">Story vs Style</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The anti-confusion guide. This prevents one failure:
+                beautiful work that means nothing.</p>
+
+            <div class="core-principle fade-up">
                 <h3>Core Distinction</h3>
-                <p><strong>Story answers:</strong> Why does this matter?</p>
-                <p><strong>Style answers:</strong> How does this feel?</p>
-                <p style="margin-top: 1rem; opacity: 0.7;">If you confuse them, everything collapses.</p>
+                <p><strong style="color:#d4d4d8">Story answers:</strong> Why does this matter?</p>
+                <p><strong style="color:#d4d4d8">Style answers:</strong> How does this feel?</p>
+                <p style="margin-top:.75rem;color:#71717a;font-size:.8rem">If you confuse them, everything collapses.
+                </p>
             </div>
 
-            <div class="skill skill-multiplier">
+            <div class="concept-card fade-up">
                 <h3>Style is a Multiplier, Not a Generator</h3>
-                <p class="desc">
-                    Story = meaning + change. Style = sensory constraint.
-                    Style multiplies story — but ×0 story = nothing.
-                </p>
-                <div class="formula">
-                    <span class="mult-zero">×0 story = nothing</span><br>
-                    <span class="mult-one">×1 story = clarity</span><br>
-                    <span class="mult-five">×5 style on solid story = impact</span>
+                <p>Story = meaning + change. Style = sensory constraint. Style multiplies story — but ×0 story =
+                    nothing.</p>
+                <div class="formula-block" style="text-align:left;font-size:.82rem">
+                    <span style="color:#ef4444;font-weight:700">×0 story = nothing</span><br>
+                    <span style="color:#71717a">×1 story = clarity</span><br>
+                    <span style="color:#22c55e;font-weight:700;font-size:.95rem">×5 style on solid story = impact</span>
                 </div>
             </div>
 
-            <div class="skill">
+            <div class="concept-card fade-up">
                 <h3>When Style Leads (Symptoms)</h3>
-                <div class="warning">
+                <div class="warning-box">
                     <strong>❌ Common failures:</strong>
-                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <ul>
                         <li>"Vibe-first" decisions</li>
                         <li>Random beauty shots</li>
                         <li>Over-designed motion</li>
                         <li>Music doing all emotional work</li>
                     </ul>
-                    <p style="margin-top: 1rem;">Audience says "looks sick" and forgets it instantly. This is not bad
-                        taste — this is missing intent.</p>
+                    <p style="margin-top:.75rem;font-size:.82rem;color:#a1a1aa">Audience says "looks sick" and forgets
+                        it instantly. This is not bad taste — this is missing intent.</p>
                 </div>
             </div>
 
-            <div class="skill skill-story-leads">
+            <div class="concept-card fade-up">
                 <h3>When Story Leads (Results)</h3>
-                <p class="desc">
-                    Visual choices feel inevitable. Cuts feel necessary.
-                    Style feels coherent, not loud. Audience remembers meaning, not shots.
-                    <strong>Style becomes invisible — which is the goal.</strong>
-                </p>
+                <div class="success-box">
+                    <p style="font-size:.85rem;color:#a1a1aa;line-height:1.7"><strong>Visual choices feel
+                            inevitable.</strong> Cuts feel necessary. Style feels coherent, not loud. Audience remembers
+                        meaning, not shots. <strong>Style becomes invisible — which is the goal.</strong></p>
+                </div>
             </div>
 
-            <div class="skill">
+            <div class="concept-card fade-up">
                 <h3>The "Why First" Rule</h3>
-                <p class="desc">
-                    Before any stylistic choice, ask: "What story job is this doing?"
-                    If there's no answer: remove it or redesign it.
-                </p>
-                <div class="checklist">
+                <p>Before any stylistic choice, ask: <strong>"What story job is this doing?"</strong> If there's no
+                    answer: remove it or redesign it.</p>
+                <div class="checklist-box">
                     <h4>Daily Anti-Confusion Check</h4>
                     <ol>
                         <li>What changed?</li>
@@ -448,94 +506,80 @@
                         <li>What stylistic choice supports this?</li>
                         <li>What stylistic choice can be removed?</li>
                     </ol>
-                    <p style="margin-top: 1rem; font-weight: 500;">If answers 1–3 are unclear, stop styling.</p>
+                    <p style="margin-top:.75rem;font-size:.82rem;font-weight:600;color:#f59e0b">If answers 1–3 are
+                        unclear, stop styling.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- STORYTELLING FOR ADS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <h2>Storytelling for Ads</h2>
-            </div>
-            <p>When time is short, intent is sharp, and persuasion is the goal. Ads don't tell stories — they trigger
-                decisions.</p>
+            <!-- STORYTELLING FOR ADS -->
+            <div class="section-divider fade-up">Storytelling for Ads</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">When time is short, intent is sharp, and persuasion is
+                the goal. Ads don't tell stories — they trigger decisions.</p>
 
-            <div class="core-principle">
+            <div class="core-principle fade-up">
                 <h3>The Ad Story Engine</h3>
-                <div class="formula" style="font-size: 1.2rem; text-align: center;">
-                    DESIRE → FRICTION → RELIEF
-                </div>
+                <div class="formula-block" style="font-size:1.1rem">DESIRE → FRICTION → RELIEF</div>
                 <p>This is the ad version of the harmonic cycle. Every effective ad runs this engine.</p>
             </div>
 
-            <div class="skill skill-desire">
-                <h3>Desire</h3>
-                <p class="desc">
-                    What the audience wants <em>before</em> the product appears:
-                    Status, Ease, Safety, Belonging, Pleasure, Control.
-                    <br><strong>If desire is unclear, the product feels random.</strong>
-                </p>
+            <div class="grid md:grid-cols-3 gap-3 mb-4">
+                <div class="concept-card fade-up" style="border-left:3px solid #22c55e">
+                    <h3 style="color:#22c55e">▲ Desire</h3>
+                    <p>What the audience wants <em>before</em> the product appears: Status, Ease, Safety, Belonging,
+                        Pleasure, Control. <strong>If desire is unclear, the product feels random.</strong></p>
+                </div>
+                <div class="concept-card fade-up" style="border-left:3px solid #ef4444">
+                    <h3 style="color:#ef4444">■ Friction</h3>
+                    <p>Something blocks the desire: Effort, Cost, Confusion, Time, Fear, Inconvenience. <strong>Without
+                            friction, there is no reason to act.</strong></p>
+                </div>
+                <div class="concept-card fade-up" style="border-left:3px solid #3b82f6">
+                    <h3 style="color:#3b82f6">● Relief</h3>
+                    <p>The product reframes or removes friction. It doesn't "save the world" — it changes the equation.
+                        <strong>Relief must feel earned, not magical.</strong></p>
+                </div>
             </div>
 
-            <div class="skill skill-friction">
-                <h3>Friction</h3>
-                <p class="desc">
-                    Something blocks the desire: Effort, Cost, Confusion, Time, Fear, Inconvenience.
-                    <br><strong>Without friction, there is no reason to act.</strong>
-                </p>
-            </div>
-
-            <div class="skill skill-relief">
-                <h3>Relief</h3>
-                <p class="desc">
-                    The product reframes or removes friction.
-                    It doesn't "save the world" — it changes the equation.
-                    <br><strong>Relief must feel earned, not magical.</strong>
-                </p>
-            </div>
-
-            <div class="skill skill-brand-role">
+            <div class="concept-card fade-up">
                 <h3>Brand Role (Critical)</h3>
-                <p class="desc">
-                    Brands can only play three legitimate roles:
-                </p>
+                <p>Brands can only play three legitimate roles:</p>
                 <div class="roles-grid">
-                    <div class="role-card role-helper">
-                        <span class="role-icon">🤝</span>
+                    <div class="role-card"
+                        style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15)"><span
+                            class="role-icon">🤝</span>
                         <div class="role-name">Helper</div>
-                        <div>Supports the user's journey</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Supports the user's journey</div>
                     </div>
-                    <div class="role-card role-guide">
+                    <div class="role-card" style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15)">
                         <span class="role-icon">🧭</span>
                         <div class="role-name">Guide</div>
-                        <div>Provides clarity or confidence</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Provides clarity or confidence
+                        </div>
                     </div>
-                    <div class="role-card role-authority">
-                        <span class="role-icon">🏛️</span>
+                    <div class="role-card"
+                        style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15)"><span
+                            class="role-icon">🏛️</span>
                         <div class="role-name">Authority</div>
-                        <div>Signals trust or expertise</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Signals trust or expertise</div>
                     </div>
                 </div>
-                <div class="warning">
-                    <strong>❌ The brand is not the hero. The audience is.</strong>
-                </div>
+                <div class="warning-box"><strong>❌ The brand is not the hero. The audience is.</strong></div>
             </div>
 
-            <div class="skill skill-micro-arcs">
+            <div class="concept-card fade-up">
                 <h3>Micro-Arcs (Story in Seconds)</h3>
-                <p class="desc">Ads compress story into beats, not scenes:</p>
+                <p>Ads compress story into beats, not scenes:</p>
                 <div class="arc-flow">
-                    <div class="arc-step arc-hook">Hook</div>
-                    <div class="arc-step arc-recog">"That's me"</div>
-                    <div class="arc-step arc-pressure">Pressure</div>
-                    <div class="arc-step arc-shift">Shift</div>
-                    <div class="arc-step arc-close">Close</div>
+                    <div class="arc-step" style="background:#ef4444">Hook</div>
+                    <div class="arc-step" style="background:#f59e0b">"That's me"</div>
+                    <div class="arc-step" style="background:#b91c1c">Pressure</div>
+                    <div class="arc-step" style="background:#3b82f6">Shift</div>
+                    <div class="arc-step" style="background:#22c55e">Close</div>
                 </div>
-                <p class="desc">This can happen in 30 seconds, 6 seconds, even 3 shots.</p>
+                <p>This can happen in 30 seconds, 6 seconds, even 3 shots.</p>
             </div>
 
-            <div class="checklist">
+            <div class="checklist-box fade-up">
                 <h4>Ad Story Checklist (Before Lock)</h4>
                 <ol>
                     <li>What desire am I activating?</li>
@@ -544,63 +588,49 @@
                     <li>Is the audience clearly the hero?</li>
                     <li>Could this work without dialogue?</li>
                 </ol>
-                <p style="margin-top: 1rem;">If any answer is vague → fix the story, not the visuals.</p>
+                <p style="margin-top:.75rem;font-size:.82rem;color:#a1a1aa">If any answer is vague → fix the story, not
+                    the visuals.</p>
+            </div>
+
+            <!-- FINAL ANCHOR -->
+            <div class="final-anchor fade-up">
+                <h2>Final Anchor (Memorize This)</h2>
+                <div class="formula-block" style="font-size:1rem">Story leads. Style serves. Domains execute.</div>
+                <p style="margin-top:1rem;font-size:.85rem;color:#71717a">If you feel lost: You're not untalented.
+                    You're just letting style drive.</p>
+            </div>
+
+            <!-- RESOURCES -->
+            <div class="concept-card fade-up" style="margin-top:1.5rem">
+                <h3>🧠 Go Deeper</h3>
+                <div style="margin-top:.75rem">
+                    <a href="https://www.youtube.com/watch?v=8u1cwiicLFA" target="_blank" class="resource-link">Pixar's
+                        Rules of Storytelling <span class="resource-tag">10 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=RG4WcRAgm7Y" target="_blank" class="resource-link">Lessons
+                        from the Screenplay <span class="resource-tag">Channel</span></a>
+                    <a href="https://www.youtube.com/watch?v=Hhk4N9A0oCA" target="_blank" class="resource-link">Story by
+                        Robert McKee (Lecture) <span class="resource-tag">1 hour</span></a>
+                    <a href="https://www.youtube.com/watch?v=v2e__gW_7gg" target="_blank" class="resource-link">Dan
+                        Harmon's Story Circle <span class="resource-tag">12 min</span></a>
+                </div>
             </div>
         </div>
 
-        <!-- FINAL ANCHOR -->
-        <div class="subgroup final-anchor">
-            <h2>Final Anchor (Memorize This)</h2>
-            <div class="formula">
-                Story leads. Style serves. Domains execute.
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+                        Back to Overview</a><a href="design.html" class="hover:underline" style="color:#71717a">Design
+                        →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
             </div>
-            <p style="margin-top: 1.5rem; opacity: 0.8;">
-                If you feel lost: You're not untalented. You're just letting style drive.
-            </p>
-        </div>
-
-        <!-- RESOURCES -->
-        <div class="subgroup" style="background: #f8f8f8; padding: 2rem; border-radius: 8px; margin-top: 2rem;">
-            <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">🧠 Go Deeper</h2>
-            <ul class="resources" style="background: white;">
-                <li><a href="https://www.youtube.com/watch?v=8u1cwiicLFA" target="_blank">Pixar's Rules of
-                        Storytelling</a><span class="tag">10 min</span></li>
-                <li><a href="https://www.youtube.com/watch?v=RG4WcRAgm7Y" target="_blank">Lessons from the
-                        Screenplay</a><span class="tag">Channel</span></li>
-                <li><a href="https://www.youtube.com/watch?v=Hhk4N9A0oCA" target="_blank">Story by Robert McKee
-                        (Lecture)</a><span class="tag">1 hour</span></li>
-                <li><a href="https://www.youtube.com/watch?v=v2e__gW_7gg" target="_blank">Dan Harmon's Story
-                        Circle</a><span class="tag">12 min</span></li>
-            </ul>
-        </div>
-
-    </main>
-    <footer>
-        <p><a href="index.html">← Back to Overview</a> | Next: <a href="design.html">Design →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
+        </footer>
+    </div>
 
     <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-    <script src="sidebar.js"></script>
 </body>
 
 </html>

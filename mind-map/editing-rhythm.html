@@ -6,245 +6,419 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editing & Story Rhythm | Visual Storytelling Study Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .domain-header h1 {
-            color: var(--editing);
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #12121a;
+            --card: #1a1a2e;
+            --card-h: #22223a;
+            --t1: #e8e8f0;
+            --t2: #9898b0;
+            --t3: #6a6a82;
+            --acc: #8b5cf6;
+            --bdr: rgba(255, 255, 255, 0.06);
+            --sa: #f97316;
+            --sb: #3b82f6;
+            --sc: #a855f7;
+            --sd: #10b981
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--t1);
+            line-height: 1.7;
+            min-height: 100vh
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: color .2s
+        }
+
+        .back:hover {
+            color: var(--acc)
+        }
+
+        .hdr {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--bdr)
+        }
+
+        .hdr h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--acc);
+            margin-bottom: .5rem;
+            letter-spacing: -.02em
+        }
+
+        .hdr .sub {
+            font-size: 1.05rem;
+            color: var(--t2);
+            font-style: italic
+        }
+
+        .hdr .intro {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--t2);
+            line-height: 1.8
+        }
+
+        .hdr .intro strong {
+            color: var(--t1)
+        }
+
+        .sec {
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fu .6s ease forwards
+        }
+
+        .sec:nth-child(1) {
+            animation-delay: .1s
+        }
+
+        .sec:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .sec:nth-child(3) {
+            animation-delay: .3s
+        }
+
+        .sec:nth-child(4) {
+            animation-delay: .4s
+        }
+
+        @keyframes fu {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .sh {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .75rem
+        }
+
+        .sl {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .sl.a {
+            background: var(--sa)
+        }
+
+        .sl.b {
+            background: var(--sb)
+        }
+
+        .sl.c {
+            background: var(--sc)
+        }
+
+        .sl.d {
+            background: var(--sd)
+        }
+
+        .sh h2 {
+            font-size: 1.4rem;
+            font-weight: 700
+        }
+
+        .st {
+            color: var(--t2);
+            font-size: .95rem;
+            margin-bottom: 1.5rem;
+            padding-left: 3.2rem
+        }
+
+        .sk {
+            background: var(--card);
+            border: 1px solid var(--bdr);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all .25s
+        }
+
+        .sk:hover {
+            background: var(--card-h);
+            border-color: rgba(255, 255, 255, .1);
+            transform: translateY(-1px)
+        }
+
+        .sk h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: .75rem
+        }
+
+        .sk p {
+            font-size: .92rem;
+            color: var(--t2);
+            line-height: 1.75
+        }
+
+        .sk strong {
+            color: var(--t1)
+        }
+
+        .sk em {
+            color: var(--acc);
+            font-style: italic
+        }
+
+        .ft {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bdr);
+            display: flex;
+            justify-content: space-between
+        }
+
+        .ft a {
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            transition: color .2s
+        }
+
+        .ft a:hover {
+            color: var(--acc)
+        }
+
+        @media(max-width:640px) {
+            .hdr h1 {
+                font-size: 1.6rem
+            }
+
+            .sh h2 {
+                font-size: 1.2rem
+            }
+
+            .wrap {
+                padding: 1.5rem 1rem 3rem
+            }
+
+            .st {
+                padding-left: 0
+            }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
+    <div class="wrap">
+        <a href="index.html" class="back">← Back to Overview</a>
+        <header class="hdr">
             <h1>✂️ Editing & Story Rhythm</h1>
-            <p class="question">The invisible architecture that makes or breaks your film</p>
-        </div>
-
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            Editing is not "putting clips together." It is <strong>thought architecture</strong> — the construction
-            of time, emotion, and meaning from fragments. A great editor makes every cut invisible
-            and every hold intentional. The audience should never notice editing — only feel it.
-        </p>
+            <p class="sub">The invisible architecture that makes or breaks your film</p>
+            <p class="intro">Editing is not "putting clips together." It is <strong>thought architecture</strong> — the
+                construction of time, emotion, and meaning from fragments. A great editor makes every cut invisible and
+                every hold intentional. The audience should never notice editing — only feel it.</p>
+        </header>
 
         <!-- A. CONTINUITY & GRAMMAR -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
+        <div class="sec">
+            <div class="sh"><span class="sl a">A</span>
                 <h2>Continuity & Grammar</h2>
             </div>
-            <p>The foundational rules that make film sequences feel "real" and continuous, even though they're assembled
-                from dozens of fragments.</p>
+            <p class="st">The foundational rules that make film sequences feel "real" and continuous, even though
+                they're assembled from dozens of fragments.</p>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Film Editing Theory</h3>
-                <p class="desc">
-                    Film editing theory is the study of how juxtaposing two images creates a <strong>third
+                <p>Film editing theory is the study of how juxtaposing two images creates a <strong>third
                         meaning</strong> that exists in neither image alone. This is the Kuleshov Effect at its
                     foundation: the same face followed by a bowl of soup means "hunger." The same face followed by a
                     coffin means "grief." The audience constructs meaning in the gap between shots. This is why editing
                     is the most powerful, and most invisible, storytelling tool in cinema. The editor doesn't just
-                    arrange shots — they construct the audience's inner experience.
-                </p>
+                    arrange shots — they construct the audience's inner experience.</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Continuity Editing</h3>
-                <p class="desc">
-                    The dominant editing style in narrative cinema. Continuity editing creates the illusion of
+                <p>The dominant editing style in narrative cinema. Continuity editing creates the illusion of
                     <strong>seamless, continuous action</strong> across multiple shots. Key principles include:
                     maintaining screen direction (the 180° rule), cutting on action (editing when a character moves so
                     the brain doesn't register the cut), eyeline matching (characters look in consistent directions
                     across cuts), and establishing-then-detailing (wide shot first, then close-ups). These rules are so
                     deeply embedded in audience literacy that breaking them feels jarring — which is occasionally the
-                    point.
-                </p>
+                    point.</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Match Cut</h3>
-                <p class="desc">
-                    A match cut transitions between two shots by linking them through a visual, thematic, or auditory
+                <p>A match cut transitions between two shots by linking them through a visual, thematic, or auditory
                     similarity. The most famous: in <em>2001: A Space Odyssey</em>, a bone thrown into the air
                     match-cuts to a space station — millions of years of evolution in a single edit. Match cuts create
                     <strong>meaningful connections</strong> between seemingly unrelated images. They can link past and
                     present, internal and external, micro and macro. A match cut says: "These two things are the same
-                    truth."
-                </p>
+                    truth."</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Jump Cut Intention</h3>
-                <p class="desc">
-                    A jump cut violates continuity — the camera stays in roughly the same position, but time skips
+                <p>A jump cut violates continuity — the camera stays in roughly the same position, but time skips
                     forward. In classical cinema, this was a mistake. Godard made it a deliberate statement in
                     <em>Breathless</em> — the jump cuts feel restless, modern, alive. Jump cuts communicate:
                     <strong>time compression</strong> (we don't need to see every moment), <strong>anxiety or
                         instability</strong> (the world won't hold still), or <strong>raw honesty</strong> (this isn't
-                    polished, it's real). The intent behind the jump cut transforms it from error to expression.
-                </p>
+                    polished, it's real). The intent behind the jump cut transforms it from error to expression.</p>
             </div>
         </div>
 
         <!-- B. SOUND TRANSITIONS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
+        <div class="sec">
+            <div class="sh"><span class="sl b">B</span>
                 <h2>Sound Transitions</h2>
             </div>
-            <p>Sound doesn't need to follow the picture. When they separate, magic happens.</p>
+            <p class="st">Sound doesn't need to follow the picture. When they separate, magic happens.</p>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>J Cut and L Cut</h3>
-                <p class="desc">
-                    <strong>J Cut</strong> — The audio from the <em>next</em> scene begins before the visual cut. Named
+                <p><strong>J Cut</strong> — The audio from the <em>next</em> scene begins before the visual cut. Named
                     because on a timeline, the audio extends backward like the letter J. Effect: the audience hears the
                     next environment before they see it, creating anticipation and smooth transitions. A phone ringing
                     in the next scene is heard over the current scene — your brain is already moving forward before the
-                    image catches up.<br><br>
-                    <strong>L Cut</strong> — The audio from the <em>current</em> scene continues after the visual has
-                    cut to the next. Named because the audio extends forward like the letter L. Effect: emotional
-                    carryover. A character's voice continues over a shot of the aftermath. The words linger even though
-                    we've moved on visually.<br><br>
-                    Together, J and L cuts are the foundation of <strong>invisible editing</strong> — the audience
-                    experiences seamless flow because picture and sound are never locked together rigidly. Nearly every
-                    conversation scene in a well-edited film uses these constantly. They're so ubiquitous that you've
-                    never noticed them — and that's the point.
-                </p>
+                    image catches up.<br><br><strong>L Cut</strong> — The audio from the <em>current</em> scene
+                    continues after the visual has cut to the next. Named because the audio extends forward like the
+                    letter L. Effect: emotional carryover. A character's voice continues over a shot of the aftermath.
+                    The words linger even though we've moved on visually.<br><br>Together, J and L cuts are the
+                    foundation of <strong>invisible editing</strong> — the audience experiences seamless flow because
+                    picture and sound are never locked together rigidly. Nearly every conversation scene in a
+                    well-edited film uses these constantly. They're so ubiquitous that you've never noticed them — and
+                    that's the point.</p>
             </div>
         </div>
 
         <!-- C. PACING & RHYTHM -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
+        <div class="sec">
+            <div class="sh"><span class="sl c">C</span>
                 <h2>Pacing & Rhythm</h2>
             </div>
-            <p>Editing is music without sound. Every cut is a beat. Every hold is a rest.</p>
+            <p class="st">Editing is music without sound. Every cut is a beat. Every hold is a rest.</p>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Pacing vs Rhythm</h3>
-                <p class="desc">
-                    <strong>Pacing</strong> is speed — how fast the story moves forward. Fast pacing (quick cuts, rapid
-                    information delivery) vs slow pacing (long takes, leisurely exposition).<br>
-                    <strong>Rhythm</strong> is pattern — the recurring intervals of tension and release, fast and slow,
-                    loud and quiet.<br>
-                    A film can be fast-paced but have no rhythm (exhausting). A film can be slow-paced but have
-                    beautiful rhythm (hypnotic). Pacing is about <em>speed</em>. Rhythm is about <em>variance</em>. The
-                    best editors control both independently. Think of breathing: inhale (tension), exhale (release). A
-                    film that never exhales suffocates the audience.
-                </p>
+                <p><strong>Pacing</strong> is speed — how fast the story moves forward. Fast pacing (quick cuts, rapid
+                    information delivery) vs slow pacing (long takes, leisurely exposition).<br><strong>Rhythm</strong>
+                    is pattern — the recurring intervals of tension and release, fast and slow, loud and quiet.<br>A
+                    film can be fast-paced but have no rhythm (exhausting). A film can be slow-paced but have beautiful
+                    rhythm (hypnotic). Pacing is about <em>speed</em>. Rhythm is about <em>variance</em>. The best
+                    editors control both independently. Think of breathing: inhale (tension), exhale (release). A film
+                    that never exhales suffocates the audience.</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>When NOT to Cut</h3>
-                <p class="desc">
-                    The most powerful editorial decision is often <strong>refusing to cut</strong>. When a scene is
+                <p>The most powerful editorial decision is often <strong>refusing to cut</strong>. When a scene is
                     emotionally charged, holding the shot forces the audience to sit with the discomfort. They can't
                     look away because you haven't given them a new image to escape to. The uncut take says: "You must
                     feel this. There is no relief." Consider the long takes in <em>12 Years a Slave</em> — the camera
                     holds during violence, and the refusal to cut is more disturbing than any montage of horror could
-                    be. Every time you reach for the cut key, ask: "Would this moment be stronger if I didn't?"
-                </p>
+                    be. Every time you reach for the cut key, ask: "Would this moment be stronger if I didn't?"</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Hold the Shot Meaning</h3>
-                <p class="desc">
-                    "Holding the shot" means letting a take run beyond its expected endpoint. A character delivers a
+                <p>"Holding the shot" means letting a take run beyond its expected endpoint. A character delivers a
                     line, and instead of cutting, the camera lingers. The audience begins to read the <em>after</em> —
                     the micro-expression that follows the words, the exhale, the look away. Holding the shot creates
                     space for truth that dialogue cannot reach. It also creates discomfort — and discomfort is
                     engagement. Tarkovsky, Bergman, and Kubrick all understood: the moment after the moment is often
-                    where the real film lives.
-                </p>
+                    where the real film lives.</p>
             </div>
         </div>
 
         <!-- D. MONTAGE THEORY -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
+        <div class="sec">
+            <div class="sh"><span class="sl d">D</span>
                 <h2>Montage Theory</h2>
             </div>
-            <p>The collision of images creates meaning that doesn't exist in either image alone. This is cinema's unique
-                power.</p>
+            <p class="st">The collision of images creates meaning that doesn't exist in either image alone. This is
+                cinema's unique power.</p>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Montage Theory</h3>
-                <p class="desc">
-                    Montage has two meanings. In Hollywood, it's the "training sequence" — a rapid series of shots
+                <p>Montage has two meanings. In Hollywood, it's the "training sequence" — a rapid series of shots
                     compressing time (Rocky running up steps). But in classical film theory, montage is the fundamental
                     principle that <strong>editing creates meaning</strong>. Juxtaposing any two shots creates a third
                     idea in the audience's mind. This isn't just a technique — it's the basis of cinematic language
                     itself. A shot of a ticking clock followed by a shot of a nervous face creates "deadline" — a
-                    meaning that exists in neither shot individually.
-                </p>
+                    meaning that exists in neither shot individually.</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Eisenstein's Montage</h3>
-                <p class="desc">
-                    Sergei Eisenstein formalized montage into five types, each creating meaning differently:<br>
-                    <strong>Metric</strong> — Cuts at regular intervals, regardless of content. Creates mechanical
-                    rhythm, urgency.<br>
-                    <strong>Rhythmic</strong> — Cut timing follows the action's rhythm. March footage cut to the rhythm
-                    of marching steps.<br>
-                    <strong>Tonal</strong> — Cuts based on emotional tone. Quiet, misty shots cut together to create a
-                    mood of melancholy.<br>
-                    <strong>Overtonal</strong> — Combines metric, rhythmic, and tonal simultaneously for complex
-                    emotional effects.<br>
-                    <strong>Intellectual</strong> — Juxtaposing conceptually unrelated images to create abstract ideas.
-                    Eisenstein cut between a workers' uprising and the slaughter of a bull in <em>Strike</em> — the
-                    audience understands "the workers are being slaughtered" without anyone saying it.
-                </p>
+                <p>Sergei Eisenstein formalized montage into five types, each creating meaning
+                    differently:<br><strong>Metric</strong> — Cuts at regular intervals, regardless of content. Creates
+                    mechanical rhythm, urgency.<br><strong>Rhythmic</strong> — Cut timing follows the action's rhythm.
+                    March footage cut to the rhythm of marching steps.<br><strong>Tonal</strong> — Cuts based on
+                    emotional tone. Quiet, misty shots cut together to create a mood of
+                    melancholy.<br><strong>Overtonal</strong> — Combines metric, rhythmic, and tonal simultaneously for
+                    complex emotional effects.<br><strong>Intellectual</strong> — Juxtaposing conceptually unrelated
+                    images to create abstract ideas. Eisenstein cut between a workers' uprising and the slaughter of a
+                    bull in <em>Strike</em> — the audience understands "the workers are being slaughtered" without
+                    anyone saying it.</p>
             </div>
 
-            <div class="skill">
+            <div class="sk">
                 <h3>Invisible Editing</h3>
-                <p class="desc">
-                    The goal of most narrative editing: the audience never notices the cuts. Invisible editing means
+                <p>The goal of most narrative editing: the audience never notices the cuts. Invisible editing means
                     every transition feels natural, motivated, and seamless. Techniques include: cutting on action (the
                     eye is distracted by movement), cutting during dialogue (the brain focuses on words, not image
                     changes), consistent screen direction, and motivated sound transitions. The mark of a great editor
                     is a film where the audience has no memory of individual cuts — only a continuous emotional
-                    experience. If you notice the editing, it's either brilliant or broken.
-                </p>
+                    experience. If you notice the editing, it's either brilliant or broken.</p>
             </div>
         </div>
 
-    </main>
-    <footer>
-        <p><a href="filmmaking-keywords.html">← Filmmaking Core</a> | <a href="index.html">Overview</a> | <a
-                href="story-emotion.html">Story & Emotion →</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
-
-    <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
-    </script>
+        <footer class="ft">
+            <a href="filmmaking-keywords.html">← Filmmaking Core</a>
+            <a href="story-emotion.html">Story & Emotion →</a>
+        </footer>
+    </div>
     <script src="sidebar.js"></script>
 </body>
 

@@ -6,653 +6,716 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources | Visual Storytelling Study Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .domain-header h1 {
-            color: var(--resources);
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
         }
 
-        .search-phrase {
-            font-family: var(--font-mono);
-            background: var(--surface-2);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--resources);
-            cursor: text;
-            user-select: all;
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #12121a;
+            --card: #1a1a2e;
+            --card-h: #22223a;
+            --t1: #e8e8f0;
+            --t2: #9898b0;
+            --t3: #6a6a82;
+            --acc: #06b6d4;
+            --bdr: rgba(255, 255, 255, 0.06);
+            --sa: #f97316;
+            --sb: #3b82f6;
+            --sc: #a855f7;
+            --sd: #10b981;
+            --se: #ec4899;
+            --sf: #eab308;
+            --sg: #06b6d4;
+            --sh: #ef4444
         }
 
-        .resource-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--t1);
+            line-height: 1.7;
+            min-height: 100vh
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: color .2s
+        }
+
+        .back:hover {
+            color: var(--acc)
+        }
+
+        .hdr {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--bdr)
+        }
+
+        .hdr h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--acc);
+            margin-bottom: .5rem;
+            letter-spacing: -.02em
+        }
+
+        .hdr .sub {
+            font-size: 1.05rem;
+            color: var(--t2);
+            font-style: italic
+        }
+
+        .hdr .intro {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--t2);
+            line-height: 1.8
+        }
+
+        .hdr .intro strong {
+            color: var(--t1)
+        }
+
+        .sec {
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fu .6s ease forwards
+        }
+
+        .sec:nth-child(1) {
+            animation-delay: .05s
+        }
+
+        .sec:nth-child(2) {
+            animation-delay: .1s
+        }
+
+        .sec:nth-child(3) {
+            animation-delay: .15s
+        }
+
+        .sec:nth-child(4) {
+            animation-delay: .2s
+        }
+
+        .sec:nth-child(5) {
+            animation-delay: .25s
+        }
+
+        .sec:nth-child(6) {
+            animation-delay: .3s
+        }
+
+        .sec:nth-child(7) {
+            animation-delay: .35s
+        }
+
+        .sec:nth-child(8) {
+            animation-delay: .4s
+        }
+
+        @keyframes fu {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .sh {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .75rem
+        }
+
+        .sl {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .sh h2 {
+            font-size: 1.4rem;
+            font-weight: 700
+        }
+
+        .st {
+            color: var(--t2);
+            font-size: .95rem;
+            margin-bottom: 1.5rem;
+            padding-left: 3.2rem
+        }
+
+        .rc {
+            background: var(--card);
+            border: 1px solid var(--bdr);
+            border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1rem;
-            transition: all 0.2s;
+            transition: all .25s
         }
 
-        .resource-card:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transform: translateY(-1px);
+        .rc:hover {
+            background: var(--card-h);
+            border-color: rgba(255, 255, 255, .1);
+            transform: translateY(-1px)
         }
 
-        .resource-card h4 {
+        .rc h4 {
             font-size: 1.05rem;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: .5rem
         }
 
-        .resource-card p {
-            color: var(--text-2);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
+        .rc p {
+            font-size: .92rem;
+            color: var(--t2);
+            line-height: 1.75;
+            margin-bottom: .75rem
         }
 
-        .resource-card a {
-            color: var(--accent);
+        .rc p strong {
+            color: var(--t1)
+        }
+
+        .rc p em {
+            color: var(--acc);
+            font-style: italic
+        }
+
+        .rc a {
+            color: var(--acc);
             text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .resource-card a:hover {
-            text-decoration: underline;
-        }
-
-        .resource-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 3px;
-            margin-right: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: .9rem;
             font-weight: 500;
+            transition: color .2s
+        }
+
+        .rc a:hover {
+            text-decoration: underline
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: .7rem;
+            padding: .15rem .5rem;
+            border-radius: 4px;
+            margin-right: .4rem;
+            margin-bottom: .5rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            font-weight: 600
         }
 
         .tag-film {
-            background: #fef2f2;
-            color: #dc2626;
+            background: rgba(239, 68, 68, .15);
+            color: #ef4444
         }
 
         .tag-motion {
-            background: #fff7ed;
-            color: #ea580c;
+            background: rgba(249, 115, 22, .15);
+            color: #f97316
         }
 
         .tag-ai {
-            background: #ecfeff;
-            color: #0891b2;
+            background: rgba(6, 182, 212, .15);
+            color: #06b6d4
         }
 
         .tag-story {
-            background: #faf5ff;
-            color: #9333ea;
+            background: rgba(168, 85, 247, .15);
+            color: #a855f7
         }
 
         .tag-free {
-            background: #f0fdf4;
-            color: #059669;
+            background: rgba(16, 185, 129, .15);
+            color: #10b981
         }
 
-        [data-theme="dark"] .tag-film {
-            background: #3d2424;
+        .tag-cinema {
+            background: rgba(236, 72, 153, .15);
+            color: #ec4899
         }
 
-        [data-theme="dark"] .tag-motion {
-            background: #3d2d1a;
+        .sp {
+            font-family: 'Courier New', monospace;
+            background: rgba(6, 182, 212, .08);
+            border: 1px solid rgba(6, 182, 212, .2);
+            color: var(--t2);
+            padding: .5rem 1rem;
+            border-radius: 6px;
+            display: block;
+            margin-bottom: .5rem;
+            font-size: .88rem;
+            cursor: text;
+            user-select: all;
+            transition: all .2s
         }
 
-        [data-theme="dark"] .tag-ai {
-            background: #1a3d3d;
+        .sp:hover {
+            background: rgba(6, 182, 212, .12);
+            border-color: rgba(6, 182, 212, .35)
         }
 
-        [data-theme="dark"] .tag-story {
-            background: #2d1a3d;
+        .sph {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 .75rem;
+            color: var(--t1)
         }
 
-        [data-theme="dark"] .tag-free {
-            background: #1a3d24;
+        .ft {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bdr);
+            display: flex;
+            justify-content: space-between
+        }
+
+        .ft a {
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            transition: color .2s
+        }
+
+        .ft a:hover {
+            color: var(--acc)
+        }
+
+        @media(max-width:640px) {
+            .hdr h1 {
+                font-size: 1.6rem
+            }
+
+            .sh h2 {
+                font-size: 1.2rem
+            }
+
+            .wrap {
+                padding: 1.5rem 1rem 3rem
+            }
+
+            .st {
+                padding-left: 0
+            }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <a href="index.html" class="back-link">← Back to Overview</a>
-
-        <div class="domain-header">
+    <div class="wrap">
+        <a href="index.html" class="back">← Back to Overview</a>
+        <header class="hdr">
             <h1>🌐 Best Free Resources</h1>
-            <p class="question">Search these exact names. Study these exact creators. All free.</p>
-        </div>
+            <p class="sub">Search these exact names. Study these exact creators. All free.</p>
+            <p class="intro">This is a curated list of the <strong>best free resources</strong> on the internet for
+                learning visual storytelling, filmmaking, motion graphics, and AI visual generation. Not a dump of links
+                — a map of exactly what to study and why.</p>
+        </header>
 
-        <p style="color: var(--text-2); margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.8;">
-            This is a curated list of the <strong>best free resources</strong> on the internet for learning visual
-            storytelling,
-            filmmaking, motion graphics, and AI visual generation. Not a dump of links — a map of exactly what to study
-            and why.
-        </p>
-
-        <!-- A. YOUTUBE CHANNELS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">A</span>
+        <!-- A. YOUTUBE -->
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sa)">A</span>
                 <h2>YouTube Channels</h2>
             </div>
-            <p>These creators teach more than most film schools. Search their names exactly.</p>
+            <p class="st">These creators teach more than most film schools. Search their names exactly.</p>
 
-            <div class="resource-card">
-                <h4>Every Frame a Painting</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    The gold standard of video essay analysis. Tony Zhou dissects filmmaking techniques with surgical
-                    precision —
-                    camera movement, editing rhythm, visual comedy, composition. Every episode is a masterclass in a
-                    specific
-                    cinematic concept. The channel stopped producing in 2016, but every video remains timeless. Start
-                    with
-                    "Composing Movement" and "How Does an Editor Think and Feel?"
-                </p>
-                <a href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Every Frame a Painting</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-free">Free</span>
+                <p>The gold standard of video essay analysis. Tony Zhou dissects filmmaking techniques with surgical
+                    precision — camera movement, editing rhythm, visual comedy, composition. Every episode is a
+                    masterclass. Start with "Composing Movement" and "How Does an Editor Think and Feel?"</p><a
+                    href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>StudioBinder Filmmaking</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-story">Story</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    Comprehensive filmmaking education — shot types, camera angles, lighting setups, directing
-                    techniques,
-                    story structure, and production planning. Their videos are polished, well-structured, and cover both
-                    creative and practical aspects of filmmaking. Their blog is equally excellent. Best for systematic,
-                    foundational learning.
-                </p>
-                <a href="https://www.youtube.com/@StudioBinder" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>StudioBinder Filmmaking</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-story">Story</span><span class="tag tag-free">Free</span>
+                <p>Comprehensive filmmaking education — shot types, camera angles, lighting setups, directing
+                    techniques, story structure, and production planning. Polished, well-structured, and covers both
+                    creative and practical aspects. Best for systematic, foundational learning.</p><a
+                    href="https://www.youtube.com/@StudioBinder" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Lessons from the Screenplay</h4>
-                <span class="resource-tag tag-story">Story</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    Michael Tucker analyzes screenwriting and storytelling through the lens of produced films. Focuses
-                    on
-                    character arcs, conflict, dialogue, and how screenplay decisions translate to screen. Essential for
-                    understanding WHY stories work, not just how they're filmed. Start with his analysis of "Whiplash"
-                    or "Gone Girl."
-                </p>
-                <a href="https://www.youtube.com/@LessonsFromTheScreenplay" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Lessons from the Screenplay</h4><span class="tag tag-story">Story</span><span
+                    class="tag tag-free">Free</span>
+                <p>Michael Tucker analyzes screenwriting and storytelling through produced films. Focuses on character
+                    arcs, conflict, dialogue, and how screenplay decisions translate to screen. Essential for
+                    understanding WHY stories work. Start with "Whiplash" or "Gone Girl."</p><a
+                    href="https://www.youtube.com/@LessonsFromTheScreenplay" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Film Riot (Early Episodes)</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    Ryan Connolly's earlier episodes are practical, DIY filmmaking education — how to shoot with limited
-                    budgets,
-                    creative problem-solving, and hands-on technique. The energy and pragmatism are infectious. Best for
-                    understanding the craft of filmmaking as problem-solving, not as an academic exercise. Focus on
-                    episodes from the first 5 years.
-                </p>
-                <a href="https://www.youtube.com/@filmriot" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Film Riot (Early Episodes)</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-free">Free</span>
+                <p>Ryan Connolly's earlier episodes are practical, DIY filmmaking education — how to shoot with limited
+                    budgets, creative problem-solving, and hands-on technique. Best for understanding filmmaking as
+                    problem-solving, not academic exercise.</p><a href="https://www.youtube.com/@filmriot"
+                    target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Nerdwriter Video Essays</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-story">Story</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    Evan Puschak creates thoughtful video essays about film, art, music, and culture. His film analysis
-                    focuses on the philosophical and emotional dimensions of cinema — why specific shots make us feel
-                    certain ways, how directors communicate ideas through visual choices. More conceptual than
-                    technical,
-                    which is exactly what most filmmakers need.
-                </p>
-                <a href="https://www.youtube.com/@Nerdwriter1" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Nerdwriter Video Essays</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-story">Story</span><span class="tag tag-free">Free</span>
+                <p>Evan Puschak creates thoughtful video essays about film, art, music, and culture. Focuses on the
+                    philosophical and emotional dimensions of cinema — why specific shots make us feel certain ways.
+                    More conceptual than technical, exactly what most filmmakers need.</p><a
+                    href="https://www.youtube.com/@Nerdwriter1" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Ben Marriott — Motion Design</h4>
-                <span class="resource-tag tag-motion">Motion</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    The best free motion design education on YouTube. Ben teaches After Effects techniques with a focus
-                    on
-                    WHY specific motion choices work, not just how to execute them. Covers kinetic typography, character
-                    animation, easing curves, and motion theory. His tutorials are well-paced and emphasize design
-                    thinking
-                    over button-pressing.
-                </p>
-                <a href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Ben Marriott — Motion Design</h4><span class="tag tag-motion">Motion</span><span
+                    class="tag tag-free">Free</span>
+                <p>The best free motion design education on YouTube. Teaches After Effects with focus on WHY specific
+                    motion choices work. Covers kinetic typography, character animation, easing curves, and motion
+                    theory. Emphasizes design thinking over button-pressing.</p><a
+                    href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>School of Motion (Free Lessons)</h4>
-                <span class="resource-tag tag-motion">Motion</span>
-                <span class="resource-tag tag-free">Free</span>
-                <p>
-                    While their paid courses are industry-standard, School of Motion offers substantial free content —
-                    blog posts,
-                    YouTube tutorials, and their podcast. Covers motion design principles, career paths, industry
-                    trends, and
-                    software-agnostic animation thinking. Their free "Path to MoGraph" series is an excellent starting
-                    point.
-                </p>
-                <a href="https://www.youtube.com/@SchoolofMotion" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>School of Motion (Free Lessons)</h4><span class="tag tag-motion">Motion</span><span
+                    class="tag tag-free">Free</span>
+                <p>Substantial free content — blog posts, YouTube tutorials, and podcast. Covers motion design
+                    principles, career paths, and software-agnostic animation thinking. Their free "Path to MoGraph"
+                    series is an excellent starting point.</p><a href="https://www.youtube.com/@SchoolofMotion"
+                    target="_blank">Watch on YouTube →</a>
             </div>
         </div>
 
         <!-- B. WEBSITES -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">B</span>
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sb)">B</span>
                 <h2>Websites & Blogs</h2>
             </div>
-            <p>Deep-dive articles, breakdowns, and analysis. Bookmark these.</p>
+            <p class="st">Deep-dive articles, breakdowns, and analysis. Bookmark these.</p>
 
-            <div class="resource-card">
-                <h4>StudioBinder Blog</h4>
-                <span class="resource-tag tag-film">Film</span>
+            <div class="rc">
+                <h4>StudioBinder Blog</h4><span class="tag tag-film">Film</span>
                 <p>Comprehensive written guides on every filmmaking concept — shot lists, storyboarding, directing,
-                    cinematography, and production. Their visual glossaries are particularly useful as reference
-                    material. Pairs perfectly with their YouTube channel.</p>
+                    cinematography, and production. Visual glossaries are particularly useful as reference material.</p>
                 <a href="https://www.studiobinder.com/blog/" target="_blank">Visit StudioBinder Blog →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>No Film School</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>The largest independent filmmaking resource on the internet. Daily articles covering gear, technique,
-                    industry news, AI tools, and interviews with working filmmakers. Their "filmmaking 101" sections are
-                    excellent for building foundational knowledge. Also covers the intersection of AI and filmmaking.
-                </p>
-                <a href="https://nofilmschool.com/" target="_blank">Visit No Film School →</a>
+            <div class="rc">
+                <h4>No Film School</h4><span class="tag tag-film">Film</span><span class="tag tag-ai">AI</span>
+                <p>The largest independent filmmaking resource. Daily articles covering gear, technique, industry news,
+                    AI tools, and interviews. Their "filmmaking 101" sections are excellent for foundational knowledge.
+                    Also covers AI and filmmaking intersection.</p><a href="https://nofilmschool.com/"
+                    target="_blank">Visit No Film School →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Cinefix</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-story">Story</span>
-                <p>Known for their "Top 10 Movie Lists" format that goes deeper than rankings — they analyze why
-                    specific films succeed at specific techniques (best editing, best single shots, best sound design).
-                    A great way to build a watchlist of films that demonstrate specific concepts.</p>
-                <a href="https://www.youtube.com/@CineFix" target="_blank">Visit Cinefix →</a>
+            <div class="rc">
+                <h4>Cinefix</h4><span class="tag tag-film">Film</span><span class="tag tag-story">Story</span>
+                <p>Known for "Top 10 Movie Lists" that go deeper than rankings — they analyze why specific films succeed
+                    at specific techniques. A great way to build a watchlist of films that demonstrate specific
+                    concepts.</p><a href="https://www.youtube.com/@CineFix" target="_blank">Visit Cinefix →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>School of Motion Blog</h4>
-                <span class="resource-tag tag-motion">Motion</span>
+            <div class="rc">
+                <h4>School of Motion Blog</h4><span class="tag tag-motion">Motion</span>
                 <p>In-depth articles on motion design theory, career guidance, software tutorials, and industry
-                    analysis. Covers the business side of motion design alongside the creative side. Their design
-                    breakdowns of professional work are particularly educational.</p>
-                <a href="https://www.schoolofmotion.com/blog" target="_blank">Visit School of Motion Blog →</a>
+                    analysis. Covers business alongside creative side. Design breakdowns of professional work are
+                    particularly educational.</p><a href="https://www.schoolofmotion.com/blog" target="_blank">Visit
+                    School of Motion Blog →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Frame.io Blog</h4>
-                <span class="resource-tag tag-film">Film</span>
+            <div class="rc">
+                <h4>Frame.io Blog</h4><span class="tag tag-film">Film</span>
                 <p>Technical and creative articles about post-production — editing workflows, color grading, sound
-                    design, and the editorial process. Written by industry professionals. Their deep-dive articles on
-                    editorial decision-making are some of the best free resources available for understanding the
-                    editor's craft.</p>
-                <a href="https://blog.frame.io/" target="_blank">Visit Frame.io Blog →</a>
+                    design, and the editorial process. Deep-dive articles on editorial decision-making are some of the
+                    best free resources for understanding the editor's craft.</p><a href="https://blog.frame.io/"
+                    target="_blank">Visit Frame.io Blog →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Vimeo Staff Picks (Analysis)</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-motion">Motion</span>
+            <div class="rc">
+                <h4>Vimeo Staff Picks (Analysis)</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-motion">Motion</span>
                 <p>Don't just watch Staff Picks — analyze them. Study WHY each pick was selected. Look at composition,
-                    timing, transitions, and emotional structure. Vimeo Staff Picks represent some of the best
-                    short-form visual storytelling on the internet. Use them as case studies, not entertainment.</p>
-                <a href="https://vimeo.com/channels/staffpicks" target="_blank">Browse Vimeo Staff Picks →</a>
+                    timing, transitions, and emotional structure. Use them as case studies, not entertainment.</p><a
+                    href="https://vimeo.com/channels/staffpicks" target="_blank">Browse Vimeo Staff Picks →</a>
             </div>
         </div>
 
         <!-- C. SEARCH PHRASES -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">C</span>
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sc)">C</span>
                 <h2>Search Phrases (Copy-Paste)</h2>
             </div>
-            <p>Copy these exact phrases into Google or YouTube. They'll lead you to the right knowledge.</p>
+            <p class="st">Copy these exact phrases into Google or YouTube. They'll lead you to the right knowledge.</p>
 
-            <h3 style="margin-top: 1.5rem; margin-bottom: 1rem;">Filmmaking & Storytelling</h3>
-            <code class="search-phrase">"How emotion is conveyed without dialogue in film"</code>
-            <code class="search-phrase">"Why camera movement matters storytelling"</code>
-            <code class="search-phrase">"Visual storytelling without words"</code>
-            <code class="search-phrase">"Film scenes analysis blocking and camera"</code>
-            <code class="search-phrase">"Minimalist filmmaking emotional impact"</code>
+            <h3 class="sph">Filmmaking & Storytelling</h3>
+            <code class="sp">"How emotion is conveyed without dialogue in film"</code>
+            <code class="sp">"Why camera movement matters storytelling"</code>
+            <code class="sp">"Visual storytelling without words"</code>
+            <code class="sp">"Film scenes analysis blocking and camera"</code>
+            <code class="sp">"Minimalist filmmaking emotional impact"</code>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Motion Graphics</h3>
-            <code class="search-phrase">"Motion graphics storytelling examples"</code>
+            <h3 class="sph">Motion Graphics</h3>
+            <code class="sp">"Motion graphics storytelling examples"</code>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">AI + Visual Thinking</h3>
-            <code class="search-phrase">"Latent space explained visually"</code>
-            <code class="search-phrase">"Prompt engineering is not writing"</code>
-            <code class="search-phrase">"Why less prompting works better"</code>
-            <code class="search-phrase">"AI video realism problems explained"</code>
+            <h3 class="sph">AI + Visual Thinking</h3>
+            <code class="sp">"Latent space explained visually"</code>
+            <code class="sp">"Prompt engineering is not writing"</code>
+            <code class="sp">"Why less prompting works better"</code>
+            <code class="sp">"AI video realism problems explained"</code>
         </div>
 
         <!-- D. AI CREATORS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">D</span>
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sd)">D</span>
                 <h2>AI + Visual Thinking Creators</h2>
             </div>
-            <p>The intersection of traditional visual thinking and AI tools. These creators understand both worlds.</p>
+            <p class="st">The intersection of traditional visual thinking and AI tools. These creators understand both
+                worlds.</p>
 
-            <div class="resource-card">
-                <h4>Corridor Crew — AI Breakdowns</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <span class="resource-tag tag-film">Film</span>
-                <p>
-                    VFX professionals who critically analyze AI video and image tools from a filmmaker's perspective.
-                    They
-                    don't just hype AI — they stress-test it, expose its failures, and discuss what it means for visual
-                    storytelling. Their breakdown videos reveal how AI tools actually perform in professional workflows.
-                </p>
-                <a href="https://www.youtube.com/@CorridorCrew" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Corridor Crew — AI Breakdowns</h4><span class="tag tag-ai">AI</span><span
+                    class="tag tag-film">Film</span>
+                <p>VFX professionals who critically analyze AI video and image tools from a filmmaker's perspective.
+                    They stress-test AI, expose its failures, and discuss what it means for visual storytelling.</p><a
+                    href="https://www.youtube.com/@CorridorCrew" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>CineD — AI Articles</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <span class="resource-tag tag-film">Film</span>
-                <p>
-                    Professional cinematography publication that covers AI developments from a technical filmmaking
-                    perspective.
-                    Their articles analyze how AI affects camera work, lighting design, and post-production workflows.
-                    Written
-                    for working professionals, not enthusiasts — which means the analysis is practical and honest.
-                </p>
-                <a href="https://www.cined.com/" target="_blank">Visit CineD →</a>
+            <div class="rc">
+                <h4>CineD — AI Articles</h4><span class="tag tag-ai">AI</span><span class="tag tag-film">Film</span>
+                <p>Professional cinematography publication that covers AI from a technical filmmaking perspective.
+                    Analyzes how AI affects camera work, lighting design, and post-production. Written for working
+                    professionals.</p><a href="https://www.cined.com/" target="_blank">Visit CineD →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Runway / Pika / Luma Blog Theory Posts</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>
-                    The research blogs from major AI video companies. Beyond tool announcements, these blogs publish
-                    insights about temporal consistency, motion modeling, and the fundamental challenges of AI video
-                    generation.
-                    Reading these gives you a deeper understanding of <em>why</em> AI video works the way it does — its
-                    capabilities and inherent limitations.
-                </p>
-                <a href="https://research.runwayml.com/" target="_blank">Runway Research →</a>
+            <div class="rc">
+                <h4>Runway / Pika / Luma Blog Theory Posts</h4><span class="tag tag-ai">AI</span>
+                <p>Research blogs from major AI video companies. Beyond tool announcements, these publish insights about
+                    temporal consistency, motion modeling, and fundamental challenges of AI video generation.</p><a
+                    href="https://research.runwayml.com/" target="_blank">Runway Research →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Ben Marriott (Motion Thinking)</h4>
-                <span class="resource-tag tag-motion">Motion</span>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>
-                    While primarily a motion designer, Ben's thinking about animation principles, timing, and visual
-                    communication
-                    is directly applicable to AI-generated motion. Understanding his approach to "why things move" will
-                    fundamentally improve your AI video prompting. Motion thinking transfers from After Effects to AI
-                    seamlessly.
-                </p>
-                <a href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Ben Marriott (Motion Thinking)</h4><span class="tag tag-motion">Motion</span><span
+                    class="tag tag-ai">AI</span>
+                <p>His thinking about animation principles, timing, and visual communication is directly applicable to
+                    AI-generated motion. Understanding "why things move" fundamentally improves your AI video prompting.
+                </p><a href="https://www.youtube.com/@BenMarriott" target="_blank">Watch on YouTube →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>Every Frame a Painting (Visual Language)</h4>
-                <span class="resource-tag tag-film">Film</span>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>
-                    Yes, this channel is listed twice — once for filmmaking and once for AI. Why? Because the visual
-                    language
-                    concepts Tony Zhou teaches (composition, movement, rhythm) are exactly the knowledge gap that makes
-                    most
-                    AI-generated content feel empty. Understanding cinematographic language is the #1 skill that
-                    separates
-                    meaningless AI output from cinematic AI output.
-                </p>
-                <a href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
+            <div class="rc">
+                <h4>Every Frame a Painting (Visual Language)</h4><span class="tag tag-film">Film</span><span
+                    class="tag tag-ai">AI</span>
+                <p>Listed twice — once for filmmaking and once for AI. The visual language concepts (composition,
+                    movement, rhythm) are exactly the knowledge gap that makes most AI content feel empty.
+                    Cinematographic language is the #1 skill separating meaningless AI output from cinematic AI output.
+                </p><a href="https://www.youtube.com/@everyframeapainting" target="_blank">Watch on YouTube →</a>
             </div>
         </div>
-        </div>
 
-        <!-- E. ESSENTIAL BOOKS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">E</span>
+        <!-- E. BOOKS -->
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--se)">E</span>
                 <h2>Essential Books</h2>
             </div>
-            <p>These aren't optional reading. Each one changes how you see images, stories, and craft.</p>
+            <p class="st">These aren't optional reading. Each one changes how you see images, stories, and craft.</p>
 
-            <div class="resource-card">
-                <h4>In the Blink of an Eye — Walter Murch</h4>
-                <span class="resource-tag tag-film">Editing</span>
+            <div class="rc">
+                <h4>In the Blink of an Eye — Walter Murch</h4><span class="tag tag-film">Editing</span>
                 <p>The definitive book on film editing philosophy. Murch's "Rule of Six" — emotion, story, rhythm,
-                    eye-trace, 2D plane, 3D space — is the hierarchy every editor should internalize. This isn't about
-                    software. It's about why you cut.</p>
+                    eye-trace, 2D plane, 3D space — is the hierarchy every editor should internalize. It's about why you
+                    cut.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Story — Robert McKee</h4>
-                <span class="resource-tag tag-film">Storytelling</span>
-                <p>The most rigorous analysis of narrative structure ever written. McKee's framework for understanding
-                    story values, turning points, and meaning architecture applies directly to AI-generated visual
-                    sequences. If you don't understand structure, your AI output has no spine.</p>
+            <div class="rc">
+                <h4>Story — Robert McKee</h4><span class="tag tag-story">Storytelling</span>
+                <p>The most rigorous analysis of narrative structure ever written. McKee's framework for story values,
+                    turning points, and meaning architecture applies directly to AI-generated visual sequences.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>The Visual Story — Bruce Block</h4>
-                <span class="resource-tag tag-film">Design</span>
-                <span class="resource-tag tag-cinema">Cinematography</span>
+            <div class="rc">
+                <h4>The Visual Story — Bruce Block</h4><span class="tag tag-cinema">Design</span><span
+                    class="tag tag-cinema">Cinematography</span>
                 <p>How to use space, line, shape, tone, color, movement, and rhythm as storytelling tools. Block breaks
-                    visual communication into its atomic components. Essential for anyone trying to prompt AI images
-                    with compositional intent.</p>
+                    visual communication into atomic components. Essential for prompting AI images with compositional
+                    intent.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Understanding Comics — Scott McCloud</h4>
-                <span class="resource-tag tag-film">Visual Language</span>
-                <p>The best book ever written about sequential visual storytelling. McCloud's concept of "closure" — the
-                    audience filling in gaps between frames — is exactly how AI-generated image sequences create
-                    narrative. Read this before you make a single AI video sequence.</p>
+            <div class="rc">
+                <h4>Understanding Comics — Scott McCloud</h4><span class="tag tag-film">Visual Language</span>
+                <p>The best book about sequential visual storytelling. McCloud's concept of "closure" — the audience
+                    filling in gaps between frames — is exactly how AI-generated image sequences create narrative.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Sculpting in Time — Andrei Tarkovsky</h4>
-                <span class="resource-tag tag-cinema">Cinematography</span>
+            <div class="rc">
+                <h4>Sculpting in Time — Andrei Tarkovsky</h4><span class="tag tag-cinema">Cinematography</span>
                 <p>Tarkovsky's philosophy of cinema as "sculpting in time." His ideas about rhythm, observation, and
-                    spiritual authenticity in imagery apply powerfully to slow cinema AI — where patience and restraint
-                    create depth.</p>
+                    spiritual authenticity apply powerfully to slow cinema AI — where patience creates depth.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Ways of Seeing — John Berger</h4>
-                <span class="resource-tag tag-film">Visual Language</span>
-                <p>How images carry power, meaning, and cultural bias. Berger's analysis of how we see (and why) is
-                    critical for understanding AI model bias and the assumptions embedded in generated imagery.</p>
+            <div class="rc">
+                <h4>Ways of Seeing — John Berger</h4><span class="tag tag-film">Visual Language</span>
+                <p>How images carry power, meaning, and cultural bias. Critical for understanding AI model bias and the
+                    assumptions embedded in generated imagery.</p>
             </div>
         </div>
 
-        <!-- F. PAPERS & ESSAYS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">F</span>
+        <!-- F. PAPERS -->
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sf)">F</span>
                 <h2>Papers & Essays</h2>
             </div>
-            <p>Key theoretical texts on visual grammar, AI, and the intersection of technology with cinema.</p>
+            <p class="st">Key theoretical texts on visual grammar, AI, and the intersection of technology with cinema.
+            </p>
 
-            <div class="resource-card">
-                <h4>Attention Is All You Need (2017)</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>The transformer paper that started everything. Understanding attention mechanisms helps you
-                    understand why prompt order matters, why models lose track of long prompts, and why certain concepts
-                    compete for the model's "attention."</p>
+            <div class="rc">
+                <h4>Attention Is All You Need (2017)</h4><span class="tag tag-ai">AI</span>
+                <p>The transformer paper. Understanding attention mechanisms helps you understand why prompt order
+                    matters, why models lose track of long prompts, and why certain concepts compete for attention.</p>
                 <a href="https://arxiv.org/abs/1706.03762" target="_blank">Read on arXiv →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>High-Resolution Image Synthesis with Latent Diffusion Models</h4>
-                <span class="resource-tag tag-ai">AI</span>
+            <div class="rc">
+                <h4>High-Resolution Image Synthesis with Latent Diffusion Models</h4><span class="tag tag-ai">AI</span>
                 <p>The Stable Diffusion paper. Understanding latent space, denoising, and conditioning at a conceptual
-                    level makes you a better prompter. You don't need to understand the math — you need to understand
-                    the principle.</p>
-                <a href="https://arxiv.org/abs/2112.10752" target="_blank">Read on arXiv →</a>
+                    level makes you a better prompter. Understand the principle, not the math.</p><a
+                    href="https://arxiv.org/abs/2112.10752" target="_blank">Read on arXiv →</a>
             </div>
 
-            <div class="resource-card">
-                <h4>The Language of New Media — Lev Manovich</h4>
-                <span class="resource-tag tag-film">Theory</span>
-                <span class="resource-tag tag-ai">AI</span>
+            <div class="rc">
+                <h4>The Language of New Media — Lev Manovich</h4><span class="tag tag-film">Theory</span><span
+                    class="tag tag-ai">AI</span>
                 <p>Manovich predicted the current AI moment decades ago. His analysis of how cinema language merges with
-                    computational logic is prophetic. Essential context for understanding AI filmmaking as a
-                    continuation of cinema history, not a rupture.</p>
+                    computational logic is prophetic. Essential context for AI filmmaking as a continuation of cinema
+                    history.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Film Language — Christian Metz</h4>
-                <span class="resource-tag tag-film">Theory</span>
+            <div class="rc">
+                <h4>Film Language — Christian Metz</h4><span class="tag tag-film">Theory</span>
                 <p>Metz's semiotics of cinema — understanding film as a language system with its own grammar. These
-                    principles directly apply to how we structure AI-generated visual sequences.</p>
+                    principles directly apply to structuring AI-generated visual sequences.</p>
             </div>
         </div>
 
-        <!-- G. TEMPLATES & TOOLS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">G</span>
+        <!-- G. TEMPLATES -->
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sg)">G</span>
                 <h2>Templates & Tools</h2>
             </div>
-            <p>Practical tools and frameworks you can use immediately.</p>
+            <p class="st">Practical tools and frameworks you can use immediately.</p>
 
-            <div class="resource-card">
-                <h4>Prompt Architecture Template</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <p>Structure:
-                    <code>[Subject] + [Action/State] + [Environment] + [Lighting] + [Camera] + [Mood] + [Technical]</code><br>
-                    Example: "tired fisherman, sitting at dock, fog over water, single overhead sodium lamp, shot on
-                    35mm, documentary, f/2.8 slight grain"<br>
-                    Use this template to build prompts that prioritize intent over inventory.</p>
+            <div class="rc">
+                <h4>Prompt Architecture Template</h4><span class="tag tag-ai">AI</span>
+                <p><strong>[Subject] + [Action/State] + [Environment] + [Lighting] + [Camera] + [Mood] +
+                        [Technical]</strong><br>Example: "tired fisherman, sitting at dock, fog over water, single
+                    overhead sodium lamp, shot on 35mm, documentary, f/2.8 slight grain"<br>Use this template to build
+                    prompts that prioritize intent over inventory.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Constraint Brief Generator</h4>
-                <span class="resource-tag tag-ai">AI</span>
+            <div class="rc">
+                <h4>Constraint Brief Generator</h4><span class="tag tag-ai">AI</span>
                 <p>Before generating anything, fill in: <strong>What emotion?</strong> → <strong>What can't I
-                        use?</strong> → <strong>What's the single visual rule?</strong><br>
-                    Example: Emotion: isolation. Can't use: wide shots, multiple subjects, warm light. Rule: every frame
-                    has 60%+ negative space.<br>
-                    See the <a href="ideation.html">Ideation Engine</a> for a randomized version of this process.</p>
+                        use?</strong> → <strong>What's the single visual rule?</strong><br>Example: Emotion: isolation.
+                    Can't use: wide shots, multiple subjects, warm light. Rule: every frame has 60%+ negative
+                    space.<br>See the <a href="ideation.html">Ideation Engine</a> for a randomized version.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Shot List Template for AI Video</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <span class="resource-tag tag-film">Film</span>
+            <div class="rc">
+                <h4>Shot List Template for AI Video</h4><span class="tag tag-ai">AI</span><span
+                    class="tag tag-film">Film</span>
                 <p>For each AI clip: <strong>Beat</strong> (emotional purpose) → <strong>Shot type</strong> (CU/MS/WS) →
                     <strong>Camera</strong> (static/movement) → <strong>Motion level</strong> (micro/subtle/moderate) →
-                    <strong>Anchor tokens</strong> (constant descriptors) → <strong>Duration</strong> (2-6 sec)<br>
-                    Plan the edit before you generate. Think in sequences, not single shots.</p>
+                    <strong>Anchor tokens</strong> (constant descriptors) → <strong>Duration</strong> (2-6 sec)<br>Plan
+                    the edit before you generate. Think in sequences, not single shots.</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Free Color Grading Resources</h4>
-                <span class="resource-tag tag-cinema">Post</span>
-                <p>Apply consistent post-processing to AI output for visual cohesion:<br>
-                    • <strong>DaVinci Resolve</strong> — Free, professional color grading<br>
-                    • <strong>Film emulation LUTs</strong> — Search "free film LUTs" for Kodak, Fuji, and vintage
-                    looks<br>
-                    • <strong>ACES workflow</strong> — Industry-standard color pipeline for consistent results across AI
-                    generations</p>
+            <div class="rc">
+                <h4>Free Color Grading Resources</h4><span class="tag tag-cinema">Post</span>
+                <p>• <strong>DaVinci Resolve</strong> — Free, professional color grading<br>• <strong>Film emulation
+                        LUTs</strong> — Search "free film LUTs" for Kodak, Fuji, and vintage looks<br>• <strong>ACES
+                        workflow</strong> — Industry-standard color pipeline for consistent results</p>
             </div>
 
-            <div class="resource-card">
-                <h4>Storyboarding Tools</h4>
-                <span class="resource-tag tag-film">Pre-production</span>
-                <p>Plan your AI sequences visually before generating:<br>
-                    • <strong>Storyboarder</strong> — Free, open-source storyboard tool<br>
-                    • <strong>Boords</strong> — Clean online storyboard tool with shot list export<br>
-                    • Even rough thumbnails on paper beat prompting blind. Sketch the composition, then describe it.</p>
+            <div class="rc">
+                <h4>Storyboarding Tools</h4><span class="tag tag-film">Pre-production</span>
+                <p>• <strong>Storyboarder</strong> — Free, open-source storyboard tool<br>• <strong>Boords</strong> —
+                    Clean online storyboard tool with shot list export<br>• Even rough thumbnails on paper beat
+                    prompting blind. Sketch the composition, then describe it.</p>
             </div>
         </div>
 
         <!-- H. STUDY FILMS -->
-        <div class="subgroup">
-            <div class="subgroup-header">
-                <span class="letter">H</span>
+        <div class="sec">
+            <div class="sh"><span class="sl" style="background:var(--sh)">H</span>
                 <h2>Curated Study Films</h2>
             </div>
-            <p>Films to study specifically for visual language — not for entertainment, for education. Watch with the
-                sound off first.</p>
+            <p class="st">Films to study specifically for visual language — not for entertainment, for education. Watch
+                with the sound off first.</p>
 
-            <div class="resource-card">
-                <h4>For Composition & Negative Space</h4>
-                <span class="resource-tag tag-cinema">Cinematography</span>
-                <p>• <strong>Tokyo Story</strong> (Ozu) — Master class in static composition and negative space<br>
-                    • <strong>2001: A Space Odyssey</strong> (Kubrick) — Symmetry as philosophy<br>
-                    • <strong>Nomadland</strong> (Zhao) — Landscape as emotional mirror</p>
+            <div class="rc">
+                <h4>For Composition & Negative Space</h4><span class="tag tag-cinema">Cinematography</span>
+                <p>• <strong>Tokyo Story</strong> (Ozu) — Master class in static composition and negative space<br>•
+                    <strong>2001: A Space Odyssey</strong> (Kubrick) — Symmetry as philosophy<br>•
+                    <strong>Nomadland</strong> (Zhao) — Landscape as emotional mirror</p>
             </div>
 
-            <div class="resource-card">
-                <h4>For Lighting & Mood</h4>
-                <span class="resource-tag tag-cinema">Cinematography</span>
-                <p>• <strong>Blade Runner 2049</strong> (Deakins) — Light as world-building<br>
-                    • <strong>Barry Lyndon</strong> (Kubrick) — Natural light pushed to extremes<br>
-                    • <strong>In the Mood for Love</strong> (Wong) — Color and light as emotional grammar</p>
+            <div class="rc">
+                <h4>For Lighting & Mood</h4><span class="tag tag-cinema">Cinematography</span>
+                <p>• <strong>Blade Runner 2049</strong> (Deakins) — Light as world-building<br>• <strong>Barry
+                        Lyndon</strong> (Kubrick) — Natural light pushed to extremes<br>• <strong>In the Mood for
+                        Love</strong> (Wong) — Color and light as emotional grammar</p>
             </div>
 
-            <div class="resource-card">
-                <h4>For Editing Rhythm</h4>
-                <span class="resource-tag tag-film">Editing</span>
-                <p>• <strong>Mad Max: Fury Road</strong> (Miller) — Center-framed editing at velocity<br>
-                    • <strong>Dunkirk</strong> (Nolan) — Cross-cutting three timelines as rhythm<br>
-                    • <strong>Persona</strong> (Bergman) — Editing as psychological dissolution</p>
+            <div class="rc">
+                <h4>For Editing Rhythm</h4><span class="tag tag-film">Editing</span>
+                <p>• <strong>Mad Max: Fury Road</strong> (Miller) — Center-framed editing at velocity<br>•
+                    <strong>Dunkirk</strong> (Nolan) — Cross-cutting three timelines as rhythm<br>•
+                    <strong>Persona</strong> (Bergman) — Editing as psychological dissolution</p>
             </div>
 
-            <div class="resource-card">
-                <h4>For AI Filmmakers Specifically</h4>
-                <span class="resource-tag tag-ai">AI</span>
-                <span class="resource-tag tag-cinema">Slow Cinema</span>
-                <p>• <strong>Stalker</strong> (Tarkovsky) — Slow, patient, atmospheric — achievable with AI<br>
-                    • <strong>Koyaanisqatsi</strong> (Reggio) — No narrative, pure visual rhythm — AI's natural
-                    territory<br>
-                    • <strong>La Jetée</strong> (Marker) — A film made almost entirely of still photos — the blueprint
-                    for AI filmmaking</p>
+            <div class="rc">
+                <h4>For AI Filmmakers Specifically</h4><span class="tag tag-ai">AI</span><span
+                    class="tag tag-cinema">Slow Cinema</span>
+                <p>• <strong>Stalker</strong> (Tarkovsky) — Slow, patient, atmospheric — achievable with AI<br>•
+                    <strong>Koyaanisqatsi</strong> (Reggio) — No narrative, pure visual rhythm — AI's natural
+                    territory<br>• <strong>La Jetée</strong> (Marker) — A film made almost entirely of still photos —
+                    the blueprint for AI filmmaking</p>
             </div>
         </div>
 
-    </main>
-    <footer>
-        <p><a href="ai-visual.html">← AI Visual Generation</a> | <a href="index.html">Overview</a></p>
-    </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
-
-    <script>
-        (function () {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        })();
-    </script>
+        <footer class="ft">
+            <a href="ai-visual.html">← AI Visual Generation</a>
+            <a href="index.html">Overview →</a>
+        </footer>
+    </div>
     <script src="sidebar.js"></script>
 </body>
 

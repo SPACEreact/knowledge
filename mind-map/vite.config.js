@@ -28,6 +28,7 @@ export default defineConfig({
         emotionGrammar: resolve(__dirname, 'emotion-grammar.html'),
         sceneGrammar: resolve(__dirname, 'scene-grammar.html'),
         playgrounds: resolve(__dirname, 'playgrounds.html'),
+        visualStory: resolve(__dirname, 'visual-story.html'),
       }
     }
   },

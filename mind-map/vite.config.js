@@ -29,6 +29,7 @@ export default defineConfig({
         sceneGrammar: resolve(__dirname, 'scene-grammar.html'),
         playgrounds: resolve(__dirname, 'playgrounds.html'),
         visualStory: resolve(__dirname, 'visual-story.html'),
+        skillTree: resolve(__dirname, 'skill-tree.html'),
       }
     }
   },

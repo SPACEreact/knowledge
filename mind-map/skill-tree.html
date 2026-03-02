@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Tree — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="A progression roadmap from static ideas to fluid cinematic narrative arcs. Prerequisites, Core Skills, and Legendary Skills for visual storytelling.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* TIER SYSTEM */
+        .tier-header {
+            position: relative;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .tier-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: .06;
+        }
+
+        .tier-badge {
+            font-size: .55rem;
+            font-weight: 800;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            padding: .2rem .6rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: .75rem;
+        }
+
+        .tier-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fafafa;
+            margin-bottom: .25rem;
+        }
+
+        .tier-header p {
+            font-size: .82rem;
+            color: #a1a1aa;
+        }
+
+        /* SKILL NODES */
+        .skill-node {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all .3s;
+        }
+
+        .skill-node:hover {
+            border-color: #3f3f46;
+            transform: translateX(4px);
+        }
+
+        .skill-node h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .35rem;
+        }
+
+        .skill-node p {
+            font-size: .82rem;
+            color: #a1a1aa;
+            line-height: 1.65;
+        }
+
+        .skill-node strong {
+            color: #d4d4d8;
+        }
+
+        .node-id {
+            font-family: monospace;
+            font-size: .55rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            padding: .15rem .4rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        .unlock-text {
+            font-size: .7rem;
+            color: #52525b;
+            margin-top: .5rem;
+            padding-top: .5rem;
+            border-top: 1px solid #27272a;
+            font-style: italic;
+        }
+
+        .unlock-text span {
+            font-weight: 700;
+        }
+
+        /* FLOW CONNECTORS */
+        .flow-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .35rem 0;
+            color: #27272a;
+            font-size: 1.2rem;
+        }
+
+        .flow-connector.tier-jump {
+            padding: 1.5rem 0;
+            font-size: 1.5rem;
+        }
+
+        /* TIER COLORS */
+        .tier-prereq {
+            border-left: 3px solid #64748b;
+        }
+
+        .tier-prereq .node-id {
+            background: rgba(100, 116, 139, .12);
+            color: #94a3b8;
+        }
+
+        .tier-prereq .skill-node:hover {
+            border-color: rgba(100, 116, 139, .4);
+        }
+
+        .tier-core {
+            border-left: 3px solid #f59e0b;
+        }
+
+        .tier-core .node-id {
+            background: rgba(245, 158, 11, .12);
+            color: #f59e0b;
+        }
+
+        .tier-core .skill-node:hover {
+            border-color: rgba(245, 158, 11, .3);
+        }
+
+        .tier-legendary {
+            border-left: 3px solid #a855f7;
+        }
+
+        .tier-legendary .node-id {
+            background: rgba(168, 85, 247, .12);
+            color: #a855f7;
+        }
+
+        .tier-legendary .skill-node:hover {
+            border-color: rgba(168, 85, 247, .3);
+        }
+
+        /* PROGRESSION ARROW */
+        .progression-map {
+            display: flex;
+            gap: 0;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: .55rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .prog-step {
+            flex: 1;
+            padding: .6rem .3rem;
+            text-align: center;
+            color: white;
+        }
+
+        /* STORY WRITING SECTION */
+        .story-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            min-width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .65rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content h4 {
+            font-size: .85rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .2rem;
+        }
+
+        .step-content p {
+            font-size: .78rem;
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        /* GLOW ANIMATION */
+        @keyframes legendary-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(168, 85, 247, .05);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(168, 85, 247, .12);
+            }
+        }
+
+        .legendary-glow {
+            animation: legendary-glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+        </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="skill-tree.html" class="sidebar-link active"><span>🌳</span> Skill Tree</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 30% 40%,rgba(168,85,247,.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(245,158,11,.06) 0%,transparent 40%)">
+            </div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#a855f7;letter-spacing:.2em">Progression Roadmap</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Skill Tree</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"From static idea to living, breathing
+                        cinema."</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Every skill unlocks the next.
+                        <strong style="color:#d4d4d8">Prerequisites → Core Skills → Legendary Skills</strong>. This is
+                        the logical progression from knowing nothing to building AI-driven cinematic narratives. No
+                        shortcuts — each node depends on the one before it.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- THE MACRO FLOW -->
+            <div class="fade-up" style="margin-bottom:2.5rem">
+                <div class="progression-map">
+                    <div class="prog-step" style="background:#64748b">See</div>
+                    <div class="prog-step" style="background:#71717a">Read</div>
+                    <div class="prog-step" style="background:#a1a1aa;color:#09090b">Compose</div>
+                    <div class="prog-step" style="background:#f59e0b;color:#09090b">Light</div>
+                    <div class="prog-step" style="background:#ef4444">Move</div>
+                    <div class="prog-step" style="background:#3b82f6">Cut</div>
+                    <div class="prog-step" style="background:#22c55e">Score</div>
+                    <div class="prog-step" style="background:#8b5cf6">Write</div>
+                    <div class="prog-step" style="background:#a855f7">Direct</div>
+                    <div class="prog-step" style="background:linear-gradient(90deg,#a855f7,#ec4899)">Generate</div>
+                </div>
+                <div style="font-family:monospace;font-size:.5rem;color:#3f3f46;text-align:center;margin-top:.25rem">
+                    STATIC IDEA → → → → → → → → → → → FLUID CINEMATIC NARRATIVE ARC</div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TIER I: PREREQUISITES                     -->
+            <!-- ========================================== -->
+            <div class="tier-header fade-up"
+                style="background:linear-gradient(135deg,rgba(100,116,139,.08),rgba(100,116,139,.02));border:1px solid rgba(100,116,139,.15)">
+                <div class="tier-badge" style="background:rgba(100,116,139,.15);color:#94a3b8">Tier I</div>
+                <h2>Prerequisites</h2>
+                <p>What you must know first. These are the raw materials of visual literacy — without them, everything
+                    above collapses.</p>
+            </div>
+
+            <div class="skill-node tier-prereq fade-up">
+                <div class="node-id">P-01</div>
+                <h3>👁 Visual Literacy</h3>
+                <p>Learn to <strong>see before you create</strong>. Understand how the eye scans an image — F-pattern,
+                    Z-pattern, focal points. Study paintings before you study films. Composition is the grammar of every
+                    visual medium.</p>
+                <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> P-02 Composition Rules, P-03 Color
+                    Theory</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="grid md:grid-cols-2 gap-3">
+                <div class="skill-node tier-prereq fade-up">
+                    <div class="node-id">P-02</div>
+                    <h3>📐 Composition Rules</h3>
+                    <p>Rule of thirds, golden ratio, leading lines, negative space. <strong>Learn them to internalize
+                            them, then forget them</strong>. Breaking rules only works when you know what you're
+                        breaking.</p>
+                    <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> C-01 Framing & Blocking</div>
+                </div>
+                <div class="skill-node tier-prereq fade-up">
+                    <div class="node-id">P-03</div>
+                    <h3>🎨 Color Theory</h3>
+                    <p>Hue, value, saturation. Complementary vs analogous. Albers' color relativity — <strong>one color
+                            looks different depending on its neighbors</strong>. Color is emotion before thought.</p>
+                    <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> C-02 Lighting for Mood</div>
+                </div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-prereq fade-up">
+                <div class="node-id">P-04</div>
+                <h3>📖 Story Mechanics 101</h3>
+                <p>Before you can tell a visual story, understand <strong>what story is</strong>. McKee's hierarchy:
+                    Beat → Scene → Sequence → Act. Every story is a value change — someone wants something, something
+                    blocks them, something changes. If nothing changes, there's no story.</p>
+                <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> C-05 Narrative Structure, P-05
+                    Character Fundamentals</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-prereq fade-up">
+                <div class="node-id">P-05</div>
+                <h3>🎭 Character Fundamentals</h3>
+                <p>Characters are not "types" — they are <strong>systems of contradiction</strong>. Backstory informs
+                    motivation. Goals create stakes. Flaws create conflict. Without a character the audience cares
+                    about, no technique matters.</p>
+                <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> C-06 The Hero's Journey, C-05
+                    Narrative Structure</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="grid md:grid-cols-2 gap-3">
+                <div class="skill-node tier-prereq fade-up">
+                    <div class="node-id">P-06</div>
+                    <h3>🎧 Sound Awareness</h3>
+                    <p>Half of cinema is audio. Learn to <strong>hear films</strong> — room tone, ambience, the weight
+                        of silence. Chion's "added value": sound doesn't illustrate image, it transforms it.</p>
+                    <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> C-04 Sound Design</div>
+                </div>
+                <div class="skill-node tier-prereq fade-up">
+                    <div class="node-id">P-07</div>
+                    <h3>⌨ Tool Fluency</h3>
+                    <p>Pick one tool per domain and get fluent: an NLE (DaVinci/Premiere), a design tool (Figma/PS), a
+                        motion tool (After Effects). <strong>Tools are instruments — learn scales before songs.</strong>
+                    </p>
+                    <div class="unlock-text"><span style="color:#94a3b8">Unlocks →</span> All Core Skills</div>
+                </div>
+            </div>
+
+            <!-- TIER JUMP -->
+            <div class="flow-connector tier-jump fade-up">
+                <div style="text-align:center">
+                    <div
+                        style="font-family:monospace;font-size:.55rem;color:#52525b;letter-spacing:.15em;margin-bottom:.25rem">
+                        TIER GATE</div>
+                    <div style="font-size:1.8rem;color:#f59e0b">⬇</div>
+                    <div style="font-size:.65rem;color:#f59e0b;font-weight:700;margin-top:.25rem">You can compose a
+                        still frame that tells a story</div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TIER II: CORE SKILLS                      -->
+            <!-- ========================================== -->
+            <div class="tier-header fade-up"
+                style="background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.02));border:1px solid rgba(245,158,11,.15)">
+                <div class="tier-badge" style="background:rgba(245,158,11,.15);color:#f59e0b">Tier II</div>
+                <h2>Core Skills</h2>
+                <p>What you're building now. These transform a still frame into a living, breathing sequence. This is
+                    where static becomes cinematic.</p>
+            </div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-01</div>
+                <h3>🎬 Framing & Blocking</h3>
+                <p>Where to put the camera and where actors move within the frame. <strong>Blocking is choreography
+                        without dance.</strong> Every dolly, pan, and tilt needs emotional justification. Blain Brown's
+                    3-plane staging: foreground, midground, background.</p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> P-02 | <span
+                        style="color:#f59e0b">Unlocks →</span> C-03 Editing Language</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-02</div>
+                <h3>💡 Lighting for Mood</h3>
+                <p>Light is the only thing the camera sees. Three-point lighting is vocabulary, not formula. Hard light
+                    = drama, soft light = beauty. <strong>Motivated lighting</strong> — every light needs a reason. If
+                    you can't point to the source, you're lying.</p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> P-03 | <span
+                        style="color:#f59e0b">Unlocks →</span> C-07 Visual Texture</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-03</div>
+                <h3>✂ Editing Language</h3>
+                <p>The Kuleshov Effect: same face + different shot = different meaning. <strong>Juxtaposition creates
+                        meaning that doesn't exist in either shot alone.</strong> Learn the five montage methods
+                    (Eisenstein), then learn when NOT to cut (Murch's blink). Dancyger's editing goals: narrative
+                    clarity, dramatic emphasis, subtext, surprise, aesthetics.</p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> C-01 | <span
+                        style="color:#f59e0b">Unlocks →</span> C-08 Pacing & Rhythm</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-04</div>
+                <h3>🔊 Sound Design</h3>
+                <p>Diegetic vs non-diegetic. Foley as emotional texture, not reality recreation.
+                    <strong>Synchresis</strong> — any sound welded to any image will feel "real" because the brain can't
+                    help it. Silence is the most powerful weapon. Vococentrism: the voice always wins the mix.</p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> P-06 | <span
+                        style="color:#f59e0b">Unlocks →</span> L-04 Emotional Scoring</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-05</div>
+                <h3>📜 Narrative Structure</h3>
+                <p>Yorke's Five-Act Structure: Exposition → Rising Action → Climax → Falling Action → Resolution.
+                    McKee's Structure Spectrum: Archplot (classical), Miniplot (minimalist), Antiplot (experimental).
+                    <strong>Structure is not a cage — it's a skeleton that lets the body move.</strong></p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> P-04 | <span
+                        style="color:#f59e0b">Unlocks →</span> C-06, C-09</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up">
+                <div class="node-id">C-06</div>
+                <h3>🗺 The Hero's Journey</h3>
+                <p>Campbell's monomyth in 12 stages: Ordinary World → Call → Refusal → Mentor → Threshold → Tests →
+                    Approach → Ordeal → Reward → Road Back → Resurrection → Elixir. <strong>This is a map, not a
+                        recipe.</strong> Know which stages you're in, which you're skipping, and why.</p>
+                <div class="unlock-text"><span style="color:#f59e0b">Requires →</span> P-05, C-05 | <span
+                        style="color:#f59e0b">Unlocks →</span> C-09 Screenwriting</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="grid md:grid-cols-2 gap-3">
+                <div class="skill-node tier-core fade-up">
+                    <div class="node-id">C-07</div>
+                    <h3>🌫 Visual Texture</h3>
+                    <p>What the camera captures that dialogue cannot. A cracked wall is loneliness. Rain is melancholy.
+                        <strong>Texture is subtext.</strong> Naturalism records what's there; stylization constructs
+                        what should be felt.</p>
+                    <div class="unlock-text"><span style="color:#f59e0b">Unlocks →</span> L-02</div>
+                </div>
+                <div class="skill-node tier-core fade-up">
+                    <div class="node-id">C-08</div>
+                    <h3>⏱ Pacing & Rhythm</h3>
+                    <p>Fast cuts = anxiety. Long takes = dread. <strong>Varying rhythm creates waves; constant rhythm
+                            becomes noise.</strong> MTV influence: feeling states replaced plot. Comedy timing: the
+                        pause before the punchline, not speed.</p>
+                    <div class="unlock-text"><span style="color:#f59e0b">Unlocks →</span> L-03</div>
+                </div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-core fade-up" style="border-left-color:#ec4899">
+                <div class="node-id" style="background:rgba(236,72,153,.12);color:#ec4899">C-09</div>
+                <h3>✍ Screenwriting & Story Writing</h3>
+                <p>This is where everything converges. Writing a story is <strong>not</strong> "having an idea and
+                    typing it out." It's engineering emotion through structure:</p>
+
+                <div style="margin-top:1rem">
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">1</div>
+                        <div class="step-content">
+                            <h4>Premise</h4>
+                            <p>One sentence: <strong>Who</strong> wants <strong>what</strong>, and <strong>what stops
+                                    them</strong>? If you can't say this in one line, you don't have a story yet — you
+                                have a vibe.</p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">2</div>
+                        <div class="step-content">
+                            <h4>Character Design</h4>
+                            <p>Build the contradiction engine: desire vs fear, public mask vs private truth. Give them a
+                                wound (backstory), a want (external goal), and a need (internal arc they don't see yet).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">3</div>
+                        <div class="step-content">
+                            <h4>Structure Selection</h4>
+                            <p>Choose your skeleton: Five-Act (Yorke), Three-Act (classical), or the Hero's Journey
+                                (mythic). Then choose your spectrum position: Archplot (causal), Miniplot (internal), or
+                                Antiplot (experimental).</p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">4</div>
+                        <div class="step-content">
+                            <h4>Scene Construction</h4>
+                            <p>Every scene must turn a value. Someone enters wanting something, and by the end the
+                                situation has <strong>irreversibly changed</strong>. No change = delete the scene.</p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">5</div>
+                        <div class="step-content">
+                            <h4>Dialogue as Subtext</h4>
+                            <p>People rarely say what they mean. Great dialogue is two conversations: the words spoken
+                                and the meaning underneath. Write the subtext first, then obscure it with dialogue.</p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">6</div>
+                        <div class="step-content">
+                            <h4>Theme Embedding</h4>
+                            <p>Theme is not stated — it's <strong>demonstrated through conflict resolution</strong>.
+                                Your climax is your thesis statement. How the protagonist changes (or doesn't) IS your
+                                theme.</p>
+                        </div>
+                    </div>
+                    <div class="story-step">
+                        <div class="step-num" style="background:rgba(236,72,153,.12);color:#ec4899">7</div>
+                        <div class="step-content">
+                            <h4>Visual Translation</h4>
+                            <p>Convert the script into visual story decisions: What does the camera see? What does it
+                                NOT show? Which emotions are conveyed through performance vs. editing vs. sound vs.
+                                design? This is where <strong>writing becomes directing</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="unlock-text"><span style="color:#ec4899">Unlocks →</span> ALL Legendary Skills. <strong>This
+                        is the gateway.</strong></div>
+            </div>
+
+            <!-- TIER JUMP -->
+            <div class="flow-connector tier-jump fade-up">
+                <div style="text-align:center">
+                    <div
+                        style="font-family:monospace;font-size:.55rem;color:#52525b;letter-spacing:.15em;margin-bottom:.25rem">
+                        TIER GATE</div>
+                    <div style="font-size:1.8rem;color:#a855f7">⬇</div>
+                    <div style="font-size:.65rem;color:#a855f7;font-weight:700;margin-top:.25rem">You can write, shoot,
+                        edit, and deliver a complete short film</div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TIER III: LEGENDARY SKILLS                -->
+            <!-- ========================================== -->
+            <div class="tier-header legendary-glow fade-up"
+                style="background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(236,72,153,.04));border:1px solid rgba(168,85,247,.15)">
+                <div class="tier-badge" style="background:rgba(168,85,247,.15);color:#a855f7">Tier III</div>
+                <h2>Legendary Skills</h2>
+                <p>Advanced AI-film integration. Where human storytelling instinct meets generative power. These are not
+                    replacements for craft — they're amplifiers of it.</p>
+            </div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up">
+                <div class="node-id">L-01</div>
+                <h3>🧠 AI Prompt Direction</h3>
+                <p>Generative AI is not a magic button — it's a <strong>collaborator that needs direction</strong>.
+                    Learn to write prompts that encode visual grammar: lighting ratios, lens choices, color
+                    temperatures, compositional intent. The better your cinematographic vocabulary, the better the
+                    output.</p>
+                <div class="unlock-text"><span style="color:#a855f7">Requires →</span> C-01, C-02, C-07 | <span
+                        style="color:#a855f7">Unlocks →</span> L-05</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up">
+                <div class="node-id">L-02</div>
+                <h3>🎥 Generative Cinematography</h3>
+                <p>Using AI video models (Sora, Runway, Kling) with <strong>intentional cinematic grammar</strong>.
+                    Generating not just "cool looking footage" but shots that serve narrative purpose — establishing
+                    geography, revealing character, building tension. Style without story is noise, even when AI makes
+                    it beautiful.</p>
+                <div class="unlock-text"><span style="color:#a855f7">Requires →</span> C-07, C-09 | <span
+                        style="color:#a855f7">Unlocks →</span> L-05, L-06</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up">
+                <div class="node-id">L-03</div>
+                <h3>⚡ AI-Assisted Editing</h3>
+                <p>Using AI to rough-cut assembly, auto-sync, and pace analysis — but <strong>human editorial judgment
+                        remains irreplaceable</strong>. Knowing Dancyger's editing goals (clarity, emphasis, subtext,
+                    surprise) is what turns AI-assembled footage into story. The machine handles logistics; you handle
+                    meaning.</p>
+                <div class="unlock-text"><span style="color:#a855f7">Requires →</span> C-03, C-08 | <span
+                        style="color:#a855f7">Unlocks →</span> L-06</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up">
+                <div class="node-id">L-04</div>
+                <h3>🎵 Emotional Scoring & Sound Synthesis</h3>
+                <p>AI music generation (Suno, Udio) married with Chion's temporalization principles. Sound doesn't just
+                    accompany image — it <strong>rewrites the audience's perception of time</strong>. Animating,
+                    linearizing, vectorizing. The composer's instinct applied to generative tools.</p>
+                <div class="unlock-text"><span style="color:#a855f7">Requires →</span> C-04 | <span
+                        style="color:#a855f7">Unlocks →</span> L-06</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up">
+                <div class="node-id">L-05</div>
+                <h3>🌍 World Building with AI</h3>
+                <p>Generating consistent visual worlds across shots and sequences. This requires deep understanding of
+                    <strong>visual texture, color systems, and spatial continuity</strong>. Without those Core Skills,
+                    AI generates beautiful disconnected images. With them, you build a world the audience can inhabit.
+                </p>
+                <div class="unlock-text"><span style="color:#a855f7">Requires →</span> L-01, L-02 | <span
+                        style="color:#a855f7">Unlocks →</span> L-06</div>
+            </div>
+            <div class="flow-connector">↓</div>
+
+            <div class="skill-node tier-legendary legendary-glow fade-up"
+                style="border:1px solid rgba(168,85,247,.25);background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(236,72,153,.03))">
+                <div class="node-id"
+                    style="background:linear-gradient(90deg,rgba(168,85,247,.2),rgba(236,72,153,.2));color:#c084fc">L-06
+                </div>
+                <h3>👑 AI Film Direction — The Convergence</h3>
+                <p>The final node. <strong>All skills converge here.</strong> You write the story (C-09), direct AI
+                    cinematography (L-02), sculpt AI-assisted edits (L-03), score with synthesized emotion (L-04), and
+                    build consistent worlds (L-05) — all while maintaining the human narrative spine that audiences
+                    connect with.</p>
+                <p style="margin-top:.75rem"><strong style="color:#c084fc">This is not "using AI to make films." This is
+                        being a filmmaker who happens to have AI in their toolkit.</strong></p>
+                <div
+                    style="margin-top:1rem;padding:.75rem;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.12);border-radius:8px;font-size:.78rem;color:#a1a1aa;font-style:italic">
+                    "The technology changes. The storytelling doesn't. Every tool in history — from the printing press
+                    to the camera to CGI — was feared and then mastered by people who understood one thing: the audience
+                    wants to feel something. AI is the next tool. The principle is eternal."
+                </div>
+            </div>
+
+            <!-- THE DEPENDENCY MAP -->
+            <div class="fade-up" style="margin:3rem 0 2rem">
+                <div
+                    style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#52525b;padding:1rem 0;border-bottom:1px solid #27272a;margin-bottom:1.5rem">
+                    Full Dependency Map
+                </div>
+                <div
+                    style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:1.5rem;font-family:monospace;font-size:.65rem;line-height:2.2;color:#a1a1aa">
+                    <span style="color:#94a3b8">P-01</span> Visual Literacy<br>
+                    &nbsp;&nbsp;├── <span style="color:#94a3b8">P-02</span> Composition → <span
+                        style="color:#f59e0b">C-01</span> Framing & Blocking<br>
+                    &nbsp;&nbsp;└── <span style="color:#94a3b8">P-03</span> Color Theory → <span
+                        style="color:#f59e0b">C-02</span> Lighting for Mood → <span style="color:#f59e0b">C-07</span>
+                    Visual Texture<br>
+                    <span style="color:#94a3b8">P-04</span> Story Mechanics<br>
+                    &nbsp;&nbsp;├── <span style="color:#94a3b8">P-05</span> Character → <span
+                        style="color:#f59e0b">C-06</span> Hero's Journey<br>
+                    &nbsp;&nbsp;└── <span style="color:#f59e0b">C-05</span> Narrative Structure → <span
+                        style="color:#ec4899">C-09</span> <strong style="color:#ec4899">SCREENWRITING ★</strong><br>
+                    <span style="color:#94a3b8">P-06</span> Sound Awareness → <span style="color:#f59e0b">C-04</span>
+                    Sound Design → <span style="color:#a855f7">L-04</span> Emotional Scoring<br>
+                    <span style="color:#f59e0b">C-01</span> + <span style="color:#f59e0b">C-02</span> + <span
+                        style="color:#f59e0b">C-07</span> → <span style="color:#a855f7">L-01</span> AI Prompt Direction
+                    → <span style="color:#a855f7">L-05</span> World Building<br>
+                    <span style="color:#f59e0b">C-03</span> + <span style="color:#f59e0b">C-08</span> → <span
+                        style="color:#a855f7">L-03</span> AI Editing<br>
+                    <span style="color:#ec4899">C-09</span> → <span style="color:#a855f7">L-02</span> Generative
+                    Cinematography<br>
+                    <span style="color:#a855f7">L-02</span> + <span style="color:#a855f7">L-03</span> + <span
+                        style="color:#a855f7">L-04</span> + <span style="color:#a855f7">L-05</span> → <span
+                        style="color:#c084fc;font-weight:700">L-06 AI FILM DIRECTION 👑</span>
+                </div>
+            </div>
+
+            <!-- FINAL ANCHOR -->
+            <div class="fade-up"
+                style="background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(245,158,11,.04));border:1px solid rgba(168,85,247,.12);border-radius:12px;padding:2rem;text-align:center;margin:2rem 0">
+                <h2 style="font-size:1.1rem;font-weight:700;color:#fafafa;margin-bottom:.75rem">The Only Rule</h2>
+                <div
+                    style="font-family:monospace;padding:1rem;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.12);border-radius:8px;font-size:1rem;color:#f59e0b;text-align:center">
+                    Story first. Tools second. Always.
+                </div>
+                <p style="margin-top:1rem;font-size:.85rem;color:#71717a">No node in this tree exists without the ones
+                    below it. Skip a prerequisite and the whole branch wobbles.</p>
+            </div>
+
+        </div>
+
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="ideation.html" class="hover:underline" style="color:#71717a">←
+                        Ideation Engine</a><a href="index.html" class="hover:underline"
+                        style="color:#71717a">Overview</a><a href="style-reference.html" class="hover:underline"
+                        style="color:#71717a">Style Reference →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

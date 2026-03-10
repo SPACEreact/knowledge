@@ -1,9 +1,21 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
+// GoatCounter analytics – injects tracking script into every HTML page
+function goatCounterAnalytics() {
+  const snippet = `<script data-goatcounter="https://himanshudr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`;
+  return {
+    name: 'goatcounter-analytics',
+    transformIndexHtml(html) {
+      return html.replace('</body>', `  ${snippet}\n</body>`);
+    }
+  };
+}
+
 export default defineConfig({
   base: '/knowledge/',
   root: '.',
+  plugins: [goatCounterAnalytics()],
   publicDir: 'public',
   build: {
     outDir: 'dist',

@@ -42,6 +42,7 @@ export default defineConfig({
         playgrounds: resolve(__dirname, 'playgrounds.html'),
         visualStory: resolve(__dirname, 'visual-story.html'),
         skillTree: resolve(__dirname, 'skill-tree.html'),
+        audienceParticipation: resolve(__dirname, 'audience-participation.html'),
       }
     }
   },

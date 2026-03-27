@@ -150,6 +150,7 @@ export default defineConfig({
         visualStory: resolve(__dirname, 'visual-story.html'),
         skillTree: resolve(__dirname, 'skill-tree.html'),
         audienceParticipation: resolve(__dirname, 'audience-participation.html'),
+        humanLayers: resolve(__dirname, 'human-layers.html'),
       }
     }
   },

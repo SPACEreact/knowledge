@@ -41,6 +41,27 @@
     html {
       scroll-behavior: smooth;
     }
+    .skip-link {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      transform: translateY(-160%);
+      background: #fafafa;
+      color: #09090b;
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 80;
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -383,6 +404,7 @@
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Ambient Glow -->
   <div id="ambient-glow"></div>
   <!-- Mobile Menu Button -->
@@ -400,7 +422,7 @@
   <!-- ═══════════════════════════════════════
          SIDEBAR NAVIGATION
          ═══════════════════════════════════════ -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar" id="sidebar" aria-label="Primary">
     <div style="padding: 0 1.25rem 1rem;">
       <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: #e4e4e7;">VISUAL
         STORYTELLING</div>
@@ -482,7 +504,7 @@
   <!-- ═══════════════════════════════════════
          MAIN CONTENT
          ═══════════════════════════════════════ -->
-  <div class="main-content">
+  <main id="main-content" class="main-content" tabindex="-1">
 
     <!-- ─── Hero Section ─── -->
     <header class="relative overflow-hidden" style="min-height: 75vh;">
@@ -981,7 +1003,7 @@
         </div>
       </div>
     </footer>
-  </div>
+  </main>
 
   <!-- ═══════════════════════════════════════
          SCRIPTS

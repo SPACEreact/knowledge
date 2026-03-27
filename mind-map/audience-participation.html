@@ -36,6 +36,7 @@
         .skill-card h3 { font-size: 1rem; font-weight: 700; color: #fafafa; margin-bottom: .5rem }
         .skill-card p { font-size: .85rem; color: #a1a1aa; line-height: 1.7 }
         .skill-card strong { color: #d4d4d8 }
+        .semantic-section { scroll-margin-top: 90px; }
         .warning-block { background: rgba(239, 68, 68, .06); border: 1px solid rgba(239, 68, 68, .2); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; font-size: .85rem; color: #fca5a5; line-height: 1.7 }
         .warning-block strong { color: #fca5a5 }
         .quote-block { background: rgba(16, 185, 129, .06); border-left: 3px solid #10b981; padding: 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-size: .95rem; color: #e4e4e7; line-height: 1.7; font-style: italic; }
@@ -142,7 +143,7 @@
             </div>
 
             <!-- 3. SENSING VS UNDERSTANDING -->
-            <div class="section-divider fade-up">2 · The Gap</div>
+            <div class="section-divider fade-up semantic-section" id="gap-camera-language">2 · The Gap</div>
             <p class="text-sm mb-6 fade-up" style="color:#71717a">The space between sensation and logic.</p>
 
             <div class="quote-block fade-up">
@@ -161,25 +162,9 @@
             <div class="section-divider fade-up">3 · Writing for the Gap — 3 Moves</div>
             <p class="text-sm mb-6 fade-up" style="color:#71717a">Techniques to inject participation directly into the script or scene design.</p>
 
-            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
-                <h3>Move 1 — Write the Physical, Not the Emotional</h3>
-                <div style="margin:.75rem 0;font-size:.85rem;line-height:2">
-                    <div style="color:#71717a"><strong style="color:#ef4444">❌ Wrong:</strong> She feels abandoned.</div>
-                    <div style="color:#d4d4d8"><strong style="color:#22c55e">✅ Right:</strong> She folds the same corner of the paper. Again. Again.</div>
-                </div>
-                <p>The audience <em>senses</em> abandonment. They don't just receive it. They process the physical action to deduce the emotional state, making the feeling their own.</p>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #8b5cf6">
-                <h3>Move 2 — Write What's Missing, Not What's Present</h3>
-                <p>A scene gains pressure from what it <strong>withholds</strong>.</p>
-                <p style="margin-top:.5rem">If two people should be talking and aren't — write the silence as active. What are their hands doing? What does the room sound like? The absence of conversation creates a vacuum that the audience must fill with tension and subtext.</p>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
-                <h3>Move 3 — Write Cause Without Naming Effect</h3>
-                <p>Something happens. You don't tell us what it means. The next scene carries the weight. The audience connects the two points — now they've <strong>participated</strong> in meaning-making.</p>
-            </div>
+            <section id="gap-completions" class="semantic-section">
+                <div id="gap-moves"></div>
+            </section>
 
             <!-- 5. VISUAL AMPLIFICATION SYSTEM -->
             <div class="section-divider fade-up">4 · Visual Amplification System</div>
@@ -257,6 +242,46 @@
     </div>
 
     <script>
+        const GAP_MOVES = [
+            {
+                id: 'gap-physical-not-emotional',
+                accent: '#6366f1',
+                title: 'Move 1 — Write the Physical, Not the Emotional',
+                body: `The audience <em>senses</em> abandonment. They don't just receive it. They process the physical action to deduce the emotional state, making the feeling their own.`,
+                example: `
+                    <div style="margin:.75rem 0;font-size:.85rem;line-height:2">
+                        <div style="color:#71717a"><strong style="color:#ef4444">❌ Wrong:</strong> She feels abandoned.</div>
+                        <div style="color:#d4d4d8"><strong style="color:#22c55e">✅ Right:</strong> She folds the same corner of the paper. Again. Again.</div>
+                    </div>
+                `
+            },
+            {
+                id: 'gap-missing-not-present',
+                accent: '#8b5cf6',
+                title: 'Move 2 — Write What\'s Missing, Not What\'s Present',
+                body: `A scene gains pressure from what it <strong>withholds</strong>. If two people should be talking and aren't — write the silence as active. What are their hands doing? What does the room sound like? The absence of conversation creates a vacuum that the audience must fill with tension and subtext.`
+            },
+            {
+                id: 'gap-cause-without-effect',
+                accent: '#f59e0b',
+                title: 'Move 3 — Write Cause Without Naming Effect',
+                body: `Something happens. You don't tell us what it means. The next scene carries the weight. The audience connects the two points — now they've <strong>participated</strong> in meaning-making.`
+            }
+        ];
+
+        const gapMovesContainer = document.getElementById('gap-moves');
+        if (gapMovesContainer) {
+            gapMovesContainer.innerHTML = GAP_MOVES
+                .map(move => `
+                    <article id="${move.id}" class="skill-card fade-up semantic-section" style="border-left:3px solid ${move.accent}">
+                        <h3>${move.title}</h3>
+                        ${move.example || ''}
+                        <p>${move.body}</p>
+                    </article>
+                `)
+                .join('');
+        }
+
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));

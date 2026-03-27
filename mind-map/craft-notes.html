@@ -159,6 +159,14 @@
             border-left: 4px solid #10b981
         }
 
+        .semantic-section {
+            scroll-margin-top: 90px;
+        }
+
+        .stack-sm {
+            margin-top: .75rem;
+        }
+
         .note-card h3 {
             font-size: 1rem;
             font-weight: 700;
@@ -367,14 +375,14 @@
                 </table>
             </div>
 
-            <div class="note-card fade-up">
+            <section class="note-card fade-up semantic-section" id="layer-consciousness">
                 <h3>Core Layers of a Character</h3>
                 <ul>
                     <li><strong>Outer Mask</strong> — Who they pretend to be (public persona)</li>
                     <li><strong>Private Self</strong> — Who they think they are (with trusted people)</li>
                     <li><strong>Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
                 </ul>
-            </div>
+            </section>
 
             <div class="note-card fade-up">
                 <h3>Social Reaction Shifts</h3>
@@ -389,17 +397,10 @@
                 <div class="insight">"We are who we think they think we are."</div>
             </div>
 
-            <div class="note-card fade-up">
+            <section class="note-card fade-up semantic-section" id="enneagram-types">
                 <h3>Enneagram Types (Shorthand)</h3>
-                <ul>
-                    <li><strong>Type 9</strong> — Feels they have potential but chooses unhealthy way to come on top.
-                        Obsessive about achieving it. If they come on top and drop negative habits → good leader.</li>
-                    <li><strong>Type 8</strong> — Less ego, more control. Wants to dominate to protect. Easy to write,
-                        straightforward. Won't show emotions. Learned they need to be tough.</li>
-                    <li><strong>Type 7</strong> — Avoids the darkness which stops them from becoming true self. Will do
-                        multiple things just to avoid the pain.</li>
-                </ul>
-            </div>
+                <ul id="enneagram-types-list" class="stack-sm"></ul>
+            </section>
 
             <div class="note-card fade-up">
                 <h3>Character Introduction Rules</h3>
@@ -619,6 +620,36 @@
     </div>
 
     <script>
+        const ENNEAGRAM_TYPES = [
+            {
+                id: 'type-1',
+                title: 'Type 1',
+                note: 'Inner critic is loud. They chase correctness and control to avoid feeling flawed.'
+            },
+            {
+                id: 'type-9',
+                title: 'Type 9',
+                note: 'Feels they have potential but chooses unhealthy way to come on top. Obsessive about achieving it. If they come on top and drop negative habits → good leader.'
+            },
+            {
+                id: 'type-8',
+                title: 'Type 8',
+                note: 'Less ego, more control. Wants to dominate to protect. Easy to write, straightforward. Won\'t show emotions. Learned they need to be tough.'
+            },
+            {
+                id: 'type-7',
+                title: 'Type 7',
+                note: 'Avoids the darkness which stops them from becoming true self. Will do multiple things just to avoid the pain.'
+            }
+        ];
+
+        const enneagramList = document.getElementById('enneagram-types-list');
+        if (enneagramList) {
+            enneagramList.innerHTML = ENNEAGRAM_TYPES
+                .map(type => `<li id="${type.id}"><strong>${type.title}</strong> — ${type.note}</li>`)
+                .join('');
+        }
+
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));

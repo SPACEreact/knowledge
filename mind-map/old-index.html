@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Storytelling Framework — Think Like a Cinematic Architect</title>
+  <meta name="description"
+    content="A comprehensive visual storytelling knowledge base. Master storytelling, design, cinematography, editing, sound, motion, AI visuals, and emotional grammar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#09090b',
+              50: '#18181b',
+              100: '#1c1c20',
+              200: '#27272a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #3f3f46 transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    .skip-link {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      transform: translateY(-160%);
+      background: #fafafa;
+      color: #09090b;
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 80;
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #09090b;
+      color: #e4e4e7;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: #0c0c0f;
+      border-right: 1px solid #27272a;
+      padding: 1.5rem 0;
+      overflow-y: auto;
+      z-index: 50;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    @media (min-width: 1024px) {
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 260px;
+      }
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      color: #a1a1aa;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .sidebar-link:hover {
+      color: #e4e4e7;
+      background: rgba(63, 63, 70, 0.3);
+    }
+
+    .sidebar-link.active {
+      color: #3b82f6;
+      border-left-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.06);
+    }
+
+    .sidebar-section-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #52525b;
+      padding: 1.25rem 1.25rem 0.4rem;
+      font-weight: 600;
+    }
+
+    /* ─── Domain Cards ─── */
+    .domain-card {
+      position: relative;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .domain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .domain-card:hover {
+      border-color: #3f3f46;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .domain-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Accent colors per domain */
+    .card-storytelling::before {
+      background: #f59e0b;
+    }
+
+    .card-design::before {
+      background: #d97706;
+    }
+
+    .card-cinematography::before {
+      background: #3b82f6;
+    }
+
+    .card-sound::before {
+      background: #0891b2;
+    }
+
+    .card-editing::before {
+      background: #059669;
+    }
+
+    .card-motion::before {
+      background: #ea580c;
+    }
+
+    .card-ai::before {
+      background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    }
+
+    .card-emotion::before {
+      background: linear-gradient(90deg, #ec4899, #f59e0b);
+    }
+
+    .card-scene::before {
+      background: #6366f1;
+    }
+
+    .card-style::before {
+      background: linear-gradient(90deg, #ec4899, #8b5cf6);
+    }
+
+    .card-ideation::before {
+      background: #f59e0b;
+    }
+
+    .card-craft::before {
+      background: #10b981;
+    }
+
+    .card-resources::before {
+      background: #64748b;
+    }
+
+    .card-storytelling .domain-icon {
+      color: #f59e0b;
+    }
+
+    .card-design .domain-icon {
+      color: #d97706;
+    }
+
+    .card-cinematography .domain-icon {
+      color: #3b82f6;
+    }
+
+    .card-sound .domain-icon {
+      color: #0891b2;
+    }
+
+    .card-editing .domain-icon {
+      color: #059669;
+    }
+
+    .card-motion .domain-icon {
+      color: #ea580c;
+    }
+
+    .card-ai .domain-icon {
+      color: #8b5cf6;
+    }
+
+    .card-emotion .domain-icon {
+      color: #ec4899;
+    }
+
+    .card-scene .domain-icon {
+      color: #6366f1;
+    }
+
+    .card-style .domain-icon {
+      color: #ec4899;
+    }
+
+    .card-ideation .domain-icon {
+      color: #f59e0b;
+    }
+
+    .card-craft .domain-icon {
+      color: #10b981;
+    }
+
+    .card-resources .domain-icon {
+      color: #64748b;
+    }
+
+    /* ─── Hierarchy Visual ─── */
+    .layer-ring {
+      border: 2px solid;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .layer-ring:hover {
+      transform: scale(1.02);
+    }
+
+    /* ─── Fade-in animation ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Mobile menu button ─── */
+    .menu-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 60;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a1a1aa;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .menu-btn:hover {
+      color: #e4e4e7;
+      border-color: #3f3f46;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-btn {
+        display: none;
+      }
+    }
+
+    /* ─── Overlay ─── */
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ─── Learning Path Cards ─── */
+    .path-card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .path-card:hover {
+      border-color: #3f3f46;
+    }
+
+    /* ─── Tag pills ─── */
+    .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .tag-core {
+      background: rgba(245, 158, 11, 0.12);
+      color: #f59e0b;
+    }
+
+    .tag-domain {
+      background: rgba(59, 130, 246, 0.12);
+      color: #3b82f6;
+    }
+
+    .tag-ai {
+      background: rgba(139, 92, 246, 0.12);
+      color: #8b5cf6;
+    }
+
+    .tag-advanced {
+      background: rgba(236, 72, 153, 0.12);
+      color: #ec4899;
+    }
+
+    /* Ambient Cursor Glow */
+    #ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+      transition: width 0.3s, height 0.3s;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Ambient Glow -->
+  <div id="ambient-glow"></div>
+  <!-- Mobile Menu Button -->
+  <button class="menu-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="17" y2="6" />
+      <line x1="3" y1="10" x2="17" y2="10" />
+      <line x1="3" y1="14" x2="17" y2="14" />
+    </svg>
+  </button>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- ═══════════════════════════════════════
+         SIDEBAR NAVIGATION
+         ═══════════════════════════════════════ -->
+  <nav class="sidebar" id="sidebar" aria-label="Primary">
+    <div style="padding: 0 1.25rem 1rem;">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: #e4e4e7;">VISUAL
+        STORYTELLING</div>
+      <div style="font-size: 0.6rem; color: #52525b; margin-top: 2px;">Knowledge Framework</div>
+    </div>
+
+    <div class="sidebar-section-title">Core</div>
+    <a href="index.html" class="sidebar-link active">
+      <span>◈</span> Overview
+    </a>
+    <a href="storytelling.html" class="sidebar-link">
+      <span>00</span> Storytelling
+    </a>
+
+    <div class="sidebar-section-title">Domains</div>
+    <a href="design.html" class="sidebar-link">
+      <span>01</span> Design
+    </a>
+    <a href="cinematography.html" class="sidebar-link">
+      <span>02</span> Cinematography
+    </a>
+    <a href="sound.html" class="sidebar-link">
+      <span>03</span> Sound
+    </a>
+    <a href="editing.html" class="sidebar-link">
+      <span>04</span> Editing
+    </a>
+    <a href="motion.html" class="sidebar-link">
+      <span>05</span> Motion
+    </a>
+
+    <div class="sidebar-section-title">Advanced Systems</div>
+    <a href="ai-visual.html" class="sidebar-link">
+      <span>⬡</span> AI Visual Generation
+    </a>
+    <a href="emotion-grammar.html" class="sidebar-link">
+      <span>♡</span> Emotion Grammar
+    </a>
+    <a href="scene-grammar.html" class="sidebar-link">
+      <span>▣</span> Scene Grammar
+    </a>
+    <a href="story-emotion.html" class="sidebar-link">
+      <span>◉</span> Story × Emotion
+    </a>
+    <a href="visual-story.html" class="sidebar-link">
+      <span style="color: #f59e0b;">📖</span> The Visual Story
+    </a>
+
+            <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
+        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+    <a href="ideation.html" class="sidebar-link">
+      <span>⚡</span> Ideation Engine
+    </a>
+    <a href="skill-tree.html" class="sidebar-link">
+      <span>🌳</span> Skill Tree
+    </a>
+    <a href="style-reference.html" class="sidebar-link">
+      <span>◎</span> Style Reference
+    </a>
+    <a href="craft-notes.html" class="sidebar-link">
+      <span>✎</span> Craft Notes
+    </a>
+    <a href="resources.html" class="sidebar-link">
+      <span>☷</span> Resources
+    </a>
+
+    <div class="sidebar-section-title">Keyword Maps</div>
+    <a href="filmmaking-keywords.html" class="sidebar-link">
+      <span>🎬</span> Filmmaking Keywords
+    </a>
+    <a href="mograph-keywords.html" class="sidebar-link">
+      <span>◐</span> Motion Graphics KW
+    </a>
+    <a href="editing-rhythm.html" class="sidebar-link">
+      <span>♫</span> Editing Rhythm
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════ -->
+  <main id="main-content" class="main-content" tabindex="-1">
+
+    <!-- ─── Hero Section ─── -->
+    <header class="relative overflow-hidden" style="min-height: 75vh;">
+      <!-- Subtle gradient background -->
+      <div class="absolute inset-0"
+        style="background: radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.04) 0%, transparent 50%);">
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-6 pt-24 pb-16 lg:pt-32 lg:pb-24">
+        <div class="fade-up">
+          <p class="text-xs font-semibold tracking-widest uppercase text-blue-500 mb-4" style="letter-spacing: 0.2em;">
+            Visual Storytelling Framework
+          </p>
+          <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6"
+            style="color: #fafafa;">
+            AI can make it perfect.<br>
+            <span
+              style="background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              Humans make it human.
+            </span>
+          </h1>
+          <div class="text-lg md:text-xl leading-relaxed max-w-2xl text-zinc-400 space-y-4 font-light">
+            <p><strong class="text-white font-medium">We are emotion meters.</strong></p>
+            <p>We've lived the grief at 3 a.m., the quiet triumph after years of trying, the betrayal that still stings.
+            </p>
+            <p>AI can generate at scale with perfect precision. <br>Only humans can make it feel.</p>
+          </div>
+          <div class="mt-10 border-l-2 border-indigo-500/30 pl-6 py-2">
+            <p class="text-zinc-300 italic text-lg leading-relaxed mb-2">
+              "I built this framework because the future doesn't belong to the best prompt writer.<br>
+              It belongs to the best emotion director."
+            </p>
+            <p class="text-sm font-semibold tracking-widest uppercase text-indigo-400">— Himanshu</p>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="fade-up mt-12 flex flex-wrap gap-8" style="transition-delay: 0.15s;">
+          <div>
+            <div class="text-2xl font-bold" style="color: #3b82f6;">5</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Domains</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #8b5cf6;">24</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Emotions Mapped</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #10b981;">10</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">Scene Archetypes</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold" style="color: #f59e0b;">100+</div>
+            <div class="text-xs uppercase tracking-wider" style="color: #71717a;">AI Techniques</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-24"
+        style="background: linear-gradient(to top, #09090b, transparent);"></div>
+    </header>
+
+    <!-- ─── Framework Philosophy ─── -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+      <div class="fade-up">
+        <h2 class="text-2xl font-bold tracking-tight mb-4" style="color: #fafafa;">The Framework</h2>
+        <p class="text-base leading-relaxed mb-6" style="color: #a1a1aa;">
+          Every frame is a decision. Every cut is an argument. Every sound cue is emotional architecture.
+          This framework treats visual storytelling as a <strong style="color: #d4d4d8;">system</strong>, not a
+          collection of tips.
+        </p>
+      </div>
+
+      <!-- Hierarchy Visual (Concentric Rings) -->
+      <div class="fade-up flex justify-center py-10" style="transition-delay: 0.1s;">
+        <div class="layer-ring"
+          style="width: 320px; height: 320px; border-color: rgba(59,130,246,0.2); background: rgba(59,130,246,0.02);">
+          <div class="text-center absolute" style="top: 8px; left: 50%; transform: translateX(-50%);">
+            <span class="text-xs font-medium tracking-wider uppercase"
+              style="color: rgba(59,130,246,0.6);">Domains</span>
+          </div>
+          <div class="layer-ring"
+            style="width: 220px; height: 220px; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.03);">
+            <div class="text-center absolute" style="top: 6px; left: 50%; transform: translateX(-50%);">
+              <span class="text-xs font-medium tracking-wider uppercase"
+                style="color: rgba(245,158,11,0.7);">Story</span>
+            </div>
+            <div class="layer-ring"
+              style="width: 120px; height: 120px; border-color: rgba(236,72,153,0.4); background: rgba(236,72,153,0.05);">
+              <span class="text-xs font-semibold" style="color: rgba(236,72,153,0.8);">Intent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up mt-4" style="transition-delay: 0.2s;">
+        <div class="grid md:grid-cols-3 gap-4 text-center text-sm" style="color: #71717a;">
+          <div class="p-4 rounded-lg"
+            style="background: rgba(236,72,153,0.04); border: 1px solid rgba(236,72,153,0.1);">
+            <div class="font-semibold mb-1" style="color: #ec4899;">Intent</div>
+            <div>Why does this exist? What should the viewer <em>feel</em>?</div>
+          </div>
+          <div class="p-4 rounded-lg"
+            style="background: rgba(245,158,11,0.04); border: 1px solid rgba(245,158,11,0.1);">
+            <div class="font-semibold mb-1" style="color: #f59e0b;">Story</div>
+            <div>The emotional architecture. Desire → Friction → Shift.</div>
+          </div>
+          <div class="p-4 rounded-lg"
+            style="background: rgba(59,130,246,0.04); border: 1px solid rgba(59,130,246,0.1);">
+            <div class="font-semibold mb-1" style="color: #3b82f6;">Domains</div>
+            <div>Design, Cinematography, Sound, Editing, Motion — the craft layer.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             FEATURED RESOURCE
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 pb-12">
+      <div class="fade-up relative p-8 rounded-2xl overflow-hidden"
+        style="background: linear-gradient(135deg, rgba(24,24,27,0.8), rgba(9,9,11,0.9)); border: 1px solid rgba(245,158,11,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <!-- bg glow -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl"
+          style="background: rgba(245,158,11,0.15); pointer-events: none;"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+          <div class="flex-1">
+            <span
+              class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">NEW
+              ADDITION</span>
+            <h2 class="text-3xl font-bold mb-3 text-white">The Visual Story Reader</h2>
+            <p class="text-zinc-400 mb-6 leading-relaxed">Dive deep into Bruce Block's masterclass on creating the
+              visual structure of film, TV, and digital media. Beautifully formatted in our distraction-free cinematic
+              reader.</p>
+            <a href="visual-story.html"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-400 text-amber-950 font-semibold rounded-full transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Open Reader
+            </a>
+          </div>
+          <div
+            class="relative w-full md:w-64 h-80 rounded-xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <div class="text-center p-6">
+                <div class="text-4xl mb-4 opacity-50">📖</div>
+                <h3 class="text-lg font-bold text-white mb-2 font-serif">The Visual Story</h3>
+                <p class="text-sm text-zinc-500 uppercase tracking-widest">Bruce Block</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             CORE LAYER
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #f59e0b; letter-spacing: 0.15em;">
+          Core Layer
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Storytelling</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">The foundation. Everything else is execution of story.</p>
+      </div>
+
+      <a href="storytelling.html" class="domain-card card-storytelling fade-up" style="transition-delay: 0.05s;">
+        <div class="flex items-start gap-4">
+          <div class="domain-icon text-2xl flex-shrink-0 mt-1">🎭</div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2" style="color: #fafafa;">00 · Storytelling</h3>
+            <p class="text-sm leading-relaxed mb-3" style="color: #a1a1aa;">
+              Domains execute. Story leads. If you skip this, everything below becomes beautiful nonsense.
+              Learn the multiplier formula: <span style="font-family: monospace; color: #f59e0b;">Story × Craft =
+                Impact</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag tag-core">Core Principle</span>
+              <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Story vs
+                Style</span>
+              <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Desire / Friction /
+                Relief</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             EXECUTION DOMAINS (5 Cards)
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #3b82f6; letter-spacing: 0.15em;">
+          Execution Domains
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">The Five Pillars</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Each domain has its own question. Each question reveals
+          whether you're thinking or just vibing.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="design.html" class="domain-card card-design fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">◆</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">01 · Design</h3>
+          <p class="text-xs italic mb-2" style="color: #d97706;">"If this never moved, would it still work?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Composition, hierarchy, typography, color psychology, negative
+            space, grid systems, shape language.</p>
+        </a>
+
+        <a href="cinematography.html" class="domain-card card-cinematography fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">◎</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">02 · Cinematography</h3>
+          <p class="text-xs italic mb-2" style="color: #3b82f6;">"Does this feel physically real?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Light physics, color temperature, focal length, exposure, camera
+            movement, depth of field.</p>
+        </a>
+
+        <a href="sound.html" class="domain-card card-sound fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">◌</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">03 · Sound</h3>
+          <p class="text-xs italic mb-2" style="color: #0891b2;">"Would this feel real with eyes closed?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Production sound, room tone, foley, layering,
+            diegetic/non-diegetic, silence, EQ & compression.</p>
+        </a>
+
+        <a href="editing.html" class="domain-card card-editing fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">▤</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">04 · Editing</h3>
+          <p class="text-xs italic mb-2" style="color: #059669;">"What does this sequence say?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">Kuleshov effect, cause & effect, the blink, rhythm & tension,
+            Eisenstein's montage methods.</p>
+        </a>
+
+        <a href="motion.html" class="domain-card card-motion fade-up md:col-span-2" style="transition-delay: 0.25s;">
+          <div class="domain-icon text-xl mb-3">↻</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">05 · Motion</h3>
+          <p class="text-xs italic mb-2" style="color: #ea580c;">"Does this feel alive?"</p>
+          <p class="text-sm" style="color: #a1a1aa;">12 principles of animation, weight & physics, speed graphs, motion
+            blur, follow-through, parallax. Even stylized motion must have weight, cause, and reaction.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             ADVANCED SYSTEMS
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #8b5cf6; letter-spacing: 0.15em;">
+          Advanced Systems
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Beyond Craft</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Structured grammars for emotion, scenes, and AI-native
+          visual thinking.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="ai-visual.html" class="domain-card card-ai fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">⬡</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">AI Visual Generation</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            Concepts and vocabulary for AI image & video generation. Achieve cinematic results, avoid
+            "sludge." Covers prompt engineering, visual control, camera motivation, and constraint-based
+            thinking.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-ai">AI</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Prompt
+              Structure</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Visual
+              Control</span>
+          </div>
+        </a>
+
+        <a href="emotion-grammar.html" class="domain-card card-emotion fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">♡</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Cinematic Emotion Grammar</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            24 emotions mapped to cinematic language. Each with space, light, lens, movement, editing,
+            sound, and texture. Includes direct AI prompt translations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-advanced">Advanced</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">24 Emotions</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">AI Prompts</span>
+          </div>
+        </a>
+
+        <a href="scene-grammar.html" class="domain-card card-scene fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">▣</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Scene Grammar & Pressure System</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            10 universal scene archetypes with complete spatial, light, lens, movement, and editing grammars.
+            Confrontation, Reunion, Death, Revelation, Betrayal, and more.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-advanced">Advanced</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">10
+              Archetypes</span>
+          </div>
+        </a>
+
+        <a href="story-emotion.html" class="domain-card card-storytelling fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">◉</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Story × Emotion</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            The intersection of narrative structure and emotional architecture. Where character, conflict,
+            and internal world collide. Presence vs Absence, Time Pressure, Memory vs Reality.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-core">Core</span>
+            <span class="tag tag-advanced">Advanced</span>
+          </div>
+        </a>
+
+        <a href="audience-participation.html" class="domain-card card-craft fade-up" style="transition-delay: 0.25s;">
+          <div class="domain-icon text-xl mb-3">◬</div>
+          <h3 class="text-base font-semibold mb-1" style="color: #fafafa;">Audience Participation</h3>
+          <p class="text-sm mb-3" style="color: #a1a1aa;">
+            Audience as the Third Presence. Writing and designing for the sensing vs understanding gap. Moving beyond observation to true participation.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tag tag-advanced">Advanced</span>
+            <span class="tag" style="background: rgba(255,255,255,0.06); color: #71717a;">Psychology</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             TOOLS & REFERENCE
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #10b981; letter-spacing: 0.15em;">
+          Tools & Reference
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Practice & Apply</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Hands-on tools, curated references, and personal craft
+          notes.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="ideation.html" class="domain-card card-ideation fade-up" style="transition-delay: 0.05s;">
+          <div class="domain-icon text-xl mb-3">⚡</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Ideation Engine</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Creative constraints randomizer. Generate briefs from
+            curated categories.</p>
+        </a>
+
+        <a href="style-reference.html" class="domain-card card-style fade-up" style="transition-delay: 0.1s;">
+          <div class="domain-icon text-xl mb-3">◎</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Style Reference</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Visual encyclopedia of design styles — Glassmorphism,
+            Brutalism, Bauhaus, Y2K, and more.</p>
+        </a>
+
+        <a href="craft-notes.html" class="domain-card card-craft fade-up" style="transition-delay: 0.15s;">
+          <div class="domain-icon text-xl mb-3">✎</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Craft Notes</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Personal working notes — character creation, story
+            structure, dialogue, world-building.</p>
+        </a>
+
+        <a href="resources.html" class="domain-card card-resources fade-up" style="transition-delay: 0.2s;">
+          <div class="domain-icon text-xl mb-3">☷</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Resources</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Best free YouTube channels, courses, articles, and tools.
+            Curated, not dumped.</p>
+        </a>
+
+        <a href="filmmaking-keywords.html" class="domain-card fade-up" style="transition-delay: 0.25s;">
+          <div class="domain-icon text-xl mb-3" style="color: #64748b;">🎬</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Filmmaking Keywords</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Searchable keyword map for filmmaking terminology.</p>
+        </a>
+
+        <a href="mograph-keywords.html" class="domain-card fade-up" style="transition-delay: 0.3s;">
+          <div class="domain-icon text-xl mb-3" style="color: #64748b;">◐</div>
+          <h3 class="text-sm font-semibold mb-1" style="color: #fafafa;">Motion Graphics Keywords</h3>
+          <p class="text-xs" style="color: #a1a1aa;">Motion design vocabulary and keyword reference.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+             LEARNING PATHS
+             ═══════════════════════════════════════ -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="fade-up">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #06b6d4; letter-spacing: 0.15em;">
+          Getting Started
+        </p>
+        <h2 class="text-2xl font-bold tracking-tight mb-2" style="color: #fafafa;">Learning Paths</h2>
+        <p class="text-sm mb-8" style="color: #71717a;">Choose your starting point based on where you are.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <!-- Beginner Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.05s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #10b981;">
+            Beginner
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Start with "Why"</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="storytelling.html" class="hover:underline" style="color: #a1a1aa;">Storytelling</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="design.html" class="hover:underline" style="color: #a1a1aa;">Design fundamentals</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="cinematography.html" class="hover:underline" style="color: #a1a1aa;">Cinematography basics</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="resources.html" class="hover:underline" style="color: #a1a1aa;">Resources (YouTube)</a>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Filmmaker Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.1s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #3b82f6;">
+            Advanced Filmmaker
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Master the Grammar</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="emotion-grammar.html" class="hover:underline" style="color: #a1a1aa;">Emotion Grammar</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="scene-grammar.html" class="hover:underline" style="color: #a1a1aa;">Scene Grammar</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="editing.html" class="hover:underline" style="color: #a1a1aa;">Editing deep-dive</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="craft-notes.html" class="hover:underline" style="color: #a1a1aa;">Craft Notes</a>
+            </li>
+          </ol>
+        </div>
+
+        <!-- AI Practitioner Path -->
+        <div class="path-card fade-up" style="transition-delay: 0.15s;">
+          <div class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #8b5cf6;">
+            AI Practitioner
+          </div>
+          <h3 class="font-semibold text-sm mb-3" style="color: #fafafa;">Cinematic AI Thinking</h3>
+          <ol class="text-xs space-y-2" style="color: #a1a1aa;">
+            <li class="flex gap-2">
+              <span style="color: #52525b;">01</span>
+              <a href="ai-visual.html" class="hover:underline" style="color: #a1a1aa;">AI Visual Generation</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">02</span>
+              <a href="emotion-grammar.html" class="hover:underline" style="color: #a1a1aa;">Emotion → AI Prompts</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">03</span>
+              <a href="cinematography.html" class="hover:underline" style="color: #a1a1aa;">Cinematography for
+                prompts</a>
+            </li>
+            <li class="flex gap-2">
+              <span style="color: #52525b;">04</span>
+              <a href="ideation.html" class="hover:underline" style="color: #a1a1aa;">Ideation Engine</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="max-w-4xl mx-auto px-6 py-12 mt-8" style="border-top: 1px solid #27272a;">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider mb-1" style="color: #52525b;">Visual Storytelling
+            Framework</div>
+          <div class="text-xs" style="color: #3f3f46;">A system for thinking like a cinematic architect in the
+            AI era.</div>
+        </div>
+        <div class="text-xs" style="color: #3f3f46;">
+          Built with intent. Updated 2026.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ═══════════════════════════════════════
+         SCRIPTS
+         ═══════════════════════════════════════ -->
+  <script>
+    // ─── Sidebar Toggle ───
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+
+    // ─── Intersection Observer for fade-in ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ─── Close sidebar on escape ───
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('sidebar').classList.remove('open');
+        document.querySelector('.sidebar-overlay').classList.remove('active');
+      }
+    });
+    // ─── Interactive Effects ───
+    const ambientGlow = document.getElementById('ambient-glow');
+    document.addEventListener('mousemove', (e) => {
+      if (ambientGlow) {
+        ambientGlow.style.opacity = '1';
+        ambientGlow.style.left = e.clientX + 'px';
+        ambientGlow.style.top = e.clientY + 'px';
+      }
+    });
+
+    const cards = document.querySelectorAll('.domain-card, .path-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        card.style.transition = 'none';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      });
+    });
+
+    // ─── Progress Tracking Setup (Basic) ───
+    if (localStorage.getItem('visualStoryReadFlag') === 'true') {
+      const visualStoryLink = document.querySelector('a[href="visual-story.html"] span:last-child');
+      if (visualStoryLink) {
+        visualStoryLink.innerHTML += ' <span style="color:#10b981; font-size:0.7rem; margin-left:4px;">(Visited)</span>';
+      }
+    }
+  </script>
+</body>
+
+</html>

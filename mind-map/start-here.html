@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visual Storytelling Framework — Your Creative Journey</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,19 +38,19 @@
       }
     }
   </script>
-  
+
   <style>
     body {
       background-color: #050508;
       color: #e4e4e7;
     }
-    
+
     body.lang-hi {
       font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
       line-height: 1.8;
       letter-spacing: 0.01em;
     }
-    
+
     .glass-panel {
       background: rgba(24, 24, 27, 0.6);
       backdrop-filter: blur(16px);
@@ -55,7 +58,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     .floating-switcher {
       position: fixed;
       top: 1rem;
@@ -66,7 +69,7 @@
       padding: 6px;
       border-radius: 999px;
     }
-    
+
     .lang-btn {
       padding: 8px 16px;
       border-radius: 999px;
@@ -76,13 +79,13 @@
       cursor: pointer;
       color: #a1a1aa;
     }
-    
+
     .active-lang {
       background: rgba(139, 92, 246, 0.2);
       color: #d8b4fe;
       box-shadow: inset 0 0 0 1px rgba(139, 92, 246, 0.4);
     }
-    
+
     .gradient-text {
       background: linear-gradient(135deg, #c084fc, #60a5fa, #34d399);
       -webkit-background-clip: text;
@@ -93,6 +96,7 @@
     .card-hover {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .card-hover:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
@@ -105,8 +109,13 @@
       stroke-dashoffset: 1000;
       animation: draw 3s forwards ease-out;
     }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
     /* Mobile Menu Button - replicating existing structure */
     .menu-btn {
       position: fixed;
@@ -124,8 +133,13 @@
       color: #a1a1aa;
       cursor: pointer;
     }
-    @media (min-width: 1024px) { .menu-btn { display: none; } }
-    
+
+    @media (min-width: 1024px) {
+      .menu-btn {
+        display: none;
+      }
+    }
+
     .sidebar {
       position: fixed;
       top: 0;
@@ -140,12 +154,21 @@
       transform: translateX(-100%);
       transition: transform 0.3s ease;
     }
-    .sidebar.open { transform: translateX(0); }
-    @media (min-width: 1024px) {
-      .sidebar { transform: translateX(0); }
-      .main-content { margin-left: 260px; }
+
+    .sidebar.open {
+      transform: translateX(0);
     }
-    
+
+    @media (min-width: 1024px) {
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 260px;
+      }
+    }
+
     .sidebar-overlay {
       position: fixed;
       inset: 0;
@@ -155,49 +178,72 @@
       pointer-events: none;
       transition: opacity 0.3s;
     }
+
     .sidebar-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
 
     .sidebar-link {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        padding: 0.5rem 1.25rem;
-        font-size: 0.82rem;
-        color: #a1a1aa;
-        text-decoration: none;
-        transition: all 0.2s;
-        border-left: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      color: #a1a1aa;
+      text-decoration: none;
+      transition: all 0.2s;
+      border-left: 2px solid transparent;
     }
-    .sidebar-link:hover { color: #e4e4e7; background: rgba(63, 63, 70, 0.3); }
-    .sidebar-link.active { color: #8b5cf6; border-left-color: #8b5cf6; background: rgba(139, 92, 246, 0.06); }
-    
+
+    .sidebar-link:hover {
+      color: #e4e4e7;
+      background: rgba(63, 63, 70, 0.3);
+    }
+
+    .sidebar-link.active {
+      color: #8b5cf6;
+      border-left-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.06);
+    }
+
     .sidebar-section-title {
-        font-size: 0.65rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #52525b;
-        padding: 1.25rem 1.25rem 0.4rem;
-        font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #52525b;
+      padding: 1.25rem 1.25rem 0.4rem;
+      font-weight: 600;
     }
 
     /* Custom scrollbar for better blend */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #050508; }
-    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #050508;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46;
+    }
   </style>
 </head>
+
 <body class="lang-en antialiased selection:bg-brand-500/30">
 
   <!-- Mobile Menu Button -->
   <button class="menu-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">
     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <line x1="3" y1="6" x2="17" y2="6"/>
-      <line x1="3" y1="10" x2="17" y2="10"/>
-      <line x1="3" y1="14" x2="17" y2="14"/>
+      <line x1="3" y1="6" x2="17" y2="6" />
+      <line x1="3" y1="10" x2="17" y2="10" />
+      <line x1="3" y1="14" x2="17" y2="14" />
     </svg>
   </button>
   <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -205,7 +251,11 @@
   <!-- Language Switcher -->
   <div class="floating-switcher glass-panel shadow-2xl">
     <div class="flex items-center justify-center pl-2 pr-1 text-zinc-400">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+        </path>
+      </svg>
     </div>
     <button onclick="I18n.setLanguage('en')" class="lang-btn lang-en-label active-lang">English</button>
     <button onclick="I18n.setLanguage('hi')" class="lang-btn lang-hi-label">हिंदी</button>
@@ -214,61 +264,80 @@
   <!-- SIDEBAR NAVIGATION -->
   <nav class="sidebar" id="sidebar">
     <div style="padding: 0 1.25rem 1rem;">
-      <div data-i18n="nav.brand" style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+      <div data-i18n="nav.brand" style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#e4e4e7">VISUAL
+        STORYTELLING</div>
       <div data-i18n="nav.tagline" style="font-size:0.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
     </div>
     <div class="sidebar-section-title">Core</div>
-    <a href="new-index.html" class="sidebar-link active"><span>◈</span> <span data-i18n="nav.overview">Overview</span></a>
-    <a href="storytelling.html" class="sidebar-link"><span>00</span> <span data-i18n="nav.storytelling">Storytelling</span></a>
-    
+    <a href="new-index.html" class="sidebar-link active"><span>◈</span> <span
+        data-i18n="nav.overview">Overview</span></a>
+    <a href="storytelling.html" class="sidebar-link"><span>00</span> <span
+        data-i18n="nav.storytelling">Storytelling</span></a>
+
     <div class="sidebar-section-title">Domains</div>
     <a href="design.html" class="sidebar-link"><span>01</span> <span data-i18n="nav.design">Design</span></a>
-    <a href="cinematography.html" class="sidebar-link"><span>02</span> <span data-i18n="nav.cinematography">Cinematography</span></a>
+    <a href="cinematography.html" class="sidebar-link"><span>02</span> <span
+        data-i18n="nav.cinematography">Cinematography</span></a>
     <a href="sound.html" class="sidebar-link"><span>03</span> <span data-i18n="nav.sound">Sound</span></a>
     <a href="editing.html" class="sidebar-link"><span>04</span> <span data-i18n="nav.editing">Editing</span></a>
     <a href="motion.html" class="sidebar-link"><span>05</span> <span data-i18n="nav.motion">Motion</span></a>
-    
+
     <div class="sidebar-section-title">Advanced Systems</div>
     <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> <span data-i18n="nav.aiVisual">AI Visual</span></a>
-    <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> <span data-i18n="nav.emotionGrammar">Emotion Grammar</span></a>
-    <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> <span data-i18n="nav.sceneGrammar">Scene Grammar</span></a>
-    
+    <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> <span data-i18n="nav.emotionGrammar">Emotion
+        Grammar</span></a>
+    <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> <span data-i18n="nav.sceneGrammar">Scene
+        Grammar</span></a>
+
     <div class="sidebar-section-title">Tools & Reference</div>
-    <a href="ideation.html" class="sidebar-link"><span>⚡</span> <span data-i18n="nav.ideation">Ideation Engine</span></a>
+    <a href="ideation.html" class="sidebar-link"><span>⚡</span> <span data-i18n="nav.ideation">Ideation
+        Engine</span></a>
     <a href="resources.html" class="sidebar-link"><span>☷</span> <span data-i18n="nav.resources">Resources</span></a>
   </nav>
 
   <!-- MAIN CONTENT -->
   <main class="main-content">
-    
+
     <!-- 1. HERO SECTION -->
-    <header class="relative px-6 pt-32 pb-24 overflow-hidden flex flex-col items-center justify-center text-center min-h-[90vh]">
+    <header
+      class="relative px-6 pt-32 pb-24 overflow-hidden flex flex-col items-center justify-center text-center min-h-[90vh]">
       <!-- Animated Background elements -->
       <div class="absolute inset-0 z-0">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-[100px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] animate-pulse"
+          style="animation-delay: 2s;"></div>
       </div>
 
       <div class="relative z-10 max-w-4xl mx-auto space-y-6">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-semibold tracking-wide uppercase shadow-lg shadow-brand-500/10">
-          <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 4.14a6.002 6.002 0 013.91 10.96 6.002 6.002 0 01-3.91-10.96z"></path></svg>
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-sm font-semibold tracking-wide uppercase shadow-lg shadow-brand-500/10">
+          <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 4.14a6.002 6.002 0 013.91 10.96 6.002 6.002 0 01-3.91-10.96z">
+            </path>
+          </svg>
           <span data-i18n="hero.badge">Your Creative Journey Starts Here</span>
         </div>
-        
+
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight pb-2">
           <span class="block text-zinc-100" data-i18n="hero.title1">Your drawings & photos</span>
           <span class="block gradient-text mt-2" data-i18n="hero.title2">already have a filmmaker inside them</span>
         </h1>
-        
+
         <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-medium" data-i18n="hero.subtitle">
           You love drawing. You love clicking photos. That means you already see the world differently...
         </p>
 
         <div class="pt-8 max-w-2xl mx-auto">
           <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-brand-500 text-left relative overflow-hidden">
-            <svg class="absolute top-4 right-4 w-12 h-12 text-zinc-800/50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"></path></svg>
-            <p class="text-zinc-300 italic mb-3 relative z-10" data-i18n="hero.quote">"I built this site because I believe YOUR unique eye..."</p>
-            <p class="text-sm font-bold text-brand-400 relative z-10" data-i18n="hero.quoteAuthor">— Himanshu, your creative mentor</p>
+            <svg class="absolute top-4 right-4 w-12 h-12 text-zinc-800/50" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z">
+              </path>
+            </svg>
+            <p class="text-zinc-300 italic mb-3 relative z-10" data-i18n="hero.quote">"I built this site because I
+              believe YOUR unique eye..."</p>
+            <p class="text-sm font-bold text-brand-400 relative z-10" data-i18n="hero.quoteAuthor">— Himanshu, your
+              creative mentor</p>
           </div>
         </div>
       </div>
@@ -276,23 +345,29 @@
 
     <!-- 2. WHY THIS MATTERS FOR YOU (Empowerment Section) -->
     <section class="max-w-4xl mx-auto px-6 py-16">
-      <div class="flex flex-col md:flex-row gap-8 items-center bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 card-hover">
+      <div
+        class="flex flex-col md:flex-row gap-8 items-center bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 card-hover">
         <div class="flex-1 space-y-4">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest" data-i18n="whyMatters.badge">Why This Matters for YOU</span>
-          <h2 class="text-3xl font-bold text-zinc-100" data-i18n="whyMatters.title">You Already Have the Artist's Eye 🎨</h2>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest" data-i18n="whyMatters.badge">Why
+            This Matters for YOU</span>
+          <h2 class="text-3xl font-bold text-zinc-100" data-i18n="whyMatters.title">You Already Have the Artist's Eye 🎨
+          </h2>
           <p class="text-zinc-400" data-i18n="whyMatters.p1">When you draw, you make choices...</p>
           <p class="text-zinc-400" data-i18n="whyMatters.p2">These are the exact same skills filmmakers use!</p>
           <div class="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl mt-4">
             <strong class="text-emerald-400 block mb-1" data-i18n="whyMatters.tryToday">🎯 Try This Today</strong>
-            <p class="text-sm text-emerald-200/70" data-i18n="whyMatters.tryTodayText">Take 3 photos of the same object...</p>
+            <p class="text-sm text-emerald-200/70" data-i18n="whyMatters.tryTodayText">Take 3 photos of the same
+              object...</p>
           </div>
         </div>
-        <div class="w-full md:w-1/3 relative h-64 rounded-2xl overflow-hidden glass-panel flex items-center justify-center">
-           <!-- Abstract Animation replacing image -->
-           <svg class="w-32 h-32 text-emerald-500/40" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-              <circle cx="50" cy="50" r="40" stroke-width="2" class="draw-line" />
-              <path d="M30 50 L50 70 L80 30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="draw-line" style="animation-delay: 1s;" />
-           </svg>
+        <div
+          class="w-full md:w-1/3 relative h-64 rounded-2xl overflow-hidden glass-panel flex items-center justify-center">
+          <!-- Abstract Animation replacing image -->
+          <svg class="w-32 h-32 text-emerald-500/40" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+            <circle cx="50" cy="50" r="40" stroke-width="2" class="draw-line" />
+            <path d="M30 50 L50 70 L80 30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+              class="draw-line" style="animation-delay: 1s;" />
+          </svg>
         </div>
       </div>
     </section>
@@ -300,35 +375,49 @@
     <!-- 3. AI VS HUMAN DIAGRAM -->
     <section class="max-w-4xl mx-auto px-6 py-16">
       <div class="text-center mb-10">
-        <span class="text-xs font-bold text-blue-400 uppercase tracking-widest" data-i18n="aiVsHuman.badge">The Big Picture</span>
-        <h2 class="text-3xl font-bold text-zinc-100 mt-2" data-i18n="aiVsHuman.title">AI is Your Helper, Not Your Replacement</h2>
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-widest" data-i18n="aiVsHuman.badge">The Big
+          Picture</span>
+        <h2 class="text-3xl font-bold text-zinc-100 mt-2" data-i18n="aiVsHuman.title">AI is Your Helper, Not Your
+          Replacement</h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="glass-panel p-8 rounded-3xl border-t-4 border-t-pink-500 shadow-xl shadow-pink-500/5 relative overflow-hidden card-hover">
+        <div
+          class="glass-panel p-8 rounded-3xl border-t-4 border-t-pink-500 shadow-xl shadow-pink-500/5 relative overflow-hidden card-hover">
           <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">❤️</div>
-          <h3 class="text-xl font-bold text-pink-400 mb-6" data-i18n="aiVsHuman.humanTitle">What YOU Bring (Irreplaceable!)</h3>
+          <h3 class="text-xl font-bold text-pink-400 mb-6" data-i18n="aiVsHuman.humanTitle">What YOU Bring
+            (Irreplaceable!)</h3>
           <ul class="space-y-4">
-            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.humanItems.0">Your unique way of seeing</span></li>
-            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.humanItems.1">Real emotions & experiences</span></li>
-            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.humanItems.2">Stories only YOU can tell</span></li>
-            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.humanItems.3">The soul in your drawings</span></li>
+            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.humanItems.0">Your unique way of seeing</span></li>
+            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.humanItems.1">Real emotions & experiences</span></li>
+            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.humanItems.2">Stories only YOU can tell</span></li>
+            <li class="flex gap-3"><span class="text-pink-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.humanItems.3">The soul in your drawings</span></li>
           </ul>
         </div>
 
-        <div class="glass-panel p-8 rounded-3xl border-t-4 border-t-blue-500 shadow-xl shadow-blue-500/5 relative overflow-hidden card-hover">
+        <div
+          class="glass-panel p-8 rounded-3xl border-t-4 border-t-blue-500 shadow-xl shadow-blue-500/5 relative overflow-hidden card-hover">
           <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">🚀</div>
           <h3 class="text-xl font-bold text-blue-400 mb-6" data-i18n="aiVsHuman.aiTitle">What AI Helps With (Tools)</h3>
           <ul class="space-y-4">
-            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.aiItems.0">Editing videos faster</span></li>
-            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.aiItems.1">Effects & transitions</span></li>
-            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.aiItems.2">Background music</span></li>
-            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300" data-i18n="aiVsHuman.aiItems.3">Removing backgrounds</span></li>
+            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.aiItems.0">Editing videos faster</span></li>
+            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.aiItems.1">Effects & transitions</span></li>
+            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.aiItems.2">Background music</span></li>
+            <li class="flex gap-3"><span class="text-blue-500">❖</span> <span class="text-zinc-300"
+                data-i18n="aiVsHuman.aiItems.3">Removing backgrounds</span></li>
           </ul>
         </div>
       </div>
-      
-      <div class="mt-8 text-center bg-zinc-800/50 p-4 rounded-xl text-zinc-300 font-medium border border-zinc-700/50" data-i18n="aiVsHuman.bottom">
+
+      <div class="mt-8 text-center bg-zinc-800/50 p-4 rounded-xl text-zinc-300 font-medium border border-zinc-700/50"
+        data-i18n="aiVsHuman.bottom">
         You + AI = Films with soul AND speed. Your creativity leads, AI assists. ✨
       </div>
     </section>
@@ -336,37 +425,47 @@
     <!-- 4. FILMMAKING JOURNEY (The Core Addition) -->
     <section class="max-w-4xl mx-auto px-6 py-16">
       <div class="text-center mb-12">
-        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest" data-i18n="journey.badge">The Complete Filmmaking Journey</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-zinc-100 mt-2 mb-4" data-i18n="journey.title">How a Film Gets Made</h2>
+        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest" data-i18n="journey.badge">The Complete
+          Filmmaking Journey</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-zinc-100 mt-2 mb-4" data-i18n="journey.title">How a Film Gets
+          Made</h2>
         <p class="text-zinc-400 max-w-2xl mx-auto" data-i18n="journey.subtitle">Every movie follows 3 stages...</p>
       </div>
 
       <div class="space-y-12 relative">
         <!-- Connecting Line -->
-        <div class="hidden md:block absolute left-12 top-10 bottom-10 w-0.5 bg-gradient-to-b from-amber-500 via-rose-500 to-indigo-500"></div>
+        <div
+          class="hidden md:block absolute left-12 top-10 bottom-10 w-0.5 bg-gradient-to-b from-amber-500 via-rose-500 to-indigo-500">
+        </div>
 
         <!-- Stage 1 -->
         <div class="relative flex flex-col md:flex-row gap-6 md:gap-10">
           <div class="md:w-24 flex-shrink-0 flex justify-start z-10">
-            <div class="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(245,158,11,0.3)]">🎨</div>
+            <div
+              class="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+              🎨</div>
           </div>
           <div class="flex-1 glass-panel p-6 md:p-8 rounded-3xl border-l-4 border-l-amber-500 card-hover">
             <h3 class="text-2xl font-bold text-amber-400 mb-1" data-i18n="journey.pre.title">Pre-Production</h3>
-            <p class="text-amber-200/70 text-sm font-semibold mb-4" data-i18n="journey.pre.tagline">Planning & Dreaming Stage 🌟</p>
-            <p class="text-zinc-400 mb-6" data-i18n="journey.pre.desc">This is where you turn your ideas into a clear plan...</p>
-            
+            <p class="text-amber-200/70 text-sm font-semibold mb-4" data-i18n="journey.pre.tagline">Planning & Dreaming
+              Stage 🌟</p>
+            <p class="text-zinc-400 mb-6" data-i18n="journey.pre.desc">This is where you turn your ideas into a clear
+              plan...</p>
+
             <div class="grid sm:grid-cols-2 gap-4 mb-6">
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
                 <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.pre.steps.0.label">Think of Your Idea</div>
-                <div class="text-sm text-zinc-500" data-i18n="journey.pre.steps.0.desc">What story do you want to tell?</div>
+                <div class="text-sm text-zinc-500" data-i18n="journey.pre.steps.0.desc">What story do you want to tell?
+                </div>
               </div>
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
                 <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.pre.steps.2.label">Draw a Storyboard</div>
                 <div class="text-sm text-zinc-500" data-i18n="journey.pre.steps.2.desc">Use YOUR drawing skills!</div>
               </div>
             </div>
-            
-            <div class="bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 text-sm text-amber-200/80" data-i18n="journey.pre.tryToday">
+
+            <div class="bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 text-sm text-amber-200/80"
+              data-i18n="journey.pre.tryToday">
               🎯 Try This Right Now: Pick one idea. Draw 4 boxes...
             </div>
           </div>
@@ -375,25 +474,32 @@
         <!-- Stage 2 -->
         <div class="relative flex flex-col md:flex-row gap-6 md:gap-10">
           <div class="md:w-24 flex-shrink-0 flex justify-start z-10">
-            <div class="w-16 h-16 rounded-full bg-rose-500/20 border-2 border-rose-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(244,63,94,0.3)]">📸</div>
+            <div
+              class="w-16 h-16 rounded-full bg-rose-500/20 border-2 border-rose-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(244,63,94,0.3)]">
+              📸</div>
           </div>
           <div class="flex-1 glass-panel p-6 md:p-8 rounded-3xl border-l-4 border-l-rose-500 card-hover">
             <h3 class="text-2xl font-bold text-rose-400 mb-1" data-i18n="journey.prod.title">Production</h3>
-            <p class="text-rose-200/70 text-sm font-semibold mb-4" data-i18n="journey.prod.tagline">Shooting & Capturing Stage</p>
+            <p class="text-rose-200/70 text-sm font-semibold mb-4" data-i18n="journey.prod.tagline">Shooting & Capturing
+              Stage</p>
             <p class="text-zinc-400 mb-6" data-i18n="journey.prod.desc">Grab your phone and start shooting...</p>
-            
+
             <div class="grid sm:grid-cols-2 gap-4 mb-6">
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
                 <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.prod.steps.1.label">Find Good Light</div>
-                <div class="text-sm text-zinc-500" data-i18n="journey.prod.steps.1.desc">Natural light near a window is gorgeous.</div>
+                <div class="text-sm text-zinc-500" data-i18n="journey.prod.steps.1.desc">Natural light near a window is
+                  gorgeous.</div>
               </div>
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
-                <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.prod.steps.3.label">Mix Drawings + Real Life</div>
-                <div class="text-sm text-zinc-500" data-i18n="journey.prod.steps.3.desc">Hold your drawing against a real background.</div>
+                <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.prod.steps.3.label">Mix Drawings + Real
+                  Life</div>
+                <div class="text-sm text-zinc-500" data-i18n="journey.prod.steps.3.desc">Hold your drawing against a
+                  real background.</div>
               </div>
             </div>
-            
-            <div class="bg-rose-500/10 p-4 rounded-xl border border-rose-500/20 text-sm text-rose-200/80" data-i18n="journey.prod.tryToday">
+
+            <div class="bg-rose-500/10 p-4 rounded-xl border border-rose-500/20 text-sm text-rose-200/80"
+              data-i18n="journey.prod.tryToday">
               🎯 Try This Right Now: Film a 30-sec time-lapse...
             </div>
           </div>
@@ -402,25 +508,32 @@
         <!-- Stage 3 -->
         <div class="relative flex flex-col md:flex-row gap-6 md:gap-10">
           <div class="md:w-24 flex-shrink-0 flex justify-start z-10">
-            <div class="w-16 h-16 rounded-full bg-indigo-500/20 border-2 border-indigo-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(99,102,241,0.3)]">✨</div>
+            <div
+              class="w-16 h-16 rounded-full bg-indigo-500/20 border-2 border-indigo-500 flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+              ✨</div>
           </div>
           <div class="flex-1 glass-panel p-6 md:p-8 rounded-3xl border-l-4 border-l-indigo-500 card-hover">
             <h3 class="text-2xl font-bold text-indigo-400 mb-1" data-i18n="journey.post.title">Post-Production</h3>
-            <p class="text-indigo-200/70 text-sm font-semibold mb-4" data-i18n="journey.post.tagline">Editing & Magic Stage</p>
-            <p class="text-zinc-400 mb-6" data-i18n="journey.post.desc">Take all your clips, arrange them, add music...</p>
-            
+            <p class="text-indigo-200/70 text-sm font-semibold mb-4" data-i18n="journey.post.tagline">Editing & Magic
+              Stage</p>
+            <p class="text-zinc-400 mb-6" data-i18n="journey.post.desc">Take all your clips, arrange them, add music...
+            </p>
+
             <div class="grid sm:grid-cols-2 gap-4 mb-6">
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
                 <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.post.steps.1.label">Cut & Arrange</div>
-                <div class="text-sm text-zinc-500" data-i18n="journey.post.steps.1.desc">Keep the interesting stuff. Put clips in order.</div>
+                <div class="text-sm text-zinc-500" data-i18n="journey.post.steps.1.desc">Keep the interesting stuff. Put
+                  clips in order.</div>
               </div>
               <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
                 <div class="font-bold text-zinc-200 mb-1" data-i18n="journey.post.steps.3.label">Export & Share!</div>
-                <div class="text-sm text-zinc-500" data-i18n="journey.post.steps.3.desc">Post to Instagram Reels or Shorts.</div>
+                <div class="text-sm text-zinc-500" data-i18n="journey.post.steps.3.desc">Post to Instagram Reels or
+                  Shorts.</div>
               </div>
             </div>
-            
-            <div class="bg-indigo-500/10 p-4 rounded-xl border border-indigo-500/20 text-sm text-indigo-200/80" data-i18n="journey.post.tryToday">
+
+            <div class="bg-indigo-500/10 p-4 rounded-xl border border-indigo-500/20 text-sm text-indigo-200/80"
+              data-i18n="journey.post.tryToday">
               🎯 Try This Right Now: Open CapCut...
             </div>
           </div>
@@ -434,65 +547,87 @@
       <div class="glass-panel rounded-3xl p-8 md:p-12 relative overflow-hidden">
         <!-- Deco -->
         <div class="absolute -top-32 -right-32 w-64 h-64 bg-fuchsia-600/20 rounded-full blur-[80px]"></div>
-        
+
         <div class="text-center mb-10 relative z-10">
-          <span class="text-xs font-bold text-fuchsia-400 uppercase tracking-widest" data-i18n="career.badge">Your Independence Roadmap</span>
-          <h2 class="text-3xl font-bold text-zinc-100 mt-2 mb-4" data-i18n="career.title">Earn, Create & Be Free — From Your Phone</h2>
-          <p class="text-zinc-400 max-w-2xl mx-auto" data-i18n="career.subtitle">Girls from small towns and big cities are building creative careers...</p>
+          <span class="text-xs font-bold text-fuchsia-400 uppercase tracking-widest" data-i18n="career.badge">Your
+            Independence Roadmap</span>
+          <h2 class="text-3xl font-bold text-zinc-100 mt-2 mb-4" data-i18n="career.title">Earn, Create & Be Free — From
+            Your Phone</h2>
+          <p class="text-zinc-400 max-w-2xl mx-auto" data-i18n="career.subtitle">Girls from small towns and big cities
+            are building creative careers...</p>
         </div>
 
         <div class="bg-fuchsia-500/10 border border-fuchsia-500/30 rounded-2xl p-6 mb-10 text-center relative z-10">
-          <h3 class="font-bold text-fuchsia-300 text-lg mb-2" data-i18n="career.advantage.title">Your Unique Advantage</h3>
-          <p class="text-zinc-300" data-i18n="career.advantage.text">You already draw and take photos — this is HUGE! Most creators start from zero...</p>
+          <h3 class="font-bold text-fuchsia-300 text-lg mb-2" data-i18n="career.advantage.title">Your Unique Advantage
+          </h3>
+          <p class="text-zinc-300" data-i18n="career.advantage.text">You already draw and take photos — this is HUGE!
+            Most creators start from zero...</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 relative z-10">
           <div class="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 card-hover">
-            <h4 class="font-bold text-emerald-400 mb-2" data-i18n="career.levels.beginner.title">Beginner: 0-6 Months</h4>
-            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.beginner.earning">₹2,000 – ₹15,000/mo</div>
+            <h4 class="font-bold text-emerald-400 mb-2" data-i18n="career.levels.beginner.title">Beginner: 0-6 Months
+            </h4>
+            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.beginner.earning">₹2,000 –
+              ₹15,000/mo</div>
             <ul class="text-sm text-zinc-400 space-y-2">
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.beginner.tasks.0">Post 3-5 Reels a week</span></li>
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.beginner.tasks.1">Share your art process</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.beginner.tasks.0">Post 3-5 Reels a week</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.beginner.tasks.1">Share your art process</span></li>
             </ul>
           </div>
-          
-          <div class="bg-zinc-900/60 p-6 rounded-2xl border border-fuchsia-500/30 shadow-[0_0_30px_rgba(217,70,239,0.1)] card-hover transform md:-translate-y-4">
-            <h4 class="font-bold text-fuchsia-400 mb-2" data-i18n="career.levels.growing.title">Growing: 6-18 Months</h4>
-            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.growing.earning">₹10,000 – ₹50,000+/mo</div>
+
+          <div
+            class="bg-zinc-900/60 p-6 rounded-2xl border border-fuchsia-500/30 shadow-[0_0_30px_rgba(217,70,239,0.1)] card-hover transform md:-translate-y-4">
+            <h4 class="font-bold text-fuchsia-400 mb-2" data-i18n="career.levels.growing.title">Growing: 6-18 Months
+            </h4>
+            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.growing.earning">₹10,000 –
+              ₹50,000+/mo</div>
             <ul class="text-sm text-zinc-400 space-y-2">
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.growing.tasks.0">Brand deals</span></li>
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.growing.tasks.1">Freelance video editing</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.growing.tasks.0">Brand deals</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.growing.tasks.1">Freelance video editing</span></li>
             </ul>
-            <div class="mt-4 inline-block px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 text-xs font-bold rounded-full">Sweet Spot</div>
+            <div class="mt-4 inline-block px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 text-xs font-bold rounded-full">
+              Sweet Spot</div>
           </div>
 
           <div class="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 card-hover">
-            <h4 class="font-bold text-purple-400 mb-2" data-i18n="career.levels.independent.title">Independent: 18+ Mo</h4>
-            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.independent.earning">₹30,000 – ₹2,00,000+/mo</div>
+            <h4 class="font-bold text-purple-400 mb-2" data-i18n="career.levels.independent.title">Independent: 18+ Mo
+            </h4>
+            <div class="text-lg font-bold text-zinc-100 mb-4" data-i18n="career.levels.independent.earning">₹30,000 –
+              ₹2,00,000+/mo</div>
             <ul class="text-sm text-zinc-400 space-y-2">
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.independent.tasks.0">Multiple income streams</span></li>
-              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span data-i18n="career.levels.independent.tasks.1">Your own style & audience</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.independent.tasks.0">Multiple income streams</span></li>
+              <li class="flex gap-2"><span class="text-zinc-600">→</span> <span
+                  data-i18n="career.levels.independent.tasks.1">Your own style & audience</span></li>
             </ul>
           </div>
         </div>
 
         <div class="mt-12 text-center relative z-10">
-          <p class="text-sm text-zinc-500 mb-4" data-i18n="career.honesty">Honest note: Building an audience takes 90+ days of consistent posting...</p>
-          <p class="text-lg font-semibold text-zinc-200" data-i18n="career.motivation">You can control your own time... Start small today — we are with you! ❤️</p>
+          <p class="text-sm text-zinc-500 mb-4" data-i18n="career.honesty">Honest note: Building an audience takes 90+
+            days of consistent posting...</p>
+          <p class="text-lg font-semibold text-zinc-200" data-i18n="career.motivation">You can control your own time...
+            Start small today — we are with you! ❤️</p>
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="max-w-4xl mx-auto px-6 py-12 border-t border-zinc-800 text-center text-zinc-500 mt-12">
-      <div class="font-bold tracking-widest text-zinc-400 text-sm mb-2" data-i18n="footer.brand">Visual Storytelling Framework</div>
+      <div class="font-bold tracking-widest text-zinc-400 text-sm mb-2" data-i18n="footer.brand">Visual Storytelling
+        Framework</div>
       <div class="text-sm mb-4" data-i18n="footer.tagline">Your guide to creative filmmaking in the AI era.</div>
       <div class="text-xs" data-i18n="footer.updated">Built with love. Updated 2026. ❤️</div>
     </footer>
 
   </main>
 
-  <script src="i18n.js"></script>
+  <script type="module" src="i18n.js"></script>
   <!-- Basic Sidebar functionality -->
   <script>
     function toggleSidebar() {
@@ -501,4 +636,5 @@
     }
   </script>
 </body>
+
 </html>

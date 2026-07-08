@@ -151,6 +151,7 @@ export default defineConfig({
         skillTree: resolve(__dirname, 'skill-tree.html'),
         audienceParticipation: resolve(__dirname, 'audience-participation.html'),
         humanLayers: resolve(__dirname, 'human-layers.html'),
+        startHere: resolve(__dirname, 'start-here.html'),
       }
     }
   },

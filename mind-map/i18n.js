@@ -108,7 +108,14 @@
       const scripts = document.querySelectorAll('script[src*="i18n.js"]');
       if (scripts.length > 0) {
         const src = scripts[0].getAttribute('src');
-        return src.replace('i18n.js', '');
+        if (src.includes('/')) {
+          return src.substring(0, src.lastIndexOf('/') + 1);
+        }
+      }
+
+      const loc = window.location.pathname;
+      if (loc.includes('/')) {
+        return loc.substring(0, loc.lastIndexOf('/') + 1);
       }
       return '';
     },

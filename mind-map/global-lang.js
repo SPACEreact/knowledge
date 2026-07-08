@@ -180,6 +180,12 @@ const SIDEBAR_HI = {
 // Cache original text for reverting to English
 const originalTexts = new Map();
 
+// Cache loaded language packs
+const langCache = {};
+
+// Vite replaces import.meta.env.BASE_URL with the actual base at build time (e.g. '/knowledge/')
+const BASE_URL = import.meta.env.BASE_URL || '/';
+
 function getPageName() {
     const path = window.location.pathname;
     const file = path.split('/').pop() || 'index.html';
@@ -376,7 +382,7 @@ const GlobalLang = {
         }
     },
 
-    applyHindi() {
+    async applyHindi() {
         document.documentElement.setAttribute('lang', 'hi');
         document.body.classList.add('lang-hi');
         document.body.classList.remove('lang-en');
@@ -390,6 +396,24 @@ const GlobalLang = {
         if (strings) applyPageHindi(pageName, strings);
 
         applySidebarHindi();
+
+        // Process data-i18n-html from hi.json
+        if (!langCache['hi']) {
+            try {
+                const resp = await fetch(BASE_URL + 'lang/hi.json');
+                if (resp.ok) langCache['hi'] = await resp.json();
+            } catch (e) {
+                console.warn('[i18n] Fetch error for hi.json', e);
+            }
+        }
+
+        if (langCache['hi']) {
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                const hiText = langCache['hi'][key];
+                if (hiText) cacheAndReplace(el, hiText);
+            });
+        }
     },
 
     revertToEnglish() {

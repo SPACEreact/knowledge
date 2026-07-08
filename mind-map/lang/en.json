@@ -1,0 +1,249 @@
+{
+  "nav": {
+    "brand": "VISUAL STORYTELLING",
+    "tagline": "Knowledge Framework",
+    "overview": "Overview",
+    "storytelling": "Storytelling",
+    "design": "Design",
+    "cinematography": "Cinematography",
+    "sound": "Sound",
+    "editing": "Editing",
+    "motion": "Motion",
+    "aiVisual": "AI Visual Generation",
+    "emotionGrammar": "Emotion Grammar",
+    "sceneGrammar": "Scene Grammar",
+    "storyEmotion": "Story × Emotion",
+    "humanLayers": "Human Layers",
+    "audienceParticipation": "Audience Participation",
+    "ideation": "Ideation Engine",
+    "skillTree": "Skill Tree",
+    "styleRef": "Style Reference",
+    "craftNotes": "Craft Notes",
+    "resources": "Resources",
+    "filmmakingKW": "Filmmaking Keywords",
+    "mographKW": "Motion Graphics KW",
+    "editingRhythm": "Editing Rhythm",
+    "journey": "Filmmaking Journey",
+    "career": "Career & Earning"
+  },
+  "langSwitcher": {
+    "label": "Language"
+  },
+  "hero": {
+    "badge": "Your Creative Journey Starts Here",
+    "title1": "Your drawings & photos",
+    "title2": "already have a filmmaker inside them",
+    "subtitle": "You love drawing. You love clicking photos. That means you already see the world differently — like an artist, like a storyteller. This site is your friendly guide to turn those superpowers into beautiful films, reels, and even a career — all from your phone. 💜",
+    "quote": "\"I built this site because I believe YOUR unique eye — the way you see light, color, emotions — is something no AI can ever replace. Let's turn that gift into something extraordinary.\"",
+    "quoteAuthor": "— Himanshu, your creative mentor",
+    "stat1num": "5",
+    "stat1label": "Creative Domains",
+    "stat2num": "24",
+    "stat2label": "Emotions Mapped",
+    "stat3num": "100+",
+    "stat3label": "AI Techniques",
+    "stat4num": "∞",
+    "stat4label": "Your Possibilities"
+  },
+  "whyMatters": {
+    "badge": "Why This Matters for YOU",
+    "title": "You Already Have the Artist's Eye 🎨",
+    "p1": "When you draw, you make choices — which line to darken, which color to use, what to leave empty. When you take a photo, you decide the angle, the light, the moment.",
+    "p2": "These are the exact same skills filmmakers use! You're already practicing visual storytelling without knowing it.",
+    "p3": "This site helps you connect the dots: your drawings + your photos + a few simple techniques = your first film.",
+    "tryToday": "🎯 Try This Today",
+    "tryTodayText": "Take 3 photos of the same object — one from above, one from below, one at eye level. See how each angle tells a different story? That's cinematography! You just did it."
+  },
+  "aiVsHuman": {
+    "badge": "The Big Picture",
+    "title": "AI is Your Helper, Not Your Replacement",
+    "humanTitle": "What YOU Bring (Irreplaceable! 💖)",
+    "humanItems": [
+      "Your unique way of seeing the world",
+      "Real emotions from real experiences",
+      "Stories only YOU can tell",
+      "The 'soul' in your drawings & photos",
+      "Artistic choices that feel personal"
+    ],
+    "aiTitle": "What AI Helps With (Super-fast tools 🚀)",
+    "aiItems": [
+      "Editing videos faster",
+      "Adding effects & transitions",
+      "Generating background music",
+      "Removing backgrounds from photos",
+      "Suggesting color palettes"
+    ],
+    "bottom": "You + AI = Films with soul AND speed. Your creativity leads, AI assists. Together, magic happens! ✨"
+  },
+  "journey": {
+    "badge": "The Complete Filmmaking Journey",
+    "title": "How a Film Gets Made — Your Roadmap",
+    "subtitle": "Every movie, reel, or short follows these 3 stages. Think of it like cooking: first you plan the menu (Pre), then you cook (Production), then you plate and serve (Post)!",
+    "pre": {
+      "title": "Pre-Production",
+      "tagline": "Planning & Dreaming Stage 🌟",
+      "desc": "This is where you turn your ideas into a clear plan — like making a party list so everything is perfect!",
+      "steps": [
+        { "label": "Think of Your Idea", "desc": "What story do you want to tell? Maybe a day-in-my-life, your art process, or a short story from your imagination." },
+        { "label": "Write a Simple Script", "desc": "Just 3–5 sentences about what happens. Beginning → Middle → End. That's it!" },
+        { "label": "Draw a Storyboard", "desc": "Use YOUR drawing skills! Sketch 4–8 small boxes showing what each shot looks like. Stick figures are totally fine." },
+        { "label": "Plan Your Shots", "desc": "Walk around with your phone camera. Find good spots with nice light. Note when sunlight is best." }
+      ],
+      "tryToday": "🎯 Try This Right Now: Pick one idea. Draw 4 boxes on paper. Sketch what happens in each. Congrats — you just made a real storyboard!"
+    },
+    "prod": {
+      "title": "Production",
+      "tagline": "Shooting & Capturing Stage 📸",
+      "desc": "This is where your plans come alive! You grab your phone and start shooting. Your drawings and photos become moving images.",
+      "steps": [
+        { "label": "Use Your Phone Camera", "desc": "No expensive gear needed! Modern phones shoot beautiful video. Clean the lens first!" },
+        { "label": "Find Good Light", "desc": "Natural light near a window is gorgeous. Golden hour (sunrise/sunset) makes everything magical." },
+        { "label": "Capture Your Art Process", "desc": "Film yourself drawing! Time-lapse of an artwork being created = instant engaging content." },
+        { "label": "Mix Drawings + Real Life", "desc": "Hold your drawing up against a real background. Animate between photos. This is YOUR unique style!" }
+      ],
+      "tryToday": "🎯 Try This Right Now: Prop your phone against something stable. Film a 30-second time-lapse of yourself drawing. You just created content!"
+    },
+    "post": {
+      "title": "Post-Production",
+      "tagline": "Editing & Magic Stage ✨",
+      "desc": "This is where the magic happens! You take all your clips, arrange them, add music, and create your final film. AI tools make this faster than ever.",
+      "steps": [
+        { "label": "Import Clips to an Editor", "desc": "CapCut (free!) is perfect for beginners. Just drag in your videos." },
+        { "label": "Cut & Arrange", "desc": "Remove boring parts. Keep the interesting stuff. Put clips in the right order." },
+        { "label": "Add Music & Effects", "desc": "CapCut has tons of free music. Add text overlays, transitions, and filters." },
+        { "label": "Export & Share!", "desc": "Export in 1080p. Post to Instagram Reels or YouTube Shorts. Your first film is DONE! 🎉" }
+      ],
+      "tryToday": "🎯 Try This Right Now: Open CapCut. Import that drawing time-lapse you just filmed. Add a trending song. Export. Share it. You're officially a filmmaker now! 🎬"
+    }
+  },
+  "history": {
+    "badge": "Visual Storytelling Through Time",
+    "title": "From Cave Walls to Your Phone Screen",
+    "subtitle": "Humans have ALWAYS told stories with pictures. You are part of an ancient, beautiful tradition!",
+    "items": [
+      { "year": "30,000 BC", "title": "Cave Paintings", "desc": "The first drawings! Humans told stories on cave walls. Just like you draw — same human instinct." },
+      { "year": "1826", "title": "First Photograph", "desc": "The first photo was captured. A new way to freeze moments in time — like you do with your camera." },
+      { "year": "1895", "title": "Cinema is Born", "desc": "The Lumière brothers showed moving pictures. Photos that come alive — exactly what you'll learn!" },
+      { "year": "1920s", "title": "Silent Film Art", "desc": "Filmmakers told powerful stories with NO dialogue — just visuals, light, and emotion. Pure visual storytelling." },
+      { "year": "2005", "title": "YouTube Revolution", "desc": "Anyone with a camera could share their stories with the world. The creator revolution begins!" },
+      { "year": "2020+", "title": "AI + Phone Era", "desc": "Your phone + AI tools + your creativity = professional-level filmmaking. YOUR era!" }
+    ]
+  },
+  "career": {
+    "badge": "Your Independence Roadmap",
+    "title": "Earn, Create & Be Free — From Your Phone",
+    "subtitle": "Real talk: Girls from small towns and big cities are building creative careers from their phones. Here's your honest roadmap.",
+    "advantage": {
+      "title": "Your Unique Advantage",
+      "text": "You already draw and take photos — this is HUGE! Most creators start from zero. You already have an artist's eye, a visual sense, and creative hands. AI gives speed, but YOU bring the soul and emotion that makes content stand out. That's your superpower."
+    },
+    "levels": {
+      "beginner": {
+        "title": "Beginner: First 0–6 Months",
+        "earning": "₹2,000 – ₹15,000/month possible",
+        "tasks": [
+          "Post 3–5 Reels/Shorts per week consistently",
+          "Share your art process, photo edits, behind-the-scenes",
+          "Use trending sounds + your unique visual style",
+          "Nano creator collaborations: ₹500–10,000 per branded post"
+        ]
+      },
+      "growing": {
+        "title": "Growing: 6–18 Months",
+        "earning": "₹10,000 – ₹50,000+/month",
+        "tasks": [
+          "Brand deals with local and national brands",
+          "Freelance video editing and Reels creation",
+          "UGC (User Generated Content) gigs — brands pay you to create content",
+          "Start a YouTube channel with longer-form content"
+        ]
+      },
+      "independent": {
+        "title": "Independent Creator: 18+ Months",
+        "earning": "₹30,000 – ₹2,00,000+/month",
+        "tasks": [
+          "Multiple income streams: brand deals + freelance + YouTube monetization",
+          "Your own style and audience — brands come to YOU",
+          "Teach others through courses or mentoring",
+          "Complete creative freedom and time independence"
+        ]
+      }
+    },
+    "milestones": {
+      "title": "Your First 90 Days — Step by Step",
+      "day1": { "label": "Day 1", "text": "Download CapCut and Canva. Film your first 30-second art time-lapse. Post it." },
+      "week1": { "label": "Week 1", "text": "Post 3 Reels showing your art or photography. Experiment with angles and lighting." },
+      "month1": { "label": "Month 1", "text": "15+ Reels posted. Try one 'storytelling' Reel with beginning-middle-end structure." },
+      "month3": { "label": "Month 3", "text": "50+ Reels. Growing audience. Reach out to 2 small brands for your first collaboration." }
+    },
+    "platforms": {
+      "title": "Where to Start",
+      "items": [
+        { "name": "Instagram Reels", "desc": "Fastest start. Huge audience in India.", "tag": "Start Here" },
+        { "name": "YouTube Shorts", "desc": "Great discoverability. Builds long-term audience.", "tag": "Grow Here" },
+        { "name": "Fiverr / Instagram DM", "desc": "Offer video editing services. Start freelancing.", "tag": "Earn Here" }
+      ]
+    },
+    "tools": {
+      "title": "Recommended Free Tools",
+      "items": [
+        { "name": "CapCut", "desc": "Best free video editor with AI features (auto-captions, effects, templates)" },
+        { "name": "Canva", "desc": "Design thumbnails, stories, and posts. Free plan is very powerful." },
+        { "name": "Google Photos", "desc": "Free cloud storage + basic photo editing + magic eraser" },
+        { "name": "ChatGPT / Gemini", "desc": "Help with ideas, captions, scripts, hashtag research" }
+      ]
+    },
+    "honesty": "Honest note: Building an audience takes 90+ days of consistent posting. It's not instant. But with AI tools + your art skills, you can grow much faster than starting from scratch. Stay consistent — results will come!",
+    "motivation": "You can control your own time. Work from home. Earn from your passion. Be free and independent. Start small today — this site (and I) am with you every step! ❤️"
+  },
+  "domains": {
+    "coreLabel": "Core Layer",
+    "coreTitle": "Storytelling",
+    "coreDesc": "The foundation. Everything else is execution of story.",
+    "storyCardTitle": "00 · Storytelling",
+    "storyCardDesc": "Story leads. Style serves. If you skip this, everything below becomes beautiful nonsense. The multiplier formula:",
+    "execLabel": "Execution Domains",
+    "execTitle": "The Five Pillars",
+    "execDesc": "Each domain has its own question. Master these to make your films stand out.",
+    "designTitle": "01 · Design",
+    "designQ": "\"If this never moved, would it still work?\"",
+    "designDesc": "Composition, color, typography — how to make any single frame look beautiful.",
+    "cinTitle": "02 · Cinematography",
+    "cinQ": "\"Does this feel physically real?\"",
+    "cinDesc": "Light, camera angles, lens choices — the visual language of film.",
+    "soundTitle": "03 · Sound",
+    "soundQ": "\"Would this feel real with eyes closed?\"",
+    "soundDesc": "Music, sound effects, silence — the invisible half of filmmaking.",
+    "editTitle": "04 · Editing",
+    "editQ": "\"What does this sequence say?\"",
+    "editDesc": "How cuts, rhythm, and pacing create emotion and meaning.",
+    "motionTitle": "05 · Motion",
+    "motionQ": "\"Does this feel alive?\"",
+    "motionDesc": "Animation, movement, and the physics that make visuals feel real."
+  },
+  "advancedLabel": "Advanced Systems",
+  "advancedTitle": "Beyond Craft",
+  "advancedDesc": "Structured grammars for emotion, scenes, and AI-native visual thinking.",
+  "toolsLabel": "Tools & Reference",
+  "toolsTitle": "Practice & Apply",
+  "toolsDesc": "Hands-on tools, curated references, and personal craft notes.",
+  "paths": {
+    "label": "Getting Started",
+    "title": "Choose Your Path",
+    "desc": "Pick the journey that matches where you are right now.",
+    "beginnerTitle": "Complete Beginner",
+    "beginnerSubtitle": "\"I've never made a video\"",
+    "beginnerSteps": ["Read the Filmmaking Journey above", "Watch: storytelling basics", "Try today's first challenge", "Post your first Reel"],
+    "creativeTitle": "Artist / Photographer",
+    "creativeSubtitle": "\"I draw or take photos, want to do video\"",
+    "creativeSteps": ["Film your art process (time-lapse)", "Learn basic editing in CapCut", "Study Cinematography basics", "Create a drawing → film Reel"],
+    "advancedTitle": "Aspiring Filmmaker",
+    "advancedSubtitle": "\"I want to go deep\"",
+    "advancedSteps": ["Master Emotion Grammar", "Study Scene Grammar", "Deep-dive into editing rhythm", "Build your portfolio"]
+  },
+  "footer": {
+    "brand": "Visual Storytelling Framework",
+    "tagline": "Your guide to creative filmmaking in the AI era.",
+    "updated": "Built with love. Updated 2026. ❤️"
+  }
+}

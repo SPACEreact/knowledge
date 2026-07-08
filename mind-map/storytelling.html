@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling — The Core Layer — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Story leads. Style serves. Domains execute. The core layer of meaning architecture for visual storytelling.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .concept-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s
+        }
+
+        .concept-card:hover {
+            border-color: #3f3f46
+        }
+
+        .concept-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .concept-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .concept-card strong {
+            color: #d4d4d8
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, .06);
+            border: 1px solid rgba(239, 68, 68, .15);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: .75rem 0
+        }
+
+        .warning-box strong {
+            color: #ef4444
+        }
+
+        .warning-box ul {
+            margin: .5rem 0 0 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa
+        }
+
+        .warning-box ul li {
+            margin-bottom: .25rem
+        }
+
+        .success-box {
+            background: rgba(34, 197, 94, .06);
+            border: 1px solid rgba(34, 197, 94, .15);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: .75rem 0
+        }
+
+        .success-box strong {
+            color: #22c55e
+        }
+
+        .formula-block {
+            font-family: monospace;
+            padding: 1rem;
+            background: rgba(245, 158, 11, .06);
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 8px;
+            margin: .75rem 0;
+            font-size: .85rem;
+            color: #f59e0b;
+            text-align: center
+        }
+
+        .checklist-box {
+            background: rgba(245, 158, 11, .04);
+            border: 1px solid rgba(245, 158, 11, .1);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0
+        }
+
+        .checklist-box h4 {
+            font-size: .85rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: .75rem
+        }
+
+        .checklist-box ol {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+            counter-reset: steps
+        }
+
+        .checklist-box ol li {
+            counter-increment: steps;
+            padding: .35rem 0 .35rem 2.25rem;
+            position: relative;
+            font-size: .82rem;
+            color: #a1a1aa
+        }
+
+        .checklist-box ol li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            width: 1.4rem;
+            height: 1.4rem;
+            background: #f59e0b;
+            color: #09090b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .65rem;
+            font-weight: 700;
+            top: .4rem
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .75rem;
+            margin: .75rem 0
+        }
+
+        .role-card {
+            padding: .75rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: .78rem
+        }
+
+        .role-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: .25rem
+        }
+
+        .role-name {
+            font-weight: 600;
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: #d4d4d8
+        }
+
+        .arc-flow {
+            display: flex;
+            gap: 0;
+            margin: .75rem 0;
+            font-family: monospace;
+            font-size: .65rem;
+            overflow: hidden;
+            border-radius: 6px
+        }
+
+        .arc-step {
+            flex: 1;
+            padding: .5rem .3rem;
+            text-align: center;
+            color: white;
+            font-weight: 600
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .core-principle {
+            background: linear-gradient(135deg, rgba(245, 158, 11, .08) 0%, rgba(236, 72, 153, .03) 100%);
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem
+        }
+
+        .core-principle h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: .75rem
+        }
+
+        .core-principle p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.6
+        }
+
+        .final-anchor {
+            background: linear-gradient(135deg, rgba(245, 158, 11, .06), rgba(139, 92, 246, .04));
+            border: 1px solid rgba(245, 158, 11, .12);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2.5rem 0
+        }
+
+        .final-anchor h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .75rem
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .5rem .75rem;
+            background: rgba(0, 0, 0, .2);
+            border-radius: 6px;
+            margin-bottom: .4rem;
+            text-decoration: none;
+            font-size: .82rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .6rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .15rem .4rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
+        }
+    </style>
+</head>
+
+<body>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+        </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link active"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
+        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 30% 40%,rgba(245,158,11,.1) 0%,transparent 60%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#f59e0b;letter-spacing:.2em">Domain 00 · The Core Layer</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Storytelling</h1>
+                    <p class="text-base md:text-lg leading-relaxed max-w-2xl" style="color:#a1a1aa"><strong
+                            style="color:#d4d4d8">Storytelling is the core layer</strong> — meaning architecture that
+                        sits above all domains. Domains execute. Story leads. If you skip this, everything below becomes
+                        beautiful nonsense.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- STORY VS STYLE -->
+            <div class="section-divider fade-up">Story vs Style</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The anti-confusion guide. This prevents one failure:
+                beautiful work that means nothing.</p>
+
+            <div class="core-principle fade-up">
+                <h3>Core Distinction</h3>
+                <p><strong style="color:#d4d4d8">Story answers:</strong> Why does this matter?</p>
+                <p><strong style="color:#d4d4d8">Style answers:</strong> How does this feel?</p>
+                <p style="margin-top:.75rem;color:#71717a;font-size:.8rem">If you confuse them, everything collapses.
+                </p>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>Style is a Multiplier, Not a Generator</h3>
+                <p>Story = meaning + change. Style = sensory constraint. Style multiplies story — but ×0 story =
+                    nothing.</p>
+                <div class="formula-block" style="text-align:left;font-size:.82rem">
+                    <span style="color:#ef4444;font-weight:700">×0 story = nothing</span><br>
+                    <span style="color:#71717a">×1 story = clarity</span><br>
+                    <span style="color:#22c55e;font-weight:700;font-size:.95rem">×5 style on solid story = impact</span>
+                </div>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>When Style Leads (Symptoms)</h3>
+                <div class="warning-box">
+                    <strong>❌ Common failures:</strong>
+                    <ul>
+                        <li>"Vibe-first" decisions</li>
+                        <li>Random beauty shots</li>
+                        <li>Over-designed motion</li>
+                        <li>Music doing all emotional work</li>
+                    </ul>
+                    <p style="margin-top:.75rem;font-size:.82rem;color:#a1a1aa">Audience says "looks sick" and forgets
+                        it instantly. This is not bad taste — this is missing intent.</p>
+                </div>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>When Story Leads (Results)</h3>
+                <div class="success-box">
+                    <p style="font-size:.85rem;color:#a1a1aa;line-height:1.7"><strong>Visual choices feel
+                            inevitable.</strong> Cuts feel necessary. Style feels coherent, not loud. Audience remembers
+                        meaning, not shots. <strong>Style becomes invisible — which is the goal.</strong></p>
+                </div>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>The "Why First" Rule</h3>
+                <p>Before any stylistic choice, ask: <strong>"What story job is this doing?"</strong> If there's no
+                    answer: remove it or redesign it.</p>
+                <div class="checklist-box">
+                    <h4>Daily Anti-Confusion Check</h4>
+                    <ol>
+                        <li>What changed?</li>
+                        <li>Why now?</li>
+                        <li>What does the audience feel differently?</li>
+                        <li>What stylistic choice supports this?</li>
+                        <li>What stylistic choice can be removed?</li>
+                    </ol>
+                    <p style="margin-top:.75rem;font-size:.82rem;font-weight:600;color:#f59e0b">If answers 1–3 are
+                        unclear, stop styling.</p>
+                </div>
+            </div>
+
+            <!-- STORYTELLING FOR ADS -->
+            <div class="section-divider fade-up">Storytelling for Ads</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">When time is short, intent is sharp, and persuasion is
+                the goal. Ads don't tell stories — they trigger decisions.</p>
+
+            <div class="core-principle fade-up">
+                <h3>The Ad Story Engine</h3>
+                <div class="formula-block" style="font-size:1.1rem">DESIRE → FRICTION → RELIEF</div>
+                <p>This is the ad version of the harmonic cycle. Every effective ad runs this engine.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-3 mb-4">
+                <div class="concept-card fade-up" style="border-left:3px solid #22c55e">
+                    <h3 style="color:#22c55e">▲ Desire</h3>
+                    <p>What the audience wants <em>before</em> the product appears: Status, Ease, Safety, Belonging,
+                        Pleasure, Control. <strong>If desire is unclear, the product feels random.</strong></p>
+                </div>
+                <div class="concept-card fade-up" style="border-left:3px solid #ef4444">
+                    <h3 style="color:#ef4444">■ Friction</h3>
+                    <p>Something blocks the desire: Effort, Cost, Confusion, Time, Fear, Inconvenience. <strong>Without
+                            friction, there is no reason to act.</strong></p>
+                </div>
+                <div class="concept-card fade-up" style="border-left:3px solid #3b82f6">
+                    <h3 style="color:#3b82f6">● Relief</h3>
+                    <p>The product reframes or removes friction. It doesn't "save the world" — it changes the equation.
+                        <strong>Relief must feel earned, not magical.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>Brand Role (Critical)</h3>
+                <p>Brands can only play three legitimate roles:</p>
+                <div class="roles-grid">
+                    <div class="role-card"
+                        style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15)"><span
+                            class="role-icon">🤝</span>
+                        <div class="role-name">Helper</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Supports the user's journey</div>
+                    </div>
+                    <div class="role-card" style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15)">
+                        <span class="role-icon">🧭</span>
+                        <div class="role-name">Guide</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Provides clarity or confidence
+                        </div>
+                    </div>
+                    <div class="role-card"
+                        style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15)"><span
+                            class="role-icon">🏛️</span>
+                        <div class="role-name">Authority</div>
+                        <div style="font-size:.72rem;color:#a1a1aa;margin-top:.2rem">Signals trust or expertise</div>
+                    </div>
+                </div>
+                <div class="warning-box"><strong>❌ The brand is not the hero. The audience is.</strong></div>
+            </div>
+
+            <div class="concept-card fade-up">
+                <h3>Micro-Arcs (Story in Seconds)</h3>
+                <p>Ads compress story into beats, not scenes:</p>
+                <div class="arc-flow">
+                    <div class="arc-step" style="background:#ef4444">Hook</div>
+                    <div class="arc-step" style="background:#f59e0b">"That's me"</div>
+                    <div class="arc-step" style="background:#b91c1c">Pressure</div>
+                    <div class="arc-step" style="background:#3b82f6">Shift</div>
+                    <div class="arc-step" style="background:#22c55e">Close</div>
+                </div>
+                <p>This can happen in 30 seconds, 6 seconds, even 3 shots.</p>
+            </div>
+
+            <div class="checklist-box fade-up">
+                <h4>Ad Story Checklist (Before Lock)</h4>
+                <ol>
+                    <li>What desire am I activating?</li>
+                    <li>What friction am I dramatizing?</li>
+                    <li>How exactly does the product change the situation?</li>
+                    <li>Is the audience clearly the hero?</li>
+                    <li>Could this work without dialogue?</li>
+                </ol>
+                <p style="margin-top:.75rem;font-size:.82rem;color:#a1a1aa">If any answer is vague → fix the story, not
+                    the visuals.</p>
+            </div>
+
+            <!-- STORY DESIGN & STRUCTURE (McKee) -->
+            <div class="section-divider fade-up">Story Design & Structure <span
+                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Robert McKee</span></div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Story is governed by principles — consistent patterns
+                that work — not rigid formulas. A well-told story is a "symphonic unity."</p>
+
+            <div class="core-principle fade-up">
+                <h3>The Structure Spectrum</h3>
+                <p>Story design falls within a triangle of formal possibilities:</p>
+                <div class="grid md:grid-cols-3 gap-3 mt-4">
+                    <div
+                        style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:.75rem">
+                        <div style="font-weight:700;color:#3b82f6;font-size:.8rem;margin-bottom:.25rem">ARCHPLOT</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Classical Design. Active protagonist vs external
+                            forces. Closed ending with irreversible change. Causality drives events.</p>
+                    </div>
+                    <div
+                        style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);border-radius:8px;padding:.75rem">
+                        <div style="font-weight:700;color:#8b5cf6;font-size:.8rem;margin-bottom:.25rem">MINIPLOT</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Minimalism. Internal conflict, passive protagonists,
+                            open endings. Reduces classical elements. Ambiguity is the point.</p>
+                    </div>
+                    <div
+                        style="background:rgba(236,72,153,.08);border:1px solid rgba(236,72,153,.15);border-radius:8px;padding:.75rem">
+                        <div style="font-weight:700;color:#ec4899;font-size:.8rem;margin-bottom:.25rem">ANTIPLOT</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Anti-structure. Nonlinear time, coincidence over
+                            causality, inconsistent realities. Contradicts traditional form deliberately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card fade-up" style="border-left:3px solid #f59e0b">
+                <h3>Structural Elements (The Hierarchy)</h3>
+                <div class="arc-flow" style="margin:.75rem 0">
+                    <div class="arc-step" style="background:#52525b;font-size:.55rem">Beat</div>
+                    <div class="arc-step" style="background:#71717a;font-size:.55rem">Scene</div>
+                    <div class="arc-step" style="background:#a1a1aa;color:#09090b;font-size:.55rem">Sequence</div>
+                    <div class="arc-step" style="background:#d4d4d8;color:#09090b;font-size:.55rem">Act</div>
+                    <div class="arc-step" style="background:#f59e0b;color:#09090b;font-size:.55rem">Story</div>
+                </div>
+                <div style="font-size:.82rem;color:#a1a1aa;line-height:1.8">
+                    <strong style="color:#d4d4d8">Beat</strong> — An exchange of behavior in action/reaction.<br>
+                    <strong style="color:#d4d4d8">Scene</strong> — Action through conflict in continuous time/space;
+                    turns at least one value.<br>
+                    <strong style="color:#d4d4d8">Sequence</strong> — A series of scenes culminating with greater impact
+                    than any previous scene.<br>
+                    <strong style="color:#d4d4d8">Act</strong> — A series of sequences peaking in a major reversal of
+                    values.
+                </div>
+                <div
+                    style="margin-top:.75rem;padding:.5rem .75rem;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.12);border-radius:6px;font-size:.78rem;color:#f59e0b">
+                    ⚡ The "War on Cliché" — Clichés arise when a writer doesn't deeply know their story's world.
+                    Originality requires exhaustive research of memory, imagination, and fact.
+                </div>
+            </div>
+
+            <!-- THE HERO'S JOURNEY -->
+            <div class="section-divider fade-up">The Hero's Journey <span
+                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Campbell / Vogler</span>
+            </div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The universal monomyth. A map for both physical
+                adventure and internal transformation.</p>
+
+            <div class="concept-card fade-up" style="border-left:3px solid #f59e0b">
+                <h3>The 12 Stages</h3>
+                <div class="grid md:grid-cols-2 gap-2 mt-3" style="font-size:.78rem;color:#a1a1aa">
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">1.</span> <strong style="color:#d4d4d8">Ordinary
+                            World</strong> — The hero's mundane starting point.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">2.</span> <strong style="color:#d4d4d8">Call to
+                            Adventure</strong> — A problem or challenge presented.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">3.</span> <strong style="color:#d4d4d8">Refusal of
+                            the Call</strong> — Hesitation from fear or doubt.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">4.</span> <strong style="color:#d4d4d8">Meeting the
+                            Mentor</strong> — Guidance or equipment received.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">5.</span> <strong style="color:#d4d4d8">Crossing the
+                            Threshold</strong> — Committing to the journey.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">6.</span> <strong style="color:#d4d4d8">Tests,
+                            Allies, Enemies</strong> — Learning the Special World.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">7.</span> <strong
+                            style="color:#d4d4d8">Approach</strong> — Preparing for the central ordeal.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">8.</span> <strong style="color:#d4d4d8">Supreme
+                            Ordeal</strong> — Life-or-death crisis. The narrative climax.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">9.</span> <strong
+                            style="color:#d4d4d8">Reward</strong> — Seizing the "sword" or elixir.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">10.</span> <strong style="color:#d4d4d8">The Road
+                            Back</strong> — Dealing with consequences.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">11.</span> <strong
+                            style="color:#d4d4d8">Resurrection</strong> — Final test of transformation.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px">
+                        <span style="color:#f59e0b;font-weight:700">12.</span> <strong style="color:#d4d4d8">Return with
+                            Elixir</strong> — Bringing knowledge home.
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE FIVE-ACT STRUCTURE (Yorke) -->
+            <div class="section-divider fade-up">The Five-Act Structure <span
+                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— John Yorke</span></div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">A universal framework traced from Greek drama to
+                Breaking Bad. The skeleton inside every compelling narrative.</p>
+
+            <div class="concept-card fade-up" style="border-left:3px solid #22c55e">
+                <h3>The Five Acts</h3>
+                <div class="arc-flow" style="margin:.75rem 0">
+                    <div class="arc-step" style="background:#3b82f6;font-size:.5rem">I · Exposition</div>
+                    <div class="arc-step" style="background:#f59e0b;font-size:.5rem">II · Rising Action</div>
+                    <div class="arc-step" style="background:#ef4444;font-size:.5rem">III · Climax</div>
+                    <div class="arc-step" style="background:#8b5cf6;font-size:.5rem">IV · Falling Action</div>
+                    <div class="arc-step" style="background:#22c55e;font-size:.5rem">V · Resolution</div>
+                </div>
+                <div style="font-size:.82rem;color:#a1a1aa;line-height:1.8">
+                    <strong style="color:#3b82f6">Exposition</strong> sets the scene, introduces characters, and
+                    establishes the premise.<br>
+                    <strong style="color:#f59e0b">Rising Action</strong> builds complications, introduces subplots,
+                    escalates tension.<br>
+                    <strong style="color:#ef4444">Climax</strong> is the point of irreversible change — the protagonist
+                    confronts their deepest fear or desire.<br>
+                    <strong style="color:#8b5cf6">Falling Action</strong> unfolds consequences, resolves secondary
+                    conflicts, maintains momentum.<br>
+                    <strong style="color:#22c55e">Resolution</strong> provides closure, ties narrative threads, delivers
+                    the final meaning.
+                </div>
+            </div>
+
+            <div class="concept-card fade-up" style="border-left:3px solid #ec4899">
+                <h3>Character Dimensionality</h3>
+                <p>Compelling characters are not "character types" — they are systems of contradiction:</p>
+                <div class="grid md:grid-cols-2 gap-3 mt-3" style="font-size:.82rem">
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa">
+                        <strong style="color:#d4d4d8">Backstory</strong> — Past experiences that inform motivation. The
+                        audience may never see it, but the writer must know it.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa">
+                        <strong style="color:#d4d4d8">Character Arc</strong> — The transformation driven by narrative
+                        events. Without change, there is no story.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa">
+                        <strong style="color:#d4d4d8">Goals & Motivations</strong> — What they want and why. Clear goals
+                        establish stakes and audience investment.
+                    </div>
+                    <div style="padding:.5rem .75rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa">
+                        <strong style="color:#d4d4d8">Flaws & Contradictions</strong> — Imperfection is human.
+                        Contradictions create unpredictability and become avenues for conflict.
+                    </div>
+                </div>
+                <div
+                    style="margin-top:.75rem;padding:.5rem .75rem;background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.12);border-radius:6px;font-size:.78rem;color:#ec4899">
+                    Yorke's four conflict types: Man vs Man · Man vs Nature · Man vs Self · Man vs Society — the most
+                    powerful stories blend internal and external.
+                </div>
+            </div>
+
+            <!-- FINAL ANCHOR -->
+            <div class="final-anchor fade-up">
+                <h2>Final Anchor (Memorize This)</h2>
+                <div class="formula-block" style="font-size:1rem">Story leads. Style serves. Domains execute.</div>
+                <p style="margin-top:1rem;font-size:.85rem;color:#71717a">If you feel lost: You're not untalented.
+                    You're just letting style drive.</p>
+            </div>
+
+            <!-- RESOURCES -->
+            <div class="concept-card fade-up" style="margin-top:1.5rem">
+                <h3>🧠 Go Deeper</h3>
+                <div style="margin-top:.75rem">
+                    <a href="https://www.youtube.com/watch?v=8u1cwiicLFA" target="_blank" class="resource-link">Pixar's
+                        Rules of Storytelling <span class="resource-tag">10 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=RG4WcRAgm7Y" target="_blank" class="resource-link">Lessons
+                        from the Screenplay <span class="resource-tag">Channel</span></a>
+                    <a href="https://www.youtube.com/watch?v=Hhk4N9A0oCA" target="_blank" class="resource-link">Story by
+                        Robert McKee (Lecture) <span class="resource-tag">1 hour</span></a>
+                    <a href="https://www.youtube.com/watch?v=v2e__gW_7gg" target="_blank" class="resource-link">Dan
+                        Harmon's Story Circle <span class="resource-tag">12 min</span></a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+                        Back to Overview</a><a href="design.html" class="hover:underline" style="color:#71717a">Design
+                        →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

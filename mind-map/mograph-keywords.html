@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Graphics Keywords | Visual Storytelling Study Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #12121a;
+            --card: #1a1a2e;
+            --card-h: #22223a;
+            --t1: #e8e8f0;
+            --t2: #9898b0;
+            --t3: #6a6a82;
+            --acc: #a855f7;
+            --acc-g: rgba(168, 85, 247, 0.15);
+            --bdr: rgba(255, 255, 255, 0.06);
+            --sa: #f97316;
+            --sb: #3b82f6;
+            --sc: #10b981
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--t1);
+            line-height: 1.7;
+            min-height: 100vh
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: color .2s
+        }
+
+        .back:hover {
+            color: var(--acc)
+        }
+
+        .hdr {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--bdr)
+        }
+
+        .hdr h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--acc);
+            margin-bottom: .5rem;
+            letter-spacing: -.02em
+        }
+
+        .hdr .sub {
+            font-size: 1.05rem;
+            color: var(--t2);
+            font-style: italic
+        }
+
+        .hdr .intro {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--t2);
+            line-height: 1.8
+        }
+
+        .hdr .intro strong {
+            color: var(--t1)
+        }
+
+        .hdr .intro em {
+            color: var(--acc);
+            font-style: italic
+        }
+
+        .sec {
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fu .6s ease forwards
+        }
+
+        .sec:nth-child(1) {
+            animation-delay: .1s
+        }
+
+        .sec:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .sec:nth-child(3) {
+            animation-delay: .3s
+        }
+
+        @keyframes fu {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .sh {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .75rem
+        }
+
+        .sl {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .sl.a {
+            background: var(--sa)
+        }
+
+        .sl.b {
+            background: var(--sb)
+        }
+
+        .sl.c {
+            background: var(--sc)
+        }
+
+        .sh h2 {
+            font-size: 1.4rem;
+            font-weight: 700
+        }
+
+        .st {
+            color: var(--t2);
+            font-size: .95rem;
+            margin-bottom: 1.5rem;
+            padding-left: 3.2rem
+        }
+
+        .sk {
+            background: var(--card);
+            border: 1px solid var(--bdr);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all .25s
+        }
+
+        .sk:hover {
+            background: var(--card-h);
+            border-color: rgba(255, 255, 255, .1);
+            transform: translateY(-1px)
+        }
+
+        .sk h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: .75rem
+        }
+
+        .sk p {
+            font-size: .92rem;
+            color: var(--t2);
+            line-height: 1.75
+        }
+
+        .sk strong {
+            color: var(--t1)
+        }
+
+        .sk em {
+            color: var(--acc);
+            font-style: italic
+        }
+
+        .sk code {
+            background: rgba(168, 85, 247, .12);
+            color: var(--acc);
+            padding: .15rem .4rem;
+            border-radius: 4px;
+            font-size: .85rem;
+            font-family: monospace
+        }
+
+        .ft {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bdr);
+            display: flex;
+            justify-content: space-between
+        }
+
+        .ft a {
+            color: var(--t3);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            transition: color .2s
+        }
+
+        .ft a:hover {
+            color: var(--acc)
+        }
+
+        @media(max-width:640px) {
+            .hdr h1 {
+                font-size: 1.6rem
+            }
+
+            .sh h2 {
+                font-size: 1.2rem
+            }
+
+            .wrap {
+                padding: 1.5rem 1rem 3rem
+            }
+
+            .st {
+                padding-left: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <a href="index.html" class="back">← Back to Overview</a>
+        <header class="hdr">
+            <h1>🎞️ Motion Graphics Keywords</h1>
+            <p class="sub">Where design starts moving — and where most designers start lying</p>
+            <p class="intro">Motion graphics is <strong>design in time</strong>. Everything that applies to static
+                design applies here — hierarchy, contrast, balance — but now you're also controlling <em>when</em>
+                things happen and <em>how</em> they transform. The biggest trap: making things move because you can, not
+                because the motion communicates something.</p>
+        </header>
+
+        <!-- A. FUNDAMENTALS -->
+        <div class="sec">
+            <div class="sh"><span class="sl a">A</span>
+                <h2>Fundamentals</h2>
+            </div>
+            <p class="st">The non-negotiable principles. These apply to everything from title sequences to 3-second
+                Instagram animations.</p>
+
+            <div class="sk">
+                <h3>Motion Design Principles</h3>
+                <p>Motion design is not animation with a brand. It's the discipline of using <strong>movement to
+                        communicate information, create emotion, and guide attention</strong>. Every element should move
+                    with purpose, every transition should carry meaning, and every pause should give the viewer time to
+                    process. The hierarchy: clarity first, beauty second, "cool" never. If the viewer doesn't understand
+                    what they're looking at within the first second, the design has failed.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Animation Principles (12 Principles of Animation)</h3>
+                <p>Created at Disney in the 1930s, these remain the foundation of all motion:<br><br><strong>1. Squash &
+                        Stretch</strong> — Objects deform to show weight and flexibility.<br><strong>2.
+                        Anticipation</strong> — A small preparatory movement before a big action.<br><strong>3.
+                        Staging</strong> — Composition that makes the action clear.<br><strong>4. Straight Ahead vs Pose
+                        to Pose</strong> — Two workflow approaches: frame-by-frame vs key poses first.<br><strong>5.
+                        Follow Through & Overlapping</strong> — Different parts stop at different times.<br><strong>6.
+                        Slow In & Slow Out</strong> — Movement accelerates from rest and decelerates to
+                    stop.<br><strong>7. Arcs</strong> — Natural movement follows curved paths.<br><strong>8. Secondary
+                        Action</strong> — Supporting movements that enrich the main action.<br><strong>9.
+                        Timing</strong> — Frames between key poses determines perceived speed and weight.<br><strong>10.
+                        Exaggeration</strong> — Push beyond realism for clarity and impact.<br><strong>11. Solid
+                        Drawing</strong> — Understanding 3D form, weight, and balance.<br><strong>12. Appeal</strong> —
+                    Characters and movements should be interesting to watch.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Timing and Spacing</h3>
+                <p><strong>Timing</strong> is how many frames an action takes. <strong>Spacing</strong> is the distance
+                    between positions in each frame. Together they control the <em>perceived weight, speed, and
+                        emotion</em> of every movement. Fast timing + even spacing = mechanical. Slow timing + eased
+                    spacing = gentle, heavy, or contemplative. The same object animated with different timing and
+                    spacing can feel like a feather or a bowling ball.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Easing Curves</h3>
+                <p>Easing defines <em>how</em> an object accelerates and decelerates between keyframes. Linear motion
+                    (no easing) feels robotic. <strong>Ease In</strong> — starts slow, accelerates (falling object).
+                    <strong>Ease Out</strong> — starts fast, decelerates (landing). <strong>Ease In-Out</strong> — slow
+                    start, fast middle, slow end (most natural). <strong>Custom curves</strong> — a quick snap followed
+                    by a gentle settle creates personality. Easing is the difference between motion that feels
+                    "computer-generated" and motion that feels alive. Master the graph editor.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Anticipation and Follow Through</h3>
+                <p><strong>Anticipation:</strong> Before any major action, a small opposite movement. A ball compresses
+                    before bouncing. A UI element briefly shrinks before expanding. It tells the viewer "something is
+                    about to happen."<br><strong>Follow Through:</strong> After the main action stops, secondary
+                    elements continue briefly. Hair settles after a head stops turning. A menu overshoots its final
+                    position and bounces back. Without anticipation and follow through, motion feels dead.</p>
+            </div>
+        </div>
+
+        <!-- B. MOTION LANGUAGE -->
+        <div class="sec">
+            <div class="sh"><span class="sl b">B</span>
+                <h2>Motion Language</h2>
+            </div>
+            <p class="st">Motion isn't decoration. It's a language with grammar, vocabulary, and meaning.</p>
+
+            <div class="sk">
+                <h3>Kinetic Typography</h3>
+                <p>Text that moves with meaning. Kinetic typography treats words as <strong>visual and temporal
+                        objects</strong> — their movement, scale, speed, and rhythm all add layers of meaning. The word
+                    "CRASH" slamming into frame is different from "crash" floating gently. The movement should reflect
+                    the word's meaning (semantic motion), the rhythm should match the intended reading pace, and the
+                    hierarchy should guide the eye through the message. Bad kinetic typography: everything moves all the
+                    time. Good: motion punctuates meaning.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Visual Rhythm</h3>
+                <p>Just like music has beats and rests, motion design has visual rhythm — the <strong>pattern of action
+                        and stillness</strong> over time. A sequence of elements appearing at regular intervals creates
+                    a beat. Breaking that pattern creates emphasis. Three elements enter quickly, the fourth enters
+                    slowly — the fourth becomes the star. The best motion graphics feel like compositions — they have a
+                    tempo, bridges, verses, and a crescendo.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Motion Hierarchy</h3>
+                <p>In motion design, hierarchy adds a temporal dimension: <strong>what moves first is what matters
+                        most</strong>. The primary element animates in with the most elaborate motion. Secondary
+                    elements follow. Background elements move subtly or remain static. If everything moves
+                    simultaneously with equal energy, the viewer's eye doesn't know where to look — you've created
+                    visual noise. Motion hierarchy = temporal priority + movement emphasis.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Motion Continuity</h3>
+                <p>Motion continuity means movements across scenes <strong>feel connected</strong> — objects leave one
+                    scene in a direction and enter the next from the corresponding side. Speed feels consistent. The
+                    visual language established in the first shot persists. Without it, sequences feel disjointed and
+                    amateurish. It's the motion graphics equivalent of cinematic continuity editing.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Meaningful Transitions</h3>
+                <p>A transition is not decoration — it's a <strong>statement about the relationship between
+                        scenes</strong>. A dissolve implies connection or transformation. A hard cut implies contrast. A
+                    morph says "these two things are one." A wipe says "time is passing." Every transition carries
+                    narrative information. If a transition exists only because "it looked cool," it's noise. The
+                    question: "What does this transition <em>mean</em>?"</p>
+            </div>
+
+            <div class="sk">
+                <h3>Motion as Emotion</h3>
+                <p>Different types of motion trigger different emotional responses:<br><strong>Smooth, slow,
+                        flowing</strong> = calm, elegant, peaceful<br><strong>Quick, sharp, snappy</strong> = energetic,
+                    playful, urgent<br><strong>Jittery, erratic</strong> = anxiety, instability,
+                    danger<br><strong>Elastic, bouncy</strong> = fun, youthful, approachable<br><strong>Heavy,
+                        labored</strong> = serious, weighty, important<br><strong>Floating, drifting</strong> =
+                    dreamlike, detached, ethereal<br>We <em>feel</em> the weight, resistance, and effort of animated
+                    objects. This is why easing matters — the physics of motion triggers empathic response.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Calm vs Aggressive Motion</h3>
+                <p><strong>Calm motion:</strong> Long easing curves, gentle speed changes, wide arcs, soft landing.
+                    Creates professionalism, luxury, or contemplation. Think Apple product videos — everything moves
+                    slowly, intentionally, with precision.<br><strong>Aggressive motion:</strong> Snap easing, linear
+                    segments, overshoot, screen shake, rapid scale changes, hard cuts. Creates energy, impact, urgency.
+                    Think sports graphics, action movie titles.<br>Mixing the two creates contrast and drama — a long
+                    calm build followed by an aggressive burst is exponentially more impactful than aggression alone.
+                </p>
+            </div>
+        </div>
+
+        <!-- C. TECHNICAL CORE -->
+        <div class="sec">
+            <div class="sh"><span class="sl c">C</span>
+                <h2>Technical Core (Software-Agnostic)</h2>
+            </div>
+            <p class="st">These concepts apply everywhere — After Effects, Blender, CSS, Remotion, AI generators. The
+                principles don't change with the tool.</p>
+
+            <div class="sk">
+                <h3>Keyframing Basics</h3>
+                <p>A keyframe marks a specific property value at a specific point in time. The software interpolates
+                    between keyframes to create motion. The magic is in what happens <em>between</em> the keyframes —
+                    and that's controlled by easing. The minimum keyframes principle: use the fewest keyframes possible
+                    to describe the motion. Fewer keyframes = cleaner, more controllable animation.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Graph Editor Explained</h3>
+                <p>The graph editor visualizes how a property changes over time as a curve. X-axis is time. Y-axis is
+                    property value. A straight line = constant speed. A curved line = acceleration or deceleration. This
+                    is the <strong>most powerful animation tool</strong> and the one most beginners avoid. Two
+                    animations can have identical start and end points but feel completely different based on their
+                    graph curves.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Bézier Curves Animation</h3>
+                <p>Bézier curves use control handles to create smooth, adjustable curves between keyframes. They define
+                    easing behavior. The handles give you precise control over the <em>character</em> of motion — the
+                    difference between a gentle settle and an aggressive snap. In CSS:
+                    <code>cubic-bezier(0.42, 0, 0.58, 1)</code>. In After Effects: the graph editor handles. The concept
+                    is identical everywhere.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Alpha Channels</h3>
+                <p>An alpha channel is the <strong>transparency layer</strong> of an image or video. RGBA: Red, Green,
+                    Blue, and Alpha. Alpha = 0 means fully transparent. Alpha = 255 means fully opaque. Alpha channels
+                    allow you to composite elements on top of each other. When rendering motion graphics for
+                    compositing, always render with an alpha channel (ProRes 4444, PNG sequence, or WebM VP9).</p>
+            </div>
+
+            <div class="sk">
+                <h3>Compositing Basics</h3>
+                <p>Compositing is the art of <strong>layering multiple visual elements</strong> into a single final
+                    image. Composited elements must match in lighting, color, noise, motion blur, and perspective to
+                    feel like they belong together. Bad compositing: elements look "pasted on." Good compositing: you
+                    can't tell what's real and what isn't. Skills needed: matte extraction, color matching, edge
+                    refinement, and layer order.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Blend Modes Explained</h3>
+                <p><strong>Normal</strong> — Top layer covers bottom. Standard stacking.<br><strong>Multiply</strong> —
+                    Darkens. White disappears, black stays. Great for shadows and textures.<br><strong>Screen</strong> —
+                    Lightens. Black disappears, white stays. Perfect for fire, light leaks, and
+                    glows.<br><strong>Overlay</strong> — Combines Multiply and Screen. Increases contrast. Used for
+                    texture integration.<br><strong>Add</strong> — Adds brightness values. Creates extreme glows and
+                    light effects.<br>This knowledge transfers across every tool: Photoshop, After Effects, Blender, CSS
+                    (mix-blend-mode), and AI compositing workflows.</p>
+            </div>
+
+            <div class="sk">
+                <h3>Masking Animation</h3>
+                <p>A mask defines which part of a layer is visible. Animating the mask over time creates reveals, wipes,
+                    and selective visibility. A text element revealed by a traveling mask feels deliberate and polished.
+                    Masking is the bridge between static design and temporal design — it answers: "What does the viewer
+                    see <em>now</em>, and what is hidden for later?"</p>
+            </div>
+
+            <div class="sk">
+                <h3>Parallax Motion</h3>
+                <p>Parallax is the principle that <strong>objects at different distances move at different
+                        speeds</strong> relative to the viewer. Close objects move fast, distant objects move slow. This
+                    creates the illusion of 3D depth in a 2D composition. Separating a scene into foreground, midground,
+                    and background layers and moving them at different speeds creates rich, dimensional space. Used
+                    everywhere — title sequences, social media, explainer videos, and web scroll effects.</p>
+            </div>
+        </div>
+
+        <footer class="ft">
+            <a href="story-emotion.html">← Story & Emotion</a>
+            <a href="ai-visual.html">AI Visual Generation →</a>
+        </footer>
+    </div>
+    <script src="sidebar.js"></script>
+</body>
+
+</html>

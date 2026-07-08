@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing — Visual Storytelling Framework</title>
+    <meta name="description"
+        content="Where meaning is born. Narrative editing, pacing, rhythm, montage theory, and technical discipline.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #09090b;
+            color: #e4e4e7
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: #0c0c0f;
+            border-right: 1px solid #27272a;
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform .3s ease
+        }
+
+        .sidebar.open {
+            transform: translateX(0)
+        }
+
+        @media(min-width:1024px) {
+            .sidebar {
+                transform: translateX(0)
+            }
+
+            .main-content {
+                margin-left: 260px
+            }
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .5rem 1.25rem;
+            font-size: .82rem;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all .2s;
+            border-left: 2px solid transparent
+        }
+
+        .sidebar-link:hover {
+            color: #e4e4e7;
+            background: rgba(63, 63, 70, .3)
+        }
+
+        .sidebar-link.active {
+            color: #f59e0b;
+            border-left-color: #f59e0b;
+            background: rgba(245, 158, 11, .06)
+        }
+
+        .sidebar-section-title {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 1.25rem 1.25rem .4rem;
+            font-weight: 600
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            cursor: pointer
+        }
+
+        @media(min-width:1024px) {
+            .menu-btn {
+                display: none
+            }
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .section-divider {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: 2.5rem 0 1rem;
+            border-bottom: 1px solid #27272a;
+            margin-bottom: 1.5rem
+        }
+
+        .skill-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color .3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .skill-card:hover {
+            border-color: #3f3f46
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: .5rem
+        }
+
+        .skill-card p {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.7
+        }
+
+        .resources-group {
+            margin-top: .75rem;
+            border-top: 1px solid rgba(39, 39, 42, .5);
+            padding-top: .75rem
+        }
+
+        .resources-group h4 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #52525b;
+            margin-bottom: .4rem
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .35rem .6rem;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 5px;
+            margin-bottom: .3rem;
+            text-decoration: none;
+            font-size: .78rem;
+            color: #a1a1aa;
+            transition: all .2s
+        }
+
+        .resource-link:hover {
+            background: rgba(245, 158, 11, .06);
+            color: #d4d4d8
+        }
+
+        .resource-tag {
+            font-size: .55rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #52525b;
+            padding: .1rem .35rem;
+            background: rgba(63, 63, 70, .3);
+            border-radius: 3px
+        }
+
+        .kuleshov-demo {
+            display: flex;
+            gap: 3px;
+            margin: .75rem 0;
+            height: 40px
+        }
+
+        .kul-block {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: .6rem;
+            color: white;
+            letter-spacing: .05em
+        }
+
+        .kul-plus,
+        .kul-eq {
+            flex: 0 0 24px;
+            background: none !important;
+            color: #52525b;
+            font-size: 1rem
+        }
+
+        .flow-demo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: .75rem 0
+        }
+
+        .flow-block {
+            padding: .4rem .8rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: .65rem
+        }
+
+        .rhythm-demo {
+            display: flex;
+            gap: 2px;
+            margin: .75rem 0;
+            height: 8px;
+            align-items: center
+        }
+
+        .beat {
+            background: #ef4444;
+            border-radius: 1px;
+            opacity: .3;
+            height: 100%
+        }
+
+        .methods-bar {
+            display: flex;
+            gap: 2px;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: .75rem
+        }
+
+        .method {
+            flex: 1
+        }
+
+        .method-labels {
+            display: flex;
+            justify-content: space-between;
+            font-family: monospace;
+            font-size: .55rem;
+            color: #52525b;
+            margin-bottom: .75rem
+        }
+
+        @keyframes blink-effect {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            48% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+
+            52% {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="17" y2="6" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="14" x2="17" y2="14" />
+        </svg></button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar" id="sidebar">
+        <div style="padding:0 1.25rem 1rem">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+        </div>
+        <div class="sidebar-section-title">Core</div>
+        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
+        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
+        <div class="sidebar-section-title">Domains</div>
+        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
+        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
+        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
+        <a href="editing.html" class="sidebar-link active"><span>04</span> Editing</a>
+        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
+        <div class="sidebar-section-title">Advanced Systems</div>
+        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
+        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
+        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
+        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
+                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
+        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
+        <div class="sidebar-section-title">Tools & Reference</div>
+        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
+        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
+        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
+        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
+        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
+    </nav>
+
+    <div class="main-content">
+        <header class="relative overflow-hidden" style="min-height:40vh">
+            <div class="absolute inset-0"
+                style="background:radial-gradient(ellipse at 60% 30%,rgba(239,68,68,.06) 0%,transparent 55%)"></div>
+            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+                <div class="fade-up">
+                    <a href="index.html"
+                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+                        Overview</a>
+                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
+                        style="color:#ef4444;letter-spacing:.2em">Domain 04</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
+                        style="color:#fafafa">Editing</h1>
+                    <p class="text-lg italic mb-2" style="color:#71717a">"What does this sequence say?"</p>
+                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Editing is <strong
+                            style="color:#d4d4d8">where meaning is born</strong>. Control of time and sequence.
+                        Cinematography captures moments; editing creates meaning between them. This is not about
+                        transitions — it's about thought architecture.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-4xl mx-auto px-6 py-6">
+
+            <!-- BRUCE BLOCK INSIGHT -->
+            <div class="fade-up p-8 rounded-xl mb-12 border border-amber-500/20 shadow-[0_10px_30px_rgba(245,158,11,0.05)] relative overflow-hidden"
+                style="background: linear-gradient(135deg, rgba(39,39,42,0.6), rgba(24,24,27,0.8));">
+                <div class="absolute -right-12 -top-12 text-9xl opacity-5">📖</div>
+                <div class="text-xs font-bold tracking-widest uppercase mb-3 text-amber-500 flex items-center gap-2">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Book Insight: The Visual Story
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Bruce Block's Visual Rhythm</h3>
+                <p class="text-zinc-300 text-sm leading-relaxed mb-4">Rhythm isn't just about sound—it exists visually
+                    through the alteration of subcomponents (like alternating light/dark shapes or changing frame
+                    rates/shot durations). In editing, rhythm is dictated by the cut:</p>
+                <div class="grid md:grid-cols-2 gap-4 text-sm mt-6">
+                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
+                        <div class="text-amber-400 font-bold mb-1">Continuous Rhythm</div>
+                        <p class="text-zinc-400 text-xs">Scenes cut together so the visual flow masks the cut.
+                            Continuous movement across shots hide the edit point, drawing the audience entirely into the
+                            story rather than the construction.</p>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
+                        <div class="text-amber-400 font-bold mb-1">Fragmented Rhythm</div>
+                        <p class="text-zinc-400 text-xs">A deliberate disruption in visual rhythm. Cuts jump out,
+                            demanding attention. Often achieved through stark contrast shifts or jarring pacing changes,
+                            creating immense emotional friction.</p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <a href="visual-story.html"
+                        class="text-xs text-amber-500 hover:text-amber-400 font-semibold inline-flex items-center gap-1 transition-colors">
+                        Discover Visual Rhythm in The Visual Story Reader <span class="text-lg leading-none">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- A. NARRATIVE EDITING -->
+            <div class="section-divider fade-up">A · Narrative Editing</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">The grammar of film. How shots relate to each other.
+            </p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #ef4444">
+                <h3>The Kuleshov Effect</h3>
+                <div class="kuleshov-demo">
+                    <div class="kul-block" style="background:#64748b">FACE</div>
+                    <div class="kul-block kul-plus">+</div>
+                    <div class="kul-block" style="background:#f59e0b">SOUP</div>
+                    <div class="kul-block kul-eq">=</div>
+                    <div class="kul-block" style="background:#ef4444">HUNGER</div>
+                </div>
+                <p>Same face + bowl of soup = hunger. Same face + dead child = grief. Same face + woman = lust. The shot
+                    doesn't contain meaning — the juxtaposition creates it. This is the foundation of cinema.</p>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=_gGl3LJ7vHc" target="_blank"
+                        class="resource-link">Filmmaker IQ: Kuleshov Effect <span class="resource-tag">10 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=tqv3DsHv-Ds" target="_blank"
+                        class="resource-link">Hitchcock Explains Montage <span class="resource-tag">5 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=UFMabSp7rsU" target="_blank" class="resource-link">Soviet
+                        Montage Theory <span class="resource-tag">20 min</span></a>
+                </div>
+            </div>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #2563eb">
+                <h3>Cause & Effect</h3>
+                <div class="flow-demo">
+                    <div class="flow-block" style="background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3)">
+                        Shot A (look)</div>
+                    <div style="font-size:1.2rem;color:#52525b;padding:0 .3rem">→</div>
+                    <div class="flow-block" style="background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3)">
+                        Shot B (what they see)</div>
+                </div>
+                <p>Shot A causes Shot B's meaning. Character looks off-screen → cut to what they see. This primal logic
+                    underlies all narrative cinema. Break it intentionally for surrealism.</p>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=3FOzD4Sfgag" target="_blank" class="resource-link">Every
+                        Frame a Painting: How Editors Think <span class="resource-tag">8 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=8q4X2vDRfRk" target="_blank" class="resource-link">Thelma
+                        Schoonmaker Interview <span class="resource-tag">30 min</span></a>
+                </div>
+            </div>
+
+            <!-- B. PACING & RHYTHM -->
+            <div class="section-divider fade-up">B · Pacing & Rhythm</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">When to cut is as important as where. Time is elastic.
+            </p>
+
+            <div class="skill-card fade-up"
+                style="border-left:3px solid #8b5cf6;animation:blink-effect 4s ease-in-out infinite">
+                <h3>The Blink</h3>
+                <p>Walter Murch: cut on the blink. When the brain naturally blinks, it's ready for new information.
+                    Cutting at the "wrong" moment creates unease. At the "right" moment — invisible flow.</p>
+                <div style="font-family:monospace;font-size:.55rem;color:#8b5cf6;opacity:.4;margin-top:.5rem">👁 cut on
+                    the blink</div>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=EcXPRLKQqeU" target="_blank" class="resource-link">Walter
+                        Murch: In the Blink of an Eye <span class="resource-tag">Lecture</span></a>
+                    <a href="https://archive.org/details/waltermurch" target="_blank" class="resource-link">Murch's Book
+                        (Free Archive) <span class="resource-tag">Full Book</span></a>
+                </div>
+            </div>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #ef4444">
+                <h3>Tension Through Rhythm</h3>
+                <div class="rhythm-demo">
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:16px"></div>
+                    <div class="beat" style="width:16px"></div>
+                    <div class="beat" style="width:32px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:32px"></div>
+                    <div class="beat" style="width:16px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:8px"></div>
+                    <div class="beat" style="width:32px"></div>
+                    <div class="beat" style="width:32px"></div>
+                </div>
+                <p>Fast cuts = anxiety, energy, chaos. Long takes = contemplation, dread, intimacy. Varying rhythm
+                    creates waves. Constant rhythm becomes noise.</p>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=CruQylWSfoU" target="_blank" class="resource-link">Mad Max:
+                        The Pacing Masterclass <span class="resource-tag">15 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=GfqD5WqChUY" target="_blank" class="resource-link">Edgar
+                        Wright's Visual Comedy <span class="resource-tag">8 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=Z1PCtIaM_GQ" target="_blank"
+                        class="resource-link">Whiplash: Cutting to the Beat <span class="resource-tag">10 min</span></a>
+                </div>
+            </div>
+
+            <!-- C. MONTAGE -->
+            <div class="section-divider fade-up">C · Montage Theory</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Time compression, emotional escalation, visual poetry.
+            </p>
+
+            <div class="skill-card fade-up">
+                <h3>Eisenstein's 5 Methods</h3>
+                <div class="methods-bar">
+                    <div class="method" style="background:#ef4444"></div>
+                    <div class="method" style="background:#f59e0b"></div>
+                    <div class="method" style="background:#22c55e"></div>
+                    <div class="method" style="background:#3b82f6"></div>
+                    <div class="method" style="background:#8b5cf6"></div>
+                </div>
+                <div class="method-labels">
+                    <span>Metric</span><span>Rhythmic</span><span>Tonal</span><span>Overtonal</span><span>Intellectual</span>
+                </div>
+                <p><strong style="color:#ef4444">Metric</strong> — cut at fixed intervals regardless of content (pure
+                    tempo). <strong style="color:#f59e0b">Rhythmic</strong> — cut follows the movement within the frame.
+                    <strong style="color:#22c55e">Tonal</strong> — cut by the emotional tone of the shot. <strong
+                        style="color:#3b82f6">Overtonal</strong> — all three combined simultaneously. <strong
+                        style="color:#8b5cf6">Intellectual</strong> — collision of unrelated images to birth an abstract
+                    idea. Soviet cinema invented this vocabulary. Dancyger's analysis traces how each method evolved
+                    from silent film to modern blockbusters.</p>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=Irdx6vv6POA" target="_blank"
+                        class="resource-link">Eisenstein's Battleship Potemkin Analysis <span class="resource-tag">15
+                            min</span></a>
+                    <a href="https://www.youtube.com/watch?v=WQxB_e-I-bQ" target="_blank" class="resource-link">The
+                        Odessa Steps Breakdown <span class="resource-tag">10 min</span></a>
+                </div>
+            </div>
+
+            <!-- D. TECHNICAL DISCIPLINE -->
+            <div class="section-divider fade-up">D · Technical Discipline</div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Organization is freedom. Chaos kills creativity.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #64748b">
+                <h3>Project Organization</h3>
+                <div
+                    style="background:rgba(0,0,0,.2);border-radius:6px;padding:.75rem 1rem;margin:.75rem 0;font-family:monospace;font-size:.7rem;line-height:1.8;color:#a1a1aa">
+                    <div><span style="color:#f59e0b">📁 Project_v3_FINAL/</span></div>
+                    <div style="padding-left:1rem"><span style="color:#f59e0b">📁 01_Footage/</span></div>
+                    <div style="padding-left:2rem"><span style="color:#52525b">📄 A001_C001.mov</span></div>
+                    <div style="padding-left:1rem"><span style="color:#f59e0b">📁 02_Audio/</span></div>
+                    <div style="padding-left:1rem"><span style="color:#f59e0b">📁 03_Exports/</span></div>
+                    <div style="padding-left:2rem"><span style="color:#52525b">📄 final_v3_master.mp4</span></div>
+                </div>
+                <p>Name files properly. Use bins/folders obsessively. Version control everything. The editor who can
+                    find their footage instantly thinks faster. Speed is creative freedom.</p>
+                <div class="resources-group">
+                    <h4>Study Resources</h4>
+                    <a href="https://www.youtube.com/watch?v=eFU11q-eWUk" target="_blank" class="resource-link">Premiere
+                        Pro Workflow <span class="resource-tag">20 min</span></a>
+                    <a href="https://www.youtube.com/watch?v=oCen_vLs61U" target="_blank" class="resource-link">DaVinci
+                        Resolve: Complete Guide <span class="resource-tag">Free</span></a>
+                </div>
+            </div>
+
+            <!-- E. THE MTV INFLUENCE (Dancyger) -->
+            <div class="section-divider fade-up">E · The MTV Influence <span
+                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Ken Dancyger</span></div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">How music video aesthetics permanently rewired film
+                editing pace and structure.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #ec4899">
+                <h3>Disjunctive Editing & Feeling States</h3>
+                <p>MTV didn't just speed up editing — it <strong style="color:#d4d4d8">obliterated the primacy of
+                        plot</strong>. Feeling states replaced linear narrative. Disjunctive editing fragments time and
+                    space, creating dream-like sequences where emotional truth matters more than spatial logic. Dancyger
+                    traces this from music videos through Oliver Stone's <em>Natural Born Killers</em> to modern action
+                    cinema.</p>
+                <div class="resources-group">
+                    <h4>Key Evolutions</h4>
+                    <div
+                        style="font-size:.75rem;color:#a1a1aa;padding:.35rem .6rem;background:rgba(0,0,0,.15);border-radius:5px;margin-bottom:.3rem">
+                        Saving Private Ryan — Spielberg weaponized MTV-style fragmentation for visceral combat realism.
+                    </div>
+                    <div
+                        style="font-size:.75rem;color:#a1a1aa;padding:.35rem .6rem;background:rgba(0,0,0,.15);border-radius:5px;margin-bottom:.3rem">
+                        In the Mood for Love — Wong Kar-wai used MTV rhythm for romantic longing, not speed but
+                        atmosphere.
+                    </div>
+                </div>
+            </div>
+
+            <!-- F. EDITING GOALS (Dancyger) -->
+            <div class="section-divider fade-up">F · Editing Goals <span
+                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Ken Dancyger</span></div>
+            <p class="text-sm mb-6 fade-up" style="color:#71717a">Every cut serves a purpose. Know which one you're
+                serving.</p>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
+                <h3>Editing for Subtext</h3>
+                <p>The cut can say what dialogue cannot. Juxtapose a character's words with contradicting visuals and
+                    you create <strong style="color:#d4d4d8">subtext</strong> — meaning that lives beneath the surface.
+                    Scorsese's <em>The Departed</em> and Ang Lee's <em>Lust, Caution</em> are masterclasses in this: the
+                    edit reveals what characters hide.</p>
+            </div>
+
+            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
+                <h3>Genre-Specific Editing</h3>
+                <div class="grid md:grid-cols-2 gap-3 text-sm mt-4">
+                    <div style="background:rgba(0,0,0,.2);padding:.75rem;border-radius:6px">
+                        <div style="color:#ef4444;font-weight:700;font-size:.75rem;margin-bottom:.25rem">ACTION</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Short cuts, spatial clarity, impact frames. Every shot
+                            must advance the physical geography of the sequence.</p>
+                    </div>
+                    <div style="background:rgba(0,0,0,.2);padding:.75rem;border-radius:6px">
+                        <div style="color:#3b82f6;font-weight:700;font-size:.75rem;margin-bottom:.25rem">DIALOG</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Reaction shots over delivery shots. The listener's
+                            face carries more information than the speaker's mouth.</p>
+                    </div>
+                    <div style="background:rgba(0,0,0,.2);padding:.75rem;border-radius:6px">
+                        <div style="color:#22c55e;font-weight:700;font-size:.75rem;margin-bottom:.25rem">COMEDY</div>
+                        <p style="font-size:.75rem;color:#a1a1aa">Hold one beat longer than expected. Comedy timing is
+                            about the pause before the punchline, not the speed.</p>
+                    </div>
+                    <div style="background:rgba(0,0,0,.2);padding:.75rem;border-radius:6px">
+                        <div style="color:#f59e0b;font-weight:700;font-size:.75rem;margin-bottom:.25rem">DOCUMENTARY
+                        </div>
+                        <p style="font-size:.75rem;color:#a1a1aa">The narrator is an editorial voice. When narration
+                            drops, the images must carry their own truth — more persuasive than any words.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNCONVENTIONAL -->
+            <div class="skill-card fade-up"
+                style="margin-top:2rem;background:linear-gradient(135deg,rgba(239,68,68,.04),rgba(139,92,246,.03))">
+                <h3>🧠 Unconventional Learning</h3>
+                <a href="https://www.youtube.com/watch?v=ZQ5_u8Lgvyk" target="_blank" class="resource-link">This Is
+                    Editing (Chris Hocking) <span class="resource-tag">50 min</span></a>
+                <a href="https://www.youtube.com/watch?v=LFCePnIprOA" target="_blank" class="resource-link">How Music
+                    Editor Works <span class="resource-tag">20 min</span></a>
+                <a href="https://www.youtube.com/watch?v=QChWIFi8fOY" target="_blank" class="resource-link">Paul Hirsch
+                    on Star Wars Editing <span class="resource-tag">Interview</span></a>
+                <a href="https://www.youtube.com/c/ThomasFlight" target="_blank" class="resource-link">Thomas Flight
+                    YouTube <span class="resource-tag">Channel</span></a>
+            </div>
+        </div>
+
+        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex gap-4 text-xs"><a href="sound.html" class="hover:underline" style="color:#71717a">←
+                        Sound</a><a href="index.html" class="hover:underline" style="color:#71717a">Overview</a><a
+                        href="motion.html" class="hover:underline" style="color:#71717a">Motion →</a></div>
+                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
+        const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

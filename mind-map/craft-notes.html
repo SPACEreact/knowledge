@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft Notes — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Raw working notes on character creation, story structure, scene writing, storyboarding, lighting, and screenplay conventions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Craft Notes — Visual Storytelling Framework</title>
+<meta content="Raw working notes on character creation, story structure, scene writing, storyboarding, lighting, and screenplay conventions." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent
@@ -273,354 +271,318 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link active"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 40% 30%,rgba(16,185,129,.06) 0%,transparent 55%)"></div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="craftnotes.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="craftnotes.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="craftnotes.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="craftnotes.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="craftnotes.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="craftnotes.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="craftnotes.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="craftnotes.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="craftnotes.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="craftnotes.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link active" data-i18n-html="craftnotes.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="craftnotes.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 40% 30%,rgba(16,185,129,.06) 0%,transparent 55%)"></div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="craftnotes.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#10b981;letter-spacing:.2em">Personal Notes</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Craft Notes <span class="personal-tag">Personal</span></h1>
-                    <p class="text-lg italic mb-2" style="color:#71717a">Your raw thinking, organized but unpolished</p>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">These are your working notes —
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="craftnotes.6ce75b1b" style="color:#10b981;letter-spacing:.2em">Personal Notes</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="craftnotes.01d9bd35" style="color:#fafafa">Craft Notes <span class="personal-tag" data-i18n-html="craftnotes.184daff6">Personal</span></h1>
+<p class="text-lg italic mb-2" data-i18n-html="craftnotes.bfcf282b" style="color:#71717a">Your raw thinking, organized but unpolished</p>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="craftnotes.189955aa" style="color:#a1a1aa">These are your working notes —
                         ideas captured in the moment. They're organized by craft discipline but kept raw to preserve the
                         insight.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <!-- CHARACTER CREATION -->
-            <div class="section-divider fade-up">🎭 Character Creation</div>
-
-            <div class="note-card fade-up">
-                <h3>The Character Grid</h3>
-                <p>Characters pursue either a <strong>Need</strong> (soul-growth, truth, internal shift) or a
-                    <strong>Want</strong> (external goal, desire, image). The World/Power can support or oppose each.
+<div class="section-divider fade-up" data-i18n-html="craftnotes.c9f30079">🎭 Character Creation</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.121c3453">The Character Grid</h3>
+<p data-i18n-html="craftnotes.664221d5">Characters pursue either a <strong data-i18n-html="craftnotes.a56aaac7">Need</strong> (soul-growth, truth, internal shift) or a
+                    <strong data-i18n-html="craftnotes.2485b769">Want</strong> (external goal, desire, image). The World/Power can support or oppose each.
                 </p>
-                <table class="grid-table" style="margin-top:.75rem">
-                    <tr>
-                        <th>Character Type</th>
-                        <th>Pursues</th>
-                        <th>Power Supports</th>
-                        <th>Power Opposes</th>
-                    </tr>
-                    <tr>
-                        <td>Conscious</td>
-                        <td>Need</td>
-                        <td>Harmonious story of growth</td>
-                        <td>Tragic hero, painful but transformative</td>
-                    </tr>
-                    <tr>
-                        <td>Conscious</td>
-                        <td>Want</td>
-                        <td>Success arc, fulfillment</td>
-                        <td>Moral dilemma, sacrifice needed</td>
-                    </tr>
-                    <tr>
-                        <td>Unconscious</td>
-                        <td>Need</td>
-                        <td>Accidental healing, fate helps</td>
-                        <td>Resistance until awakening</td>
-                    </tr>
-                    <tr>
-                        <td>Unconscious</td>
-                        <td>Want</td>
-                        <td>Hollow success, irony</td>
-                        <td>Self-destruction, powerful conflict</td>
-                    </tr>
-                </table>
-            </div>
-
-            <section class="note-card fade-up semantic-section" id="layer-consciousness">
-                <h3>Core Layers of a Character</h3>
-                <ul>
-                    <li><strong>Outer Mask</strong> — Who they pretend to be (public persona)</li>
-                    <li><strong>Private Self</strong> — Who they think they are (with trusted people)</li>
-                    <li><strong>Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
-                </ul>
-            </section>
-
-            <div class="note-card fade-up">
-                <h3>Social Reaction Shifts</h3>
-                <p>Characters shift depending on who's watching:</p>
-                <ul>
-                    <li><strong>With someone they admire</strong> — Performative, seeking validation</li>
-                    <li><strong>With someone they fear</strong> — Obedient, deceptive, or defensive</li>
-                    <li><strong>With someone they hate</strong> — Aggressive, mocking, combative</li>
-                    <li><strong>With someone they love</strong> — Vulnerable or scared to be vulnerable</li>
-                    <li><strong>With someone they pity</strong> — Superior, nurturing, or manipulative</li>
-                </ul>
-                <div class="insight">"We are who we think they think we are."</div>
-            </div>
-
-            <section class="note-card fade-up semantic-section" id="enneagram-types">
-                <h3>Enneagram Types (Shorthand)</h3>
-                <ul id="enneagram-types-list" class="stack-sm"></ul>
-            </section>
-
-            <div class="note-card fade-up">
-                <h3>Character Introduction Rules</h3>
-                <ul>
-                    <li>What is the first thing the character says? (Sherlock's first dialogue is deduction — that's
+<table class="grid-table" style="margin-top:.75rem">
+<tr>
+<th data-i18n-html="craftnotes.d8428fa0">Character Type</th>
+<th data-i18n-html="craftnotes.ea079c39">Pursues</th>
+<th data-i18n-html="craftnotes.af9dab83">Power Supports</th>
+<th data-i18n-html="craftnotes.3106ea60">Power Opposes</th>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.18a2a40e">Conscious</td>
+<td data-i18n-html="craftnotes.a56aaac7">Need</td>
+<td data-i18n-html="craftnotes.3f3bed60">Harmonious story of growth</td>
+<td data-i18n-html="craftnotes.e7fc01e0">Tragic hero, painful but transformative</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.18a2a40e">Conscious</td>
+<td data-i18n-html="craftnotes.2485b769">Want</td>
+<td data-i18n-html="craftnotes.dc0758e8">Success arc, fulfillment</td>
+<td data-i18n-html="craftnotes.f5922614">Moral dilemma, sacrifice needed</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.cb6b56b0">Unconscious</td>
+<td data-i18n-html="craftnotes.a56aaac7">Need</td>
+<td data-i18n-html="craftnotes.f8363440">Accidental healing, fate helps</td>
+<td data-i18n-html="craftnotes.3875e8eb">Resistance until awakening</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.cb6b56b0">Unconscious</td>
+<td data-i18n-html="craftnotes.2485b769">Want</td>
+<td data-i18n-html="craftnotes.aef73699">Hollow success, irony</td>
+<td data-i18n-html="craftnotes.385a12b8">Self-destruction, powerful conflict</td>
+</tr>
+</table>
+</div>
+<section class="note-card fade-up semantic-section" id="layer-consciousness">
+<h3 data-i18n-html="craftnotes.f4ba8473">Core Layers of a Character</h3>
+<ul>
+<li data-i18n-html="craftnotes.bad24121"><strong data-i18n-html="craftnotes.f8b66b9e">Outer Mask</strong> — Who they pretend to be (public persona)</li>
+<li data-i18n-html="craftnotes.77a9084f"><strong data-i18n-html="craftnotes.a55a780f">Private Self</strong> — Who they think they are (with trusted people)</li>
+<li data-i18n-html="craftnotes.96b95b03"><strong data-i18n-html="craftnotes.f7f22cb3">Core Wound/Truth</strong> — Who they are underneath (revealed in crisis)</li>
+</ul>
+</section>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.fe680294">Social Reaction Shifts</h3>
+<p data-i18n-html="craftnotes.3c5634a6">Characters shift depending on who's watching:</p>
+<ul>
+<li data-i18n-html="craftnotes.c0845aea"><strong data-i18n-html="craftnotes.b5c3ab65">With someone they admire</strong> — Performative, seeking validation</li>
+<li data-i18n-html="craftnotes.dec1e0f3"><strong data-i18n-html="craftnotes.105649b0">With someone they fear</strong> — Obedient, deceptive, or defensive</li>
+<li data-i18n-html="craftnotes.7ff19295"><strong data-i18n-html="craftnotes.d2f08fbf">With someone they hate</strong> — Aggressive, mocking, combative</li>
+<li data-i18n-html="craftnotes.72cb3110"><strong data-i18n-html="craftnotes.344b7547">With someone they love</strong> — Vulnerable or scared to be vulnerable</li>
+<li data-i18n-html="craftnotes.eab47199"><strong data-i18n-html="craftnotes.d840f616">With someone they pity</strong> — Superior, nurturing, or manipulative</li>
+</ul>
+<div class="insight" data-i18n-html="craftnotes.eecd3e05">"We are who we think they think we are."</div>
+</div>
+<section class="note-card fade-up semantic-section" id="enneagram-types">
+<h3 data-i18n-html="craftnotes.30bbb758">Enneagram Types (Shorthand)</h3>
+<ul class="stack-sm" id="enneagram-types-list"></ul>
+</section>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.960b2f42">Character Introduction Rules</h3>
+<ul>
+<li data-i18n-html="craftnotes.8ed3c9cc">What is the first thing the character says? (Sherlock's first dialogue is deduction — that's
                         first impression)</li>
-                    <li>Show what is the problem of the character</li>
-                    <li>Make them likeable</li>
-                    <li>Widen audience perception about themselves (Walter White says it's for family, but it was ego)
+<li data-i18n-html="craftnotes.59aff628">Show what is the problem of the character</li>
+<li data-i18n-html="craftnotes.96b56bc0">Make them likeable</li>
+<li data-i18n-html="craftnotes.36dedc3b">Widen audience perception about themselves (Walter White says it's for family, but it was ego)
                     </li>
-                    <li>Break the stereotype (old lady we imagine to be "go with the flow" — what if they're mean?)</li>
-                    <li>Make them do something that contradicts expected behavior</li>
-                </ul>
-                <div class="raw-note"><strong>Character should be split between 3 times:</strong><br>Past — A past that
-                    affects their present<br>Present — Immediate problem (one personal conflict + one internal conflict)
+<li data-i18n-html="craftnotes.69af48f2">Break the stereotype (old lady we imagine to be "go with the flow" — what if they're mean?)</li>
+<li data-i18n-html="craftnotes.22ccadea">Make them do something that contradicts expected behavior</li>
+</ul>
+<div class="raw-note" data-i18n-html="craftnotes.5ea77969"><strong data-i18n-html="craftnotes.0968c8e5">Character should be split between 3 times:</strong><br/>Past — A past that
+                    affects their present<br/>Present — Immediate problem (one personal conflict + one internal conflict)
                 </div>
-            </div>
+</div>
 
-            <!-- STORY STRUCTURE -->
-            <div class="section-divider fade-up">📐 Story Structure</div>
-
-            <div class="note-card fade-up">
-                <h3>Dan Harmon's Story Circle</h3>
-                <div class="formula">
-                    1. <strong>You</strong> — Character in their zone of comfort<br>
-                    2. <strong>Need</strong> — Wants something<br>
-                    3. <strong>Go!</strong> — Enters an unfamiliar situation<br>
-                    4. <strong>Struggle</strong> — Has to adapt<br>
-                    5. <strong>Find</strong> — Gets what they want (or a version)<br>
-                    6. <strong>Suffer</strong> — Has to make a sacrifice<br>
-                    7. <strong>Return</strong> — Returns to familiar situation<br>
-                    8. <strong>Change</strong> — Having changed fundamentally
+<div class="section-divider fade-up" data-i18n-html="craftnotes.50b02c78">📐 Story Structure</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.2b8221f5">Dan Harmon's Story Circle</h3>
+<div class="formula" data-i18n-html="craftnotes.1c3142fb">
+                    1. <strong data-i18n-html="craftnotes.cae8d14e">You</strong> — Character in their zone of comfort<br/>
+                    2. <strong data-i18n-html="craftnotes.a56aaac7">Need</strong> — Wants something<br/>
+                    3. <strong data-i18n-html="craftnotes.1fb103af">Go!</strong> — Enters an unfamiliar situation<br/>
+                    4. <strong data-i18n-html="craftnotes.0c61f1ef">Struggle</strong> — Has to adapt<br/>
+                    5. <strong data-i18n-html="craftnotes.4cfa6c98">Find</strong> — Gets what they want (or a version)<br/>
+                    6. <strong data-i18n-html="craftnotes.23de52da">Suffer</strong> — Has to make a sacrifice<br/>
+                    7. <strong data-i18n-html="craftnotes.988fd738">Return</strong> — Returns to familiar situation<br/>
+                    8. <strong data-i18n-html="craftnotes.f4ec5f57">Change</strong> — Having changed fundamentally
                 </div>
-            </div>
-
-            <div class="note-card fade-up">
-                <h3>Conflict Rules</h3>
-                <div class="insight">"The real unity of opposites is one in which compromise is impossible."</div>
-                <p><strong>The Unity of Opposites:</strong> Great conflict comes from characters with opposing needs,
+</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.cd877e06">Conflict Rules</h3>
+<div class="insight" data-i18n-html="craftnotes.eb53ab2d">"The real unity of opposites is one in which compromise is impossible."</div>
+<p data-i18n-html="craftnotes.8faa91c5"><strong data-i18n-html="craftnotes.f397b657">The Unity of Opposites:</strong> Great conflict comes from characters with opposing needs,
                     values, or goals, who are locked together in a situation where neither can back down or walk away.
                 </p>
-                <ul>
-                    <li>Don't make inciting incident same for everyone — protagonist should have higher stakes</li>
-                    <li>It's never too soon to push character out of comfort zone (inciting incident)</li>
-                    <li>Don't make conflict too easily resolved</li>
-                    <li>A chain reaction of conflict should happen</li>
-                </ul>
-                <div class="raw-note"><strong>For audience connection:</strong> Highlight the ordinary, make it
+<ul>
+<li data-i18n-html="craftnotes.40634290">Don't make inciting incident same for everyone — protagonist should have higher stakes</li>
+<li data-i18n-html="craftnotes.b4c3ddf4">It's never too soon to push character out of comfort zone (inciting incident)</li>
+<li data-i18n-html="craftnotes.7ef3c7ea">Don't make conflict too easily resolved</li>
+<li data-i18n-html="craftnotes.f1a74c1d">A chain reaction of conflict should happen</li>
+</ul>
+<div class="raw-note" data-i18n-html="craftnotes.51a704d5"><strong data-i18n-html="craftnotes.8e26b7f6">For audience connection:</strong> Highlight the ordinary, make it
                     extraordinary. People should relate but think "I'm not even in that bad a situation."</div>
-            </div>
+</div>
 
-            <!-- SCENE WRITING -->
-            <div class="section-divider fade-up">✍️ Scene Writing</div>
-
-            <div class="note-card fade-up">
-                <h3>The Three Questions</h3>
-                <div class="formula">
-                    1. Who wants what from whom?<br>
-                    2. What happens if they don't get it?<br>
+<div class="section-divider fade-up" data-i18n-html="craftnotes.2ca77dda">✍️ Scene Writing</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.4c414ab0">The Three Questions</h3>
+<div class="formula" data-i18n-html="craftnotes.b81612e0">
+                    1. Who wants what from whom?<br/>
+                    2. What happens if they don't get it?<br/>
                     3. Why now?
                 </div>
-            </div>
-
-            <div class="note-card fade-up">
-                <h3>Scene Writing Process</h3>
-                <ol>
-                    <li>Write it simply: what does my character want, how did the scene change them?</li>
-                    <li>Rewrite with deeper context: how did the character react, what's the new correlation between
+</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.3b79397c">Scene Writing Process</h3>
+<ol>
+<li data-i18n-html="craftnotes.f24d884d">Write it simply: what does my character want, how did the scene change them?</li>
+<li data-i18n-html="craftnotes.3fe3e61e">Rewrite with deeper context: how did the character react, what's the new correlation between
                         characters now?</li>
-                </ol>
-                <div class="insight">"Dialogue becomes powerful when characters have hidden agendas."</div>
-                <div class="raw-note">Add subtext in scene to represent something but don't demand any conclusion — just
+</ol>
+<div class="insight" data-i18n-html="craftnotes.c237e0a7">"Dialogue becomes powerful when characters have hidden agendas."</div>
+<div class="raw-note" data-i18n-html="craftnotes.0a7e7c9a">Add subtext in scene to represent something but don't demand any conclusion — just
                     leave it there.</div>
-            </div>
+</div>
 
-            <!-- STORYBOARD -->
-            <div class="section-divider fade-up">🎬 Storyboard Techniques</div>
+<div class="section-divider fade-up" data-i18n-html="craftnotes.930e5b3f">🎬 Storyboard Techniques</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.9712b576">What to Include</h3>
+<ul>
+<li data-i18n-html="craftnotes.2e4b97fd">Lighting</li>
+<li data-i18n-html="craftnotes.9d07e0e0">Sound</li>
+<li data-i18n-html="craftnotes.9686f456">Camera movement</li>
+<li data-i18n-html="craftnotes.deca1991">Aspect ratio</li>
+<li data-i18n-html="craftnotes.8a41c5eb">Character movement</li>
+<li data-i18n-html="craftnotes.a698622d">Framing &amp; composition</li>
+<li data-i18n-html="craftnotes.45f4ce6c">Angle</li>
+<li data-i18n-html="craftnotes.75f25029">Transition between frames</li>
+<li data-i18n-html="craftnotes.fd0b1335">Depth of field (cross out out-of-focus elements)</li>
+</ul>
+<h3 data-i18n-html="craftnotes.64d523c9" style="margin-top:1rem">Visual Storytelling Rules</h3>
+<ul>
+<li data-i18n-html="craftnotes.88418d83">Movement of character should give sense of what they would do — audience should anticipate</li>
+<li data-i18n-html="craftnotes.cbf109ae">Show weather, time of day</li>
+<li data-i18n-html="craftnotes.e4a48783">Cut on action</li>
+<li data-i18n-html="craftnotes.948e2309">Switch between full to medium shot in a single scene</li>
+</ul>
+</div>
 
-            <div class="note-card fade-up">
-                <h3>What to Include</h3>
-                <ul>
-                    <li>Lighting</li>
-                    <li>Sound</li>
-                    <li>Camera movement</li>
-                    <li>Aspect ratio</li>
-                    <li>Character movement</li>
-                    <li>Framing & composition</li>
-                    <li>Angle</li>
-                    <li>Transition between frames</li>
-                    <li>Depth of field (cross out out-of-focus elements)</li>
-                </ul>
-                <h3 style="margin-top:1rem">Visual Storytelling Rules</h3>
-                <ul>
-                    <li>Movement of character should give sense of what they would do — audience should anticipate</li>
-                    <li>Show weather, time of day</li>
-                    <li>Cut on action</li>
-                    <li>Switch between full to medium shot in a single scene</li>
-                </ul>
-            </div>
-
-            <!-- LIGHTING -->
-            <div class="section-divider fade-up">💡 Lighting Notes</div>
-
-            <div class="note-card fade-up">
-                <h3>Types of Light Sources</h3>
-                <ul>
-                    <li><strong>Natural Light</strong> — Sunlight, moonlight. Changes throughout the day.</li>
-                    <li><strong>Practical Light</strong> — Existing lights in a scene (lamps, candles, screens).</li>
-                    <li><strong>Artificial Light</strong> — Studio lights, LEDs, flash, strobes.</li>
-                </ul>
-                <h3 style="margin-top:1rem">Three-Point Lighting</h3>
-                <ul>
-                    <li><strong>Key Light</strong> — Strongest, main source, shapes the subject</li>
-                    <li><strong>Fill Light</strong> — Softer, reduces shadows from key light</li>
-                    <li><strong>Backlight</strong> — Behind subject, separates from background</li>
-                    <li><strong>Kicker Light</strong> — Side/back, adds highlight on edge</li>
-                    <li><strong>Motivated Lighting</strong> — Artificial lights mimicking natural sources</li>
-                </ul>
-            </div>
-
-            <div class="note-card fade-up">
-                <h3>Lighting Styles</h3>
-                <table class="grid-table">
-                    <tr>
-                        <th>Style</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>Rembrandt</td>
-                        <td>Small triangle of light on one cheek, dramatic yet natural</td>
-                    </tr>
-                    <tr>
-                        <td>Loop</td>
-                        <td>Slight shadow under nose, common for portraits</td>
-                    </tr>
-                    <tr>
-                        <td>Split</td>
-                        <td>One half lit, other dark — high contrast</td>
-                    </tr>
-                    <tr>
-                        <td>Butterfly</td>
-                        <td>Shadow under nose, used for beauty shots</td>
-                    </tr>
-                    <tr>
-                        <td>Clamshell</td>
-                        <td>Two soft lights above/below, smooth look</td>
-                    </tr>
-                    <tr>
-                        <td>Silhouette</td>
-                        <td>Light from behind, subject appears dark</td>
-                    </tr>
-                    <tr>
-                        <td>Low-Key</td>
-                        <td>High contrast, dramatic shadows (film noir)</td>
-                    </tr>
-                    <tr>
-                        <td>High-Key</td>
-                        <td>Bright, low contrast (commercials, comedies)</td>
-                    </tr>
-                </table>
-                <h3 style="margin-top:1rem">Light Softness Rules</h3>
-                <ul>
-                    <li>Larger light source = Softer shadows</li>
-                    <li>Smaller light source = Harsher shadows</li>
-                    <li>Closer light = Softer (wraps around subject)</li>
-                    <li>Farther light = Harsher (more directional)</li>
-                </ul>
-                <div class="raw-note"><strong>Shoot from the Dark Side</strong> — Position camera on shadowed side of
-                    face for depth and drama.<br><br><strong>Broad Lighting</strong> — Bright side faces camera (makes
-                    face look wider)<br><strong>Short Lighting</strong> — Shadowed side faces camera (adds contrast and
+<div class="section-divider fade-up" data-i18n-html="craftnotes.54b7f75b">💡 Lighting Notes</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.f4f8909a">Types of Light Sources</h3>
+<ul>
+<li data-i18n-html="craftnotes.10ea37d8"><strong data-i18n-html="craftnotes.3bc7a6a7">Natural Light</strong> — Sunlight, moonlight. Changes throughout the day.</li>
+<li data-i18n-html="craftnotes.45a25365"><strong data-i18n-html="craftnotes.17355eac">Practical Light</strong> — Existing lights in a scene (lamps, candles, screens).</li>
+<li data-i18n-html="craftnotes.85eb1be9"><strong data-i18n-html="craftnotes.e5f73fad">Artificial Light</strong> — Studio lights, LEDs, flash, strobes.</li>
+</ul>
+<h3 data-i18n-html="craftnotes.88554965" style="margin-top:1rem">Three-Point Lighting</h3>
+<ul>
+<li data-i18n-html="craftnotes.96ce00f1"><strong data-i18n-html="craftnotes.59338039">Key Light</strong> — Strongest, main source, shapes the subject</li>
+<li data-i18n-html="craftnotes.d34d892e"><strong data-i18n-html="craftnotes.f1a4d4a2">Fill Light</strong> — Softer, reduces shadows from key light</li>
+<li data-i18n-html="craftnotes.9a2838f8"><strong data-i18n-html="craftnotes.18a864ad">Backlight</strong> — Behind subject, separates from background</li>
+<li data-i18n-html="craftnotes.6d4a8ef9"><strong data-i18n-html="craftnotes.c2931411">Kicker Light</strong> — Side/back, adds highlight on edge</li>
+<li data-i18n-html="craftnotes.c0ce860a"><strong data-i18n-html="craftnotes.fc5ef949">Motivated Lighting</strong> — Artificial lights mimicking natural sources</li>
+</ul>
+</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.a72b4306">Lighting Styles</h3>
+<table class="grid-table">
+<tr>
+<th data-i18n-html="craftnotes.ae284f90">Style</th>
+<th data-i18n-html="craftnotes.b5a7adde">Description</th>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.2302b94e">Rembrandt</td>
+<td data-i18n-html="craftnotes.eb2eb5c6">Small triangle of light on one cheek, dramatic yet natural</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.89d7b10c">Loop</td>
+<td data-i18n-html="craftnotes.791e18ab">Slight shadow under nose, common for portraits</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.8a9e64d8">Split</td>
+<td data-i18n-html="craftnotes.64c8832d">One half lit, other dark — high contrast</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.29ecfc45">Butterfly</td>
+<td data-i18n-html="craftnotes.2c1e6e21">Shadow under nose, used for beauty shots</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.02238cd5">Clamshell</td>
+<td data-i18n-html="craftnotes.03ec1503">Two soft lights above/below, smooth look</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.d1b62f6f">Silhouette</td>
+<td data-i18n-html="craftnotes.9a5aef1c">Light from behind, subject appears dark</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.a719bcec">Low-Key</td>
+<td data-i18n-html="craftnotes.e8aa92ff">High contrast, dramatic shadows (film noir)</td>
+</tr>
+<tr>
+<td data-i18n-html="craftnotes.260352de">High-Key</td>
+<td data-i18n-html="craftnotes.1ffacbe2">Bright, low contrast (commercials, comedies)</td>
+</tr>
+</table>
+<h3 data-i18n-html="craftnotes.8f739348" style="margin-top:1rem">Light Softness Rules</h3>
+<ul>
+<li data-i18n-html="craftnotes.50094dd1">Larger light source = Softer shadows</li>
+<li data-i18n-html="craftnotes.c34a9b8b">Smaller light source = Harsher shadows</li>
+<li data-i18n-html="craftnotes.29e44603">Closer light = Softer (wraps around subject)</li>
+<li data-i18n-html="craftnotes.806449db">Farther light = Harsher (more directional)</li>
+</ul>
+<div class="raw-note" data-i18n-html="craftnotes.40b82c4b"><strong data-i18n-html="craftnotes.8da6af11">Shoot from the Dark Side</strong> — Position camera on shadowed side of
+                    face for depth and drama.<br/><br/><strong data-i18n-html="craftnotes.206b8071">Broad Lighting</strong> — Bright side faces camera (makes
+                    face look wider)<br/><strong data-i18n-html="craftnotes.a28fb99c">Short Lighting</strong> — Shadowed side faces camera (adds contrast and
                     depth)</div>
-            </div>
+</div>
 
-            <!-- SCREENPLAY -->
-            <div class="section-divider fade-up">📝 Screenplay Conventions</div>
-
-            <div class="note-card fade-up">
-                <h3>Formatting Rules</h3>
-                <ul>
-                    <li>Keep it visual and in present tense</li>
-                    <li>Write <code
-                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">V.O.</code>
+<div class="section-divider fade-up" data-i18n-html="craftnotes.46b10896">📝 Screenplay Conventions</div>
+<div class="note-card fade-up">
+<h3 data-i18n-html="craftnotes.88ab8a8b">Formatting Rules</h3>
+<ul>
+<li data-i18n-html="craftnotes.5c5157f5">Keep it visual and in present tense</li>
+<li data-i18n-html="craftnotes.7d2cfbe4">Write <code style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">V.O.</code>
                         for voice over</li>
-                    <li>Add <code
-                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">CUT TO</code>
-                        or <code
-                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">BACK TO</code>
+<li data-i18n-html="craftnotes.c43dab2d">Add <code style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">CUT TO</code>
+                        or <code style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">BACK TO</code>
                         for scene change</li>
-                    <li><code
-                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE START</code>
-                        and <code
-                            style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE END</code>
-                    </li>
-                    <li>Dialogues in the centre</li>
-                </ul>
-            </div>
+<li data-i18n-html="craftnotes.02d3293c"><code style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE START</code>
+                        and <code style="background:rgba(0,0,0,.2);padding:2px 5px;border-radius:3px;font-family:monospace;font-size:.78rem">MONTAGE END</code>
+</li>
+<li data-i18n-html="craftnotes.ca9ec79f">Dialogues in the centre</li>
+</ul>
+</div>
 
-            <!-- QUICK WISDOM -->
-            <div class="section-divider fade-up">⚡ Quick Wisdom</div>
-
-            <div class="note-card fade-up" style="border-left-color:#f59e0b">
-                <div class="raw-note" style="background:rgba(245,158,11,.06)">So what does audience think when they see
+<div class="section-divider fade-up" data-i18n-html="craftnotes.369c78ad">⚡ Quick Wisdom</div>
+<div class="note-card fade-up" style="border-left-color:#f59e0b">
+<div class="raw-note" data-i18n-html="craftnotes.69d23a3d" style="background:rgba(245,158,11,.06)">So what does audience think when they see
                     the world... How it makes them connect to their idea... How they communicate.... Is character funny
                     in a horror world... Is character hiding something that can change the world... or is there fight
                     between two people whom we know what their desires are, what their flaws are, and how they are
                     changed throughout the entire time and what theme do they follow.</div>
-            </div>
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
+</div>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs"><a class="hover:underline" data-i18n-html="craftnotes.a376e23a" href="index.html" style="color:#71717a">←
                         Back to Overview</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<div class="text-xs" data-i18n-html="craftnotes.3c5af944" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         const ENNEAGRAM_TYPES = [
             {
                 id: 'type-1',
@@ -655,7 +617,6 @@
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

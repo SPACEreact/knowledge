@@ -1,258 +1,221 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Playgrounds | Visual Storytelling Study Guide</title>
-    <meta name="description"
-        content="Learn cinematic concepts by doing. Drag lights, adjust focal lengths, draw easing curves, and mix audio — all in your browser.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="playground.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interactive Playgrounds | Visual Storytelling Study Guide</title>
+<meta content="Learn cinematic concepts by doing. Drag lights, adjust focal lengths, draw easing curves, and mix audio — all in your browser." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="playground.css" rel="stylesheet"/>
 </head>
-
 <body data-page="playgrounds">
-    <!-- GPU Status Bar -->
-    <div class="gpu-status" id="gpuStatus">
-        <span class="gpu-dot"></span>
-        <span id="gpuLabel">Detecting GPU...</span>
-    </div>
 
-    <!-- Search Bar -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search concepts... (⌘K)"
-                autocomplete="off" spellcheck="false">
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div>
+<div class="gpu-status" data-i18n-html="playgrounds.860136a0" id="gpuStatus">
+<span class="gpu-dot"></span>
+<span data-i18n-html="playgrounds.cf27e259" id="gpuLabel">Detecting GPU...</span>
+</div>
 
-    <!-- Navigation -->
-    <nav class="pg-nav">
-        <a href="index.html" class="pg-nav-link">← Overview</a>
-        <a href="#lighting" class="pg-nav-link active" data-section="lighting">🎥 Lighting</a>
-        <a href="#focal-length" class="pg-nav-link" data-section="focal-length">🔭 Lenses</a>
-        <a href="#dof" class="pg-nav-link" data-section="dof">🔘 DOF</a>
-        <a href="#color-temp" class="pg-nav-link" data-section="color-temp">🌡️ Color</a>
-        <a href="#composition" class="pg-nav-link" data-section="composition">📐 Composition</a>
-        <a href="#easing" class="pg-nav-link" data-section="easing">📈 Easing</a>
-        <a href="#timeline" class="pg-nav-link" data-section="timeline">✂️ Timeline</a>
-        <a href="#sound-mixer" class="pg-nav-link" data-section="sound-mixer">🎚️ Sound</a>
-        <button class="pg-nav-link pg-search-btn" id="searchBtn">🔍</button>
-    </nav>
+<div class="search-overlay" id="searchOverlay">
+<div class="search-container">
+<input autocomplete="off" class="search-input" id="searchInput" placeholder="Search concepts... (⌘K)" spellcheck="false" type="text"/>
+<div class="search-results" id="searchResults"></div>
+</div>
+</div>
 
-    <main class="pg-main">
-        <!-- Header -->
-        <header class="pg-header">
-            <h1 class="pg-title">Interactive Playgrounds</h1>
-            <p class="pg-subtitle">Learn by doing. Every concept is a playground, not a paragraph.</p>
-            <div class="pg-tech-badges">
-                <span class="pg-badge pg-badge--webgpu" id="badgeWebGPU">WebGPU</span>
-                <span class="pg-badge pg-badge--signals">Signals</span>
-                <span class="pg-badge pg-badge--orama">Orama RAG</span>
-                <span class="pg-badge pg-badge--webllm" id="badgeAI">WebLLM</span>
-            </div>
-        </header>
+<nav class="pg-nav">
+<a class="pg-nav-link" data-i18n-html="playgrounds.c4bbed5a" href="index.html">← Overview</a>
+<a class="pg-nav-link active" data-i18n-html="playgrounds.1d363f1f" data-section="lighting" href="#lighting">🎥 Lighting</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.f5567fe0" data-section="focal-length" href="#focal-length">🔭 Lenses</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.cf363fde" data-section="dof" href="#dof">🔘 DOF</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.c50c6cb5" data-section="color-temp" href="#color-temp">🌡️ Color</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.21ced0b2" data-section="composition" href="#composition">📐 Composition</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.b21d0329" data-section="easing" href="#easing">📈 Easing</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.fbaeb88d" data-section="timeline" href="#timeline">✂️ Timeline</a>
+<a class="pg-nav-link" data-i18n-html="playgrounds.4bdedcd4" data-section="sound-mixer" href="#sound-mixer">🎚️ Sound</a>
+<button class="pg-nav-link pg-search-btn" id="searchBtn">🔍</button>
+</nav>
+<main class="pg-main">
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: 3-POINT LIGHTING
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="lighting">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
-                <h2 class="pg-section-title">Three-Point Lighting</h2>
-                <p class="pg-section-desc">
-                    Drag the <strong style="color:#ffd700">Key</strong>,
-                    <strong style="color:#6699ff">Fill</strong>, and
-                    <strong style="color:#fff">Back</strong> lights around the subject.
+<header class="pg-header">
+<h1 class="pg-title" data-i18n-html="playgrounds.f5f32abf">Interactive Playgrounds</h1>
+<p class="pg-subtitle" data-i18n-html="playgrounds.627807ef">Learn by doing. Every concept is a playground, not a paragraph.</p>
+<div class="pg-tech-badges" data-i18n-html="playgrounds.95d4e580">
+<span class="pg-badge pg-badge--webgpu" data-i18n-html="playgrounds.e2a7a478" id="badgeWebGPU">WebGPU</span>
+<span class="pg-badge pg-badge--signals" data-i18n-html="playgrounds.cadd2b2a">Signals</span>
+<span class="pg-badge pg-badge--orama" data-i18n-html="playgrounds.af251ed5">Orama RAG</span>
+<span class="pg-badge pg-badge--webllm" data-i18n-html="playgrounds.3ca97830" id="badgeAI">WebLLM</span>
+</div>
+</header>
+
+<section class="pg-section" id="lighting">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.88554965">Three-Point Lighting</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.268528d2">
+                    Drag the <strong data-i18n-html="playgrounds.89735695" style="color:#ffd700">Key</strong>,
+                    <strong data-i18n-html="playgrounds.db3e3f51" style="color:#6699ff">Fill</strong>, and
+                    <strong data-i18n-html="playgrounds.0557fa92" style="color:#fff">Back</strong> lights around the subject.
                     Watch shadows and highlights change in real-time.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper">
-                <div class="pg-canvas" id="lightingCanvas"></div>
-                <div class="pg-controls-panel" id="lightingControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper">
+<div class="pg-canvas" id="lightingCanvas"></div>
+<div class="pg-controls-panel" id="lightingControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: FOCAL LENGTH
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="focal-length">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
-                <h2 class="pg-section-title">Focal Length Psychology</h2>
-                <p class="pg-section-desc">
-                    Slide between <strong>18mm</strong> (wide, dramatic) and <strong>200mm</strong> (telephoto,
+<section class="pg-section" id="focal-length">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.f51b5edf">Focal Length Psychology</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.5b486d48">
+                    Slide between <strong data-i18n-html="playgrounds.ed6d4ec5">18mm</strong> (wide, dramatic) and <strong data-i18n-html="playgrounds.f0b1c7cf">200mm</strong> (telephoto,
                     compressed).
-                    Notice how the background relationship changes — this is <em>perspective distortion</em>.
+                    Notice how the background relationship changes — this is <em data-i18n-html="playgrounds.c7a138c3">perspective distortion</em>.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper">
-                <div class="pg-canvas" id="focalCanvas"></div>
-                <div class="pg-controls-panel" id="focalControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper">
+<div class="pg-canvas" id="focalCanvas"></div>
+<div class="pg-controls-panel" id="focalControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: DEPTH OF FIELD
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="dof">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
-                <h2 class="pg-section-title">Depth of Field</h2>
-                <p class="pg-section-desc">
+<section class="pg-section" id="dof">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.84af023f">Depth of Field</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.c3df738d">
                     Slide the aperture from <strong>f/1.4</strong> (dreamy bokeh) to <strong>f/16</strong> (everything
                     sharp).
                     Lower f-stops create the shallow depth of field that gives cinema its signature look.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper">
-                <div class="pg-canvas" id="dofCanvas"></div>
-                <div class="pg-controls-panel" id="dofControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper">
+<div class="pg-canvas" id="dofCanvas"></div>
+<div class="pg-controls-panel" id="dofControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: COLOR TEMPERATURE
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="color-temp">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--cinematography)">Cinematography</span>
-                <h2 class="pg-section-title">Color Temperature</h2>
-                <p class="pg-section-desc">
-                    Shift the scene from warm <strong>candlelight (2000K)</strong> to cold <strong>blue sky
+<section class="pg-section" id="color-temp">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.dba5b1e2">Color Temperature</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.77670545">
+                    Shift the scene from warm <strong data-i18n-html="playgrounds.1fb6dea2">candlelight (2000K)</strong> to cold <strong data-i18n-html="playgrounds.49d2f7cc">blue sky
                         (10000K)</strong>.
                     Color temperature is one of the most powerful emotional tools in cinematography.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper">
-                <div class="pg-canvas" id="colorTempCanvas"></div>
-                <div class="pg-controls-panel" id="colorTempControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper">
+<div class="pg-canvas" id="colorTempCanvas"></div>
+<div class="pg-controls-panel" id="colorTempControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: COMPOSITION
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="composition">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--design)">Design</span>
-                <h2 class="pg-section-title">Composition Rules</h2>
-                <p class="pg-section-desc">
+<section class="pg-section" id="composition">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.1afa74da" style="--domain-color: var(--design)">Design</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.7112e33e">Composition Rules</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.9f06151d">
                     Drag the colored elements to explore how placement affects visual weight.
-                    Toggle overlays to see <strong>Rule of Thirds</strong>, <strong>Golden Ratio</strong>, and
-                    <strong>Diagonal</strong> guides.
+                    Toggle overlays to see <strong data-i18n-html="playgrounds.ade8c9a4">Rule of Thirds</strong>, <strong data-i18n-html="playgrounds.88117b56">Golden Ratio</strong>, and
+                    <strong data-i18n-html="playgrounds.9ac677ee">Diagonal</strong> guides.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-                <div class="pg-canvas pg-canvas--2d" id="compositionCanvas"></div>
-                <div class="pg-controls-panel" id="compositionControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+<div class="pg-canvas pg-canvas--2d" id="compositionCanvas"></div>
+<div class="pg-controls-panel" id="compositionControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: EASING CURVES
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="easing">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--motion)">Motion</span>
-                <h2 class="pg-section-title">Easing Curve Editor</h2>
-                <p class="pg-section-desc">
-                    Drag the <strong style="color:#22c55e">green</strong> and
-                    <strong style="color:#ef4444">red</strong> control points to shape the motion curve.
+<section class="pg-section" id="easing">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.8226588f" style="--domain-color: var(--motion)">Motion</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.e5597875">Easing Curve Editor</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.33219079">
+                    Drag the <strong data-i18n-html="playgrounds.9f274107" style="color:#22c55e">green</strong> and
+                    <strong data-i18n-html="playgrounds.bda9643a" style="color:#ef4444">red</strong> control points to shape the motion curve.
                     The ball below follows your easing in real-time.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-                <div class="pg-canvas pg-canvas--2d" id="easingCanvas"></div>
-                <div class="pg-controls-panel" id="easingControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+<div class="pg-canvas pg-canvas--2d" id="easingCanvas"></div>
+<div class="pg-controls-panel" id="easingControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: EDITING TIMELINE
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="timeline">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--editing)">Editing</span>
-                <h2 class="pg-section-title">Editing Timeline</h2>
-                <p class="pg-section-desc">
-                    Drag <strong style="color:#ef4444">cut markers</strong> to change pacing.
-                    <strong>Double-click</strong> to add new cuts.
+<section class="pg-section" id="timeline">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.b1caf7f2" style="--domain-color: var(--editing)">Editing</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.3c363d96">Editing Timeline</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.baa46f36">
+                    Drag <strong data-i18n-html="playgrounds.4454ec91" style="color:#ef4444">cut markers</strong> to change pacing.
+                    <strong data-i18n-html="playgrounds.d9a61887">Double-click</strong> to add new cuts.
                     The rhythm grid shows if your cuts land on beat.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-                <div class="pg-canvas pg-canvas--2d" id="timelineCanvas"></div>
-                <div class="pg-controls-panel" id="timelineControls"></div>
-            </div>
-        </section>
+</div>
+<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
+<div class="pg-canvas pg-canvas--2d" id="timelineCanvas"></div>
+<div class="pg-controls-panel" id="timelineControls"></div>
+</div>
+</section>
 
-        <!-- ═══════════════════════════════════════
-             PLAYGROUND: SOUND MIXER
-             ═══════════════════════════════════════ -->
-        <section class="pg-section" id="sound-mixer">
-            <div class="pg-section-header">
-                <span class="pg-section-domain" style="--domain-color: var(--sound)">Sound</span>
-                <h2 class="pg-section-title">Sound Mixer</h2>
-                <p class="pg-section-desc">
-                    Four channels: <strong style="color:#22c55e">Dialogue</strong>,
-                    <strong style="color:#8b5cf6">Music</strong>,
+<section class="pg-section" id="sound-mixer">
+<div class="pg-section-header">
+<span class="pg-section-domain" data-i18n-html="playgrounds.9d07e0e0" style="--domain-color: var(--sound)">Sound</span>
+<h2 class="pg-section-title" data-i18n-html="playgrounds.43dba652">Sound Mixer</h2>
+<p class="pg-section-desc" data-i18n-html="playgrounds.cd8cd794">
+                    Four channels: <strong data-i18n-html="playgrounds.359928af" style="color:#22c55e">Dialogue</strong>,
+                    <strong data-i18n-html="playgrounds.47dcbd83" style="color:#8b5cf6">Music</strong>,
                     <strong style="color:#f59e0b">SFX</strong>, and
-                    <strong style="color:#06b6d4">Ambience</strong>.
+                    <strong data-i18n-html="playgrounds.782ad488" style="color:#06b6d4">Ambience</strong>.
                     Mix them to shape the emotional texture of a scene.
                 </p>
-            </div>
-            <div class="pg-canvas-wrapper pg-canvas-wrapper--mixer">
-                <div class="pg-canvas pg-canvas--mixer" id="mixerCanvas"></div>
-                <div class="pg-controls-panel" id="mixerControls"></div>
-            </div>
-        </section>
-    </main>
+</div>
+<div class="pg-canvas-wrapper pg-canvas-wrapper--mixer">
+<div class="pg-canvas pg-canvas--mixer" id="mixerCanvas"></div>
+<div class="pg-controls-panel" id="mixerControls"></div>
+</div>
+</section>
+</main>
 
-    <!-- AI Tutor Panel -->
-    <button class="ai-fab" id="aiFab" title="Ask AI Tutor">
-        <span class="ai-fab-icon">🧠</span>
-        <span class="ai-fab-label" id="aiFabLabel">AI Tutor</span>
-    </button>
-
-    <div class="ai-panel" id="aiPanel">
-        <div class="ai-panel-header">
-            <h3>🧠 AI Tutor</h3>
-            <span class="ai-status" id="aiStatusBadge">offline</span>
-            <button class="ai-close" id="aiClose">✕</button>
-        </div>
-        <div class="ai-messages" id="aiMessages">
-            <div class="ai-msg ai-msg--system">
-                <p>I'm your cinematic storytelling tutor. I run <strong>entirely in your browser</strong> — no cloud, no
+<button class="ai-fab" data-i18n-html="playgrounds.e70c6afb" id="aiFab" title="Ask AI Tutor">
+<span class="ai-fab-icon">🧠</span>
+<span class="ai-fab-label" data-i18n-html="playgrounds.4153d4b2" id="aiFabLabel">AI Tutor</span>
+</button>
+<div class="ai-panel" id="aiPanel">
+<div class="ai-panel-header">
+<h3 data-i18n-html="playgrounds.f58f025a">🧠 AI Tutor</h3>
+<span class="ai-status" data-i18n-html="playgrounds.27a21354" id="aiStatusBadge">offline</span>
+<button class="ai-close" id="aiClose">✕</button>
+</div>
+<div class="ai-messages" id="aiMessages">
+<div class="ai-msg ai-msg--system">
+<p data-i18n-html="playgrounds.849b5c3a">I'm your cinematic storytelling tutor. I run <strong data-i18n-html="playgrounds.da216e72">entirely in your browser</strong> — no cloud, no
                     API key needed.</p>
-                <p>Ask me about any concept you're exploring!</p>
-            </div>
-        </div>
-        <div class="ai-input-row">
-            <input type="text" class="ai-input" id="aiInput" placeholder="Ask about a concept..." autocomplete="off">
-            <button class="ai-send" id="aiSend">→</button>
-        </div>
-        <div class="ai-progress" id="aiProgress">
-            <div class="ai-progress-bar" id="aiProgressBar"></div>
-            <span class="ai-progress-text" id="aiProgressText"></span>
-        </div>
-    </div>
+<p data-i18n-html="playgrounds.989e9553">Ask me about any concept you're exploring!</p>
+</div>
+</div>
+<div class="ai-input-row">
+<input autocomplete="off" class="ai-input" id="aiInput" placeholder="Ask about a concept..." type="text"/>
+<button class="ai-send" id="aiSend">→</button>
+</div>
+<div class="ai-progress" id="aiProgress">
+<div class="ai-progress-bar" id="aiProgressBar"></div>
+<span class="ai-progress-text" id="aiProgressText"></span>
+</div>
+</div>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
-
-    <footer class="pg-footer">
-        <p>Built with <strong>WebGPU</strong> · <strong>Orama</strong> · <strong>WebLLM</strong> ·
-            <strong>Signals</strong> — all running in your browser
+<button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle">🌙</button>
+<footer class="pg-footer">
+<p data-i18n-html="playgrounds.69159d2f">Built with <strong data-i18n-html="playgrounds.e2a7a478">WebGPU</strong> · <strong data-i18n-html="playgrounds.5a258fd9">Orama</strong> · <strong data-i18n-html="playgrounds.3ca97830">WebLLM</strong> ·
+            <strong data-i18n-html="playgrounds.cadd2b2a">Signals</strong> — all running in your browser
         </p>
-    </footer>
-
-    <script type="module">
+</footer>
+<script type="module">
         import { detectGPU, searchQuery } from './src/state/signals.js';
         import { LightingPlayground } from './src/playgrounds/lightingPlayground.js';
         import { FocalLengthPlayground } from './src/playgrounds/focalLengthPlayground.js';
@@ -544,7 +507,6 @@
         // GO
         document.addEventListener('DOMContentLoaded', init);
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Design obeying physics over time. 12 Principles, weight, easing, motion blur, secondary action, and parallax.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Motion — Visual Storytelling Framework</title>
+<meta content="Design obeying physics over time. 12 Principles, weight, easing, motion blur, secondary action, and parallax." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent
@@ -422,321 +420,280 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link active"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 30% 40%,rgba(234,88,12,.06) 0%,transparent 55%)"></div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="motion.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="motion.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="motion.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="motion.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="motion.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="motion.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="motion.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="motion.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="motion.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="motion.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link active" data-i18n-html="motion.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="motion.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="motion.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="motion.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="motion.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="motion.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="motion.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="motion.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="motion.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="motion.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="motion.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="motion.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="motion.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="motion.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 40%,rgba(234,88,12,.06) 0%,transparent 55%)"></div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="motion.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#ea580c;letter-spacing:.2em">Domain 05</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Motion</h1>
-                    <p class="text-lg italic mb-2" style="color:#71717a">"Does this feel alive?"</p>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Motion is <strong
-                            style="color:#d4d4d8">design obeying physics over time</strong>. Life and energy. This is
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="motion.b14a154e" style="color:#ea580c;letter-spacing:.2em">Domain 05</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="motion.8226588f" style="color:#fafafa">Motion</h1>
+<p class="text-lg italic mb-2" data-i18n-html="motion.9c8b7630" style="color:#71717a">"Does this feel alive?"</p>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="motion.4c92939a" style="color:#a1a1aa">Motion is <strong data-i18n-html="motion.28a31dac" style="color:#d4d4d8">design obeying physics over time</strong>. Life and energy. This is
                         where "vibe" loves to sneak in — but good motion still respects physics. Even stylized motion
                         must have weight, cause, and reaction.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <!-- BRUCE BLOCK INSIGHT -->
-            <div class="fade-up p-8 rounded-xl mb-12 border border-amber-500/20 shadow-[0_10px_30px_rgba(245,158,11,0.05)] relative overflow-hidden"
-                style="background: linear-gradient(135deg, rgba(39,39,42,0.6), rgba(24,24,27,0.8));">
-                <div class="absolute -right-12 -top-12 text-9xl opacity-5">📖</div>
-                <div class="text-xs font-bold tracking-widest uppercase mb-3 text-amber-500 flex items-center gap-2">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+<div class="fade-up p-8 rounded-xl mb-12 border border-amber-500/20 shadow-[0_10px_30px_rgba(245,158,11,0.05)] relative overflow-hidden" style="background: linear-gradient(135deg, rgba(39,39,42,0.6), rgba(24,24,27,0.8));">
+<div class="absolute -right-12 -top-12 text-9xl opacity-5">📖</div>
+<div class="text-xs font-bold tracking-widest uppercase mb-3 text-amber-500 flex items-center gap-2">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" width="14">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+</svg>
                     Book Insight: The Visual Story
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">Bruce Block's Types of Movement</h3>
-                <p class="text-zinc-300 text-sm leading-relaxed mb-4">Movement dictates the visual intensity of an image
+<h3 class="text-xl font-bold text-white mb-3" data-i18n-html="motion.b975c6ee">Bruce Block's Types of Movement</h3>
+<p class="text-zinc-300 text-sm leading-relaxed mb-4" data-i18n-html="motion.efcc2e26">Movement dictates the visual intensity of an image
                     sequence on screen. Movement can act independently of the subject matter to generate deep feeling:
                 </p>
-                <div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Object Movement</div>
-                        <p class="text-zinc-400 text-xs">Anything moving within the frame—from an actor running to a
+<div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="motion.7c3d7a51">Object Movement</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="motion.e7ceba13">Anything moving within the frame—from an actor running to a
                             speck of dust floating. It creates tracks across the audience's retina, defining visual
                             intensity.</p>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Camera Movement</div>
-                        <p class="text-zinc-400 text-xs">The motion generated by the lens itself (pans, tilts, tracks,
+</div>
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="motion.97852707">Camera Movement</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="motion.f1c04f7b">The motion generated by the lens itself (pans, tilts, tracks,
                             pushes). When the camera moves, the entire visual field shifts, moving visual weight on
                             screen.</p>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Point of Attention</div>
-                        <p class="text-zinc-400 text-xs">Movement of the audience's eyes *across* the screen. An unseen
+</div>
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="motion.badb36ba">Point of Attention</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="motion.e7bc1b7d">Movement of the audience's eyes *across* the screen. An unseen
                             but crucial form of motion guided by composition, contrasting shapes, and lighting.</p>
-                    </div>
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/10">
-                    <a href="visual-story.html"
-                        class="text-xs text-amber-500 hover:text-amber-400 font-semibold inline-flex items-center gap-1 transition-colors">
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10">
+<a class="text-xs text-amber-500 hover:text-amber-400 font-semibold inline-flex items-center gap-1 transition-colors" data-i18n-html="motion.45171b97" href="visual-story.html">
                         Study Movement in The Visual Story Reader <span class="text-lg leading-none">→</span>
-                    </a>
-                </div>
-            </div>
+</a>
+</div>
+</div>
 
-            <!-- A. MOTION PHYSICS -->
-            <div class="section-divider fade-up">A · Motion Physics</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The 12 Principles of Animation. Invented at Disney.
+<div class="section-divider fade-up" data-i18n-html="motion.c534e3ab">A · Motion Physics</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="motion.76bc7e20" style="color:#71717a">The 12 Principles of Animation. Invented at Disney.
                 Still undefeated.</p>
-
-            <div class="skill-card skill-12 fade-up"
-                style="border-left:3px solid #ea580c;transition:transform .3s cubic-bezier(.34,1.56,.64,1)">
-                <h3>The 12 Principles</h3>
-                <div class="principle-dots">
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                    <div class="p-dot"></div>
-                </div>
-                <p>Squash & Stretch. Anticipation. Staging. Straight Ahead vs Pose to Pose. Follow Through. Slow In/Slow
+<div class="skill-card skill-12 fade-up" style="border-left:3px solid #ea580c;transition:transform .3s cubic-bezier(.34,1.56,.64,1)">
+<h3 data-i18n-html="motion.efdc165f">The 12 Principles</h3>
+<div class="principle-dots">
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+<div class="p-dot"></div>
+</div>
+<p data-i18n-html="motion.321beb8d">Squash &amp; Stretch. Anticipation. Staging. Straight Ahead vs Pose to Pose. Follow Through. Slow In/Slow
                     Out. Arcs. Secondary Action. Timing. Exaggeration. Solid Drawing. Appeal. These aren't rules —
                     they're observations of physics applied to movement.</p>
-                <div style="font-family:monospace;font-size:.55rem;color:#ea580c;opacity:.4;margin-top:.3rem">↑ hover to
+<div data-i18n-html="motion.ac33161b" style="font-family:monospace;font-size:.55rem;color:#ea580c;opacity:.4;margin-top:.3rem">↑ hover to
                     animate</div>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=uDqjIdI4bF4" target="_blank" class="resource-link">12
-                        Principles Explained (Disney) <span class="resource-tag">6 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=haa7n3UGyDc" target="_blank" class="resource-link">The
-                        Illusion of Life (Full) <span class="resource-tag">Doc</span></a>
-                    <a href="https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707" target="_blank"
-                        class="resource-link">The Illusion of Life (Book) <span class="resource-tag">Bible</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #78716c;box-shadow:0 6px 20px rgba(0,0,0,.15)">
-                <h3 style="font-size:1.1rem;font-weight:700">Weight & Inertia</h3>
-                <p>Heavy objects start slow, stop slow. Light objects react instantly. A boulder doesn't move like a
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.52bcbe7f" href="https://www.youtube.com/watch?v=uDqjIdI4bF4" target="_blank">12
+                        Principles Explained (Disney) <span class="resource-tag" data-i18n-html="motion.9465f61b">6 min</span></a>
+<a class="resource-link" data-i18n-html="motion.53132518" href="https://www.youtube.com/watch?v=haa7n3UGyDc" target="_blank">The
+                        Illusion of Life (Full) <span class="resource-tag" data-i18n-html="motion.7a48ae1b">Doc</span></a>
+<a class="resource-link" data-i18n-html="motion.53918c5e" href="https://www.amazon.com/Illusion-Life-Disney-Animation/dp/0786860707" target="_blank">The Illusion of Life (Book) <span class="resource-tag" data-i18n-html="motion.5788fbc5">Bible</span></a>
+</div>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #78716c;box-shadow:0 6px 20px rgba(0,0,0,.15)">
+<h3 data-i18n-html="motion.f3391670" style="font-size:1.1rem;font-weight:700">Weight &amp; Inertia</h3>
+<p data-i18n-html="motion.db42b0f7">Heavy objects start slow, stop slow. Light objects react instantly. A boulder doesn't move like a
                     balloon. Bad animation ignores mass. Good animation worships it.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=F8OtE60T8sU" target="_blank"
-                        class="resource-link">Animator's Survival Kit <span class="resource-tag">Richard
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.7a8c0e82" href="https://www.youtube.com/watch?v=F8OtE60T8sU" target="_blank">Animator's Survival Kit <span class="resource-tag" data-i18n-html="motion.5f08ab5a">Richard
                             Williams</span></a>
-                    <a href="https://www.youtube.com/watch?v=5rMycjsIZm8" target="_blank" class="resource-link">How to
-                        Animate Weight <span class="resource-tag">15 min</span></a>
-                </div>
-            </div>
+<a class="resource-link" data-i18n-html="motion.460da6af" href="https://www.youtube.com/watch?v=5rMycjsIZm8" target="_blank">How to
+                        Animate Weight <span class="resource-tag" data-i18n-html="motion.17ddc0b9">15 min</span></a>
+</div>
+</div>
 
-            <!-- B. EASING -->
-            <div class="section-divider fade-up">B · Easing & Interpolation</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">How things accelerate and decelerate. The soul of
+<div class="section-divider fade-up" data-i18n-html="motion.1bff4ffe">B · Easing &amp; Interpolation</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="motion.dda2999f" style="color:#71717a">How things accelerate and decelerate. The soul of
                 motion.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #ea580c">
-                <h3>Speed Graphs & Bezier Curves</h3>
-                <div class="curve-demo">
-                    <div>
-                        <div class="curve-box">
-                            <div class="curve-line"
-                                style="background:linear-gradient(to top right,transparent 49%,rgba(234,88,12,.3) 49%,rgba(234,88,12,.3) 51%,transparent 51%)">
-                            </div>
-                        </div>
-                        <div class="curve-label">linear</div>
-                    </div>
-                    <div>
-                        <div class="curve-box">
-                            <div class="curve-line"
-                                style="background:radial-gradient(ellipse at 100% 0%,transparent 60%,rgba(234,88,12,.2) 100%)">
-                            </div>
-                        </div>
-                        <div class="curve-label">ease-in</div>
-                    </div>
-                    <div>
-                        <div class="curve-box">
-                            <div class="curve-line"
-                                style="background:radial-gradient(ellipse at 0% 100%,transparent 60%,rgba(234,88,12,.2) 100%)">
-                            </div>
-                        </div>
-                        <div class="curve-label">ease-out</div>
-                    </div>
-                </div>
-                <p>Linear motion = robotic, dead. Ease-in = slow start. Ease-out = slow end. Custom bezier curves =
+<div class="skill-card fade-up" style="border-left:3px solid #ea580c">
+<h3 data-i18n-html="motion.f9cfe5de">Speed Graphs &amp; Bezier Curves</h3>
+<div class="curve-demo">
+<div>
+<div class="curve-box">
+<div class="curve-line" style="background:linear-gradient(to top right,transparent 49%,rgba(234,88,12,.3) 49%,rgba(234,88,12,.3) 51%,transparent 51%)">
+</div>
+</div>
+<div class="curve-label" data-i18n-html="motion.9a932b3c">linear</div>
+</div>
+<div>
+<div class="curve-box">
+<div class="curve-line" style="background:radial-gradient(ellipse at 100% 0%,transparent 60%,rgba(234,88,12,.2) 100%)">
+</div>
+</div>
+<div class="curve-label" data-i18n-html="motion.b7c7adf0">ease-in</div>
+</div>
+<div>
+<div class="curve-box">
+<div class="curve-line" style="background:radial-gradient(ellipse at 0% 100%,transparent 60%,rgba(234,88,12,.2) 100%)">
+</div>
+</div>
+<div class="curve-label" data-i18n-html="motion.9b01633e">ease-out</div>
+</div>
+</div>
+<p data-i18n-html="motion.f3f3fdf0">Linear motion = robotic, dead. Ease-in = slow start. Ease-out = slow end. Custom bezier curves =
                     personality. The graph editor is where motion gets its soul.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=8uLVnM36XBg" target="_blank"
-                        class="resource-link">Understanding Bezier Curves <span class="resource-tag">10 min</span></a>
-                    <a href="https://cubic-bezier.com/" target="_blank" class="resource-link">Cubic Bezier Visualizer
-                        <span class="resource-tag">Tool</span></a>
-                    <a href="https://easings.net/" target="_blank" class="resource-link">Easing Functions Cheatsheet
-                        <span class="resource-tag">Reference</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.8e5b5898" href="https://www.youtube.com/watch?v=8uLVnM36XBg" target="_blank">Understanding Bezier Curves <span class="resource-tag" data-i18n-html="motion.7dd6a6ab">10 min</span></a>
+<a class="resource-link" data-i18n-html="motion.d542a2be" href="https://cubic-bezier.com/" target="_blank">Cubic Bezier Visualizer
+                        <span class="resource-tag" data-i18n-html="motion.d421fd43">Tool</span></a>
+<a class="resource-link" data-i18n-html="motion.d646a2d2" href="https://easings.net/" target="_blank">Easing Functions Cheatsheet
+                        <span class="resource-tag" data-i18n-html="motion.63d50497">Reference</span></a>
+</div>
+</div>
 
-            <!-- C. MOTION BLUR -->
-            <div class="section-divider fade-up">C · Motion Blur & Shutter</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The 180° rule extended to animation.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #6366f1">
-                <h3>180° Shutter in Motion Graphics</h3>
-                <div
-                    style="display:flex;align-items:center;gap:.5rem;margin:.5rem 0;font-family:monospace;font-size:.65rem;color:#52525b">
-                    <span style="opacity:1">SHARP →</span>
-                    <span style="filter:blur(1.5px);opacity:.6">BLURRED →</span>
-                    <span style="filter:blur(3px);opacity:.3">MUSHY</span>
-                </div>
-                <p>Standard film shutter = 180°. This creates natural motion blur. In After Effects, this means matching
+<div class="section-divider fade-up" data-i18n-html="motion.075bd11b">C · Motion Blur &amp; Shutter</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="motion.a12dfb19" style="color:#71717a">The 180° rule extended to animation.</p>
+<div class="skill-card fade-up" style="border-left:3px solid #6366f1">
+<h3 data-i18n-html="motion.25c8f5c6">180° Shutter in Motion Graphics</h3>
+<div data-i18n-html="motion.21c76ea6" style="display:flex;align-items:center;gap:.5rem;margin:.5rem 0;font-family:monospace;font-size:.65rem;color:#52525b">
+<span data-i18n-html="motion.f482972c" style="opacity:1">SHARP →</span>
+<span data-i18n-html="motion.c05b3653" style="filter:blur(1.5px);opacity:.6">BLURRED →</span>
+<span data-i18n-html="motion.d4c1925b" style="filter:blur(3px);opacity:.3">MUSHY</span>
+</div>
+<p data-i18n-html="motion.9afcc3f3">Standard film shutter = 180°. This creates natural motion blur. In After Effects, this means matching
                     blur amount to frame rate. Too much blur = mushy. Too little = stroboscopic.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=w1nTmfZQN9Q" target="_blank" class="resource-link">Motion
-                        Blur in After Effects <span class="resource-tag">12 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=3GJUM6pCpew" target="_blank" class="resource-link">Frame
-                        Rate & Shutter Speed <span class="resource-tag">8 min</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.34a09d11" href="https://www.youtube.com/watch?v=w1nTmfZQN9Q" target="_blank">Motion
+                        Blur in After Effects <span class="resource-tag" data-i18n-html="motion.b4f05b35">12 min</span></a>
+<a class="resource-link" data-i18n-html="motion.5411591a" href="https://www.youtube.com/watch?v=3GJUM6pCpew" target="_blank">Frame
+                        Rate &amp; Shutter Speed <span class="resource-tag" data-i18n-html="motion.08030cfa">8 min</span></a>
+</div>
+</div>
 
-            <!-- D. SECONDARY ACTION -->
-            <div class="section-divider fade-up">D · Secondary Animation</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The details that sell reality. Life leakage.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #22c55e">
-                <h3>Follow Through & Overlap</h3>
-                <div class="overlap-demo">
-                    <div class="overlap-block" style="height:30px;animation-delay:0s"></div>
-                    <div class="overlap-block" style="height:24px;animation-delay:.15s"></div>
-                    <div class="overlap-block" style="height:18px;animation-delay:.3s"></div>
-                    <div class="overlap-block" style="height:14px;animation-delay:.5s"></div>
-                    <div class="overlap-block" style="height:10px;animation-delay:.7s"></div>
-                </div>
-                <div style="font-family:monospace;font-size:.55rem;color:#22c55e;opacity:.4;margin-bottom:.3rem">↑ watch
+<div class="section-divider fade-up" data-i18n-html="motion.8836f2ff">D · Secondary Animation</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="motion.0584b653" style="color:#71717a">The details that sell reality. Life leakage.</p>
+<div class="skill-card fade-up" style="border-left:3px solid #22c55e">
+<h3 data-i18n-html="motion.f4f893c8">Follow Through &amp; Overlap</h3>
+<div class="overlap-demo">
+<div class="overlap-block" style="height:30px;animation-delay:0s"></div>
+<div class="overlap-block" style="height:24px;animation-delay:.15s"></div>
+<div class="overlap-block" style="height:18px;animation-delay:.3s"></div>
+<div class="overlap-block" style="height:14px;animation-delay:.5s"></div>
+<div class="overlap-block" style="height:10px;animation-delay:.7s"></div>
+</div>
+<div data-i18n-html="motion.e5205f25" style="font-family:monospace;font-size:.55rem;color:#22c55e;opacity:.4;margin-bottom:.3rem">↑ watch
                     them settle with delay</div>
-                <p>When a body stops, its parts don't stop simultaneously. Hair keeps moving. Clothes settle. Earrings
+<p data-i18n-html="motion.75062f8f">When a body stops, its parts don't stop simultaneously. Hair keeps moving. Clothes settle. Earrings
                     swing. This is the difference between animation and motion graphics.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=4OxphYV8W3E" target="_blank"
-                        class="resource-link">Secondary Action Explained <span class="resource-tag">8 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=4W4F6fW4P3c" target="_blank" class="resource-link">Adding
-                        Life to Motion Design <span class="resource-tag">15 min</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.1de6ec26" href="https://www.youtube.com/watch?v=4OxphYV8W3E" target="_blank">Secondary Action Explained <span class="resource-tag" data-i18n-html="motion.08030cfa">8 min</span></a>
+<a class="resource-link" data-i18n-html="motion.862f8a39" href="https://www.youtube.com/watch?v=4W4F6fW4P3c" target="_blank">Adding
+                        Life to Motion Design <span class="resource-tag" data-i18n-html="motion.17ddc0b9">15 min</span></a>
+</div>
+</div>
 
-            <!-- E. PARALLAX -->
-            <div class="section-divider fade-up">E · Parallax & Depth</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">2.5D space. The illusion of three dimensions in two.
+<div class="section-divider fade-up" data-i18n-html="motion.5ccfbac1">E · Parallax &amp; Depth</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="motion.b819482a" style="color:#71717a">2.5D space. The illusion of three dimensions in two.
             </p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
-                <h3>Multiplane Camera</h3>
-                <div class="parallax-demo">
-                    <div class="px-layer"
-                        style="background:linear-gradient(90deg,rgba(8,145,178,.05) 0%,rgba(8,145,178,.08) 100%);animation:parallax-bg 6s ease-in-out infinite alternate">
-                    </div>
-                    <div class="px-layer"
-                        style="background:linear-gradient(90deg,transparent 20%,rgba(8,145,178,.08) 50%,transparent 80%);animation:parallax-mid 6s ease-in-out infinite alternate">
-                    </div>
-                    <div class="px-layer"
-                        style="background:linear-gradient(90deg,transparent 40%,rgba(8,145,178,.12) 60%,transparent 90%);animation:parallax-fg 6s ease-in-out infinite alternate">
-                    </div>
-                </div>
-                <div class="px-labels"><span>background (slow)</span><span>midground</span><span>foreground
+<div class="skill-card fade-up" style="border-left:3px solid #0891b2">
+<h3 data-i18n-html="motion.7257015d">Multiplane Camera</h3>
+<div class="parallax-demo">
+<div class="px-layer" style="background:linear-gradient(90deg,rgba(8,145,178,.05) 0%,rgba(8,145,178,.08) 100%);animation:parallax-bg 6s ease-in-out infinite alternate">
+</div>
+<div class="px-layer" style="background:linear-gradient(90deg,transparent 20%,rgba(8,145,178,.08) 50%,transparent 80%);animation:parallax-mid 6s ease-in-out infinite alternate">
+</div>
+<div class="px-layer" style="background:linear-gradient(90deg,transparent 40%,rgba(8,145,178,.12) 60%,transparent 90%);animation:parallax-fg 6s ease-in-out infinite alternate">
+</div>
+</div>
+<div class="px-labels" data-i18n-html="motion.92b2ac47"><span data-i18n-html="motion.80720229">background (slow)</span><span data-i18n-html="motion.272cff15">midground</span><span data-i18n-html="motion.9f820213">foreground
                         (fast)</span></div>
-                <p>Disney invented the multiplane camera in 1937. Layers move at different speeds = depth. Foreground
+<p data-i18n-html="motion.ded0f5cc">Disney invented the multiplane camera in 1937. Layers move at different speeds = depth. Foreground
                     moves fast, background moves slow. This is now standard in every motion toolkit.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank" class="resource-link">Disney
-                        Multiplane Camera <span class="resource-tag">History</span></a>
-                    <a href="https://www.youtube.com/watch?v=qPdV8wRPgRg" target="_blank" class="resource-link">Parallax
-                        in After Effects <span class="resource-tag">Tutorial</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="motion.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="motion.5f8be87d" href="https://www.youtube.com/watch?v=YdHTlUGN1zw" target="_blank">Disney
+                        Multiplane Camera <span class="resource-tag" data-i18n-html="motion.16d2b386">History</span></a>
+<a class="resource-link" data-i18n-html="motion.d768c748" href="https://www.youtube.com/watch?v=qPdV8wRPgRg" target="_blank">Parallax
+                        in After Effects <span class="resource-tag" data-i18n-html="motion.368fe771">Tutorial</span></a>
+</div>
+</div>
 
-            <!-- UNCONVENTIONAL -->
-            <div class="skill-card fade-up"
-                style="margin-top:2rem;background:linear-gradient(135deg,rgba(234,88,12,.04),rgba(139,92,246,.03))">
-                <h3>🧠 Unconventional Learning</h3>
-                <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0" target="_blank" class="resource-link">School of
-                    Motion: Manifesto <span class="resource-tag">15 min</span></a>
-                <a href="https://www.youtube.com/watch?v=P0P7LqMCgmY" target="_blank" class="resource-link">Beeple's
-                    Daily Renders <span class="resource-tag">Process</span></a>
-                <a href="https://www.youtube.com/watch?v=FVQgd1CLeEU" target="_blank" class="resource-link">Why Anime
-                    Feels Different <span class="resource-tag">Analysis</span></a>
-                <a href="https://www.youtube.com/c/BenMarriott" target="_blank" class="resource-link">Ben Marriott
-                    Channel <span class="resource-tag">Motion Design</span></a>
-                <a href="https://www.youtube.com/watch?v=hZIOADaemvA" target="_blank" class="resource-link">GMUNK:
-                    Process <span class="resource-tag">Pro Interview</span></a>
-            </div>
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="editing.html" class="hover:underline" style="color:#71717a">←
-                        Editing</a><a href="index.html" class="hover:underline" style="color:#71717a">Back to
+<div class="skill-card fade-up" style="margin-top:2rem;background:linear-gradient(135deg,rgba(234,88,12,.04),rgba(139,92,246,.03))">
+<h3 data-i18n-html="motion.5b1f2f00">🧠 Unconventional Learning</h3>
+<a class="resource-link" data-i18n-html="motion.8350b98e" href="https://www.youtube.com/watch?v=0fKBhvDjuy0" target="_blank">School of
+                    Motion: Manifesto <span class="resource-tag" data-i18n-html="motion.17ddc0b9">15 min</span></a>
+<a class="resource-link" data-i18n-html="motion.7eaca199" href="https://www.youtube.com/watch?v=P0P7LqMCgmY" target="_blank">Beeple's
+                    Daily Renders <span class="resource-tag" data-i18n-html="motion.b6ec7abe">Process</span></a>
+<a class="resource-link" data-i18n-html="motion.3b15f95e" href="https://www.youtube.com/watch?v=FVQgd1CLeEU" target="_blank">Why Anime
+                    Feels Different <span class="resource-tag" data-i18n-html="motion.739e6d2a">Analysis</span></a>
+<a class="resource-link" data-i18n-html="motion.3153465d" href="https://www.youtube.com/c/BenMarriott" target="_blank">Ben Marriott
+                    Channel <span class="resource-tag" data-i18n-html="motion.d1a57604">Motion Design</span></a>
+<a class="resource-link" data-i18n-html="motion.e96ebb4d" href="https://www.youtube.com/watch?v=hZIOADaemvA" target="_blank">GMUNK:
+                    Process <span class="resource-tag" data-i18n-html="motion.12ee5a79">Pro Interview</span></a>
+</div>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="motion.38bb3156"><a class="hover:underline" data-i18n-html="motion.d41f5258" href="editing.html" style="color:#71717a">←
+                        Editing</a><a class="hover:underline" data-i18n-html="motion.539c5083" href="index.html" style="color:#71717a">Back to
                         Overview</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<div class="text-xs" data-i18n-html="motion.3c5af944" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Still frame thinking. Composition, hierarchy, typography, color, shape language, and grid systems.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design — Visual Storytelling Framework</title>
+<meta content="Still frame thinking. Composition, hierarchy, typography, color, shape language, and grid systems." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent
@@ -256,406 +253,340 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link active"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 40% 30%,rgba(217,119,6,.08) 0%,transparent 55%)"></div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="design.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="design.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="design.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="design.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="design.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="design.78cd2c7d">Domains</div>
+<a class="sidebar-link active" data-i18n-html="design.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="design.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="design.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="design.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="design.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="design.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="design.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="design.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="design.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="design.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="design.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="design.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="design.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="design.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="design.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="design.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="design.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="design.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 40% 30%,rgba(217,119,6,.08) 0%,transparent 55%)"></div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="design.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#d97706;letter-spacing:.2em">Domain 01</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Design</h1>
-                    <p class="text-lg italic mb-2" style="color:#71717a">"If this never moved, would it still work?"</p>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Design is <strong
-                            style="color:#d4d4d8">still frame thinking</strong>. What something looks like frozen in
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="design.6060d9af" style="color:#d97706;letter-spacing:.2em">Domain 01</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="design.1afa74da" style="color:#fafafa">Design</h1>
+<p class="text-lg italic mb-2" data-i18n-html="design.2993f93a" style="color:#71717a">"If this never moved, would it still work?"</p>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="design.cd10f8d2" style="color:#a1a1aa">Design is <strong data-i18n-html="design.42375388" style="color:#d4d4d8">still frame thinking</strong>. What something looks like frozen in
                         time. The moment you add time or movement, you've left design and entered motion. Design is the
                         skeleton — motion is the dance.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-            <!-- BRUCE BLOCK INSIGHT -->
-            <div class="fade-up p-8 rounded-xl mb-12 border border-amber-500/20 shadow-[0_10px_30px_rgba(245,158,11,0.05)] relative overflow-hidden"
-                style="background: linear-gradient(135deg, rgba(39,39,42,0.6), rgba(24,24,27,0.8));">
-                <div class="absolute -right-12 -top-12 text-9xl opacity-5">📖</div>
-                <div class="text-xs font-bold tracking-widest uppercase mb-3 text-amber-500 flex items-center gap-2">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+<div class="fade-up p-8 rounded-xl mb-12 border border-amber-500/20 shadow-[0_10px_30px_rgba(245,158,11,0.05)] relative overflow-hidden" style="background: linear-gradient(135deg, rgba(39,39,42,0.6), rgba(24,24,27,0.8));">
+<div class="absolute -right-12 -top-12 text-9xl opacity-5">📖</div>
+<div class="text-xs font-bold tracking-widest uppercase mb-3 text-amber-500 flex items-center gap-2">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" width="14">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+</svg>
                     Book Insight: The Visual Story
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">Bruce Block's Basic Visual Components</h3>
-                <p class="text-zinc-300 text-sm leading-relaxed mb-4">Every physical object in the real world or on a
+<h3 class="text-xl font-bold text-white mb-3" data-i18n-html="design.601a918a">Bruce Block's Basic Visual Components</h3>
+<p class="text-zinc-300 text-sm leading-relaxed mb-4" data-i18n-html="design.6d78d92a">Every physical object in the real world or on a
                     screen can be broken down into fundamental visual components. For design, three are paramount:</p>
-                <div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Tone</div>
-                        <p class="text-zinc-400 text-xs">The brightness of objects. Tone is the fundamental way we
+<div class="grid md:grid-cols-3 gap-4 text-sm mt-6">
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="design.fc32b1df">Tone</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="design.eca1c752">The brightness of objects. Tone is the fundamental way we
                             organize the screen and direct the audience's eye. Maximum contrast equals maximum
                             attention.</p>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Line & Object</div>
-                        <p class="text-zinc-400 text-xs">Lines are edges. Horizontal lines feel calm, vertical lines
+</div>
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="design.f3498317">Line &amp; Object</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="design.9c46de83">Lines are edges. Horizontal lines feel calm, vertical lines
                             feel strong or trapped, diagonals convey dynamic intensity and movement.</p>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded-lg border border-white/5">
-                        <div class="text-amber-400 font-bold mb-1">Space</div>
-                        <p class="text-zinc-400 text-xs">The physical area the objects occupy and the relationships
+</div>
+<div class="bg-black/30 p-4 rounded-lg border border-white/5">
+<div class="text-amber-400 font-bold mb-1" data-i18n-html="design.d511f843">Space</div>
+<p class="text-zinc-400 text-xs" data-i18n-html="design.085986eb">The physical area the objects occupy and the relationships
                             between them. Design primarily deals with "Flat Space" and organizing it purposefully.</p>
-                    </div>
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/10">
-                    <a href="visual-story.html"
-                        class="text-xs text-amber-500 hover:text-amber-400 font-semibold inline-flex items-center gap-1 transition-colors">
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10">
+<a class="text-xs text-amber-500 hover:text-amber-400 font-semibold inline-flex items-center gap-1 transition-colors" data-i18n-html="design.5aaf96a4" href="visual-story.html">
                         Read full chapter in The Visual Story Reader <span class="text-lg leading-none">→</span>
-                    </a>
-                </div>
-            </div>
+</a>
+</div>
+</div>
 
-            <!-- A. COMPOSITION & HIERARCHY -->
-            <div class="section-divider fade-up">A · Composition & Hierarchy</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Where the eye goes first, second, third. The invisible
+<div class="section-divider fade-up" data-i18n-html="design.30c9df47">A · Composition &amp; Hierarchy</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="design.c3e7aef1" style="color:#71717a">Where the eye goes first, second, third. The invisible
                 hand guiding attention.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #d97706">
-                <h3 style="font-size:1.4rem;letter-spacing:-.02em">Visual Hierarchy</h3>
-                <p>Every frame is a negotiation for attention. Size, contrast, isolation, and proximity determine what
+<div class="skill-card fade-up" style="border-left:3px solid #d97706">
+<h3 data-i18n-html="design.f8f38b45" style="font-size:1.4rem;letter-spacing:-.02em">Visual Hierarchy</h3>
+<p data-i18n-html="design.7402c453">Every frame is a negotiation for attention. Size, contrast, isolation, and proximity determine what
                     the brain processes first. Master this and you control thought sequence.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=a5KYlHNKQB8" target="_blank" class="resource-link">The
-                        Futur: Visual Hierarchy Explained <span class="resource-tag">15 min</span></a>
-                    <a href="https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/" target="_blank"
-                        class="resource-link">Nielsen Norman: F-Pattern Eye Tracking <span
-                            class="resource-tag">Research</span></a>
-                    <a href="https://practicaltypography.com/what-is-good-typography.html" target="_blank"
-                        class="resource-link">Butterick's Practical Typography <span class="resource-tag">Deep
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.8c0f981e" href="https://www.youtube.com/watch?v=a5KYlHNKQB8" target="_blank">The
+                        Futur: Visual Hierarchy Explained <span class="resource-tag" data-i18n-html="design.17ddc0b9">15 min</span></a>
+<a class="resource-link" data-i18n-html="design.db503a58" href="https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/" target="_blank">Nielsen Norman: F-Pattern Eye Tracking <span class="resource-tag" data-i18n-html="design.f027f27d">Research</span></a>
+<a class="resource-link" data-i18n-html="design.f09045bc" href="https://practicaltypography.com/what-is-good-typography.html" target="_blank">Butterick's Practical Typography <span class="resource-tag" data-i18n-html="design.2e2067ae">Deep
                             Read</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up">
-                <h3>Rule of Thirds & Golden Ratio</h3>
-                <p>Not rules — hypotheses. The golden ratio appears in nature, but don't worship it. Know when to use
+</div>
+</div>
+<div class="skill-card fade-up">
+<h3 data-i18n-html="design.3e6d227f">Rule of Thirds &amp; Golden Ratio</h3>
+<p data-i18n-html="design.b7229be5">Not rules — hypotheses. The golden ratio appears in nature, but don't worship it. Know when to use
                     it, when to break it. Breaking it creates tension; following it creates calm.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=0roYlAIgNkM" target="_blank"
-                        class="resource-link">Filmmaker IQ: Composition in Film <span class="resource-tag">30
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.9df481a4" href="https://www.youtube.com/watch?v=0roYlAIgNkM" target="_blank">Filmmaker IQ: Composition in Film <span class="resource-tag" data-i18n-html="design.dfcca648">30
                             min</span></a>
-                    <a href="https://www.youtube.com/watch?v=fUEN8Uro4GM" target="_blank" class="resource-link">Every
-                        Frame a Painting: Spielberg Oner <span class="resource-tag">6 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=5IHwPXsE3Os" target="_blank"
-                        class="resource-link">Kubrick's One-Point Perspective <span
-                            class="resource-tag">Analysis</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="padding:2rem;border:1px solid #27272a">
-                <h3
-                    style="font-weight:300;letter-spacing:.15em;text-transform:uppercase;font-size:.82rem;margin-bottom:1.5rem">
+<a class="resource-link" data-i18n-html="design.1587cca6" href="https://www.youtube.com/watch?v=fUEN8Uro4GM" target="_blank">Every
+                        Frame a Painting: Spielberg Oner <span class="resource-tag" data-i18n-html="design.9465f61b">6 min</span></a>
+<a class="resource-link" data-i18n-html="design.0ff4e0ae" href="https://www.youtube.com/watch?v=5IHwPXsE3Os" target="_blank">Kubrick's One-Point Perspective <span class="resource-tag" data-i18n-html="design.739e6d2a">Analysis</span></a>
+</div>
+</div>
+<div class="skill-card fade-up" style="padding:2rem;border:1px solid #27272a">
+<h3 data-i18n-html="design.a4784458" style="font-weight:300;letter-spacing:.15em;text-transform:uppercase;font-size:.82rem;margin-bottom:1.5rem">
                     Negative Space</h3>
-                <p style="max-width:65%;line-height:2">What you don't show is as powerful as what you show. Empty space
+<p data-i18n-html="design.53225b87" style="max-width:65%;line-height:2">What you don't show is as powerful as what you show. Empty space
                     isn't empty — it's breathing room for the eye. Japanese "ma" (間) — the pregnant pause.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=aQHrsKqAjq8" target="_blank"
-                        class="resource-link">Nerdwriter: Ozu's Tokyo Story <span class="resource-tag">9 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=8BQKBvgN9RQ" target="_blank" class="resource-link">China:
-                        Negative Space in Design <span class="resource-tag">7 min</span></a>
-                    <a href="https://en.wikipedia.org/wiki/Ma_(negative_space)" target="_blank"
-                        class="resource-link">Wikipedia: Ma (negative space) <span
-                            class="resource-tag">Concept</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.c45dffb1" href="https://www.youtube.com/watch?v=aQHrsKqAjq8" target="_blank">Nerdwriter: Ozu's Tokyo Story <span class="resource-tag" data-i18n-html="design.438be0d7">9 min</span></a>
+<a class="resource-link" data-i18n-html="design.be4e392a" href="https://www.youtube.com/watch?v=8BQKBvgN9RQ" target="_blank">China:
+                        Negative Space in Design <span class="resource-tag" data-i18n-html="design.11261997">7 min</span></a>
+<a class="resource-link" data-i18n-html="design.6a76b385" href="https://en.wikipedia.org/wiki/Ma_(negative_space)" target="_blank">Wikipedia: Ma (negative space) <span class="resource-tag" data-i18n-html="design.d99a604c">Concept</span></a>
+</div>
+</div>
 
-            <!-- B. TYPOGRAPHY -->
-            <div class="section-divider fade-up">B · Typography</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Text is voice made visible. Every font has a
+<div class="section-divider fade-up" data-i18n-html="design.a39ec9cb">B · Typography</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="design.96c028e7" style="color:#71717a">Text is voice made visible. Every font has a
                 personality, every kerning choice a mood.</p>
-
-            <div class="skill-card fade-up">
-                <h3>Font Personality</h3>
-                <p style="line-height:2.2"><span
-                        style="font-family:'Inter',sans-serif;font-weight:300;letter-spacing:.03em;color:#52525b">Helvetica
-                        whispers neutrality.</span><br><span
-                        style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#fcd34d">Garamond
-                        speaks old money.</span><br><span
-                        style="font-family:'JetBrains Mono',monospace;font-size:.82rem;background:rgba(0,0,0,.2);padding:2px 6px;border-radius:3px">Comic
-                        Sans screams amateur.</span><br>Typography is casting — wrong font is like wrong actor for the
+<div class="skill-card fade-up">
+<h3 data-i18n-html="design.5424a7a0">Font Personality</h3>
+<p data-i18n-html="design.ad2083b3" style="line-height:2.2"><span data-i18n-html="design.c4e67350" style="font-family:'Inter',sans-serif;font-weight:300;letter-spacing:.03em;color:#52525b">Helvetica
+                        whispers neutrality.</span><br/><span data-i18n-html="design.cf8c0185" style="font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#fcd34d">Garamond
+                        speaks old money.</span><br/><span data-i18n-html="design.db12656f" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;background:rgba(0,0,0,.2);padding:2px 6px;border-radius:3px">Comic
+                        Sans screams amateur.</span><br/>Typography is casting — wrong font is like wrong actor for the
                     role.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=wOgIkxAfJsk" target="_blank"
-                        class="resource-link">Documentary: Helvetica (2007) <span class="resource-tag">80 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=sByzHoiYFX0" target="_blank" class="resource-link">Vox: How
-                        Typography Affects You <span class="resource-tag">8 min</span></a>
-                    <a href="https://fonts.google.com/knowledge" target="_blank" class="resource-link">Google Fonts
-                        Knowledge Base <span class="resource-tag">Free Course</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up">
-                <h3 style="letter-spacing:.25em;font-weight:400">Kerning, Tracking & Leading</h3>
-                <p style="line-height:2.2">The space between letters (kerning/tracking) and between lines (leading) is
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.a18dc1c0" href="https://www.youtube.com/watch?v=wOgIkxAfJsk" target="_blank">Documentary: Helvetica (2007) <span class="resource-tag" data-i18n-html="design.b492da89">80 min</span></a>
+<a class="resource-link" data-i18n-html="design.c62e9ebb" href="https://www.youtube.com/watch?v=sByzHoiYFX0" target="_blank">Vox: How
+                        Typography Affects You <span class="resource-tag" data-i18n-html="design.08030cfa">8 min</span></a>
+<a class="resource-link" data-i18n-html="design.8fc5c00b" href="https://fonts.google.com/knowledge" target="_blank">Google Fonts
+                        Knowledge Base <span class="resource-tag" data-i18n-html="design.77f6cb20">Free Course</span></a>
+</div>
+</div>
+<div class="skill-card fade-up">
+<h3 data-i18n-html="design.42f4ab9b" style="letter-spacing:.25em;font-weight:400">Kerning, Tracking &amp; Leading</h3>
+<p data-i18n-html="design.6631cfe9" style="line-height:2.2">The space between letters (kerning/tracking) and between lines (leading) is
                     where readability lives or dies. Bad kerning is like someone speaking with marbles in their mouth.
                 </p>
-                <div
-                    style="font-family:monospace;font-size:.78rem;margin:.75rem 0;padding:.5rem;background:rgba(0,0,0,.2);border-radius:5px;display:flex;justify-content:space-between">
-                    <span style="letter-spacing:-.05em">T I G H T</span><span>NORMAL</span><span
-                        style="letter-spacing:.3em">W I D E</span>
-                </div>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://type.method.ac/" target="_blank" class="resource-link">Kern Type: The Kerning Game
-                        <span class="resource-tag">Practice</span></a>
-                    <a href="https://betterwebtype.com/triangle" target="_blank" class="resource-link">Better Web Type:
-                        Free Course <span class="resource-tag">Email Course</span></a>
-                    <a href="https://www.youtube.com/watch?v=QrNi9FmdlxY" target="_blank" class="resource-link">The
-                        Beginner's Guide to Typography <span class="resource-tag">10 min</span></a>
-                </div>
-            </div>
+<div data-i18n-html="design.7db75a2b" style="font-family:monospace;font-size:.78rem;margin:.75rem 0;padding:.5rem;background:rgba(0,0,0,.2);border-radius:5px;display:flex;justify-content:space-between">
+<span data-i18n-html="design.33902006" style="letter-spacing:-.05em">T I G H T</span><span data-i18n-html="design.1e238528">NORMAL</span><span data-i18n-html="design.3e9d196a" style="letter-spacing:.3em">W I D E</span>
+</div>
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.c3115cec" href="https://type.method.ac/" target="_blank">Kern Type: The Kerning Game
+                        <span class="resource-tag" data-i18n-html="design.8c004d7e">Practice</span></a>
+<a class="resource-link" data-i18n-html="design.e133a3f4" href="https://betterwebtype.com/triangle" target="_blank">Better Web Type:
+                        Free Course <span class="resource-tag" data-i18n-html="design.b1695bed">Email Course</span></a>
+<a class="resource-link" data-i18n-html="design.c03d62e8" href="https://www.youtube.com/watch?v=QrNi9FmdlxY" target="_blank">The
+                        Beginner's Guide to Typography <span class="resource-tag" data-i18n-html="design.7dd6a6ab">10 min</span></a>
+</div>
+</div>
 
-            <!-- C. COLOR & TONE -->
-            <div class="section-divider fade-up">C · Color & Tone</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Color is emotion before thought. You feel blue before
+<div class="section-divider fade-up" data-i18n-html="design.ab5f1b0b">C · Color &amp; Tone</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="design.ba911c52" style="color:#71717a">Color is emotion before thought. You feel blue before
                 you think "sadness."</p>
-
-            <div class="skill-card fade-up"
-                style="border-left:4px solid transparent;border-image:linear-gradient(to bottom,#ef4444,#f59e0b,#3b82f6,#6366f1) 1">
-                <h3>Color Psychology</h3>
-                <p>Red doesn't mean danger everywhere — in China it's luck. Context matters. But <span
-                        style="color:#fca5a5;font-weight:600">warm colors advance</span>, <span
-                        style="color:#93c5fd;font-weight:600">cool colors recede</span>. That's physics, not culture.
+<div class="skill-card fade-up" style="border-left:4px solid transparent;border-image:linear-gradient(to bottom,#ef4444,#f59e0b,#3b82f6,#6366f1) 1">
+<h3 data-i18n-html="design.48beff2e">Color Psychology</h3>
+<p data-i18n-html="design.f157a145">Red doesn't mean danger everywhere — in China it's luck. Context matters. But <span data-i18n-html="design.8744d57a" style="color:#fca5a5;font-weight:600">warm colors advance</span>, <span data-i18n-html="design.476ea267" style="color:#93c5fd;font-weight:600">cool colors recede</span>. That's physics, not culture.
                 </p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=Qj1FK8n7WgY" target="_blank"
-                        class="resource-link">StudioBinder: Color in Film <span class="resource-tag">15 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=aXgFcNUWqX0" target="_blank" class="resource-link">Wes
-                        Anderson's Color Palette <span class="resource-tag">Analysis</span></a>
-                    <a href="https://color.adobe.com/create/color-wheel" target="_blank" class="resource-link">Adobe
-                        Color Wheel <span class="resource-tag">Tool</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up">
-                <h3>Color Harmony</h3>
-                <div class="harmony-bar"><span style="background:#3b82f6"></span><span
-                        style="background:#f97316"></span></div>
-                <div class="harmony-bar"><span style="background:#3b82f6"></span><span
-                        style="background:#6366f1"></span><span style="background:#8b5cf6"></span></div>
-                <div class="harmony-bar"><span style="background:#ef4444"></span><span
-                        style="background:#22c55e"></span><span style="background:#3b82f6"></span></div>
-                <p>Complementary colors vibrate against each other (tension). Analogous colors soothe (harmony). Triadic
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.09f7f692" href="https://www.youtube.com/watch?v=Qj1FK8n7WgY" target="_blank">StudioBinder: Color in Film <span class="resource-tag" data-i18n-html="design.17ddc0b9">15 min</span></a>
+<a class="resource-link" data-i18n-html="design.967f8fd8" href="https://www.youtube.com/watch?v=aXgFcNUWqX0" target="_blank">Wes
+                        Anderson's Color Palette <span class="resource-tag" data-i18n-html="design.739e6d2a">Analysis</span></a>
+<a class="resource-link" data-i18n-html="design.daf77382" href="https://color.adobe.com/create/color-wheel" target="_blank">Adobe
+                        Color Wheel <span class="resource-tag" data-i18n-html="design.d421fd43">Tool</span></a>
+</div>
+</div>
+<div class="skill-card fade-up">
+<h3 data-i18n-html="design.010e577d">Color Harmony</h3>
+<div class="harmony-bar"><span style="background:#3b82f6"></span><span style="background:#f97316"></span></div>
+<div class="harmony-bar"><span style="background:#3b82f6"></span><span style="background:#6366f1"></span><span style="background:#8b5cf6"></span></div>
+<div class="harmony-bar"><span style="background:#ef4444"></span><span style="background:#22c55e"></span><span style="background:#3b82f6"></span></div>
+<p data-i18n-html="design.5997b1ea">Complementary colors vibrate against each other (tension). Analogous colors soothe (harmony). Triadic
                     colors are bold but balanced. Learn the wheel, then forget it — let intuition guide.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=L1CK9bE3H_s" target="_blank" class="resource-link">Blender
-                        Guru: Understanding Color <span class="resource-tag">30 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=1i4rHW8BDSo" target="_blank"
-                        class="resource-link">Kubrick's Use of Red <span class="resource-tag">7 min</span></a>
-                    <a href="https://coolors.co/" target="_blank" class="resource-link">Coolors: Palette Generator <span
-                            class="resource-tag">Tool</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #a855f7">
-                <h3>Color Relativity <span style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">—
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.3f99eb1d" href="https://www.youtube.com/watch?v=L1CK9bE3H_s" target="_blank">Blender
+                        Guru: Understanding Color <span class="resource-tag" data-i18n-html="design.3cbe8173">30 min</span></a>
+<a class="resource-link" data-i18n-html="design.d8377d74" href="https://www.youtube.com/watch?v=1i4rHW8BDSo" target="_blank">Kubrick's Use of Red <span class="resource-tag" data-i18n-html="design.11261997">7 min</span></a>
+<a class="resource-link" data-i18n-html="design.681281cf" href="https://coolors.co/" target="_blank">Coolors: Palette Generator <span class="resource-tag" data-i18n-html="design.d421fd43">Tool</span></a>
+</div>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #a855f7">
+<h3 data-i18n-html="design.cc9f37c4">Color Relativity <span data-i18n-html="design.34a23fee" style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">—
                         Josef Albers</span></h3>
-                <div style="display:flex;gap:1rem;margin:.75rem 0">
-                    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
-                        <div style="background:#1e3a5f;padding:.75rem;border-radius:6px;width:100%">
-                            <div style="width:32px;height:32px;background:#c084fc;border-radius:4px;margin:0 auto">
-                            </div>
-                        </div>
-                        <span style="font-family:monospace;font-size:.5rem;color:#52525b">on blue</span>
-                    </div>
-                    <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
-                        <div style="background:#5f1e1e;padding:.75rem;border-radius:6px;width:100%">
-                            <div style="width:32px;height:32px;background:#c084fc;border-radius:4px;margin:0 auto">
-                            </div>
-                        </div>
-                        <span style="font-family:monospace;font-size:.5rem;color:#52525b">on red</span>
-                    </div>
-                </div>
-                <div style="font-family:monospace;font-size:.55rem;color:#a855f7;opacity:.5;margin-bottom:.5rem">↑ same
+<div style="display:flex;gap:1rem;margin:.75rem 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
+<div style="background:#1e3a5f;padding:.75rem;border-radius:6px;width:100%">
+<div style="width:32px;height:32px;background:#c084fc;border-radius:4px;margin:0 auto">
+</div>
+</div>
+<span data-i18n-html="design.57e4172e" style="font-family:monospace;font-size:.5rem;color:#52525b">on blue</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px">
+<div style="background:#5f1e1e;padding:.75rem;border-radius:6px;width:100%">
+<div style="width:32px;height:32px;background:#c084fc;border-radius:4px;margin:0 auto">
+</div>
+</div>
+<span data-i18n-html="design.4bad5c26" style="font-family:monospace;font-size:.5rem;color:#52525b">on red</span>
+</div>
+</div>
+<div data-i18n-html="design.bde15e8c" style="font-family:monospace;font-size:.55rem;color:#a855f7;opacity:.5;margin-bottom:.5rem">↑ same
                     purple, different perception</div>
-                <p>"Color is the most relative medium in art." One color can appear completely different depending on
+<p data-i18n-html="design.3f3ddfcd">"Color is the most relative medium in art." One color can appear completely different depending on
                     its neighbors. A purple on a blue ground looks reddish; the same purple on a red ground appears
-                    bluish. This is the core insight: <strong style="color:#d4d4d8">you never see a color in
+                    bluish. This is the core insight: <strong data-i18n-html="design.b6dbb7b0" style="color:#d4d4d8">you never see a color in
                         isolation</strong>. Context rewrites identity.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=fv-wlo8yVhk" target="_blank" class="resource-link">Josef
-                        Albers: Interaction of Color <span class="resource-tag">Doc</span></a>
-                    <a href="https://alfrfriedrich.medium.com/what-i-learned-from-josef-albers-interaction-of-color-e81a776a9fc"
-                        target="_blank" class="resource-link">Lessons from Interaction of Color <span
-                            class="resource-tag">Essay</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #14b8a6">
-                <h3>Halation & Vanishing Boundaries</h3>
-                <div style="display:flex;margin:.75rem 0;height:36px;border-radius:6px;overflow:hidden">
-                    <div style="flex:1;background:#3b82f6"></div>
-                    <div style="flex:.4;background:linear-gradient(90deg,#3b82f6,#a78bfa,#eab308)"></div>
-                    <div style="flex:1;background:#eab308"></div>
-                </div>
-                <div style="font-family:monospace;font-size:.55rem;color:#14b8a6;opacity:.5;margin-bottom:.5rem">↑
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.04670c3a" href="https://www.youtube.com/watch?v=fv-wlo8yVhk" target="_blank">Josef
+                        Albers: Interaction of Color <span class="resource-tag" data-i18n-html="design.7a48ae1b">Doc</span></a>
+<a class="resource-link" data-i18n-html="design.576beb2a" href="https://alfrfriedrich.medium.com/what-i-learned-from-josef-albers-interaction-of-color-e81a776a9fc" target="_blank">Lessons from Interaction of Color <span class="resource-tag" data-i18n-html="design.0e34cee4">Essay</span></a>
+</div>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #14b8a6">
+<h3 data-i18n-html="design.33add235">Halation &amp; Vanishing Boundaries</h3>
+<div style="display:flex;margin:.75rem 0;height:36px;border-radius:6px;overflow:hidden">
+<div style="flex:1;background:#3b82f6"></div>
+<div style="flex:.4;background:linear-gradient(90deg,#3b82f6,#a78bfa,#eab308)"></div>
+<div style="flex:1;background:#eab308"></div>
+</div>
+<div data-i18n-html="design.76b8009a" style="font-family:monospace;font-size:.55rem;color:#14b8a6;opacity:.5;margin-bottom:.5rem">↑
                     halation zone — mixture of parents glows between them</div>
-                <p>When you place a mixture of two colors between its "parent" colors, a glowing halo effect appears at
-                    the boundaries — <strong style="color:#d4d4d8">halation</strong>. When two hues of equal value sit
-                    side by side, their shared edge dissolves — <strong style="color:#d4d4d8">vanishing
+<p data-i18n-html="design.1fd5425e">When you place a mixture of two colors between its "parent" colors, a glowing halo effect appears at
+                    the boundaries — <strong data-i18n-html="design.f35e5001" style="color:#d4d4d8">halation</strong>. When two hues of equal value sit
+                    side by side, their shared edge dissolves — <strong data-i18n-html="design.5c582a8a" style="color:#d4d4d8">vanishing
                         boundaries</strong>. These optical phenomena are the secret behind luminous color work in
                     painting, film grading, and UI design.</p>
-                <div class="resources-group">
-                    <h4>Key Principle</h4>
-                    <div
-                        style="font-size:.75rem;color:#a1a1aa;padding:.35rem .6rem;background:rgba(0,0,0,.15);border-radius:5px;margin-bottom:.3rem">
+<div class="resources-group">
+<h4 data-i18n-html="design.2f74deda">Key Principle</h4>
+<div data-i18n-html="design.5a02218d" style="font-size:.75rem;color:#a1a1aa;padding:.35rem .6rem;background:rgba(0,0,0,.15);border-radius:5px;margin-bottom:.3rem">
                         Strong parents + weak child = maximum color shift. Weak will change, but strong will resist.
                     </div>
-                </div>
-            </div>
+</div>
+</div>
 
-            <!-- D. VECTOR & ASSET DESIGN -->
-            <div class="section-divider fade-up">D · Vector & Asset Design</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Clean geometry that scales infinitely. The DNA of
+<div class="section-divider fade-up" data-i18n-html="design.8ae9af07">D · Vector &amp; Asset Design</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="design.bedbf004" style="color:#71717a">Clean geometry that scales infinitely. The DNA of
                 icons, logos, and motion graphics.</p>
-
-            <div class="skill-card fade-up">
-                <h3>Shape Language</h3>
-                <div class="shapes-demo">
-                    <div>
-                        <div
-                            style="width:40px;height:40px;background:rgba(59,130,246,.12);border:2px solid rgba(59,130,246,.3);border-radius:50%">
-                        </div>
-                        <div class="shape-label">friendly</div>
-                    </div>
-                    <div>
-                        <div
-                            style="width:36px;height:36px;background:rgba(34,197,94,.12);border:2px solid rgba(34,197,94,.3)">
-                        </div>
-                        <div class="shape-label">stable</div>
-                    </div>
-                    <div>
-                        <div
-                            style="width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:38px solid rgba(239,68,68,.2)">
-                        </div>
-                        <div class="shape-label">dynamic</div>
-                    </div>
-                </div>
-                <p>Circles = friendly, organic. Squares = stable, trustworthy. Triangles = dynamic, dangerous. Disney
+<div class="skill-card fade-up">
+<h3 data-i18n-html="design.fe461e15">Shape Language</h3>
+<div class="shapes-demo">
+<div>
+<div style="width:40px;height:40px;background:rgba(59,130,246,.12);border:2px solid rgba(59,130,246,.3);border-radius:50%">
+</div>
+<div class="shape-label" data-i18n-html="design.be68582f">friendly</div>
+</div>
+<div>
+<div style="width:36px;height:36px;background:rgba(34,197,94,.12);border:2px solid rgba(34,197,94,.3)">
+</div>
+<div class="shape-label" data-i18n-html="design.f40faf63">stable</div>
+</div>
+<div>
+<div style="width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:38px solid rgba(239,68,68,.2)">
+</div>
+<div class="shape-label" data-i18n-html="design.b72f3bd3">dynamic</div>
+</div>
+</div>
+<p data-i18n-html="design.ff0c2d5f">Circles = friendly, organic. Squares = stable, trustworthy. Triangles = dynamic, dangerous. Disney
                     villains have angular faces. Heroes have round ones. It's primal.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=vHRd2bsrPm0" target="_blank" class="resource-link">Pixar's
-                        Shape Language <span class="resource-tag">5 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=8wm9ti-gzLM" target="_blank"
-                        class="resource-link">Character Design: Shape Theory <span class="resource-tag">12
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.20c8e04a" href="https://www.youtube.com/watch?v=vHRd2bsrPm0" target="_blank">Pixar's
+                        Shape Language <span class="resource-tag" data-i18n-html="design.d7faf6a9">5 min</span></a>
+<a class="resource-link" data-i18n-html="design.b9d2848d" href="https://www.youtube.com/watch?v=8wm9ti-gzLM" target="_blank">Character Design: Shape Theory <span class="resource-tag" data-i18n-html="design.1723c662">12
                             min</span></a>
-                    <a href="https://www.youtube.com/watch?v=LJtiMXeL0Ic" target="_blank" class="resource-link">Aaron
-                        Blaise: Design Principles <span class="resource-tag">20 min</span></a>
-                </div>
-            </div>
+<a class="resource-link" data-i18n-html="design.4cb6e7c1" href="https://www.youtube.com/watch?v=LJtiMXeL0Ic" target="_blank">Aaron
+                        Blaise: Design Principles <span class="resource-tag" data-i18n-html="design.cb1a708a">20 min</span></a>
+</div>
+</div>
 
-            <!-- E. LAYOUT SYSTEMS -->
-            <div class="section-divider fade-up">E · Layout Systems</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The invisible grid that holds everything together.
+<div class="section-divider fade-up" data-i18n-html="design.4ab0cfa0">E · Layout Systems</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="design.9b601e10" style="color:#71717a">The invisible grid that holds everything together.
                 Order from chaos.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
-                <h3>Grid Systems</h3>
-                <p>Grids aren't prisons — they're languages. Josef Müller-Brockmann's grid system became the Swiss
+<div class="skill-card fade-up" style="border-left:3px solid #0891b2">
+<h3 data-i18n-html="design.4108243e">Grid Systems</h3>
+<p data-i18n-html="design.644f2408">Grids aren't prisons — they're languages. Josef Müller-Brockmann's grid system became the Swiss
                     International Style. But know when to break the grid for emphasis.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=XtU5_R3xtyA" target="_blank" class="resource-link">The Grid
-                        System: A Visual Introduction <span class="resource-tag">10 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=YME6eIzXeOQ" target="_blank" class="resource-link">Swiss
-                        Style History <span class="resource-tag">Documentary</span></a>
-                    <a href="https://gridbyexample.com/" target="_blank" class="resource-link">Grid by Example: CSS Grid
-                        <span class="resource-tag">Practice</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="design.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="design.174b1c69" href="https://www.youtube.com/watch?v=XtU5_R3xtyA" target="_blank">The Grid
+                        System: A Visual Introduction <span class="resource-tag" data-i18n-html="design.7dd6a6ab">10 min</span></a>
+<a class="resource-link" data-i18n-html="design.f0753d51" href="https://www.youtube.com/watch?v=YME6eIzXeOQ" target="_blank">Swiss
+                        Style History <span class="resource-tag" data-i18n-html="design.0c276336">Documentary</span></a>
+<a class="resource-link" data-i18n-html="design.c012a7b0" href="https://gridbyexample.com/" target="_blank">Grid by Example: CSS Grid
+                        <span class="resource-tag" data-i18n-html="design.8c004d7e">Practice</span></a>
+</div>
+</div>
 
-            <!-- UNCONVENTIONAL -->
-            <div class="skill-card fade-up"
-                style="margin-top:2rem;background:linear-gradient(135deg,rgba(217,119,6,.04),rgba(139,92,246,.03))">
-                <h3>🧠 Unconventional Learning</h3>
-                <p style="margin-bottom:.75rem">Design thinking from outside design:</p>
-                <a href="https://www.youtube.com/watch?v=M9i2HAE-ZSw" target="_blank" class="resource-link">John Berger:
+<div class="skill-card fade-up" style="margin-top:2rem;background:linear-gradient(135deg,rgba(217,119,6,.04),rgba(139,92,246,.03))">
+<h3 data-i18n-html="design.5b1f2f00">🧠 Unconventional Learning</h3>
+<p data-i18n-html="design.6659c686" style="margin-bottom:.75rem">Design thinking from outside design:</p>
+<a class="resource-link" data-i18n-html="design.79d6a3b5" href="https://www.youtube.com/watch?v=M9i2HAE-ZSw" target="_blank">John Berger:
                     Ways of Seeing (1972) <span class="resource-tag">BBC</span></a>
-                <a href="https://www.youtube.com/watch?v=rJ35jHCMCLY" target="_blank" class="resource-link">Gestalt
-                    Principles in UX <span class="resource-tag">Psychology</span></a>
-                <a href="https://www.youtube.com/watch?v=djV11Xbc914" target="_blank" class="resource-link">Abstract:
-                    Paula Scher <span class="resource-tag">Netflix Doc</span></a>
-                <a href="https://www.youtube.com/watch?v=eaKq_r4CfvI" target="_blank" class="resource-link">Dieter Rams:
-                    10 Principles <span class="resource-tag">10 min</span></a>
-            </div>
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
-                        Back to Overview</a><a href="cinematography.html" class="hover:underline"
-                        style="color:#71717a">Cinematography →</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<a class="resource-link" data-i18n-html="design.0ac5e54f" href="https://www.youtube.com/watch?v=rJ35jHCMCLY" target="_blank">Gestalt
+                    Principles in UX <span class="resource-tag" data-i18n-html="design.1d5b1215">Psychology</span></a>
+<a class="resource-link" data-i18n-html="design.dbb8f17e" href="https://www.youtube.com/watch?v=djV11Xbc914" target="_blank">Abstract:
+                    Paula Scher <span class="resource-tag" data-i18n-html="design.28ae21ed">Netflix Doc</span></a>
+<a class="resource-link" data-i18n-html="design.e92f17bf" href="https://www.youtube.com/watch?v=eaKq_r4CfvI" target="_blank">Dieter Rams:
+                    10 Principles <span class="resource-tag" data-i18n-html="design.7dd6a6ab">10 min</span></a>
+</div>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="design.be9eacd3"><a class="hover:underline" data-i18n-html="design.a376e23a" href="index.html" style="color:#71717a">←
+                        Back to Overview</a><a class="hover:underline" data-i18n-html="design.96a4d0cc" href="cinematography.html" style="color:#71717a">Cinematography →</a></div>
+<div class="text-xs" data-i18n-html="design.3c5af944" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideation Engine | Creative Constraints Randomizer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ideation Engine | Creative Constraints Randomizer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<style>
         *,
         *::before,
         *::after {
@@ -565,66 +563,58 @@
         }
     </style>
 </head>
-
 <body>
-    <div class="wrap">
-        <a href="index.html" class="back">← Back to Overview</a>
-        <header class="hdr">
-            <h1>🎲 Ideation Engine</h1>
-            <p class="sub">Creative constraints breed creative solutions.</p>
-            <p class="intro">Random constraints from your study guide, combined into a creative brief.
-                <strong>Limitations force invention</strong> — the Dogme 95 manifesto, Lars von Trier's self-imposed
+<div class="wrap">
+<a class="back" data-i18n-html="ideation.f5e3f93e" href="index.html">← Back to Overview</a>
+<header class="hdr">
+<h1 data-i18n-html="ideation.1a5d639f">🎲 Ideation Engine</h1>
+<p class="sub" data-i18n-html="ideation.766d1a51">Creative constraints breed creative solutions.</p>
+<p class="intro" data-i18n-html="ideation.b4c01509">Random constraints from your study guide, combined into a creative brief.
+                <strong data-i18n-html="ideation.ffa9daac">Limitations force invention</strong> — the Dogme 95 manifesto, Lars von Trier's self-imposed
                 rules, Spielberg's broken shark. Embrace the constraint.</p>
-        </header>
+</header>
 
-        <!-- Category toggles -->
-        <div class="category-toggles">
-            <button class="cat-toggle active" data-cat="composition">Composition</button>
-            <button class="cat-toggle active" data-cat="lighting">Lighting</button>
-            <button class="cat-toggle active" data-cat="sound">Sound</button>
-            <button class="cat-toggle active" data-cat="editing">Editing</button>
-            <button class="cat-toggle active" data-cat="motion">Motion</button>
-            <button class="cat-toggle active" data-cat="style">Style</button>
-            <button class="cat-toggle active" data-cat="time">Duration</button>
-        </div>
+<div class="category-toggles">
+<button class="cat-toggle active" data-cat="composition" data-i18n-html="ideation.53eff24a">Composition</button>
+<button class="cat-toggle active" data-cat="lighting" data-i18n-html="ideation.2e4b97fd">Lighting</button>
+<button class="cat-toggle active" data-cat="sound" data-i18n-html="ideation.9d07e0e0">Sound</button>
+<button class="cat-toggle active" data-cat="editing" data-i18n-html="ideation.b1caf7f2">Editing</button>
+<button class="cat-toggle active" data-cat="motion" data-i18n-html="ideation.8226588f">Motion</button>
+<button class="cat-toggle active" data-cat="style" data-i18n-html="ideation.ae284f90">Style</button>
+<button class="cat-toggle active" data-cat="time" data-i18n-html="ideation.e02d2ae0">Duration</button>
+</div>
 
-        <!-- Difficulty -->
-        <div class="settings-bar">
-            <span class="setting-chip" data-diff="easy">Easy (3 constraints)</span>
-            <span class="setting-chip active" data-diff="medium">Medium (5)</span>
-            <span class="setting-chip" data-diff="hard">Hard (all 7)</span>
-        </div>
+<div class="settings-bar" data-i18n-html="ideation.e909854f">
+<span class="setting-chip" data-diff="easy" data-i18n-html="ideation.1e8b8456">Easy (3 constraints)</span>
+<span class="setting-chip active" data-diff="medium" data-i18n-html="ideation.5fc18a7a">Medium (5)</span>
+<span class="setting-chip" data-diff="hard" data-i18n-html="ideation.16a8147e">Hard (all 7)</span>
+</div>
 
-        <!-- The Button -->
-        <button class="generate-btn" id="generateBtn">⚡ GENERATE BRIEF</button>
+<button class="generate-btn" data-i18n-html="ideation.6224b98b" id="generateBtn">⚡ GENERATE BRIEF</button>
 
-        <!-- Output -->
-        <div class="brief-container" id="briefContainer">
-            <div class="brief-card" id="briefCard">
-                <div class="brief-header">
-                    <span class="brief-title">Creative Brief</span>
-                    <span class="brief-number" id="briefNumber">#001</span>
-                </div>
-                <div id="constraintsList"></div>
-                <div class="brief-actions">
-                    <button class="btn-action btn-copy" id="copyBtn">📋 Copy as Text</button>
-                    <button class="btn-action btn-save" id="saveBtn">💾 Save Brief</button>
-                </div>
-            </div>
-        </div>
+<div class="brief-container" id="briefContainer">
+<div class="brief-card" id="briefCard">
+<div class="brief-header" data-i18n-html="ideation.b5b2d300">
+<span class="brief-title" data-i18n-html="ideation.d0b7347e">Creative Brief</span>
+<span class="brief-number" id="briefNumber">#001</span>
+</div>
+<div id="constraintsList"></div>
+<div class="brief-actions">
+<button class="btn-action btn-copy" data-i18n-html="ideation.b4c0d032" id="copyBtn">📋 Copy as Text</button>
+<button class="btn-action btn-save" data-i18n-html="ideation.06b704b1" id="saveBtn">💾 Save Brief</button>
+</div>
+</div>
+</div>
 
-        <!-- Saved Briefs -->
-        <div class="saved-section" id="savedSection" style="display: none;">
-            <h2>💡 Saved Briefs</h2>
-            <div class="saved-list" id="savedList"></div>
-        </div>
-
-        <footer class="ft">
-            <a href="index.html">← Back to Overview</a>
-        </footer>
-    </div>
-
-    <script>
+<div class="saved-section" id="savedSection" style="display: none;">
+<h2 data-i18n-html="ideation.428d25d5">💡 Saved Briefs</h2>
+<div class="saved-list" id="savedList"></div>
+</div>
+<footer class="ft">
+<a data-i18n-html="ideation.f5e3f93e" href="index.html">← Back to Overview</a>
+</footer>
+</div>
+<script>
         /* ═══════════ CONSTRAINT DATA ═══════════ */
         const CONSTRAINTS = {
             composition: [
@@ -933,8 +923,7 @@
         generateBtn.addEventListener('click', generate);
         renderSaved();
     </script>
-    <script src="sidebar.js"></script>
-  <script type="module" src="global-lang.js"></script>
+<script src="sidebar.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

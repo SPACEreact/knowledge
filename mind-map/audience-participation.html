@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audience Participation — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Audience as the Third Presence. Learn to write and design for the gap between sensing and understanding.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audience Participation — Visual Storytelling Framework</title>
+<meta content="Audience as the Third Presence. Learn to write and design for the gap between sensing and understanding." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * { scrollbar-width: thin; scrollbar-color: #3f3f46 transparent }
         html { scroll-behavior: smooth }
         body { font-family: 'Inter', system-ui, sans-serif; background: #09090b; color: #e4e4e7 }
@@ -48,203 +46,176 @@
         .framework-table tr:hover td { background-color: rgba(255, 255, 255, 0.02); }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-        <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link active"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 50% 30%,rgba(16,185,129,.06) 0%,transparent 55%)"></div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="audienceparticipation.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="audienceparticipation.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="audienceparticipation.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="audienceparticipation.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="audienceparticipation.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link active" data-i18n-html="audienceparticipation.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="audienceparticipation.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="audienceparticipation.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 50% 30%,rgba(16,185,129,.06) 0%,transparent 55%)"></div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="audienceparticipation.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <a href="human-layers-enhanced.html"
-                        class="text-xs font-semibold tracking-wide uppercase mb-6 ml-4 inline-block px-3 py-1.5 rounded-md border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 hover:border-emerald-400 transition">Open Enhanced Knowledge Edition</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#10b981;letter-spacing:.2em">Advanced System</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Audience as Third Presence</h1>
-                    <p class="text-lg italic mb-2" style="color:#71717a">A Filmmaking Framework by Himanshu</p>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Most filmmakers design for the character and the camera. Great filmmakers design for the <strong>audience</strong>. The audience's nervous system is already involved. You don't need to invite them in. You need to not block them out.</p>
-                </div>
-            </div>
-        </header>
-
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <div class="warning-block fade-up">
-                <strong>What Blocks the Audience Out:</strong><br>
-                - <strong>Over-explaining</strong> — brain activates, body exits<br>
-                - <strong>Emotional telegraphing</strong> — they receive instead of feel<br>
-                - <strong>Closed imagery</strong> — nothing left to complete
+<a class="text-xs font-semibold tracking-wide uppercase mb-6 ml-4 inline-block px-3 py-1.5 rounded-md border border-emerald-500/40 text-emerald-300 hover:text-emerald-200 hover:border-emerald-400 transition" data-i18n-html="audienceparticipation.a84fd9e0" href="human-layers-enhanced.html">Open Enhanced Knowledge Edition</a>
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="audienceparticipation.cd1314e9" style="color:#10b981;letter-spacing:.2em">Advanced System</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="audienceparticipation.76d0a5d5" style="color:#fafafa">Audience as Third Presence</h1>
+<p class="text-lg italic mb-2" data-i18n-html="audienceparticipation.19763eac" style="color:#71717a">A Filmmaking Framework by Himanshu</p>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="audienceparticipation.9024f2a9" style="color:#a1a1aa">Most filmmakers design for the character and the camera. Great filmmakers design for the <strong data-i18n-html="audienceparticipation.e31f6f98">audience</strong>. The audience's nervous system is already involved. You don't need to invite them in. You need to not block them out.</p>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
+<div class="warning-block fade-up" data-i18n-html="audienceparticipation.71259177">
+<strong data-i18n-html="audienceparticipation.31f07e3d">What Blocks the Audience Out:</strong><br/>
+                - <strong data-i18n-html="audienceparticipation.4d3a0a9c">Over-explaining</strong> — brain activates, body exits<br/>
+                - <strong data-i18n-html="audienceparticipation.0d0e3f1d">Emotional telegraphing</strong> — they receive instead of feel<br/>
+                - <strong data-i18n-html="audienceparticipation.0037116f">Closed imagery</strong> — nothing left to complete
             </div>
 
-            <!-- 1. THE THREE PRESENCES -->
-            <div class="section-divider fade-up">1 · The Three Presences</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Every film has three presences. Most filmmakers design for 1 + 2. Design for 3.</p>
+<div class="section-divider fade-up" data-i18n-html="audienceparticipation.dfcdd7d1">1 · The Three Presences</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="audienceparticipation.818f1885" style="color:#71717a">Every film has three presences. Most filmmakers design for 1 + 2. Design for 3.</p>
+<div class="skill-card fade-up" style="border-left:3px solid #10b981">
+<table class="framework-table">
+<thead>
+<tr>
+<th data-i18n-html="audienceparticipation.39244fc5">Presence</th>
+<th data-i18n-html="audienceparticipation.bbbabdbe">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.76a40e4f">Character</strong></td>
+<td data-i18n-html="audienceparticipation.ff6d8573" style="color:#a1a1aa;">Lives it</td>
+</tr>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.967d35e4">Camera</strong></td>
+<td data-i18n-html="audienceparticipation.bb3a8f4b" style="color:#a1a1aa;">Witnesses it</td>
+</tr>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.ef1e6887">Audience</strong></td>
+<td data-i18n-html="audienceparticipation.7cc6b819" style="color:#a1a1aa;">Completes it</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-            <div class="skill-card fade-up" style="border-left:3px solid #10b981">
-                <table class="framework-table">
-                    <thead>
-                        <tr>
-                            <th>Presence</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Character</strong></td>
-                            <td style="color:#a1a1aa;">Lives it</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Camera</strong></td>
-                            <td style="color:#a1a1aa;">Witnesses it</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Audience</strong></td>
-                            <td style="color:#a1a1aa;">Completes it</td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="section-divider fade-up semantic-section" data-i18n-html="audienceparticipation.cc5cfeff" id="gap-camera-language">2 · The Gap</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="audienceparticipation.93d680b5" style="color:#71717a">The space between sensation and logic.</p>
+<div class="quote-block fade-up" data-i18n-html="audienceparticipation.3feb6b71">
+                "Audience participation lives in the gap between <strong data-i18n-html="audienceparticipation.c9da4ace">sensing</strong> something and <strong data-i18n-html="audienceparticipation.224daf9b">understanding</strong> it."
             </div>
+<div class="skill-card fade-up">
+<ul class="list-none space-y-2">
+<li data-i18n-html="audienceparticipation.071e0fc8" style="color:#a1a1aa;"><span style="color:#10b981;">+</span> Open imagery + incomplete information = <strong data-i18n-html="audienceparticipation.f9cb12f8">participation</strong></li>
+<li data-i18n-html="audienceparticipation.7a6465af" style="color:#a1a1aa;"><span style="color:#10b981;">+</span> Emotional ambiguity + physical precision = <strong data-i18n-html="audienceparticipation.f9cb12f8">participation</strong></li>
+<li data-i18n-html="audienceparticipation.a0f130dd" style="color:#a1a1aa;"><span style="color:#ef4444;">-</span> Closed / explained imagery = <strong data-i18n-html="audienceparticipation.fe8490f2">passive reception</strong></li>
+</ul>
+</div>
 
-            <!-- 3. SENSING VS UNDERSTANDING -->
-            <div class="section-divider fade-up semantic-section" id="gap-camera-language">2 · The Gap</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The space between sensation and logic.</p>
+<div class="section-divider fade-up" data-i18n-html="audienceparticipation.99c93a20">3 · Writing for the Gap — 3 Moves</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="audienceparticipation.980e1c1d" style="color:#71717a">Techniques to inject participation directly into the script or scene design.</p>
+<section class="semantic-section" id="gap-completions">
+<div id="gap-moves"></div>
+</section>
 
-            <div class="quote-block fade-up">
-                "Audience participation lives in the gap between <strong>sensing</strong> something and <strong>understanding</strong> it."
-            </div>
+<div class="section-divider fade-up" data-i18n-html="audienceparticipation.23f630e9">4 · Visual Amplification System</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="audienceparticipation.ff1deaec" style="color:#71717a">Writing sets the incomplete. Visuals make the incompleteness <strong data-i18n-html="audienceparticipation.5e347493">felt in the body.</strong></p>
+<div class="skill-card fade-up">
+<table class="framework-table">
+<thead>
+<tr>
+<th data-i18n-html="audienceparticipation.e2116254">Writing Layer</th>
+<th data-i18n-html="audienceparticipation.93417620">Visual Amplification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.e5e6293a">Physical action</strong></td>
+<td data-i18n-html="audienceparticipation.c30eeb52" style="color:#a1a1aa;">Camera pressure — closer = more weight</td>
+</tr>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.b3bdca28">What's missing</strong></td>
+<td data-i18n-html="audienceparticipation.6b12ab0d" style="color:#a1a1aa;">Empty frame space + offscreen sound</td>
+</tr>
+<tr>
+<td><strong data-i18n-html="audienceparticipation.3f868bdd">Unnamed cause-effect</strong></td>
+<td data-i18n-html="audienceparticipation.36c77891" style="color:#a1a1aa;">Cut on sensation, not on logic</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-            <div class="skill-card fade-up">
-                <ul class="list-none space-y-2">
-                    <li style="color:#a1a1aa;"><span style="color:#10b981;">+</span> Open imagery + incomplete information = <strong>participation</strong></li>
-                    <li style="color:#a1a1aa;"><span style="color:#10b981;">+</span> Emotional ambiguity + physical precision = <strong>participation</strong></li>
-                    <li style="color:#a1a1aa;"><span style="color:#ef4444;">-</span> Closed / explained imagery = <strong>passive reception</strong></li>
-                </ul>
-            </div>
-
-            <!-- 4. WRITING FOR THE GAP -->
-            <div class="section-divider fade-up">3 · Writing for the Gap — 3 Moves</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Techniques to inject participation directly into the script or scene design.</p>
-
-            <section id="gap-completions" class="semantic-section">
-                <div id="gap-moves"></div>
-            </section>
-
-            <!-- 5. VISUAL AMPLIFICATION SYSTEM -->
-            <div class="section-divider fade-up">4 · Visual Amplification System</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Writing sets the incomplete. Visuals make the incompleteness <strong>felt in the body.</strong></p>
-
-            <div class="skill-card fade-up">
-                <table class="framework-table">
-                    <thead>
-                        <tr>
-                            <th>Writing Layer</th>
-                            <th>Visual Amplification</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Physical action</strong></td>
-                            <td style="color:#a1a1aa;">Camera pressure — closer = more weight</td>
-                        </tr>
-                        <tr>
-                            <td><strong>What's missing</strong></td>
-                            <td style="color:#a1a1aa;">Empty frame space + offscreen sound</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Unnamed cause-effect</strong></td>
-                            <td style="color:#a1a1aa;">Cut on sensation, not on logic</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- 6. SCENE STRUCTURE PRINCIPLE -->
-            <div class="section-divider fade-up">5 · Scene Structure Principle</div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #ec4899; padding:2rem; text-align:center;">
-                <h3 style="font-weight:600;letter-spacing:.1em;font-size:1.1rem;color:#fafafa;margin-bottom:1.5rem">
-                    SENSE FIRST → UNDERSTAND LATER<br><span style="font-size: 0.8rem; font-weight: normal; color: #71717a;">(sometimes never)</span>
-                </h3>
-                <p style="max-width:85%;margin:0 auto; text-align: left;">
-                - Writing plants the seed <strong>underground</strong>.<br>
-                - Visuals = the pressure of soil <strong>above</strong> it.<br>
-                - Audience feels something growing <strong>before</strong> they see what it is.
+<div class="section-divider fade-up" data-i18n-html="audienceparticipation.b191cd2e">5 · Scene Structure Principle</div>
+<div class="skill-card fade-up" style="border-left:3px solid #ec4899; padding:2rem; text-align:center;">
+<h3 data-i18n-html="audienceparticipation.7b5a021f" style="font-weight:600;letter-spacing:.1em;font-size:1.1rem;color:#fafafa;margin-bottom:1.5rem">
+                    SENSE FIRST → UNDERSTAND LATER<br/><span data-i18n-html="audienceparticipation.10b04b96" style="font-size: 0.8rem; font-weight: normal; color: #71717a;">(sometimes never)</span>
+</h3>
+<p data-i18n-html="audienceparticipation.55b3489a" style="max-width:85%;margin:0 auto; text-align: left;">
+                - Writing plants the seed <strong data-i18n-html="audienceparticipation.959c8361">underground</strong>.<br/>
+                - Visuals = the pressure of soil <strong data-i18n-html="audienceparticipation.55a9d6aa">above</strong> it.<br/>
+                - Audience feels something growing <strong data-i18n-html="audienceparticipation.2f444175">before</strong> they see what it is.
                 </p>
-            </div>
+</div>
 
-            <!-- 7. PODLIE UNIVERSE APPLICATION -->
-            <div class="section-divider fade-up">6 · Podlie Universe Application</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Forces should be experienced, not explained.</p>
-
-            <div class="skill-card fade-up">
-                <h3>Bhram as Experience (Not Concept)</h3>
-                <p>Don't explain Bhram. <strong>Make the audience feel it.</strong></p>
-                <ul class="list-none space-y-2 mt-4 text-sm" style="color: #a1a1aa;">
-                    <li><strong style="color: #fafafa;">Write:</strong> Character keeps arriving at the right place at the wrong time.</li>
-                    <li><strong style="color: #fafafa;">Visually:</strong> Environment looks almost correct — off by small degrees.</li>
-                    <li><strong style="color: #fafafa;">Result:</strong> Audience senses wrongness in their body before their brain categorizes it.</li>
-                </ul>
-                <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #27272a;">
-                    The same logic applies to Anatam and Xangar — each force has a <strong>body sensation</strong> before it has a name. Design for that sensation first.
+<div class="section-divider fade-up" data-i18n-html="audienceparticipation.c78f11ca">6 · Podlie Universe Application</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="audienceparticipation.1e4b9bff" style="color:#71717a">Forces should be experienced, not explained.</p>
+<div class="skill-card fade-up">
+<h3 data-i18n-html="audienceparticipation.6f1be00b">Bhram as Experience (Not Concept)</h3>
+<p data-i18n-html="audienceparticipation.f6cb1a59">Don't explain Bhram. <strong data-i18n-html="audienceparticipation.1cde45ed">Make the audience feel it.</strong></p>
+<ul class="list-none space-y-2 mt-4 text-sm" style="color: #a1a1aa;">
+<li data-i18n-html="audienceparticipation.54046152"><strong data-i18n-html="audienceparticipation.632e6428" style="color: #fafafa;">Write:</strong> Character keeps arriving at the right place at the wrong time.</li>
+<li data-i18n-html="audienceparticipation.978c47c6"><strong data-i18n-html="audienceparticipation.64d05e74" style="color: #fafafa;">Visually:</strong> Environment looks almost correct — off by small degrees.</li>
+<li data-i18n-html="audienceparticipation.11fee2f2"><strong data-i18n-html="audienceparticipation.5aac38de" style="color: #fafafa;">Result:</strong> Audience senses wrongness in their body before their brain categorizes it.</li>
+</ul>
+<p data-i18n-html="audienceparticipation.f5c17169" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #27272a;">
+                    The same logic applies to Anatam and Xangar — each force has a <strong data-i18n-html="audienceparticipation.4b5a5776">body sensation</strong> before it has a name. Design for that sensation first.
                 </p>
+</div>
+<div class="quote-block fade-up" data-i18n-html="audienceparticipation.9776590a" style="border-left-color: #f59e0b; background: rgba(245, 158, 11, .06);">
+                "Filmmaking is evolved communication. The audience is not a viewer — they are the <strong data-i18n-html="audienceparticipation.c5aa5d85">third participant</strong>. Your job as writer-director: engineer the incomplete, so they complete it with their own nervous system."
             </div>
-
-            <div class="quote-block fade-up" style="border-left-color: #f59e0b; background: rgba(245, 158, 11, .06);">
-                "Filmmaking is evolved communication. The audience is not a viewer — they are the <strong>third participant</strong>. Your job as writer-director: engineer the incomplete, so they complete it with their own nervous system."
-            </div>
-            
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="index.html" class="hover:underline" style="color:#71717a">←
-                        Back to Overview</a><a href="human-layers-enhanced.html" class="hover:underline" style="color:#34d399">Open Enhanced Knowledge Edition →</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · Created March 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="audienceparticipation.9bb4348c"><a class="hover:underline" data-i18n-html="audienceparticipation.a376e23a" href="index.html" style="color:#71717a">←
+                        Back to Overview</a><a class="hover:underline" data-i18n-html="audienceparticipation.8ce1ddec" href="human-layers-enhanced.html" style="color:#34d399">Open Enhanced Knowledge Edition →</a></div>
+<div class="text-xs" data-i18n-html="audienceparticipation.f35719be" style="color:#3f3f46">Visual Storytelling Framework · Created March 2026</div>
+</div>
+</footer>
+</div>
+<script>
         const GAP_MOVES = [
             {
                 id: 'gap-physical-not-emotional',
@@ -289,7 +260,6 @@
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

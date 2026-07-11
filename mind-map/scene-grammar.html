@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scene Grammar & Pressure System — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Scene archetypes, the 10-level Visual Pressure Scale, tactical playbook, and anti-cliché framework for cinematic storytelling.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scene Grammar &amp; Pressure System — Visual Storytelling Framework</title>
+<meta content="Scene archetypes, the 10-level Visual Pressure Scale, tactical playbook, and anti-cliché framework for cinematic storytelling." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent
@@ -394,680 +392,636 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link active"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 30% 30%,rgba(245,158,11,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(236,72,153,.04) 0%,transparent 50%)">
-            </div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="scenegrammar.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="scenegrammar.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="scenegrammar.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="scenegrammar.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="scenegrammar.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="scenegrammar.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="scenegrammar.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="scenegrammar.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link active" data-i18n-html="scenegrammar.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="scenegrammar.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="scenegrammar.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="scenegrammar.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 30%,rgba(245,158,11,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(236,72,153,.04) 0%,transparent 50%)">
+</div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="scenegrammar.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#f59e0b;letter-spacing:.2em">Advanced System</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Scene Grammar & Pressure System</h1>
-                    <p class="text-base md:text-lg leading-relaxed max-w-2xl" style="color:#a1a1aa">Scene archetypes,
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="scenegrammar.cd1314e9" style="color:#f59e0b;letter-spacing:.2em">Advanced System</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="scenegrammar.3549d442" style="color:#fafafa">Scene Grammar &amp; Pressure System</h1>
+<p class="text-base md:text-lg leading-relaxed max-w-2xl" data-i18n-html="scenegrammar.6f25b81b" style="color:#a1a1aa">Scene archetypes,
                         the 10-level Visual Pressure Scale, tactical playbook, and anti-cliché framework.</p>
-                </div>
-                <div class="fade-up mt-6 p-4 rounded-xl"
-                    style="background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.1);transition-delay:.1s">
-                    <p class="text-xs font-semibold uppercase tracking-wider mb-1" style="color:#f59e0b">Core Equation
+</div>
+<div class="fade-up mt-6 p-4 rounded-xl" style="background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.1);transition-delay:.1s">
+<p class="text-xs font-semibold uppercase tracking-wider mb-1" data-i18n-html="scenegrammar.260f872d" style="color:#f59e0b">Core Equation
                     </p>
-                    <p class="text-sm font-mono" style="color:#d4d4d8">Scene = Emotion A → Pressure → Emotion B</p>
-                    <p class="text-xs mt-1" style="color:#71717a">Your power: shifting spatial grammar mid-scene,
+<p class="text-sm font-mono" data-i18n-html="scenegrammar.2e1ed741" style="color:#d4d4d8">Scene = Emotion A → Pressure → Emotion B</p>
+<p class="text-xs mt-1" data-i18n-html="scenegrammar.5f5766b4" style="color:#71717a">Your power: shifting spatial grammar mid-scene,
                         changing lens psychology mid-beat, breaking rhythm at emotional pivot.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <!-- PART I: SCENE ARCHETYPES -->
-            <div class="section-divider fade-up" id="archetypes">I. Scene Archetypes — 10 Universal Types</div>
-
-            <div class="scene-card fade-up" id="confrontation">
-                <div class="scene-header"><span class="scene-badge">Archetype 01</span>
-                    <div class="scene-title">Confrontation Scene</div>
-                    <div class="scene-subtitle">Power vs Power / Truth vs Defense</div>
-                    <div class="core-shift">"Control → Loss of Control"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Start balanced two-shot. Gradually break into singles. Increase
+<div class="section-divider fade-up" data-i18n-html="scenegrammar.287acb09" id="archetypes">I. Scene Archetypes — 10 Universal Types</div>
+<div class="scene-card fade-up" id="confrontation">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.78f963d9">Archetype 01</span>
+<div class="scene-title" data-i18n-html="scenegrammar.bb4a8cc1">Confrontation Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.d1ac91ca">Power vs Power / Truth vs Defense</div>
+<div class="core-shift" data-i18n-html="scenegrammar.8f0e6868">"Control → Loss of Control"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.d7de4f13">Start balanced two-shot. Gradually break into singles. Increase
                             physical distance OR push into aggressive close-ups.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Start even. Introduce shadow separation as conflict escalates.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">35–50mm for neutrality. Shift to telephoto as tension peaks
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.ca3db4ba">Start even. Introduce shadow separation as conflict escalates.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.a8ce3be2">35–50mm for neutrality. Shift to telephoto as tension peaks
                             (compression = suffocation).</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Start locked off. Introduce slow push-ins from both sides. One
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.b9a9b432">Start locked off. Introduce slow push-ins from both sides. One
                             character ends closer to lens.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Even back-and-forth. Interrupt pattern when truth drops.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Cut to reaction before accusation
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.fe99209d">Even back-and-forth. Interrupt pattern when truth drops.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.8248b2cc"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Cut to reaction before accusation
                     lands. The face receiving truth is more powerful than the face delivering it.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="reunion">
-                <div class="scene-header"><span class="scene-badge">Archetype 02</span>
-                    <div class="scene-title">Reunion Scene</div>
-                    <div class="scene-subtitle">Separation → Emotional Release</div>
-                    <div class="core-shift">"Distance → Collapse of Distance"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Begin with obstructed view. Reveal full frame when recognition hits.
+</div>
+<div class="scene-card fade-up" id="reunion">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.96bcf292">Archetype 02</span>
+<div class="scene-title" data-i18n-html="scenegrammar.1f95cdc1">Reunion Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.d3df4330">Separation → Emotional Release</div>
+<div class="core-shift" data-i18n-html="scenegrammar.60a49fbc">"Distance → Collapse of Distance"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.79d3244a">Begin with obstructed view. Reveal full frame when recognition hits.
                         </div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Naturalistic. Increase backlight subtly during embrace.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Medium focal length. Shallow depth when physical contact happens.
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.51b070c8">Naturalistic. Increase backlight subtly during embrace.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.ba1251b1">Medium focal length. Shallow depth when physical contact happens.
                         </div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Slow push or orbit. Slight handheld warmth.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Hold longer than audience expects. Avoid overcutting.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Delay eye contact. Let the audience
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.09815fdd">Slow push or orbit. Slight handheld warmth.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.3b68b2a2">Hold longer than audience expects. Avoid overcutting.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.c0b3b71d"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Delay eye contact. Let the audience
                     feel anticipation of connection before it arrives.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="death">
-                <div class="scene-header"><span class="scene-badge">Archetype 03</span>
-                    <div class="scene-title">Death Scene</div>
-                    <div class="scene-subtitle">Presence → Irreversible Absence</div>
-                    <div class="core-shift">"Life → Void"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Increase negative space immediately after. Show environment
+</div>
+<div class="scene-card fade-up" id="death">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.b6cc61fa">Archetype 03</span>
+<div class="scene-title" data-i18n-html="scenegrammar.c0c3eacc">Death Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.b3819e57">Presence → Irreversible Absence</div>
+<div class="core-shift" data-i18n-html="scenegrammar.782588b0">"Life → Void"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.e2e6812b">Increase negative space immediately after. Show environment
                             continuing unchanged.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Do not dramatize. Let light remain indifferent.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Wider lens for realism. Or static medium for detachment.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Stop movement after moment. Freeze visual energy.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Remove music. Hold.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Cut to ordinary object instead of body.
-                    The mundane continuing while life has stopped is devastating. See <a
-                        href="story-emotion.html">Presence vs Absence</a>.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="revelation">
-                <div class="scene-header"><span class="scene-badge">Archetype 04</span>
-                    <div class="scene-title">Revelation Scene</div>
-                    <div class="scene-subtitle">Ignorance → New Knowledge</div>
-                    <div class="core-shift">"Confusion → Clarity (or collapse)"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Character framed off-center. Re-center once realization hits.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Shift contrast. Introduce edge light subtly.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Push from medium to close. Increase isolation.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Slow controlled push. Or sudden stillness.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Cut to memory flashes (if internal). Or remove all cuts and hold.
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.a053eac0">Do not dramatize. Let light remain indifferent.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.262ffdd8">Wider lens for realism. Or static medium for detachment.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.340425f4">Stop movement after moment. Freeze visual energy.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.9e9b9b08">Remove music. Hold.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.cb8b8f84"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Cut to ordinary object instead of body.
+                    The mundane continuing while life has stopped is devastating. See <a data-i18n-html="scenegrammar.eecafae6" href="story-emotion.html">Presence vs Absence</a>.</div>
+</div>
+<div class="scene-card fade-up" id="revelation">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.702e5eae">Archetype 04</span>
+<div class="scene-title" data-i18n-html="scenegrammar.20294e14">Revelation Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.6a98201f">Ignorance → New Knowledge</div>
+<div class="core-shift" data-i18n-html="scenegrammar.0a1cf578">"Confusion → Clarity (or collapse)"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.ea36d983">Character framed off-center. Re-center once realization hits.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.1b53fcae">Shift contrast. Introduce edge light subtly.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.c2229bff">Push from medium to close. Increase isolation.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.4feb6554">Slow controlled push. Or sudden stillness.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.618c8063">Cut to memory flashes (if internal). Or remove all cuts and hold.
                         </div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Sound drops before realization
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.e9731d7b"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Sound drops before realization
                     registers. The silence primes the audience to receive impact.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="betrayal-scene">
-                <div class="scene-header"><span class="scene-badge">Archetype 05</span>
-                    <div class="scene-title">Betrayal Scene</div>
-                    <div class="scene-subtitle">Trust → Fracture</div>
-                    <div class="core-shift">"Shared Frame → Separate Frames"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Start in shared two-shot. End in isolated singles.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Introduce shadow barrier (doorframe, pillar).</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Telephoto for emotional compression.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Very slow push on betrayed face. Betrayer remains static.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Delay betrayed reaction. Cut wide after impact.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Let betrayal land in silence. No score,
-                    no sound design — just the face and the void. See <a href="emotion-grammar.html#betrayal">Emotion
+</div>
+<div class="scene-card fade-up" id="betrayal-scene">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.45fe4145">Archetype 05</span>
+<div class="scene-title" data-i18n-html="scenegrammar.f4ea2903">Betrayal Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.571b7341">Trust → Fracture</div>
+<div class="core-shift" data-i18n-html="scenegrammar.9a384bd3">"Shared Frame → Separate Frames"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.4025c110">Start in shared two-shot. End in isolated singles.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.28cb0300">Introduce shadow barrier (doorframe, pillar).</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.2c8304d0">Telephoto for emotional compression.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.a72c72d2">Very slow push on betrayed face. Betrayer remains static.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.0f36b8e5">Delay betrayed reaction. Cut wide after impact.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.94cd05ff"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Let betrayal land in silence. No score,
+                    no sound design — just the face and the void. See <a data-i18n-html="scenegrammar.d912c7e2" href="emotion-grammar.html#betrayal">Emotion
                         #15: Betrayal</a>.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="chase">
-                <div class="scene-header"><span class="scene-badge">Archetype 06</span>
-                    <div class="scene-title">Chase Scene</div>
-                    <div class="scene-subtitle">Safety → Survival</div>
-                    <div class="core-shift">"Stability → Instability"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Narrow corridors. Diagonal compositions.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">High contrast. Moving shadows.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Wide lens close to subject. Deep focus for spatial awareness.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Aggressive handheld. Rapid forward motion.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Acceleration. Shorter and shorter shot duration.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Sudden still frame before final burst.
+</div>
+<div class="scene-card fade-up" id="chase">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.04c526b9">Archetype 06</span>
+<div class="scene-title" data-i18n-html="scenegrammar.af6efdb3">Chase Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.a2c66a48">Safety → Survival</div>
+<div class="core-shift" data-i18n-html="scenegrammar.edde4822">"Stability → Instability"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.3e635a91">Narrow corridors. Diagonal compositions.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.dc180a7b">High contrast. Moving shadows.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.6cfd530b">Wide lens close to subject. Deep focus for spatial awareness.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.84d61559">Aggressive handheld. Rapid forward motion.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.38720128">Acceleration. Shorter and shorter shot duration.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.44dfbd4a"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Sudden still frame before final burst.
                     The pause amplifies the explosion that follows.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="confession">
-                <div class="scene-header"><span class="scene-badge">Archetype 07</span>
-                    <div class="scene-title">Intimate Confession</div>
-                    <div class="scene-subtitle">Internal Burden → Vulnerability</div>
-                    <div class="core-shift">"Guarded → Exposed"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Close proximity. Minimal background distraction.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Soft directional. Eye light crucial.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">50–85mm shallow focus.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Static. Micro push only.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Hold on listener more than speaker.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Cut away before response is spoken.
+</div>
+<div class="scene-card fade-up" id="confession">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.8d2607e1">Archetype 07</span>
+<div class="scene-title" data-i18n-html="scenegrammar.f418aa4c">Intimate Confession</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.31b4007c">Internal Burden → Vulnerability</div>
+<div class="core-shift" data-i18n-html="scenegrammar.13d21018">"Guarded → Exposed"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.42caf98d">Close proximity. Minimal background distraction.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.8f3c086e">Soft directional. Eye light crucial.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.090083dd">50–85mm shallow focus.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.dae7ba5e">Static. Micro push only.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.134e3c8a">Hold on listener more than speaker.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.ee4222fe"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Cut away before response is spoken.
                     What the audience imagines is always more powerful than what you show.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="triumph-scene">
-                <div class="scene-header"><span class="scene-badge">Archetype 08</span>
-                    <div class="scene-title">Triumph Scene</div>
-                    <div class="scene-subtitle">Doubt → Victory</div>
-                    <div class="core-shift">"Constraint → Expansion"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Begin compressed frame. End in wide open vertical composition.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Backlight flare. Increase contrast.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Start tighter. End wider.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Rising crane or tilt up.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Slow down instead of speed up.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Silence before celebration. The gap is
-                    where the audience feels the weight. See <a href="emotion-grammar.html#triumph">Emotion #23:
+</div>
+<div class="scene-card fade-up" id="triumph-scene">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.525c6387">Archetype 08</span>
+<div class="scene-title" data-i18n-html="scenegrammar.7af270ee">Triumph Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.3a4c0056">Doubt → Victory</div>
+<div class="core-shift" data-i18n-html="scenegrammar.e1c3e23f">"Constraint → Expansion"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.961e6ef2">Begin compressed frame. End in wide open vertical composition.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.9771dd64">Backlight flare. Increase contrast.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.b799012e">Start tighter. End wider.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.d7be2172">Rising crane or tilt up.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.7bc24489">Slow down instead of speed up.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.840bd2d4"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Silence before celebration. The gap is
+                    where the audience feels the weight. See <a data-i18n-html="scenegrammar.575780ec" href="emotion-grammar.html#triumph">Emotion #23:
                         Triumph</a>.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="isolation">
-                <div class="scene-header"><span class="scene-badge">Archetype 09</span>
-                    <div class="scene-title">Isolation Scene</div>
-                    <div class="scene-subtitle">Belonging → Disconnection</div>
-                    <div class="core-shift">"Integrated → Separate"</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Character moves opposite crowd direction. Wide shot with subject
+</div>
+<div class="scene-card fade-up" id="isolation">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.fd4b4cdf">Archetype 09</span>
+<div class="scene-title" data-i18n-html="scenegrammar.dd5ff092">Isolation Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.453ad378">Belonging → Disconnection</div>
+<div class="core-shift" data-i18n-html="scenegrammar.b0f6f33c">"Integrated → Separate"</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.125873b2">Character moves opposite crowd direction. Wide shot with subject
                             small.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Cooler tones. Environmental practicals.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Deep focus wide.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Lateral tracking.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Let ambient sound overpower dialogue.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> The world doesn't pause. Keep
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.45fa8af3">Cooler tones. Environmental practicals.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.7affcbee">Deep focus wide.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.60988694">Lateral tracking.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.6c8c699b">Let ambient sound overpower dialogue.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.4c9fc2a2"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> The world doesn't pause. Keep
                     environmental activity at full volume — disconnection is amplified by the world's indifference. See
-                    <a href="emotion-grammar.html#alienation">Emotion #19: Alienation</a>.</div>
-            </div>
-
-            <div class="scene-card fade-up" id="transformation">
-                <div class="scene-header"><span class="scene-badge">Archetype 10</span>
-                    <div class="scene-title">Transformation Scene</div>
-                    <div class="scene-subtitle">Old Identity → New Identity</div>
-                    <div class="core-shift">"Internal shift becomes external behavior."</div>
-                </div>
-                <div class="grammar-grid">
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Space</div>
-                        <div class="grammar-value">Start cluttered. End clean and centered.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Light</div>
-                        <div class="grammar-value">Start flat. Introduce directional sculpting.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Lens</div>
-                        <div class="grammar-value">Push progressively closer.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Movement</div>
-                        <div class="grammar-value">Camera becomes more stable over time.</div>
-                    </div>
-                    <div class="grammar-cell">
-                        <div class="grammar-label">Editing</div>
-                        <div class="grammar-value">Reduce cuts as confidence increases.</div>
-                    </div>
-                </div>
-                <div class="structural-trick"><strong>Structural Trick:</strong> Mirror shot at beginning and end. Same
+                    <a data-i18n-html="scenegrammar.72187f8a" href="emotion-grammar.html#alienation">Emotion #19: Alienation</a>.</div>
+</div>
+<div class="scene-card fade-up" id="transformation">
+<div class="scene-header"><span class="scene-badge" data-i18n-html="scenegrammar.71152d74">Archetype 10</span>
+<div class="scene-title" data-i18n-html="scenegrammar.b7aa7073">Transformation Scene</div>
+<div class="scene-subtitle" data-i18n-html="scenegrammar.34779a0d">Old Identity → New Identity</div>
+<div class="core-shift" data-i18n-html="scenegrammar.b201a4d3">"Internal shift becomes external behavior."</div>
+</div>
+<div class="grammar-grid">
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.d511f843">Space</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.2bdfe4e9">Start cluttered. End clean and centered.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.9914a0ce">Light</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.05da8684">Start flat. Introduce directional sculpting.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.443b8e62">Lens</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.f0efdaec">Push progressively closer.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.4642e767">Movement</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.83296e1d">Camera becomes more stable over time.</div>
+</div>
+<div class="grammar-cell">
+<div class="grammar-label" data-i18n-html="scenegrammar.b1caf7f2">Editing</div>
+<div class="grammar-value" data-i18n-html="scenegrammar.e4bc9d38">Reduce cuts as confidence increases.</div>
+</div>
+</div>
+<div class="structural-trick" data-i18n-html="scenegrammar.3d88bd65"><strong data-i18n-html="scenegrammar.5651e551">Structural Trick:</strong> Mirror shot at beginning and end. Same
                     framing, same angle — but everything has changed. The audience sees transformation through identical
                     composition with a different subject inside it.</div>
-            </div>
+</div>
 
-            <!-- PART II: VISUAL PRESSURE SCALE -->
-            <div class="section-divider fade-up" id="pressure-scale">II. Visual Pressure Scale (1–10)</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">How to escalate intensity without dialogue. Pressure =
+<div class="section-divider fade-up" data-i18n-html="scenegrammar.12cabd24" id="pressure-scale">II. Visual Pressure Scale (1–10)</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="scenegrammar.ba259ff8" style="color:#71717a">How to escalate intensity without dialogue. Pressure =
                 Spatial Compression + Contrast Shift + Lens Distortion + Rhythm Acceleration.</p>
-
-            <div class="space-y-2">
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#22c55e">1</div>
-                    <div>
-                        <div class="pressure-name">Neutral Stability</div>
-                        <div class="pressure-desc">Balanced composition. Eye-level framing. 35–50mm lens. Even lighting.
+<div class="space-y-2">
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#22c55e">1</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.18933927">Neutral Stability</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.57a18b7d">Balanced composition. Eye-level framing. 35–50mm lens. Even lighting.
                             Moderate shot duration. Ambient sound natural.</div>
-                        <div class="pressure-effect">↳ Effect: No emotional distortion.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#4ade80">2</div>
-                    <div>
-                        <div class="pressure-name">Subtle Unease</div>
-                        <div class="pressure-desc">Slightly off-center framing. Minimal shadows introduced. Normal lens
+<div class="pressure-effect" data-i18n-html="scenegrammar.3a79a54c">↳ Effect: No emotional distortion.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#4ade80">2</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.4b69ba73">Subtle Unease</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.284c0625">Slightly off-center framing. Minimal shadows introduced. Normal lens
                             with hint of shallow focus. Extended takes.</div>
-                        <div class="pressure-effect">↳ Effect: Subliminal discomfort.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#86efac">3</div>
-                    <div>
-                        <div class="pressure-name">Directional Tension</div>
-                        <div class="pressure-desc">Clear directional light creating defined shadow. Negative space
+<div class="pressure-effect" data-i18n-html="scenegrammar.9dffa968">↳ Effect: Subliminal discomfort.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#86efac">3</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.8833fb23">Directional Tension</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.636d2e12">Clear directional light creating defined shadow. Negative space
                             weighted. Slow push begins. Shot holds slightly too long.</div>
-                        <div class="pressure-effect">↳ Effect: Something is coming.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#fde047">4</div>
-                    <div>
-                        <div class="pressure-name">Spatial Compression</div>
-                        <div class="pressure-desc">Frame tightens. Telephoto introduced. Background begins to compress.
+<div class="pressure-effect" data-i18n-html="scenegrammar.f38943a1">↳ Effect: Something is coming.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#fde047">4</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.802ea413">Spatial Compression</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.a59a9a03">Frame tightens. Telephoto introduced. Background begins to compress.
                             Cutting rhythm slightly faster. Ambient sounds reduced.</div>
-                        <div class="pressure-effect">↳ Effect: World closing in.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#f59e0b">5</div>
-                    <div>
-                        <div class="pressure-name">Isolation Point</div>
-                        <div class="pressure-desc">Subject separated from environment. Shallow depth of field. Strong
+<div class="pressure-effect" data-i18n-html="scenegrammar.7ed79ae5">↳ Effect: World closing in.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#f59e0b">5</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.1c98bf75">Isolation Point</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.34f5b6f2">Subject separated from environment. Shallow depth of field. Strong
                             key light with deep shadows. Handheld micro-movements. Sound design shifts.</div>
-                        <div class="pressure-effect">↳ Effect: Subject alone with problem.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#fb923c">6</div>
-                    <div>
-                        <div class="pressure-name">Rhythm Breaking</div>
-                        <div class="pressure-desc">Established cutting pattern disrupted. Unexpected angle change. Light
+<div class="pressure-effect" data-i18n-html="scenegrammar.202741ff">↳ Effect: Subject alone with problem.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#fb923c">6</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.91050a4d">Rhythm Breaking</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.c4e57951">Established cutting pattern disrupted. Unexpected angle change. Light
                             sources shift mid-scene. Sound layers begin conflicting.</div>
-                        <div class="pressure-effect">↳ Effect: Rules are changing.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#f97316">7</div>
-                    <div>
-                        <div class="pressure-name">Proximity Invasion</div>
-                        <div class="pressure-desc">Extreme close-ups. Wide lens distortion at close range. High
+<div class="pressure-effect" data-i18n-html="scenegrammar.0a0e525f">↳ Effect: Rules are changing.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#f97316">7</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.adf1a66d">Proximity Invasion</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.5514da4f">Extreme close-ups. Wide lens distortion at close range. High
                             contrast. Rapid cutting. Foreground intrusion.</div>
-                        <div class="pressure-effect">↳ Effect: No escape from the moment.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#ef4444">8</div>
-                    <div>
-                        <div class="pressure-name">Temporal Distortion</div>
-                        <div class="pressure-desc">Time stretches or compresses. Jump cuts. Speed ramping. Sound design
+<div class="pressure-effect" data-i18n-html="scenegrammar.df511528">↳ Effect: No escape from the moment.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#ef4444">8</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.44b35c41">Temporal Distortion</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.67dcbbbc">Time stretches or compresses. Jump cuts. Speed ramping. Sound design
                             detaches from reality. Mixed color temperatures.</div>
-                        <div class="pressure-effect">↳ Effect: Reality fracturing.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#dc2626">9</div>
-                    <div>
-                        <div class="pressure-name">Sensory Overload</div>
-                        <div class="pressure-desc">Multiple competing elements. Strobing or flicker. Aggressive
+<div class="pressure-effect" data-i18n-html="scenegrammar.53184853">↳ Effect: Reality fracturing.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#dc2626">9</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.d25db46a">Sensory Overload</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.3bf02e93">Multiple competing elements. Strobing or flicker. Aggressive
                             handheld. Overlapping audio. Dutch angles. Visual noise.</div>
-                        <div class="pressure-effect">↳ Effect: System overwhelmed.</div>
-                    </div>
-                </div>
-                <div class="pressure-card fade-up">
-                    <div class="pressure-num" style="color:#b91c1c">10</div>
-                    <div>
-                        <div class="pressure-name">Visual Collapse</div>
-                        <div class="pressure-desc">All grammar rules broken simultaneously. Or: absolute stillness after
+<div class="pressure-effect" data-i18n-html="scenegrammar.2c10c8e3">↳ Effect: System overwhelmed.</div>
+</div>
+</div>
+<div class="pressure-card fade-up">
+<div class="pressure-num" style="color:#b91c1c">10</div>
+<div>
+<div class="pressure-name" data-i18n-html="scenegrammar.7a7dffd5">Visual Collapse</div>
+<div class="pressure-desc" data-i18n-html="scenegrammar.66a91229">All grammar rules broken simultaneously. Or: absolute stillness after
                             chaos. The frame itself becomes unstable — or freezes into devastating clarity.</div>
-                        <div class="pressure-effect">↳ Effect: Total emotional impact. Use once per film.</div>
-                    </div>
-                </div>
-            </div>
+<div class="pressure-effect" data-i18n-html="scenegrammar.bac68e7b">↳ Effect: Total emotional impact. Use once per film.</div>
+</div>
+</div>
+</div>
 
-            <!-- PART III: TACTICAL PLAYBOOK -->
-            <div class="section-divider fade-up" id="playbook">III. Filmmaker Tactical Playbook</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Shot design logic for any scene. Rule: Never shoot
+<div class="section-divider fade-up" data-i18n-html="scenegrammar.87691dc1" id="playbook">III. Filmmaker Tactical Playbook</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="scenegrammar.ddae4248" style="color:#71717a">Shot design logic for any scene. Rule: Never shoot
                 emotion. Shoot transition.</p>
-
-            <div class="playbook-card fade-up">
-                <h4>Scene Entry Protocol</h4>
-                <p style="font-size:.78rem;color:#71717a;margin-bottom:.75rem">Before shooting any scene, ask three
+<div class="playbook-card fade-up">
+<h4 data-i18n-html="scenegrammar.5d5f0080">Scene Entry Protocol</h4>
+<p data-i18n-html="scenegrammar.3b824255" style="font-size:.78rem;color:#71717a;margin-bottom:.75rem">Before shooting any scene, ask three
                     questions:</p>
-                <div class="playbook-phase">
-                    <div class="phase-label">Question 1</div>
-                    <div class="phase-content">What is the starting emotional baseline?</div>
-                </div>
-                <div class="playbook-phase">
-                    <div class="phase-label">Question 2</div>
-                    <div class="phase-content">Where must it end?</div>
-                </div>
-                <div class="playbook-phase">
-                    <div class="phase-label">Question 3</div>
-                    <div class="phase-content">What is the pivot moment?</div>
-                </div>
-            </div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.06b15aaa">Question 1</div>
+<div class="phase-content" data-i18n-html="scenegrammar.904cb15a">What is the starting emotional baseline?</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.21c58e47">Question 2</div>
+<div class="phase-content" data-i18n-html="scenegrammar.c732017d">Where must it end?</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.7d5e14c0">Question 3</div>
+<div class="phase-content" data-i18n-html="scenegrammar.d7257bd0">What is the pivot moment?</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-3">
+<div class="playbook-card fade-up">
+<h4 data-i18n-html="scenegrammar.1c694730">Confrontation Recipe</h4>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a6122a65">Start</div>
+<div class="phase-content" data-i18n-html="scenegrammar.c29957c0">Neutral two-shot (Pressure Level 2–3)</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.e85d79cf">Escalate</div>
+<div class="phase-content" data-i18n-html="scenegrammar.86360b7e">Break into singles. Slow push-ins. Telephoto.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a21e600e">Peak</div>
+<div class="phase-content" data-i18n-html="scenegrammar.cfeda94d">Cut to reaction before dialogue lands.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.b8e7b465">Release</div>
+<div class="phase-content" data-i18n-html="scenegrammar.e419882d">Static wide or silence.</div>
+</div>
+</div>
+<div class="playbook-card fade-up">
+<h4 data-i18n-html="scenegrammar.56f21080">Confession Recipe</h4>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a6122a65">Start</div>
+<div class="phase-content" data-i18n-html="scenegrammar.14e31af5">Medium two-shot.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.e85d79cf">Escalate</div>
+<div class="phase-content" data-i18n-html="scenegrammar.9c3c3e98">Move closer subtly. Reduce background depth.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a21e600e">Peak</div>
+<div class="phase-content" data-i18n-html="scenegrammar.9a3ef9b7">Hold on listener.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.b8e7b465">Release</div>
+<div class="phase-content" data-i18n-html="scenegrammar.d0f27aa3">Cut before response.</div>
+</div>
+</div>
+<div class="playbook-card fade-up">
+<h4 data-i18n-html="scenegrammar.896fb8bf">Fear Build Recipe</h4>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a6122a65">Start</div>
+<div class="phase-content" data-i18n-html="scenegrammar.69a30450">Wide with deep background.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.e85d79cf">Escalate</div>
+<div class="phase-content" data-i18n-html="scenegrammar.ff72c7a1">Slow push. Introduce shadow pockets.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a21e600e">Peak</div>
+<div class="phase-content" data-i18n-html="scenegrammar.39be3eaa">Background intrusion.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.b8e7b465">Release</div>
+<div class="phase-content" data-i18n-html="scenegrammar.b8074163">Sudden stillness before scare.</div>
+</div>
+</div>
+<div class="playbook-card fade-up">
+<h4 data-i18n-html="scenegrammar.6d74d295">Triumph Recipe</h4>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a6122a65">Start</div>
+<div class="phase-content" data-i18n-html="scenegrammar.12713cb4">Compressed frame. Eye-level.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.e85d79cf">Escalate</div>
+<div class="phase-content" data-i18n-html="scenegrammar.c05bfe06">Lower camera. Add backlight separation.</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.a21e600e">Peak</div>
+<div class="phase-content" data-i18n-html="scenegrammar.c47f366b">Rise vertically (tilt/crane).</div>
+</div>
+<div class="playbook-phase">
+<div class="phase-label" data-i18n-html="scenegrammar.b8e7b465">Release</div>
+<div class="phase-content" data-i18n-html="scenegrammar.b3ec6cd6">Hold wide in silence.</div>
+</div>
+</div>
+</div>
 
-            <div class="grid md:grid-cols-2 gap-3">
-                <div class="playbook-card fade-up">
-                    <h4>Confrontation Recipe</h4>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Start</div>
-                        <div class="phase-content">Neutral two-shot (Pressure Level 2–3)</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Escalate</div>
-                        <div class="phase-content">Break into singles. Slow push-ins. Telephoto.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Peak</div>
-                        <div class="phase-content">Cut to reaction before dialogue lands.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Release</div>
-                        <div class="phase-content">Static wide or silence.</div>
-                    </div>
-                </div>
-
-                <div class="playbook-card fade-up">
-                    <h4>Confession Recipe</h4>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Start</div>
-                        <div class="phase-content">Medium two-shot.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Escalate</div>
-                        <div class="phase-content">Move closer subtly. Reduce background depth.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Peak</div>
-                        <div class="phase-content">Hold on listener.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Release</div>
-                        <div class="phase-content">Cut before response.</div>
-                    </div>
-                </div>
-
-                <div class="playbook-card fade-up">
-                    <h4>Fear Build Recipe</h4>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Start</div>
-                        <div class="phase-content">Wide with deep background.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Escalate</div>
-                        <div class="phase-content">Slow push. Introduce shadow pockets.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Peak</div>
-                        <div class="phase-content">Background intrusion.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Release</div>
-                        <div class="phase-content">Sudden stillness before scare.</div>
-                    </div>
-                </div>
-
-                <div class="playbook-card fade-up">
-                    <h4>Triumph Recipe</h4>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Start</div>
-                        <div class="phase-content">Compressed frame. Eye-level.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Escalate</div>
-                        <div class="phase-content">Lower camera. Add backlight separation.</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Peak</div>
-                        <div class="phase-content">Rise vertically (tilt/crane).</div>
-                    </div>
-                    <div class="playbook-phase">
-                        <div class="phase-label">Release</div>
-                        <div class="phase-content">Hold wide in silence.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PART IV: ANTI-CLICHÉ -->
-            <div class="section-divider fade-up" id="anti-cliche">IV. Anti-Cliché System</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The audience expects: Sad = blue, Love = sunset, Anger
+<div class="section-divider fade-up" data-i18n-html="scenegrammar.021b27b1" id="anti-cliche">IV. Anti-Cliché System</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="scenegrammar.0024f84b" style="color:#71717a">The audience expects: Sad = blue, Love = sunset, Anger
                 = red, Fear = darkness. Do not obey emotional color stereotypes.</p>
-
-            <div class="anti-card fade-up">
-                <h4>1. Counter-Expectation Principle</h4>
-                <p>If audience expects dark, try <strong>bright indifference</strong>. The disconnect between visual
+<div class="anti-card fade-up">
+<h4 data-i18n-html="scenegrammar.6609aa41">1. Counter-Expectation Principle</h4>
+<p data-i18n-html="scenegrammar.11d7e602">If audience expects dark, try <strong data-i18n-html="scenegrammar.f54f1abf">bright indifference</strong>. The disconnect between visual
                     tone and emotional content amplifies the feeling — the world's refusal to match makes it worse.</p>
-                <div class="anti-example">Example: Death in harsh midday sun.</div>
-            </div>
-
-            <div class="anti-card fade-up">
-                <h4>2. Remove Obvious Symbol</h4>
-                <p>No rain for sadness. No mirror for identity crisis (unless subverted). Plant the symbol
-                    <strong>before</strong> the emotion appears in a neutral context so it accumulates meaning.</p>
-                <div class="anti-example">See <a href="story-emotion.html">Symbolism vs Obvious Imagery</a>.</div>
-            </div>
-
-            <div class="anti-card fade-up">
-                <h4>3. Environmental Indifference</h4>
-                <p>The most powerful emotion arrives when the world <strong>does not react</strong>. Character collapses
+<div class="anti-example" data-i18n-html="scenegrammar.6b0583c0">Example: Death in harsh midday sun.</div>
+</div>
+<div class="anti-card fade-up">
+<h4 data-i18n-html="scenegrammar.32aa0f87">2. Remove Obvious Symbol</h4>
+<p data-i18n-html="scenegrammar.f28b1b95">No rain for sadness. No mirror for identity crisis (unless subverted). Plant the symbol
+                    <strong data-i18n-html="scenegrammar.2f444175">before</strong> the emotion appears in a neutral context so it accumulates meaning.</p>
+<div class="anti-example" data-i18n-html="scenegrammar.46325451">See <a data-i18n-html="scenegrammar.d1fbb5a7" href="story-emotion.html">Symbolism vs Obvious Imagery</a>.</div>
+</div>
+<div class="anti-card fade-up">
+<h4 data-i18n-html="scenegrammar.7692053f">3. Environmental Indifference</h4>
+<p data-i18n-html="scenegrammar.5e6df016">The most powerful emotion arrives when the world <strong data-i18n-html="scenegrammar.aedd6ff4">does not react</strong>. Character collapses
                     — traffic continues. The indifference amplifies isolation.</p>
-                <div class="anti-example">Example: Breakdown in a busy supermarket. Checkout beeps continue.</div>
-            </div>
-
-            <div class="anti-card fade-up">
-                <h4>4. Emotional Contrast Injection</h4>
-                <p>Place <strong>calm framing during rage</strong>. Place <strong>static wide during breakdown</strong>.
+<div class="anti-example" data-i18n-html="scenegrammar.9edc03f8">Example: Breakdown in a busy supermarket. Checkout beeps continue.</div>
+</div>
+<div class="anti-card fade-up">
+<h4 data-i18n-html="scenegrammar.d97847e5">4. Emotional Contrast Injection</h4>
+<p data-i18n-html="scenegrammar.fddb0d0d">Place <strong data-i18n-html="scenegrammar.47a28ae7">calm framing during rage</strong>. Place <strong data-i18n-html="scenegrammar.00ae4baa">static wide during breakdown</strong>.
                     The contrast between visual composure and emotional chaos increases realism.</p>
-            </div>
-
-            <div class="anti-card fade-up">
-                <h4>5. Withhold Visual Emphasis</h4>
-                <p>If the moment is huge — <strong>do less</strong>. Underplay visually. Let performance breathe. The
+</div>
+<div class="anti-card fade-up">
+<h4 data-i18n-html="scenegrammar.8857fe7f">5. Withhold Visual Emphasis</h4>
+<p data-i18n-html="scenegrammar.f893372c">If the moment is huge — <strong data-i18n-html="scenegrammar.ce55cf41">do less</strong>. Underplay visually. Let performance breathe. The
                     more important the moment, the more the camera should trust the actor and audience.</p>
-            </div>
+</div>
 
-            <!-- MASTER FORMULA -->
-            <div class="formula-box fade-up" id="master-formula">
-                <h2>Master Formula</h2>
-                <div class="formula">Emotion Intensity = (Framing Proximity × Contrast Ratio × Movement Velocity) ÷
+<div class="formula-box fade-up" id="master-formula">
+<h2 data-i18n-html="scenegrammar.1fe12b7a">Master Formula</h2>
+<div class="formula" data-i18n-html="scenegrammar.425fcdcb">Emotion Intensity = (Framing Proximity × Contrast Ratio × Movement Velocity) ÷
                     Visual Predictability</div>
-                <p>If predictability increases → emotional impact <strong
-                        style="color:#d4d4d8">decreases</strong>.<br><br>Your directorial edge: <strong
-                        style="color:#f59e0b">subtle shifts mid-scene</strong>.<br>Start neutral. Distort slowly.
+<p data-i18n-html="scenegrammar.e1b40aec">If predictability increases → emotional impact <strong data-i18n-html="scenegrammar.d6cf78db" style="color:#d4d4d8">decreases</strong>.<br/><br/>Your directorial edge: <strong data-i18n-html="scenegrammar.3ecf4acc" style="color:#f59e0b">subtle shifts mid-scene</strong>.<br/>Start neutral. Distort slowly.
                     Release brutally or quietly.</p>
-            </div>
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="emotion-grammar.html" class="hover:underline"
-                        style="color:#71717a">← Emotional Grammar</a><a href="index.html" class="hover:underline"
-                        style="color:#71717a">Overview</a><a href="cinematography.html" class="hover:underline"
-                        style="color:#71717a">Cinematography →</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+</div>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="scenegrammar.1128d7d7"><a class="hover:underline" data-i18n-html="scenegrammar.6d9d50f6" href="emotion-grammar.html" style="color:#71717a">← Emotional Grammar</a><a class="hover:underline" data-i18n-html="scenegrammar.3b878279" href="index.html" style="color:#71717a">Overview</a><a class="hover:underline" data-i18n-html="scenegrammar.96a4d0cc" href="cinematography.html" style="color:#71717a">Cinematography →</a></div>
+<div class="text-xs" data-i18n-html="scenegrammar.3c5af944" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Human Layers Framework — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="A unified system for understanding any human — including yourself, including your characters — across every layer simultaneously. From consciousness at the base to story at the surface.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Human Layers Framework — Visual Storytelling Framework</title>
+<meta content="A unified system for understanding any human — including yourself, including your characters — across every layer simultaneously. From consciousness at the base to story at the surface." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * { scrollbar-width: thin; scrollbar-color: #3f3f46 transparent }
         html { scroll-behavior: smooth }
         body { font-family: 'Inter', system-ui, sans-serif; background: #09090b; color: #e4e4e7 }
@@ -119,455 +117,391 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="humanlayers.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="humanlayers.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="humanlayers.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="humanlayers.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="humanlayers.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="humanlayers.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="humanlayers.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="humanlayers.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link active" data-i18n-html="humanlayers.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="humanlayers.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="humanlayers.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="humanlayers.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
 
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-        <a href="human-layers.html" class="sidebar-link active"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools &amp; Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-
-        <!-- Hero -->
-        <header class="relative overflow-hidden" style="min-height:45vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 30% 30%,rgba(201,168,76,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(139,126,200,.06) 0%,transparent 50%)">
-            </div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<header class="relative overflow-hidden" style="min-height:45vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 30%,rgba(201,168,76,.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(139,126,200,.06) 0%,transparent 50%)">
+</div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="humanlayers.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#c9a84c;letter-spacing:.2em">Advanced System · Personal Framework · v0.1 · 2026</p>
-                    <h1 class="serif text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-4"
-                        style="color:#f0ece0;font-weight:300">The Human <em style="color:#c9a84c;font-style:italic">Layers</em><br>Framework</h1>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">A unified system for understanding any human — including yourself, including your characters — across every layer simultaneously. From consciousness at the base to story at the surface.</p>
-                </div>
-            </div>
-        </header>
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="humanlayers.f318e4cb" style="color:#c9a84c;letter-spacing:.2em">Advanced System · Personal Framework · v0.1 · 2026</p>
+<h1 class="serif text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight mb-4" data-i18n-html="humanlayers.87ddc715" style="color:#f0ece0;font-weight:300">The Human <em data-i18n-html="humanlayers.87bfda18" style="color:#c9a84c;font-style:italic">Layers</em><br/>Framework</h1>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="humanlayers.02d382ca" style="color:#a1a1aa">A unified system for understanding any human — including yourself, including your characters — across every layer simultaneously. From consciousness at the base to story at the surface.</p>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <!-- ═══════════════ SECTION 01: THE STACK ═══════════════ -->
-            <div class="section-divider fade-up">01 · The Stack</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a;max-width:600px">
+<div class="section-divider fade-up" data-i18n-html="humanlayers.23837022">01 · The Stack</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="humanlayers.9e1bfd9b" style="color:#71717a;max-width:600px">
                 Six layers. Each determines the one above it. Change at a lower layer ripples upward. Most psychology works at layers 4–5. Most storytelling works at 5–6. This framework works at all six simultaneously.
             </p>
 
-            <!-- Column headers -->
-            <div class="layer-row fade-up" style="opacity:1;animation:none;">
-                <div style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">Layer</div>
-                <div style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">What it is</div>
-                <div style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">Craft application</div>
-            </div>
+<div class="layer-row fade-up" style="opacity:1;animation:none;">
+<div data-i18n-html="humanlayers.359b71e8" style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">Layer</div>
+<div data-i18n-html="humanlayers.b90b098f" style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">What it is</div>
+<div data-i18n-html="humanlayers.dfc124c0" style="padding:0 18px 8px;font-size:.6rem;letter-spacing:.12em;color:#52525b;text-transform:uppercase">Craft application</div>
+</div>
+<div class="layer-stack fade-up mb-8">
 
-            <div class="layer-stack fade-up mb-8">
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--purple)"></div> Consciousness</div>
+<div data-i18n-html="humanlayers.b35382e8" style="font-size:.6rem;color:#52525b;margin-top:4px;">Ground layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.31e54923" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Pure awareness. Not produced by the brain. The open field everything arises in. Purusha in Samkhya. Brahman in Vedanta. The witness that was never touched by any of it.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.1bd23d06" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In directing</div>
+<div data-i18n-html="humanlayers.f813bed9" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The state you create from. When the defender drops, ideas arrive whole. Not constructed — received. The still point before the work begins.</div>
+</div>
+</div>
 
-                <!-- Consciousness -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--purple)"></div> Consciousness</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Ground layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Pure awareness. Not produced by the brain. The open field everything arises in. Purusha in Samkhya. Brahman in Vedanta. The witness that was never touched by any of it.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In directing</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The state you create from. When the defender drops, ideas arrive whole. Not constructed — received. The still point before the work begins.</div>
-                    </div>
-                </div>
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--teal)"></div> Nervous System</div>
+<div data-i18n-html="humanlayers.13e6048b" style="font-size:.6rem;color:#52525b;margin-top:4px;">Biological layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.6e2877c3" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Sympathetic vs parasympathetic. Regulated or dysregulated. Trauma stored as chronic contraction. TRE — the body completing incomplete defensive responses when the mind steps back.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.1bd23d06" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In directing</div>
+<div data-i18n-html="humanlayers.2079e4ef" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Your nervous system state determines what you can perceive on set. Regulated = full signal. Dysregulated = noise. Also: character's nervous system is their body language, their tell.</div>
+</div>
+</div>
 
-                <!-- Nervous System -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--teal)"></div> Nervous System</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Biological layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Sympathetic vs parasympathetic. Regulated or dysregulated. Trauma stored as chronic contraction. TRE — the body completing incomplete defensive responses when the mind steps back.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In directing</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Your nervous system state determines what you can perceive on set. Regulated = full signal. Dysregulated = noise. Also: character's nervous system is their body language, their tell.</div>
-                    </div>
-                </div>
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--coral)"></div> Ego Structure</div>
+<div data-i18n-html="humanlayers.cfa3b379" style="font-size:.6rem;color:#52525b;margin-top:4px;">Psychological layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.2d97a30a" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The constructed self. Built to survive. Outer Mask → Private Self → Core Wound. The defender. Necessary costume for functioning — but not the truth underneath.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.061f25c0" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In character</div>
+<div data-i18n-html="humanlayers.85431f20" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Every character has all three layers. Scene pressure reveals them in sequence — mask first, then private self, then wound. Write toward the wound, not away from it.</div>
+</div>
+</div>
 
-                <!-- Ego Structure -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--coral)"></div> Ego Structure</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Psychological layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The constructed self. Built to survive. Outer Mask → Private Self → Core Wound. The defender. Necessary costume for functioning — but not the truth underneath.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In character</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Every character has all three layers. Scene pressure reveals them in sequence — mask first, then private self, then wound. Write toward the wound, not away from it.</div>
-                    </div>
-                </div>
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--amber)"></div> Enneagram Type</div>
+<div data-i18n-html="humanlayers.84bdef2f" style="font-size:.6rem;color:#52525b;margin-top:4px;">Fixation layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.f97b8e61" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The specific shape the ego takes. Nine core wounds, nine defensive strategies, nine integration paths. Not personality — the cage the personality was built inside.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.061f25c0" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In character</div>
+<div data-i18n-html="humanlayers.c0512657" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Type determines the character's core need vs want split. Their integration path IS their arc. Disintegration under pressure IS their flaw. Type is not destiny — it's the specific knot to untie.</div>
+</div>
+</div>
 
-                <!-- Enneagram Type -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--amber)"></div> Enneagram Type</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Fixation layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">The specific shape the ego takes. Nine core wounds, nine defensive strategies, nine integration paths. Not personality — the cage the personality was built inside.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In character</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Type determines the character's core need vs want split. Their integration path IS their arc. Disintegration under pressure IS their flaw. Type is not destiny — it's the specific knot to untie.</div>
-                    </div>
-                </div>
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--blue)"></div> Behavior</div>
+<div data-i18n-html="humanlayers.1111d7bb" style="font-size:.6rem;color:#52525b;margin-top:4px;">Surface layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.fc1ab6a2" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">How the type expresses in the world. Social reactions — with those they admire, fear, hate, love, pity. Context-dependent masks. The observable layer most psychology stops at.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.1d20e8c3" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In scene</div>
+<div data-i18n-html="humanlayers.67201e62" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Write behavior from the layer beneath it. "She folds the paper" is behavior. The type underneath tells you WHY she folds the paper and WHAT she does with her hands when she does it.</div>
+</div>
+</div>
 
-                <!-- Behavior -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--blue)"></div> Behavior</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Surface layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">How the type expresses in the world. Social reactions — with those they admire, fear, hate, love, pity. Context-dependent masks. The observable layer most psychology stops at.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In scene</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Write behavior from the layer beneath it. "She folds the paper" is behavior. The type underneath tells you WHY she folds the paper and WHAT she does with her hands when she does it.</div>
-                    </div>
-                </div>
+<div class="layer-row">
+<div class="layer-cell">
+<div class="layer-name"><div class="layer-dot" style="background:var(--green)"></div> Story</div>
+<div data-i18n-html="humanlayers.622537ab" style="font-size:.6rem;color:#52525b;margin-top:4px;">Narrative layer</div>
+</div>
+<div class="layer-cell"><div data-i18n-html="humanlayers.4900064a" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">How the layers above create conflict, arc, transformation. <a class="cross-ref" data-i18n-html="humanlayers.c3620688" href="storytelling.html">Dan Harmon's circle</a> — the character's zone of comfort, the call, the struggle, the sacrifice, the return, the change.</div></div>
+<div class="layer-cell" style="border-left:1px solid var(--line)">
+<div data-i18n-html="humanlayers.89414d58" style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In structure</div>
+<div data-i18n-html="humanlayers.e5e7e431" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Transformation at the story level = movement between Enneagram integration states. Not plot change — ego structure change. The character becomes less of their type at the end. That's the arc.</div>
+</div>
+</div>
+</div>
+<div class="principle fade-up">
+<div class="serif" data-i18n-html="humanlayers.2db14b39" style="font-size:1.1rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Change at a lower layer is more fundamental than change at a higher layer. A character who changes their behavior is interesting. A character who changes their ego structure is unforgettable."</div>
+<div data-i18n-html="humanlayers.514e1913" style="font-size:.7rem;color:#52525b;margin-top:6px">Core principle of the framework</div>
+</div>
 
-                <!-- Story -->
-                <div class="layer-row">
-                    <div class="layer-cell">
-                        <div class="layer-name"><div class="layer-dot" style="background:var(--green)"></div> Story</div>
-                        <div style="font-size:.6rem;color:#52525b;margin-top:4px;">Narrative layer</div>
-                    </div>
-                    <div class="layer-cell"><div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">How the layers above create conflict, arc, transformation. <a href="storytelling.html" class="cross-ref">Dan Harmon's circle</a> — the character's zone of comfort, the call, the struggle, the sacrifice, the return, the change.</div></div>
-                    <div class="layer-cell" style="border-left:1px solid var(--line)">
-                        <div style="font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px">In structure</div>
-                        <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Transformation at the story level = movement between Enneagram integration states. Not plot change — ego structure change. The character becomes less of their type at the end. That's the arc.</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="principle fade-up">
-                <div class="serif" style="font-size:1.1rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Change at a lower layer is more fundamental than change at a higher layer. A character who changes their behavior is interesting. A character who changes their ego structure is unforgettable."</div>
-                <div style="font-size:.7rem;color:#52525b;margin-top:6px">Core principle of the framework</div>
-            </div>
-
-            <!-- ═══════════════ SECTION 02: ENNEAGRAM ═══════════════ -->
-            <div class="section-divider fade-up">02 · Enneagram — The Nine Cages</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a;max-width:600px">
+<div class="section-divider fade-up" data-i18n-html="humanlayers.db782d29">02 · Enneagram — The Nine Cages</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="humanlayers.58d90c0c" style="color:#71717a;max-width:600px">
                 Each type is a specific wound + a specific strategy to never feel that wound again. Integration = moving toward health. Disintegration = moving toward breakdown under stress.
             </p>
+<div class="enn-grid fade-up mb-8">
+<div class="enn-card">
+<div data-i18n-html="humanlayers.5f0be3a7" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 1</div>
+<div class="serif" data-i18n-html="humanlayers.a8726fd0" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Reformer</div>
+<div data-i18n-html="humanlayers.a5602936" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am defective, corrupt</div>
+<div data-i18n-html="humanlayers.671a2573" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be perfect. Relentless inner critic. Anger repressed as resentment. Integrates → 7 (joy, spontaneity). Disintegrates → 4 (melancholy, self-pity).</div>
+<div data-i18n-html="humanlayers.bc872a42" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Travis Bickle — the reformer who cannot reform himself.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.300e166d" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 2</div>
+<div class="serif" data-i18n-html="humanlayers.ea555a87" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Helper</div>
+<div data-i18n-html="humanlayers.255ef2db" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am not worthy of love</div>
+<div data-i18n-html="humanlayers.3f43c119" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be needed. Give to earn belonging. Own needs hidden. Integrates → 4 (self-awareness, depth). Disintegrates → 8 (aggression, control).</div>
+<div data-i18n-html="humanlayers.ba8c5c7c" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Mildred Pierce — sacrifices everything, then weaponizes the debt.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.8e1a3725" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 3</div>
+<div class="serif" data-i18n-html="humanlayers.23d77682" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Achiever</div>
+<div data-i18n-html="humanlayers.25026673" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I have no value without success</div>
+<div data-i18n-html="humanlayers.d937d2e2" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: perform, achieve, become the image. Emotions postponed. Integrates → 6 (loyalty, groundedness). Disintegrates → 9 (numbness, disengagement).</div>
+<div data-i18n-html="humanlayers.6bafbd03" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Dick Whitman/Don Draper — the man who became an image to survive.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.01d4727f" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 4</div>
+<div class="serif" data-i18n-html="humanlayers.a64858f1" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Individualist</div>
+<div data-i18n-html="humanlayers.3982e9ab" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am fundamentally different, abandoned</div>
+<div data-i18n-html="humanlayers.e0e24ce3" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be unique, find the missing thing. Identity built on distinction and longing. Integrates → 1 (discipline, principles). Disintegrates → 2 (neediness, manipulation).</div>
+<div data-i18n-html="humanlayers.da41abd0" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Joel in Eternal Sunshine — defines himself by the loss.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.80f37ff0" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 5</div>
+<div class="serif" data-i18n-html="humanlayers.b758c3e7" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Investigator</div>
+<div data-i18n-html="humanlayers.11ff2af5" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am helpless, incapable</div>
+<div data-i18n-html="humanlayers.08f6b483" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: withdraw, observe, accumulate knowledge. Energy conserved. World held at distance. Integrates → 8 (presence, decisiveness). Disintegrates → 7 (scattered, impulsive).</div>
+<div data-i18n-html="humanlayers.9a824bc0" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Mark Zuckerberg in The Social Network — builds a world to avoid living in one.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.93a59550" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 6</div>
+<div class="serif" data-i18n-html="humanlayers.4cf12c79" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Loyalist</div>
+<div data-i18n-html="humanlayers.a96dd504" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I have no support, guidance</div>
+<div data-i18n-html="humanlayers.95e840f8" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: seek security, test loyalty, anticipate threat. Anxiety as orientation system. Integrates → 9 (calm, trust). Disintegrates → 3 (competitive, image-driven).</div>
+<div data-i18n-html="humanlayers.e1c5f240" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Hamlet — paralyzed between loyalty and suspicion.</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.78e13832" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 7</div>
+<div class="serif" data-i18n-html="humanlayers.ccb2a253" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Enthusiast</div>
+<div data-i18n-html="humanlayers.85df1625" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I will be trapped in pain</div>
+<div data-i18n-html="humanlayers.3bde3ddd" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: stay in motion, stay positive, avoid the darkness. Pain bypassed through stimulation. Integrates → 5 (depth, focus). Disintegrates → 1 (critical, rigid).</div>
+<div data-i18n-html="humanlayers.ac3d1f49" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Phil Connors in Groundhog Day — runs from depth until forced to stay.</div>
+</div>
+<div class="enn-card active">
+<div data-i18n-html="humanlayers.25499018" style="font-size:.6rem;letter-spacing:.15em;color:var(--gold);margin-bottom:6px">TYPE 8 · YOUR TYPE</div>
+<div class="serif" data-i18n-html="humanlayers.8ba327bf" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Challenger</div>
+<div data-i18n-html="humanlayers.a1bd4c01" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I cannot show weakness</div>
+<div data-i18n-html="humanlayers.4c1148b0" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: control, protect, confront. Vulnerability learned as danger. Power as language of survival. With 4 wing: warrior-poet. Force + depth. Integrates → 2 (generosity, warmth). Disintegrates → 5 (withdrawal, isolation).</div>
+<div data-i18n-html="humanlayers.1b215dcd" style="font-size:.72rem;color:var(--gold);margin-top:8px">8w4 — the private intensity behind the directorial presence</div>
+</div>
+<div class="enn-card">
+<div data-i18n-html="humanlayers.cff975e8" style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 9</div>
+<div class="serif" data-i18n-html="humanlayers.55d32e67" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Peacemaker</div>
+<div data-i18n-html="humanlayers.ef0d064c" style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: my presence doesn't matter</div>
+<div data-i18n-html="humanlayers.1babf66c" style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: merge, accommodate, avoid conflict. Own agenda suppressed. Potential recognized but accessed through unhealthy paths. Integrates → 3 (focus, presence). Disintegrates → 6 (anxiety, suspicion).</div>
+<div data-i18n-html="humanlayers.421cceb7" style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Llewyn Davis — talent without agency. The peacemaker who won't fight for himself.</div>
+</div>
+</div>
 
-            <div class="enn-grid fade-up mb-8">
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 1</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Reformer</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am defective, corrupt</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be perfect. Relentless inner critic. Anger repressed as resentment. Integrates → 7 (joy, spontaneity). Disintegrates → 4 (melancholy, self-pity).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Travis Bickle — the reformer who cannot reform himself.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 2</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Helper</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am not worthy of love</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be needed. Give to earn belonging. Own needs hidden. Integrates → 4 (self-awareness, depth). Disintegrates → 8 (aggression, control).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Mildred Pierce — sacrifices everything, then weaponizes the debt.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 3</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Achiever</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I have no value without success</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: perform, achieve, become the image. Emotions postponed. Integrates → 6 (loyalty, groundedness). Disintegrates → 9 (numbness, disengagement).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Dick Whitman/Don Draper — the man who became an image to survive.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 4</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Individualist</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am fundamentally different, abandoned</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: be unique, find the missing thing. Identity built on distinction and longing. Integrates → 1 (discipline, principles). Disintegrates → 2 (neediness, manipulation).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Joel in Eternal Sunshine — defines himself by the loss.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 5</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Investigator</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I am helpless, incapable</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: withdraw, observe, accumulate knowledge. Energy conserved. World held at distance. Integrates → 8 (presence, decisiveness). Disintegrates → 7 (scattered, impulsive).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Mark Zuckerberg in The Social Network — builds a world to avoid living in one.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 6</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Loyalist</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I have no support, guidance</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: seek security, test loyalty, anticipate threat. Anxiety as orientation system. Integrates → 9 (calm, trust). Disintegrates → 3 (competitive, image-driven).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Hamlet — paralyzed between loyalty and suspicion.</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 7</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Enthusiast</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I will be trapped in pain</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: stay in motion, stay positive, avoid the darkness. Pain bypassed through stimulation. Integrates → 5 (depth, focus). Disintegrates → 1 (critical, rigid).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Phil Connors in Groundhog Day — runs from depth until forced to stay.</div>
-                </div>
-
-                <div class="enn-card active">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:var(--gold);margin-bottom:6px">TYPE 8 · YOUR TYPE</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Challenger</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: I cannot show weakness</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: control, protect, confront. Vulnerability learned as danger. Power as language of survival. With 4 wing: warrior-poet. Force + depth. Integrates → 2 (generosity, warmth). Disintegrates → 5 (withdrawal, isolation).</div>
-                    <div style="font-size:.72rem;color:var(--gold);margin-top:8px">8w4 — the private intensity behind the directorial presence</div>
-                </div>
-
-                <div class="enn-card">
-                    <div style="font-size:.6rem;letter-spacing:.15em;color:#52525b;margin-bottom:6px">TYPE 9</div>
-                    <div class="serif" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:4px">The Peacemaker</div>
-                    <div style="font-size:.7rem;color:#52525b;font-style:italic;margin-bottom:8px">Wound: my presence doesn't matter</div>
-                    <div style="font-size:.72rem;color:#a1a1aa;line-height:1.6">Strategy: merge, accommodate, avoid conflict. Own agenda suppressed. Potential recognized but accessed through unhealthy paths. Integrates → 3 (focus, presence). Disintegrates → 6 (anxiety, suspicion).</div>
-                    <div style="font-size:.65rem;color:var(--coral);margin-top:8px;font-style:italic">Cinema: Llewyn Davis — talent without agency. The peacemaker who won't fight for himself.</div>
-                </div>
-
-            </div>
-
-            <!-- ═══════════════ SECTION 03: CROSS-LAYER ═══════════════ -->
-            <div class="section-divider fade-up">03 · Cross-Layer Connections</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a;max-width:600px">
+<div class="section-divider fade-up" data-i18n-html="humanlayers.f44ea6f1">03 · Cross-Layer Connections</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="humanlayers.9a9e52f7" style="color:#71717a;max-width:600px">
                 How the layers talk to each other. These are the active joints in the framework — where insight at one layer changes everything at another.
             </p>
+<div class="fade-up" style="background:#18181b;border:1px solid var(--line);padding:32px;border-radius:12px;margin-bottom:32px">
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.2dde3b1d" style="font-size:.85rem;color:var(--text-bright)">Consciousness state</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.fbc858a8" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines quality of creative reception. Low defender = ideas arrive whole. High defender = construction, effort, performance. The still point before work is not ritual — it's signal optimization.</div>
+</div>
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.3ec654e6" style="font-size:.85rem;color:var(--text-bright)">Nervous system</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.2f5ddcf8" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines what the ego can tolerate. Dysregulated system = ego contracts to survive. Regulated system = ego loosens, more truth accessible. Trauma release is not spiritual bypassing — it's making the lower floors safe enough to explore.</div>
+</div>
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.43fbb6f2" style="font-size:.85rem;color:var(--text-bright)">Ego structure</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.6679cde0" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines Enneagram expression. Same type, different ego regulation = wildly different behavior. An integrated 8 and a disintegrated 8 look like different people. The type is the fixation — the ego is the degree of contraction around it.</div>
+</div>
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.f9d8bb8f" style="font-size:.85rem;color:var(--text-bright)">Enneagram type</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.f097611c" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines the character's deepest want vs need split. Want = what the type thinks will resolve the wound. Need = what actually would. The gap between them IS the story. Close the gap = transformation. Widen it = tragedy.</div>
+</div>
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.c3679600" style="font-size:.85rem;color:var(--text-bright)">Behavior pattern</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.1a52f7f7" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines scene texture. What the character does with their hands. What they can't help saying. The physical tell of the type. Write behavior from the type beneath — don't explain it, let it surface through action. See <a class="cross-ref" data-i18n-html="humanlayers.5394162e" href="story-emotion.html">Show Don't Tell (Advanced)</a>.</div>
+</div>
+<div class="conn-row">
+<div class="serif" data-i18n-html="humanlayers.9090d24e" style="font-size:.85rem;color:var(--text-bright)">Story arc</div>
+<div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
+<div data-i18n-html="humanlayers.7bde2aaf" style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Is the character's movement between Enneagram states. <a class="cross-ref" data-i18n-html="humanlayers.f9cc50b1" href="storytelling.html">Dan Harmon's sacrifice point</a> = the moment the character loses the strategy that was protecting the wound. The return and change = arriving at the integration state. Not plot. Ego structure shift.</div>
+</div>
+</div>
 
-            <div class="fade-up" style="background:#18181b;border:1px solid var(--line);padding:32px;border-radius:12px;margin-bottom:32px">
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Consciousness state</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines quality of creative reception. Low defender = ideas arrive whole. High defender = construction, effort, performance. The still point before work is not ritual — it's signal optimization.</div>
-                </div>
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Nervous system</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines what the ego can tolerate. Dysregulated system = ego contracts to survive. Regulated system = ego loosens, more truth accessible. Trauma release is not spiritual bypassing — it's making the lower floors safe enough to explore.</div>
-                </div>
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Ego structure</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines Enneagram expression. Same type, different ego regulation = wildly different behavior. An integrated 8 and a disintegrated 8 look like different people. The type is the fixation — the ego is the degree of contraction around it.</div>
-                </div>
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Enneagram type</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines the character's deepest want vs need split. Want = what the type thinks will resolve the wound. Need = what actually would. The gap between them IS the story. Close the gap = transformation. Widen it = tragedy.</div>
-                </div>
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Behavior pattern</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Determines scene texture. What the character does with their hands. What they can't help saying. The physical tell of the type. Write behavior from the type beneath — don't explain it, let it surface through action. See <a href="story-emotion.html" class="cross-ref">Show Don't Tell (Advanced)</a>.</div>
-                </div>
-
-                <div class="conn-row">
-                    <div class="serif" style="font-size:.85rem;color:var(--text-bright)">Story arc</div>
-                    <div style="color:var(--gold);font-size:.78rem;padding-top:2px">→</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">Is the character's movement between Enneagram states. <a href="storytelling.html" class="cross-ref">Dan Harmon's sacrifice point</a> = the moment the character loses the strategy that was protecting the wound. The return and change = arriving at the integration state. Not plot. Ego structure shift.</div>
-                </div>
-
-            </div>
-
-            <!-- ═══════════════ SECTION 04: DIRECTING ═══════════════ -->
-            <div class="section-divider fade-up">04 · Directing from the Framework</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a;max-width:600px">
+<div class="section-divider fade-up" data-i18n-html="humanlayers.303862ad">04 · Directing from the Framework</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="humanlayers.435c3218" style="color:#71717a;max-width:600px">
                 How each layer translates into directing decisions. Your existing filmmaking principles, now grounded in the full stack.
             </p>
+<div class="fade-up" style="border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-bottom:32px">
+<table class="dir-table">
+<thead>
+<tr>
+<th data-i18n-html="humanlayers.359b71e8">Layer</th>
+<th data-i18n-html="humanlayers.3afea5e7">Directing principle</th>
+<th data-i18n-html="humanlayers.dfaf2e44">Practical move</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-i18n-html="humanlayers.021c54cf">Consciousness</td>
+<td data-i18n-html="humanlayers.6e31a767">Create from the open state, not the defended state</td>
+<td data-i18n-html="humanlayers.77eae89e">Two minutes still before every creative session. Let ideas arrive. Don't construct.</td>
+</tr>
+<tr>
+<td data-i18n-html="humanlayers.3ec654e6">Nervous system</td>
+<td data-i18n-html="humanlayers.7be0ea1f">Your regulation affects your crew's regulation</td>
+<td data-i18n-html="humanlayers.bd20f1b3">Vaśitva in practice — calm presence organizes the room without effort. The director who doesn't direct.</td>
+</tr>
+<tr>
+<td data-i18n-html="humanlayers.43fbb6f2">Ego structure</td>
+<td data-i18n-html="humanlayers.79144a14">Sense first, understand later</td>
+<td data-i18n-html="humanlayers.c24f630f">Trust the physical response before the analytical one. The gut knows the scene before the mind does.</td>
+</tr>
+<tr>
+<td data-i18n-html="humanlayers.f9d8bb8f">Enneagram type</td>
+<td data-i18n-html="humanlayers.f74b9e00">Know your type's blind spot on set</td>
+<td data-i18n-html="humanlayers.28d389b1">8w4 blind spot: can control so effectively that crew stops contributing authentically. Watch for that.</td>
+</tr>
+<tr>
+<td data-i18n-html="humanlayers.b39a035a">Behavior</td>
+<td data-i18n-html="humanlayers.dba49cee">Write physical not emotional</td>
+<td data-i18n-html="humanlayers.0d3eac25">"She folds the paper" not "she feels abandoned." The type determines which physical behavior. The body carries the psychology.</td>
+</tr>
+<tr>
+<td data-i18n-html="humanlayers.dfba89a6">Story</td>
+<td data-i18n-html="humanlayers.5199e3e6">Design for the audience as <a class="cross-ref" data-i18n-html="humanlayers.b3c6fd7e" href="audience-participation.html">third presence</a></td>
+<td data-i18n-html="humanlayers.3f7c2ed6">Character lives it. Camera witnesses it. Audience completes it. The gap between sensing and understanding is where they live.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-            <div class="fade-up" style="border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-bottom:32px">
-                <table class="dir-table">
-                    <thead>
-                        <tr>
-                            <th>Layer</th>
-                            <th>Directing principle</th>
-                            <th>Practical move</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consciousness</td>
-                            <td>Create from the open state, not the defended state</td>
-                            <td>Two minutes still before every creative session. Let ideas arrive. Don't construct.</td>
-                        </tr>
-                        <tr>
-                            <td>Nervous system</td>
-                            <td>Your regulation affects your crew's regulation</td>
-                            <td>Vaśitva in practice — calm presence organizes the room without effort. The director who doesn't direct.</td>
-                        </tr>
-                        <tr>
-                            <td>Ego structure</td>
-                            <td>Sense first, understand later</td>
-                            <td>Trust the physical response before the analytical one. The gut knows the scene before the mind does.</td>
-                        </tr>
-                        <tr>
-                            <td>Enneagram type</td>
-                            <td>Know your type's blind spot on set</td>
-                            <td>8w4 blind spot: can control so effectively that crew stops contributing authentically. Watch for that.</td>
-                        </tr>
-                        <tr>
-                            <td>Behavior</td>
-                            <td>Write physical not emotional</td>
-                            <td>"She folds the paper" not "she feels abandoned." The type determines which physical behavior. The body carries the psychology.</td>
-                        </tr>
-                        <tr>
-                            <td>Story</td>
-                            <td>Design for the audience as <a href="audience-participation.html" class="cross-ref">third presence</a></td>
-                            <td>Character lives it. Camera witnesses it. Audience completes it. The gap between sensing and understanding is where they live.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- ═══════════════ SECTION 05: GAPS ═══════════════ -->
-            <div class="section-divider fade-up">05 · Open Gaps</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a;max-width:600px">
+<div class="section-divider fade-up" data-i18n-html="humanlayers.e06f2b6c">05 · Open Gaps</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="humanlayers.9a3ebb9b" style="color:#71717a;max-width:600px">
                 These are the places where the framework needs your direct experience to complete. Not failures — live edges. Each one is a future session.
             </p>
-
-            <div class="fade-up" style="background:#18181b;border:1px solid rgba(200,122,91,0.2);padding:28px;border-radius:12px;margin-bottom:32px">
-
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">01</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong style="color:var(--text-bright);font-weight:400">Enneagram character examples from your work.</strong> Each of the nine types needs a character from RAM series, from Podlie, from any project. The cinematic references above are starting points — replace them with faces you've directed.</div>
-                </div>
-
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">02</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">
-                        <strong style="color:var(--text-bright);font-weight:400">Nervous system states mapped to camera language.</strong> Your <a href="emotion-grammar.html" class="cross-ref">Emotion Grammar</a> (24 emotions × 7 dimensions) is the bridge. Starting map from your existing grammar:
+<div class="fade-up" style="background:#18181b;border:1px solid rgba(200,122,91,0.2);padding:28px;border-radius:12px;margin-bottom:32px">
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">01</div>
+<div data-i18n-html="humanlayers.d08e41a1" style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong data-i18n-html="humanlayers.ada3bee6" style="color:var(--text-bright);font-weight:400">Enneagram character examples from your work.</strong> Each of the nine types needs a character from RAM series, from Podlie, from any project. The cinematic references above are starting points — replace them with faces you've directed.</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">02</div>
+<div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">
+<strong data-i18n-html="humanlayers.eb4adff3" style="color:var(--text-bright);font-weight:400">Nervous system states mapped to camera language.</strong> Your <a class="cross-ref" data-i18n-html="humanlayers.bc91de26" href="emotion-grammar.html">Emotion Grammar</a> (24 emotions × 7 dimensions) is the bridge. Starting map from your existing grammar:
                         <div class="camera-map" style="border-radius:6px;overflow:hidden;margin-top:8px">
-                            <div><div class="cm-label">Regulated (Parasympathetic)</div><div style="color:#a1a1aa">50mm neutral lens · diffused daylight · subtle lateral drift · ambient lift · hold reaction shots</div></div>
-                            <div><div class="cm-label">Dysregulated (Sympathetic)</div><div style="color:#a1a1aa">Wide 18mm close · hard single source · slow push without relief · muffled/sub-bass · minimal cuts</div></div>
-                            <div><div class="cm-label">Frozen (Dorsal vagal)</div><div style="color:#a1a1aa">Telephoto isolation · flat drained light · static camera · room tone amplified · hold 2 beats too long</div></div>
-                            <div><div class="cm-label">Integration moment</div><div style="color:#a1a1aa">Backlight bloom · wider lens + overexposure · rising crane · layered ambience swelling · accelerated rhythm</div></div>
+<div><div class="cm-label" data-i18n-html="humanlayers.1bcadea7">Regulated (Parasympathetic)</div><div data-i18n-html="humanlayers.965227f0" style="color:#a1a1aa">50mm neutral lens · diffused daylight · subtle lateral drift · ambient lift · hold reaction shots</div></div>
+<div><div class="cm-label" data-i18n-html="humanlayers.64bfbf88">Dysregulated (Sympathetic)</div><div data-i18n-html="humanlayers.df0dbd2b" style="color:#a1a1aa">Wide 18mm close · hard single source · slow push without relief · muffled/sub-bass · minimal cuts</div></div>
+<div><div class="cm-label" data-i18n-html="humanlayers.970e167a">Frozen (Dorsal vagal)</div><div data-i18n-html="humanlayers.25e7060c" style="color:#a1a1aa">Telephoto isolation · flat drained light · static camera · room tone amplified · hold 2 beats too long</div></div>
+<div><div class="cm-label" data-i18n-html="humanlayers.a0d7f261">Integration moment</div><div data-i18n-html="humanlayers.3bd008e2" style="color:#a1a1aa">Backlight bloom · wider lens + overexposure · rising crane · layered ambience swelling · accelerated rhythm</div></div>
+</div>
+<div data-i18n-html="humanlayers.948258fa" style="font-size:.65rem;color:#52525b;margin-top:6px">↑ Derived from your Grief, Despair, Euphoria, and Serenity grammar entries. Needs testing against actual footage.</div>
+</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">03</div>
+<div data-i18n-html="humanlayers.4ca77a19" style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong data-i18n-html="humanlayers.54450123" style="color:var(--text-bright);font-weight:400">Consciousness states and the Podlie universe.</strong> The three forces — Anatam, Xangar, Bhram — each map to a layer in this framework. Bhram (disorientation) is ego structure dissolution without nervous system regulation. That's the character experience to write.</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">04</div>
+<div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">
+<strong data-i18n-html="humanlayers.50a0c401" style="color:var(--text-bright);font-weight:400">Integration path as story arc — tested examples.</strong> From your <a class="cross-ref" data-i18n-html="humanlayers.10ebb497" href="storytelling.html">Storytelling framework</a>: Dan Harmon's sacrifice point maps precisely to "the moment the character's Enneagram strategy fails." Three test cases:
+                        <div data-i18n-html="humanlayers.f29bcd15" style="margin-top:8px;padding:8px 12px;background:rgba(0,0,0,.2);border-radius:6px;font-size:.72rem;line-height:1.7">
+<strong data-i18n-html="humanlayers.9c0f5502" style="color:var(--text-bright)">Walter White (Type 3→9):</strong> Achiever whose disintegration into numbness IS the arc.<br/>
+<strong data-i18n-html="humanlayers.8b8b3f4c" style="color:var(--text-bright)">Chiron in Moonlight (Type 9→3):</strong> Peacemaker who integrates toward presence — from invisible to seen.<br/>
+<strong data-i18n-html="humanlayers.5cf3f4b2" style="color:var(--text-bright)">Nina in Black Swan (Type 1→4):</strong> Reformer whose pursuit of perfection disintegrates into self-destruction.
                         </div>
-                        <div style="font-size:.65rem;color:#52525b;margin-top:6px">↑ Derived from your Grief, Despair, Euphoria, and Serenity grammar entries. Needs testing against actual footage.</div>
-                    </div>
-                </div>
+<div data-i18n-html="humanlayers.7263e4f4" style="font-size:.65rem;color:#52525b;margin-top:6px">↑ These need your critical eye. Do they hold? Where do they break?</div>
+</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">05</div>
+<div data-i18n-html="humanlayers.48ff795d" style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong data-i18n-html="humanlayers.0a6bcfc4" style="color:var(--text-bright);font-weight:400">Your own 8w4 integration observation.</strong> The framework is most alive when the author has walked it. Document one moment where you moved toward integration (toward 2 — warmth, generosity) and what that felt like creatively.</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">06</div>
+<div data-i18n-html="humanlayers.abd63c9d" style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong data-i18n-html="humanlayers.602aeb43" style="color:var(--text-bright);font-weight:400">The other six Enneagram types — deeper.</strong> Types 1, 2, 3, 4, 5, 6 only have skeleton notes. Each needs the full treatment: wound, strategy, behavior tells, integration/disintegration paths, directing implications.</div>
+</div>
+<div class="gap-item">
+<div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">07</div>
+<div data-i18n-html="humanlayers.dd16520d" style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong data-i18n-html="humanlayers.6d047420" style="color:var(--text-bright);font-weight:400">Kashmir Shaivism and character consciousness.</strong> If matter is frozen awareness — what does it mean for a character to be fully materialized vs partially dissolved? Bhram as partial dissolution. Anatam as full expansion. Xangar as the force between states. This is Podlie's philosophical engine — needs a precise map.</div>
+</div>
+</div>
 
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">03</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong style="color:var(--text-bright);font-weight:400">Consciousness states and the Podlie universe.</strong> The three forces — Anatam, Xangar, Bhram — each map to a layer in this framework. Bhram (disorientation) is ego structure dissolution without nervous system regulation. That's the character experience to write.</div>
-                </div>
+<div class="section-divider fade-up" data-i18n-html="humanlayers.1d1b3f28">06 · Core Principles</div>
+<div class="fade-up">
+<div class="principle">
+<div class="serif" data-i18n-html="humanlayers.213d6572" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The framework works from ground up. Consciousness → nervous system → ego → type → behavior → story. Most frameworks work top down. This one doesn't."</div>
+</div>
+<div class="principle">
+<div class="serif" data-i18n-html="humanlayers.240a31da" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Every character is a specific ego structure at a specific integration level. The story is what forces them to change layers."</div>
+</div>
+<div class="principle">
+<div class="serif" data-i18n-html="humanlayers.9191b027" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The director's inner state is not separate from the work. It is the first instrument."</div>
+</div>
+<div class="principle">
+<div class="serif" data-i18n-html="humanlayers.612e3675" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Sense first. Understand later. Sometimes never."</div>
+<div data-i18n-html="humanlayers.a903a357" style="font-size:.7rem;color:#52525b;margin-top:6px">From your existing framework — foundational to all six layers</div>
+</div>
+<div class="principle">
+<div class="serif" data-i18n-html="humanlayers.b6625a0b" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The audience is the third presence. Design for all three: character lives it, camera witnesses it, audience completes it."</div>
+<div data-i18n-html="humanlayers.944ad874" style="font-size:.7rem;color:#52525b;margin-top:6px">From your existing framework — operates at the story layer · <a class="cross-ref" data-i18n-html="humanlayers.2dd92518" href="audience-participation.html">See Audience Participation</a></div>
+</div>
+</div>
+</div>
 
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">04</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6">
-                        <strong style="color:var(--text-bright);font-weight:400">Integration path as story arc — tested examples.</strong> From your <a href="storytelling.html" class="cross-ref">Storytelling framework</a>: Dan Harmon's sacrifice point maps precisely to "the moment the character's Enneagram strategy fails." Three test cases:
-                        <div style="margin-top:8px;padding:8px 12px;background:rgba(0,0,0,.2);border-radius:6px;font-size:.72rem;line-height:1.7">
-                            <strong style="color:var(--text-bright)">Walter White (Type 3→9):</strong> Achiever whose disintegration into numbness IS the arc.<br>
-                            <strong style="color:var(--text-bright)">Chiron in Moonlight (Type 9→3):</strong> Peacemaker who integrates toward presence — from invisible to seen.<br>
-                            <strong style="color:var(--text-bright)">Nina in Black Swan (Type 1→4):</strong> Reformer whose pursuit of perfection disintegrates into self-destruction.
-                        </div>
-                        <div style="font-size:.65rem;color:#52525b;margin-top:6px">↑ These need your critical eye. Do they hold? Where do they break?</div>
-                    </div>
-                </div>
-
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">05</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong style="color:var(--text-bright);font-weight:400">Your own 8w4 integration observation.</strong> The framework is most alive when the author has walked it. Document one moment where you moved toward integration (toward 2 — warmth, generosity) and what that felt like creatively.</div>
-                </div>
-
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">06</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong style="color:var(--text-bright);font-weight:400">The other six Enneagram types — deeper.</strong> Types 1, 2, 3, 4, 5, 6 only have skeleton notes. Each needs the full treatment: wound, strategy, behavior tells, integration/disintegration paths, directing implications.</div>
-                </div>
-
-                <div class="gap-item">
-                    <div style="font-size:.6rem;color:var(--coral);min-width:24px;padding-top:2px">07</div>
-                    <div style="font-size:.78rem;color:#a1a1aa;line-height:1.6"><strong style="color:var(--text-bright);font-weight:400">Kashmir Shaivism and character consciousness.</strong> If matter is frozen awareness — what does it mean for a character to be fully materialized vs partially dissolved? Bhram as partial dissolution. Anatam as full expansion. Xangar as the force between states. This is Podlie's philosophical engine — needs a precise map.</div>
-                </div>
-
-            </div>
-
-            <!-- ═══════════════ SECTION 06: CORE PRINCIPLES ═══════════════ -->
-            <div class="section-divider fade-up">06 · Core Principles</div>
-
-            <div class="fade-up">
-                <div class="principle">
-                    <div class="serif" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The framework works from ground up. Consciousness → nervous system → ego → type → behavior → story. Most frameworks work top down. This one doesn't."</div>
-                </div>
-
-                <div class="principle">
-                    <div class="serif" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Every character is a specific ego structure at a specific integration level. The story is what forces them to change layers."</div>
-                </div>
-
-                <div class="principle">
-                    <div class="serif" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The director's inner state is not separate from the work. It is the first instrument."</div>
-                </div>
-
-                <div class="principle">
-                    <div class="serif" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"Sense first. Understand later. Sometimes never."</div>
-                    <div style="font-size:.7rem;color:#52525b;margin-top:6px">From your existing framework — foundational to all six layers</div>
-                </div>
-
-                <div class="principle">
-                    <div class="serif" style="font-size:1.05rem;font-style:italic;color:var(--text-bright);line-height:1.5">"The audience is the third presence. Design for all three: character lives it, camera witnesses it, audience completes it."</div>
-                    <div style="font-size:.7rem;color:#52525b;margin-top:6px">From your existing framework — operates at the story layer · <a href="audience-participation.html" class="cross-ref">See Audience Participation</a></div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs">
-                    <a href="index.html" class="hover:underline" style="color:#71717a">← Back to Overview</a>
-                    <a href="emotion-grammar.html" class="hover:underline" style="color:#71717a">Emotion Grammar →</a>
-                </div>
-                <div class="text-xs" style="color:#3f3f46">Human Layers Framework · v0.1 · Himanshu · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="humanlayers.ac674040">
+<a class="hover:underline" data-i18n-html="humanlayers.f5e3f93e" href="index.html" style="color:#71717a">← Back to Overview</a>
+<a class="hover:underline" data-i18n-html="humanlayers.e14c229a" href="emotion-grammar.html" style="color:#71717a">Emotion Grammar →</a>
+</div>
+<div class="text-xs" data-i18n-html="humanlayers.87ee9985" style="color:#3f3f46">Human Layers Framework · v0.1 · Himanshu · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="The invisible reality glue. Production sound, room tone, foley, sound design logic, and mixing.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sound — Visual Storytelling Framework</title>
+<meta content="The invisible reality glue. Production sound, room tone, foley, sound design logic, and mixing." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent
@@ -303,346 +301,301 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()"><svg width="20" height="20" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg></button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav class="sidebar" id="sidebar">
-        <div style="padding:0 1.25rem 1rem">
-            <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
-            <div style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link active"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-    </nav>
-
-    <div class="main-content">
-        <header class="relative overflow-hidden" style="min-height:40vh">
-            <div class="absolute inset-0"
-                style="background:radial-gradient(ellipse at 50% 40%,rgba(8,145,178,.08) 0%,transparent 55%)"></div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<button class="menu-btn" onclick="toggleSidebar()"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg></button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+<div style="padding:0 1.25rem 1rem">
+<div data-i18n-html="sound.ec6bfbb0" style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#e4e4e7">VISUAL STORYTELLING</div>
+<div data-i18n-html="sound.441b36c9" style="font-size:.6rem;color:#52525b;margin-top:2px">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="sound.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="sound.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="sound.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="sound.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="sound.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="sound.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link active" data-i18n-html="sound.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="sound.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="sound.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="sound.a7004029">Advanced Systems</div>
+<a class="sidebar-link" data-i18n-html="sound.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="sound.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="sound.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="sound.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="sound.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="sound.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="sound.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="sound.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="sound.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="sound.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="sound.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="sound.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+</nav>
+<div class="main-content">
+<header class="relative overflow-hidden" style="min-height:40vh">
+<div class="absolute inset-0" style="background:radial-gradient(ellipse at 50% 40%,rgba(8,145,178,.08) 0%,transparent 55%)"></div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-10 lg:pt-28 lg:pb-14">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="sound.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color:#0891b2;letter-spacing:.2em">Domain 03</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color:#fafafa">Sound</h1>
-                    <p class="text-lg italic mb-2" style="color:#71717a">"Would this feel real with eyes closed?"</p>
-                    <p class="text-base leading-relaxed max-w-2xl" style="color:#a1a1aa">Sound is the <strong
-                            style="color:#d4d4d8">invisible reality glue</strong>. Half of filmmaking is audio, yet
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="sound.241aa260" style="color:#0891b2;letter-spacing:.2em">Domain 03</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="sound.9d07e0e0" style="color:#fafafa">Sound</h1>
+<p class="text-lg italic mb-2" data-i18n-html="sound.8c9ff0d9" style="color:#71717a">"Would this feel real with eyes closed?"</p>
+<p class="text-base leading-relaxed max-w-2xl" data-i18n-html="sound.8c2b7065" style="color:#a1a1aa">Sound is the <strong data-i18n-html="sound.bb08cc7c" style="color:#d4d4d8">invisible reality glue</strong>. Half of filmmaking is audio, yet
                         beginners spend 90% on visuals. Bad sound destroys great footage. Good sound saves mediocre
                         footage. Close your eyes — that's where truth lives.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto px-6 py-6">
 
-        <div class="max-w-4xl mx-auto px-6 py-6">
-
-            <!-- A. PRODUCTION SOUND -->
-            <div class="section-divider fade-up">A · Production Sound</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">What you capture on set. The foundation everything is
+<div class="section-divider fade-up" data-i18n-html="sound.7e5d8446">A · Production Sound</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.840fa028" style="color:#71717a">What you capture on set. The foundation everything is
                 built on.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
-                <h3>Clean Capture</h3>
-                <p>ADR (re-recording in studio) is expensive and never sounds as real. Capture it right on set.
+<div class="skill-card fade-up" style="border-left:3px solid #0891b2">
+<h3 data-i18n-html="sound.0add121a">Clean Capture</h3>
+<p data-i18n-html="sound.9cf527a6">ADR (re-recording in studio) is expensive and never sounds as real. Capture it right on set.
                     Lavaliers for reliability, boom for naturalism. Signal-to-noise ratio is everything.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=4t3vvvLgNcQ" target="_blank" class="resource-link">Curtis
-                        Judd: Location Sound Complete Guide <span class="resource-tag">35 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=sdFIcPMIbF8" target="_blank" class="resource-link">Deity
-                        Microphones: Boom Technique <span class="resource-tag">15 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=b0djDYNxhJk" target="_blank" class="resource-link">Film
-                        Riot: Audio on a Budget <span class="resource-tag">12 min</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.589656c4" href="https://www.youtube.com/watch?v=4t3vvvLgNcQ" target="_blank">Curtis
+                        Judd: Location Sound Complete Guide <span class="resource-tag" data-i18n-html="sound.770d8436">35 min</span></a>
+<a class="resource-link" data-i18n-html="sound.57c70f96" href="https://www.youtube.com/watch?v=sdFIcPMIbF8" target="_blank">Deity
+                        Microphones: Boom Technique <span class="resource-tag" data-i18n-html="sound.17ddc0b9">15 min</span></a>
+<a class="resource-link" data-i18n-html="sound.2bfa61d6" href="https://www.youtube.com/watch?v=b0djDYNxhJk" target="_blank">Film
+                        Riot: Audio on a Budget <span class="resource-tag" data-i18n-html="sound.b4f05b35">12 min</span></a>
+</div>
+</div>
 
-            <!-- B. ROOM TONE -->
-            <div class="section-divider fade-up">B · Room Tone & Ambience</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The sound of silence. Every room has a voice.</p>
-
-            <div class="skill-card fade-up">
-                <h3 style="font-weight:400;color:#71717a">Capturing Room Tone</h3>
-                <p style="font-style:italic;opacity:.85">30-60 seconds of "silence" in every location. Used to patch
+<div class="section-divider fade-up" data-i18n-html="sound.ddf6d92b">B · Room Tone &amp; Ambience</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.58abad3b" style="color:#71717a">The sound of silence. Every room has a voice.</p>
+<div class="skill-card fade-up">
+<h3 data-i18n-html="sound.07e966e4" style="font-weight:400;color:#71717a">Capturing Room Tone</h3>
+<p data-i18n-html="sound.7dd42b8c" style="font-style:italic;opacity:.85">30-60 seconds of "silence" in every location. Used to patch
                     edits, create continuity. Without it, cuts sound like cuts. With it, cuts are invisible.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=Ot2-2bWQZNA" target="_blank" class="resource-link">Why Room
-                        Tone Matters <span class="resource-tag">8 min</span></a>
-                    <a href="https://freesound.org/" target="_blank" class="resource-link">FreeSound: Royalty-Free
-                        Ambiences <span class="resource-tag">Library</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.14675bb5" href="https://www.youtube.com/watch?v=Ot2-2bWQZNA" target="_blank">Why Room
+                        Tone Matters <span class="resource-tag" data-i18n-html="sound.08030cfa">8 min</span></a>
+<a class="resource-link" data-i18n-html="sound.8da866e6" href="https://freesound.org/" target="_blank">FreeSound: Royalty-Free
+                        Ambiences <span class="resource-tag" data-i18n-html="sound.4d70254b">Library</span></a>
+</div>
+</div>
 
-            <!-- C. FOLEY & SFX -->
-            <div class="section-divider fade-up">C · Foley & Sound Effects</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The art of lying with sound. Making the unreal feel
+<div class="section-divider fade-up" data-i18n-html="sound.b4135224">C · Foley &amp; Sound Effects</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.763532d7" style="color:#71717a">The art of lying with sound. Making the unreal feel
                 tactile.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
-                <h3>Layering</h3>
-                <div class="layer-demo">
-                    <div class="layer" style="left:0;right:40%;background:rgba(8,145,178,.1);z-index:1"></div>
-                    <div class="layer" style="left:10%;right:30%;background:rgba(8,145,178,.12);z-index:2"></div>
-                    <div class="layer" style="left:20%;right:20%;background:rgba(8,145,178,.14);z-index:3"></div>
-                    <div class="layer" style="left:30%;right:10%;background:rgba(8,145,178,.16);z-index:4"></div>
-                    <div class="layer" style="left:40%;right:0;background:rgba(8,145,178,.18);z-index:5"></div>
-                </div>
-                <div class="layer-labels">
-                    <span>impact</span><span>whoosh</span><span>thud</span><span>echo</span><span>rattle</span>
-                </div>
-                <p>A punch isn't one sound — it's impact + whoosh + thud + echo + body reaction + room rattle. Reality
+<div class="skill-card fade-up" style="border-left:3px solid #0891b2">
+<h3 data-i18n-html="sound.16679c03">Layering</h3>
+<div class="layer-demo">
+<div class="layer" style="left:0;right:40%;background:rgba(8,145,178,.1);z-index:1"></div>
+<div class="layer" style="left:10%;right:30%;background:rgba(8,145,178,.12);z-index:2"></div>
+<div class="layer" style="left:20%;right:20%;background:rgba(8,145,178,.14);z-index:3"></div>
+<div class="layer" style="left:30%;right:10%;background:rgba(8,145,178,.16);z-index:4"></div>
+<div class="layer" style="left:40%;right:0;background:rgba(8,145,178,.18);z-index:5"></div>
+</div>
+<div class="layer-labels" data-i18n-html="sound.9f6c8e54">
+<span data-i18n-html="sound.05199dec">impact</span><span data-i18n-html="sound.62aa980d">whoosh</span><span data-i18n-html="sound.f8f40db0">thud</span><span data-i18n-html="sound.cbb11ed8">echo</span><span data-i18n-html="sound.6e73df1e">rattle</span>
+</div>
+<p data-i18n-html="sound.721f53a0">A punch isn't one sound — it's impact + whoosh + thud + echo + body reaction + room rattle. Reality
                     is thin. Movies are thick. Build layers like an oil painting.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank" class="resource-link">How Star
-                        Wars Sound Was Made <span class="resource-tag">Ben Burtt</span></a>
-                    <a href="https://www.youtube.com/watch?v=K93k_5rAYUM" target="_blank" class="resource-link">Foley:
-                        Creating Sound Effects <span class="resource-tag">Documentary</span></a>
-                    <a href="https://www.youtube.com/watch?v=Y2qbqkn0WoI" target="_blank"
-                        class="resource-link">Skywalker Sound: The Art of Foley <span class="resource-tag">10
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.7d0591ab" href="https://www.youtube.com/watch?v=0P_ECjNtnbw" target="_blank">How Star
+                        Wars Sound Was Made <span class="resource-tag" data-i18n-html="sound.e2fbed61">Ben Burtt</span></a>
+<a class="resource-link" data-i18n-html="sound.14e780f3" href="https://www.youtube.com/watch?v=K93k_5rAYUM" target="_blank">Foley:
+                        Creating Sound Effects <span class="resource-tag" data-i18n-html="sound.0c276336">Documentary</span></a>
+<a class="resource-link" data-i18n-html="sound.38e2ed64" href="https://www.youtube.com/watch?v=Y2qbqkn0WoI" target="_blank">Skywalker Sound: The Art of Foley <span class="resource-tag" data-i18n-html="sound.1d9ef58d">10
                             min</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
-                <h3>Sweetening ✦</h3>
-                <p>Adding audio that wasn't there to enhance reality. Car doors get metal clanks. Kisses get louder.
+</div>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #f59e0b">
+<h3 data-i18n-html="sound.916e3af7">Sweetening ✦</h3>
+<p data-i18n-html="sound.e7f597a9">Adding audio that wasn't there to enhance reality. Car doors get metal clanks. Kisses get louder.
                     Footsteps get rhythm. The lie that makes truth believable.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=UozhOo0Dt4o" target="_blank" class="resource-link">How A
-                        Quiet Place Uses Sound <span class="resource-tag">Analysis</span></a>
-                    <a href="https://www.youtube.com/watch?v=WUlE3i_La8s" target="_blank" class="resource-link">John
-                        Wick Sound Design <span class="resource-tag">15 min</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.7325d7b9" href="https://www.youtube.com/watch?v=UozhOo0Dt4o" target="_blank">How A
+                        Quiet Place Uses Sound <span class="resource-tag" data-i18n-html="sound.739e6d2a">Analysis</span></a>
+<a class="resource-link" data-i18n-html="sound.44cf20a5" href="https://www.youtube.com/watch?v=WUlE3i_La8s" target="_blank">John
+                        Wick Sound Design <span class="resource-tag" data-i18n-html="sound.17ddc0b9">15 min</span></a>
+</div>
+</div>
 
-            <!-- D. SOUND DESIGN LOGIC -->
-            <div class="section-divider fade-up">D · Sound Design Logic</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">The philosophy of what you hear. Rules that guide
+<div class="section-divider fade-up" data-i18n-html="sound.2bb0d9ff">D · Sound Design Logic</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.941d3113" style="color:#71717a">The philosophy of what you hear. Rules that guide
                 emotional response.</p>
-
-            <div class="skill-card fade-up">
-                <h3>Diegetic vs Non-Diegetic</h3>
-                <div class="diegetic-grid">
-                    <div class="side-diegetic">
-                        <div class="side-label">Diegetic</div>
-                        <div class="side-text">Characters hear it: radio, dialogue, footsteps in the scene.</div>
-                    </div>
-                    <div class="side-non-diegetic">
-                        <div class="side-label">Non-Diegetic</div>
-                        <div class="side-text">Only audience hears it: score, narrator, emotional underscoring.</div>
-                    </div>
-                </div>
-                <p>Blurring this line creates surrealism — Tarantino's needle drops, Scorsese's anachronistic music.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=4VmGfYzB4Bk" target="_blank"
-                        class="resource-link">StudioBinder: Diegetic Sound <span class="resource-tag">10 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=ES43vY3t7n4" target="_blank" class="resource-link">Baby
-                        Driver: Music Integration <span class="resource-tag">Analysis</span></a>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up"
-                style="padding:2.5rem;text-align:center;min-height:120px;border:1px solid #27272a">
-                <h3
-                    style="font-weight:300;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;color:#52525b;margin-bottom:1.5rem">
+<div class="skill-card fade-up">
+<h3 data-i18n-html="sound.d93aa075">Diegetic vs Non-Diegetic</h3>
+<div class="diegetic-grid">
+<div class="side-diegetic">
+<div class="side-label" data-i18n-html="sound.19ece171">Diegetic</div>
+<div class="side-text" data-i18n-html="sound.e761bb19">Characters hear it: radio, dialogue, footsteps in the scene.</div>
+</div>
+<div class="side-non-diegetic">
+<div class="side-label" data-i18n-html="sound.0633553e">Non-Diegetic</div>
+<div class="side-text" data-i18n-html="sound.c8f7c9d2">Only audience hears it: score, narrator, emotional underscoring.</div>
+</div>
+</div>
+<p data-i18n-html="sound.6a9361bb">Blurring this line creates surrealism — Tarantino's needle drops, Scorsese's anachronistic music.</p>
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.60f6a520" href="https://www.youtube.com/watch?v=4VmGfYzB4Bk" target="_blank">StudioBinder: Diegetic Sound <span class="resource-tag" data-i18n-html="sound.7dd6a6ab">10 min</span></a>
+<a class="resource-link" data-i18n-html="sound.ab17135f" href="https://www.youtube.com/watch?v=ES43vY3t7n4" target="_blank">Baby
+                        Driver: Music Integration <span class="resource-tag" data-i18n-html="sound.739e6d2a">Analysis</span></a>
+</div>
+</div>
+<div class="skill-card fade-up" style="padding:2.5rem;text-align:center;min-height:120px;border:1px solid #27272a">
+<h3 data-i18n-html="sound.d056b7c1" style="font-weight:300;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;color:#52525b;margin-bottom:1.5rem">
                     Silence as Tool</h3>
-                <p style="max-width:70%;margin:0 auto">Silence isn't the absence of sound — it's the presence of dread.
+<p data-i18n-html="sound.91dd4a99" style="max-width:70%;margin:0 auto">Silence isn't the absence of sound — it's the presence of dread.
                     No Country for Old Men has almost no score. The silence is deafening. Contrast makes sound
                     meaningful.</p>
-                <div class="resources-group" style="max-width:70%;margin:.75rem auto 0">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=yvFJ7Uwth2g" target="_blank" class="resource-link">No
-                        Country for Old Men: Sound Design <span class="resource-tag">15 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=nL-x5CzXL_A" target="_blank" class="resource-link">The
-                        Power of Silence in Film <span class="resource-tag">12 min</span></a>
-                </div>
-            </div>
+<div class="resources-group" style="max-width:70%;margin:.75rem auto 0">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.4e147c92" href="https://www.youtube.com/watch?v=yvFJ7Uwth2g" target="_blank">No
+                        Country for Old Men: Sound Design <span class="resource-tag" data-i18n-html="sound.17ddc0b9">15 min</span></a>
+<a class="resource-link" data-i18n-html="sound.ae88f9db" href="https://www.youtube.com/watch?v=nL-x5CzXL_A" target="_blank">The
+                        Power of Silence in Film <span class="resource-tag" data-i18n-html="sound.b4f05b35">12 min</span></a>
+</div>
+</div>
 
-            <!-- E. MIXING -->
-            <div class="section-divider fade-up">E · Mixing & Post</div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Balancing the chaos. Making 100 tracks feel like one
+<div class="section-divider fade-up" data-i18n-html="sound.4b75a757">E · Mixing &amp; Post</div>
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.6d0e175a" style="color:#71717a">Balancing the chaos. Making 100 tracks feel like one
                 reality.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0891b2">
-                <h3>EQ, Compression, Dynamics</h3>
-                <div class="wave-demo">
-                    <div class="wave-bar" style="height:20%"></div>
-                    <div class="wave-bar" style="height:35%"></div>
-                    <div class="wave-bar" style="height:60%"></div>
-                    <div class="wave-bar" style="height:90%"></div>
-                    <div class="wave-bar" style="height:100%"></div>
-                    <div class="wave-bar" style="height:85%"></div>
-                    <div class="wave-bar" style="height:95%"></div>
-                    <div class="wave-bar" style="height:70%"></div>
-                    <div class="wave-bar" style="height:100%"></div>
-                    <div class="wave-bar" style="height:75%"></div>
-                    <div class="wave-bar" style="height:55%"></div>
-                    <div class="wave-bar" style="height:80%"></div>
-                    <div class="wave-bar" style="height:100%"></div>
-                    <div class="wave-bar" style="height:90%"></div>
-                    <div class="wave-bar" style="height:65%"></div>
-                    <div class="wave-bar" style="height:45%"></div>
-                    <div class="wave-bar" style="height:70%"></div>
-                    <div class="wave-bar" style="height:85%"></div>
-                    <div class="wave-bar" style="height:50%"></div>
-                    <div class="wave-bar" style="height:30%"></div>
-                    <div class="wave-bar" style="height:60%"></div>
-                    <div class="wave-bar" style="height:80%"></div>
-                    <div class="wave-bar" style="height:95%"></div>
-                    <div class="wave-bar" style="height:70%"></div>
-                    <div class="wave-bar" style="height:40%"></div>
-                    <div class="wave-bar" style="height:55%"></div>
-                    <div class="wave-bar" style="height:75%"></div>
-                    <div class="wave-bar" style="height:90%"></div>
-                    <div class="wave-bar" style="height:60%"></div>
-                    <div class="wave-bar" style="height:35%"></div>
-                </div>
-                <p>EQ removes mud, reveals clarity. Compression controls dynamic range. Limiting prevents clipping.
+<div class="skill-card fade-up" style="border-left:3px solid #0891b2">
+<h3 data-i18n-html="sound.7da5654a">EQ, Compression, Dynamics</h3>
+<div class="wave-demo">
+<div class="wave-bar" style="height:20%"></div>
+<div class="wave-bar" style="height:35%"></div>
+<div class="wave-bar" style="height:60%"></div>
+<div class="wave-bar" style="height:90%"></div>
+<div class="wave-bar" style="height:100%"></div>
+<div class="wave-bar" style="height:85%"></div>
+<div class="wave-bar" style="height:95%"></div>
+<div class="wave-bar" style="height:70%"></div>
+<div class="wave-bar" style="height:100%"></div>
+<div class="wave-bar" style="height:75%"></div>
+<div class="wave-bar" style="height:55%"></div>
+<div class="wave-bar" style="height:80%"></div>
+<div class="wave-bar" style="height:100%"></div>
+<div class="wave-bar" style="height:90%"></div>
+<div class="wave-bar" style="height:65%"></div>
+<div class="wave-bar" style="height:45%"></div>
+<div class="wave-bar" style="height:70%"></div>
+<div class="wave-bar" style="height:85%"></div>
+<div class="wave-bar" style="height:50%"></div>
+<div class="wave-bar" style="height:30%"></div>
+<div class="wave-bar" style="height:60%"></div>
+<div class="wave-bar" style="height:80%"></div>
+<div class="wave-bar" style="height:95%"></div>
+<div class="wave-bar" style="height:70%"></div>
+<div class="wave-bar" style="height:40%"></div>
+<div class="wave-bar" style="height:55%"></div>
+<div class="wave-bar" style="height:75%"></div>
+<div class="wave-bar" style="height:90%"></div>
+<div class="wave-bar" style="height:60%"></div>
+<div class="wave-bar" style="height:35%"></div>
+</div>
+<p data-i18n-html="sound.b3eacc0b">EQ removes mud, reveals clarity. Compression controls dynamic range. Limiting prevents clipping.
                     These are invisible — you only notice when they're wrong.</p>
-                <div class="resources-group">
-                    <h4>Study Resources</h4>
-                    <a href="https://www.youtube.com/watch?v=OEy2R-fT3gw" target="_blank" class="resource-link">In The
-                        Mix: Complete EQ Guide <span class="resource-tag">25 min</span></a>
-                    <a href="https://www.youtube.com/watch?v=yi0J9JsRdI4" target="_blank" class="resource-link">Dialogue
-                        Editing Tutorial <span class="resource-tag">20 min</span></a>
-                </div>
-            </div>
+<div class="resources-group">
+<h4 data-i18n-html="sound.21e163cf">Study Resources</h4>
+<a class="resource-link" data-i18n-html="sound.5768d2f7" href="https://www.youtube.com/watch?v=OEy2R-fT3gw" target="_blank">In The
+                        Mix: Complete EQ Guide <span class="resource-tag" data-i18n-html="sound.ed20e03c">25 min</span></a>
+<a class="resource-link" data-i18n-html="sound.69445278" href="https://www.youtube.com/watch?v=yi0J9JsRdI4" target="_blank">Dialogue
+                        Editing Tutorial <span class="resource-tag" data-i18n-html="sound.cb1a708a">20 min</span></a>
+</div>
+</div>
 
-            <!-- F. AUDIO-VISION (Michel Chion + Dancyger) -->
-            <div class="section-divider fade-up">F · Audio-Vision <span
-                    style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Michel Chion / Ken
+<div class="section-divider fade-up" data-i18n-html="sound.9e1aae73">F · Audio-Vision <span data-i18n-html="sound.6c2dc59b" style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Michel Chion / Ken
                     Dancyger</span></div>
-            <p class="text-sm mb-6 fade-up" style="color:#71717a">Sound is not secondary — it fundamentally rewrites how
+<p class="text-sm mb-6 fade-up" data-i18n-html="sound.7e20ea3d" style="color:#71717a">Sound is not secondary — it fundamentally rewrites how
                 we perceive images.</p>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #a855f7">
-                <h3>Added Value</h3>
-                <p>The expressive or informative value that sound brings to an image, making it seem as though that
-                    information is <strong style="color:#d4d4d8">naturally part of what we see</strong>. A door slamming
+<div class="skill-card fade-up" style="border-left:3px solid #a855f7">
+<h3 data-i18n-html="sound.281b68d6">Added Value</h3>
+<p data-i18n-html="sound.5f66590f">The expressive or informative value that sound brings to an image, making it seem as though that
+                    information is <strong data-i18n-html="sound.0430d8fd" style="color:#d4d4d8">naturally part of what we see</strong>. A door slamming
                     becomes anger. Rain becomes melancholy. The sound doesn't illustrate the image — it
-                    <em>transforms</em> it.</p>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #a855f7">
-                <h3>Synchresis</h3>
-                <p>The spontaneous and irresistible mental weld between a sound and a visual when they occur at the same
-                    time. <strong style="color:#d4d4d8">Any sound paired with any image will feel connected</strong> —
-                    the brain can't help it. This is how foley works: a coconut shell <em>is</em> a horse hoof because
+                    <em data-i18n-html="sound.6348c64b">transforms</em> it.</p>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #a855f7">
+<h3 data-i18n-html="sound.2dfa1f46">Synchresis</h3>
+<p data-i18n-html="sound.e268145d">The spontaneous and irresistible mental weld between a sound and a visual when they occur at the same
+                    time. <strong data-i18n-html="sound.0e21dc82" style="color:#d4d4d8">Any sound paired with any image will feel connected</strong> —
+                    the brain can't help it. This is how foley works: a coconut shell <em data-i18n-html="sound.a2a551a6">is</em> a horse hoof because
                     we see a horse and hear a clop simultaneously.</p>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #a855f7">
-                <h3>Vococentrism</h3>
-                <p>Cinema is <strong style="color:#d4d4d8">"verbocentric"</strong> — sound recording and mixing almost
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #a855f7">
+<h3 data-i18n-html="sound.cbdd38d2">Vococentrism</h3>
+<p data-i18n-html="sound.d7173c15">Cinema is <strong data-i18n-html="sound.822afda5" style="color:#d4d4d8">"verbocentric"</strong> — sound recording and mixing almost
                     always privilege the human voice above everything else. Music and noise are pushed aside to ensure
                     dialogue is intelligible. Understanding this hierarchy is key to either following it or subverting
                     it intentionally.</p>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #a855f7">
-                <h3>Temporalization</h3>
-                <p>Sound influences the perception of <strong style="color:#d4d4d8">time itself</strong> within images:
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #a855f7">
+<h3 data-i18n-html="sound.89c90819">Temporalization</h3>
+<p data-i18n-html="sound.8b771d88">Sound influences the perception of <strong data-i18n-html="sound.43abf3ac" style="color:#d4d4d8">time itself</strong> within images:
                 </p>
-                <div class="grid md:grid-cols-3 gap-2 mt-3" style="font-size:.78rem">
-                    <div
-                        style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
-                        <strong style="color:#d4d4d8">Animating</strong><br>Sound gives life and motion to static shots
+<div class="grid md:grid-cols-3 gap-2 mt-3" style="font-size:.78rem">
+<div data-i18n-html="sound.01814ede" style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
+<strong data-i18n-html="sound.74f9f4ea" style="color:#d4d4d8">Animating</strong><br/>Sound gives life and motion to static shots
                     </div>
-                    <div
-                        style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
-                        <strong style="color:#d4d4d8">Linearizing</strong><br>Imposing sequence where none exists
+<div data-i18n-html="sound.b5e18d5f" style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
+<strong data-i18n-html="sound.657d4426" style="color:#d4d4d8">Linearizing</strong><br/>Imposing sequence where none exists
                         visually
                     </div>
-                    <div
-                        style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
-                        <strong style="color:#d4d4d8">Vectorizing</strong><br>Creating a feeling of imminence —
+<div data-i18n-html="sound.e4e7cbf8" style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;color:#a1a1aa;text-align:center">
+<strong data-i18n-html="sound.3e8a31c7" style="color:#d4d4d8">Vectorizing</strong><br/>Creating a feeling of imminence —
                         something is about to happen
                     </div>
-                </div>
-            </div>
-
-            <div class="skill-card fade-up" style="border-left:3px solid #0ea5e9">
-                <h3>Sound & Editing Marriage <span
-                        style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Dancyger</span></h3>
-                <p>Dancyger demonstrates that sound editing follows two parallel tracks:</p>
-                <div class="diegetic-grid" style="margin:.75rem 0">
-                    <div class="side-diegetic">
-                        <div class="side-label">Clarity</div>
-                        <div class="side-text">Sound that ensures the audience understands geography, time, and
+</div>
+</div>
+<div class="skill-card fade-up" style="border-left:3px solid #0ea5e9">
+<h3 data-i18n-html="sound.fdddbc4d">Sound &amp; Editing Marriage <span data-i18n-html="sound.3724c272" style="font-size:.6rem;font-weight:400;color:#71717a;margin-left:.5rem">— Dancyger</span></h3>
+<p data-i18n-html="sound.82087205">Dancyger demonstrates that sound editing follows two parallel tracks:</p>
+<div class="diegetic-grid" style="margin:.75rem 0">
+<div class="side-diegetic">
+<div class="side-label" data-i18n-html="sound.1e8a5f10">Clarity</div>
+<div class="side-text" data-i18n-html="sound.2aef809d">Sound that ensures the audience understands geography, time, and
                             emotional state. Invisible craftsmanship.</div>
-                    </div>
-                    <div class="side-non-diegetic">
-                        <div class="side-label">Creative</div>
-                        <div class="side-text">Sound that subverts, enhances, or transcends the image. The emotional
+</div>
+<div class="side-non-diegetic">
+<div class="side-label" data-i18n-html="sound.047c6bd0">Creative</div>
+<div class="side-text" data-i18n-html="sound.44b516f2">Sound that subverts, enhances, or transcends the image. The emotional
                             counterpoint.</div>
-                    </div>
-                </div>
-            </div>
+</div>
+</div>
+</div>
 
-            <!-- UNCONVENTIONAL -->
-            <div class="skill-card fade-up"
-                style="margin-top:2rem;background:linear-gradient(135deg,rgba(8,145,178,.04),rgba(139,92,246,.03))">
-                <h3>🧠 Unconventional Learning</h3>
-                <a href="https://www.youtube.com/watch?v=Gc_tlXQlgtg" target="_blank" class="resource-link">Walter Murch
-                    on Sound <span class="resource-tag">1 hour</span></a>
-                <a href="https://www.youtube.com/watch?v=c1BdQJYdm7M" target="_blank" class="resource-link">ASMR & Why
-                    It Works <span class="resource-tag">Psychology</span></a>
-                <a href="https://www.youtube.com/watch?v=j2gHZhFNyKA" target="_blank" class="resource-link">The Science
-                    of Sound <span class="resource-tag">Physics</span></a>
-                <a href="https://tonebenders.net/" target="_blank" class="resource-link">Tonebenders Podcast <span
-                        class="resource-tag">Pro Sound Design</span></a>
-            </div>
-        </div>
-
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="cinematography.html" class="hover:underline"
-                        style="color:#71717a">← Cinematography</a><a href="index.html" class="hover:underline"
-                        style="color:#71717a">Overview</a><a href="editing.html" class="hover:underline"
-                        style="color:#71717a">Editing →</a></div>
-                <div class="text-xs" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<div class="skill-card fade-up" style="margin-top:2rem;background:linear-gradient(135deg,rgba(8,145,178,.04),rgba(139,92,246,.03))">
+<h3 data-i18n-html="sound.5b1f2f00">🧠 Unconventional Learning</h3>
+<a class="resource-link" data-i18n-html="sound.3f7e6315" href="https://www.youtube.com/watch?v=Gc_tlXQlgtg" target="_blank">Walter Murch
+                    on Sound <span class="resource-tag" data-i18n-html="sound.72ab9d03">1 hour</span></a>
+<a class="resource-link" data-i18n-html="sound.10ffea55" href="https://www.youtube.com/watch?v=c1BdQJYdm7M" target="_blank">ASMR &amp; Why
+                    It Works <span class="resource-tag" data-i18n-html="sound.1d5b1215">Psychology</span></a>
+<a class="resource-link" data-i18n-html="sound.068acdf8" href="https://www.youtube.com/watch?v=j2gHZhFNyKA" target="_blank">The Science
+                    of Sound <span class="resource-tag" data-i18n-html="sound.50ae99e9">Physics</span></a>
+<a class="resource-link" data-i18n-html="sound.ca4043ae" href="https://tonebenders.net/" target="_blank">Tonebenders Podcast <span class="resource-tag" data-i18n-html="sound.1d297266">Pro Sound Design</span></a>
+</div>
+</div>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top:1px solid #27272a">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="sound.7662179d"><a class="hover:underline" data-i18n-html="sound.df7438ac" href="cinematography.html" style="color:#71717a">← Cinematography</a><a class="hover:underline" data-i18n-html="sound.3b878279" href="index.html" style="color:#71717a">Overview</a><a class="hover:underline" data-i18n-html="sound.344ed311" href="editing.html" style="color:#71717a">Editing →</a></div>
+<div class="text-xs" data-i18n-html="sound.3c5af944" style="color:#3f3f46">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active') }
         const observer = new IntersectionObserver(e => { e.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

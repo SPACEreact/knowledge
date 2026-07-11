@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
 
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Visual Generation — Visual Storytelling Framework</title>
-    <meta name="description"
-        content="Master AI image and video generation with cinematic intent. Prompt engineering, visual control, motion reality, and constraint-based thinking.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Visual Generation — Visual Storytelling Framework</title>
+<meta content="Master AI image and video generation with cinematic intent. Prompt engineering, visual control, motion reality, and constraint-based thinking." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
         tailwind.config = {
             darkMode: 'class',
             theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
         }
     </script>
-    <style>
+<style>
         * {
             scrollbar-width: thin;
             scrollbar-color: #3f3f46 transparent;
@@ -381,775 +379,741 @@
         }
     </style>
 </head>
-
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="3" y1="6" x2="17" y2="6" />
-            <line x1="3" y1="10" x2="17" y2="10" />
-            <line x1="3" y1="14" x2="17" y2="14" />
-        </svg>
-    </button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<button aria-label="Toggle navigation" class="menu-btn" onclick="toggleSidebar()">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" width="20">
+<line x1="3" x2="17" y1="6" y2="6"></line>
+<line x1="3" x2="17" y1="10" y2="10"></line>
+<line x1="3" x2="17" y1="14" y2="14"></line>
+</svg>
+</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar" id="sidebar">
-        <div style="padding: 0 1.25rem 1rem;">
-            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#e4e4e7;">VISUAL STORYTELLING
+<nav class="sidebar" id="sidebar">
+<div style="padding: 0 1.25rem 1rem;">
+<div data-i18n-html="aivisual.ec6bfbb0" style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#e4e4e7;">VISUAL STORYTELLING
             </div>
-            <div style="font-size:0.6rem;color:#52525b;margin-top:2px;">Knowledge Framework</div>
-        </div>
-        <div class="sidebar-section-title">Core</div>
-        <a href="index.html" class="sidebar-link"><span>◈</span> Overview</a>
-        <a href="storytelling.html" class="sidebar-link"><span>00</span> Storytelling</a>
-        <div class="sidebar-section-title">Domains</div>
-        <a href="design.html" class="sidebar-link"><span>01</span> Design</a>
-        <a href="cinematography.html" class="sidebar-link"><span>02</span> Cinematography</a>
-        <a href="sound.html" class="sidebar-link"><span>03</span> Sound</a>
-        <a href="editing.html" class="sidebar-link"><span>04</span> Editing</a>
-        <a href="motion.html" class="sidebar-link"><span>05</span> Motion</a>
-        <div class="sidebar-section-title">Advanced Systems</div>
-        <a href="ai-visual.html" class="sidebar-link active"><span>⬡</span> AI Visual Generation</a>
-        <a href="emotion-grammar.html" class="sidebar-link"><span>♡</span> Emotion Grammar</a>
-        <a href="scene-grammar.html" class="sidebar-link"><span>▣</span> Scene Grammar</a>
-        <a href="story-emotion.html" class="sidebar-link"><span>◉</span> Story × Emotion</a>
-                <a href="human-layers.html" class="sidebar-link"><span>⬢</span> Human Layers</a>
-        <a href="audience-participation.html" class="sidebar-link"><span>◬</span> Audience Participation</a>
-        <div class="sidebar-section-title">Tools & Reference</div>
-        <a href="ideation.html" class="sidebar-link"><span>⚡</span> Ideation Engine</a>
-        <a href="skill-tree.html" class="sidebar-link"><span>🌳</span> Skill Tree</a>
-        <a href="style-reference.html" class="sidebar-link"><span>◎</span> Style Reference</a>
-        <a href="craft-notes.html" class="sidebar-link"><span>✎</span> Craft Notes</a>
-        <a href="resources.html" class="sidebar-link"><span>☷</span> Resources</a>
-        <div class="sidebar-section-title">Keyword Maps</div>
-        <a href="filmmaking-keywords.html" class="sidebar-link"><span>🎬</span> Filmmaking Keywords</a>
-        <a href="mograph-keywords.html" class="sidebar-link"><span>◐</span> Motion Graphics KW</a>
-        <a href="editing-rhythm.html" class="sidebar-link"><span>♫</span> Editing Rhythm</a>
-    </nav>
+<div data-i18n-html="aivisual.441b36c9" style="font-size:0.6rem;color:#52525b;margin-top:2px;">Knowledge Framework</div>
+</div>
+<div class="sidebar-section-title" data-i18n-html="aivisual.83168e6c">Core</div>
+<a class="sidebar-link" data-i18n-html="aivisual.34e7ffb8" href="index.html"><span>◈</span> Overview</a>
+<a class="sidebar-link" data-i18n-html="aivisual.f476f15c" href="storytelling.html"><span>00</span> Storytelling</a>
+<div class="sidebar-section-title" data-i18n-html="aivisual.78cd2c7d">Domains</div>
+<a class="sidebar-link" data-i18n-html="aivisual.03b7b08e" href="design.html"><span>01</span> Design</a>
+<a class="sidebar-link" data-i18n-html="aivisual.79095c99" href="cinematography.html"><span>02</span> Cinematography</a>
+<a class="sidebar-link" data-i18n-html="aivisual.aa1b5387" href="sound.html"><span>03</span> Sound</a>
+<a class="sidebar-link" data-i18n-html="aivisual.d85d40b4" href="editing.html"><span>04</span> Editing</a>
+<a class="sidebar-link" data-i18n-html="aivisual.78d971dd" href="motion.html"><span>05</span> Motion</a>
+<div class="sidebar-section-title" data-i18n-html="aivisual.a7004029">Advanced Systems</div>
+<a class="sidebar-link active" data-i18n-html="aivisual.ad38142f" href="ai-visual.html"><span>⬡</span> AI Visual Generation</a>
+<a class="sidebar-link" data-i18n-html="aivisual.2f0b89ac" href="emotion-grammar.html"><span>♡</span> Emotion Grammar</a>
+<a class="sidebar-link" data-i18n-html="aivisual.f7e8791b" href="scene-grammar.html"><span>▣</span> Scene Grammar</a>
+<a class="sidebar-link" data-i18n-html="aivisual.ba0bf81c" href="story-emotion.html"><span>◉</span> Story × Emotion</a>
+<a class="sidebar-link" data-i18n-html="aivisual.7037ecfa" href="human-layers.html"><span>⬢</span> Human Layers</a>
+<a class="sidebar-link" data-i18n-html="aivisual.e7f724d0" href="audience-participation.html"><span>◬</span> Audience Participation</a>
+<div class="sidebar-section-title" data-i18n-html="aivisual.8c4f58f4">Tools &amp; Reference</div>
+<a class="sidebar-link" data-i18n-html="aivisual.79d04ccc" href="ideation.html"><span>⚡</span> Ideation Engine</a>
+<a class="sidebar-link" data-i18n-html="aivisual.0e7d911f" href="skill-tree.html"><span>🌳</span> Skill Tree</a>
+<a class="sidebar-link" data-i18n-html="aivisual.538772da" href="style-reference.html"><span>◎</span> Style Reference</a>
+<a class="sidebar-link" data-i18n-html="aivisual.876dc331" href="craft-notes.html"><span>✎</span> Craft Notes</a>
+<a class="sidebar-link" data-i18n-html="aivisual.89201dc7" href="resources.html"><span>☷</span> Resources</a>
+<div class="sidebar-section-title" data-i18n-html="aivisual.a7f64522">Keyword Maps</div>
+<a class="sidebar-link" data-i18n-html="aivisual.94d0f285" href="filmmaking-keywords.html"><span>🎬</span> Filmmaking Keywords</a>
+<a class="sidebar-link" data-i18n-html="aivisual.84d150fd" href="mograph-keywords.html"><span>◐</span> Motion Graphics KW</a>
+<a class="sidebar-link" data-i18n-html="aivisual.2a35f025" href="editing-rhythm.html"><span>♫</span> Editing Rhythm</a>
+</nav>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <!-- Hero -->
-        <header class="relative overflow-hidden" style="min-height: 50vh;">
-            <div class="absolute inset-0"
-                style="background: radial-gradient(ellipse at 30% 30%, rgba(139,92,246,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(6,182,212,0.05) 0%, transparent 50%);">
-            </div>
-            <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-12 lg:pt-28 lg:pb-16">
-                <div class="fade-up">
-                    <a href="index.html"
-                        class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block">← Back to
+<div class="main-content">
+
+<header class="relative overflow-hidden" style="min-height: 50vh;">
+<div class="absolute inset-0" style="background: radial-gradient(ellipse at 30% 30%, rgba(139,92,246,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 70%, rgba(6,182,212,0.05) 0%, transparent 50%);">
+</div>
+<div class="relative max-w-4xl mx-auto px-6 pt-20 pb-12 lg:pt-28 lg:pb-16">
+<div class="fade-up">
+<a class="text-xs text-zinc-500 hover:text-zinc-300 transition mb-6 inline-block" data-i18n-html="aivisual.994556a8" href="index.html">← Back to
                         Overview</a>
-                    <p class="text-xs font-semibold tracking-widest uppercase mb-4"
-                        style="color: #8b5cf6; letter-spacing: 0.2em;">Advanced System</p>
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4"
-                        style="color: #fafafa;">AI Visual Generation</h1>
-                    <p class="text-base md:text-lg leading-relaxed max-w-2xl" style="color: #a1a1aa;">The concepts and
+<p class="text-xs font-semibold tracking-widest uppercase mb-4" data-i18n-html="aivisual.cd1314e9" style="color: #8b5cf6; letter-spacing: 0.2em;">Advanced System</p>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n-html="aivisual.6fe025bc" style="color: #fafafa;">AI Visual Generation</h1>
+<p class="text-base md:text-lg leading-relaxed max-w-2xl" data-i18n-html="aivisual.1b5c287a" style="color: #a1a1aa;">The concepts and
                         vocabulary you must internalize to avoid generic AI output. Every concept here decides whether
-                        your output looks <strong style="color:#d4d4d8;">cinematic or sludge</strong>.</p>
-                </div>
-                <!-- Critical Block -->
-                <div class="fade-up mt-8 p-5 rounded-xl"
-                    style="background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.05)); border: 1px solid rgba(139,92,246,0.15); transition-delay: 0.1s;">
-                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;"><strong style="color: #c4b5fd;">The hard
+                        your output looks <strong data-i18n-html="aivisual.40dd5998" style="color:#d4d4d8;">cinematic or sludge</strong>.</p>
+</div>
+
+<div class="fade-up mt-8 p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.05)); border: 1px solid rgba(139,92,246,0.15); transition-delay: 0.1s;">
+<p class="text-sm leading-relaxed" data-i18n-html="aivisual.20c79b6f" style="color: #a1a1aa;"><strong data-i18n-html="aivisual.9e6c7a04" style="color: #c4b5fd;">The hard
                             truth:</strong> AI tools are getting better at generation, but they cannot think
-                        cinematically. That's your job. The AI generates pixels — <em>you</em> generate meaning. Without
+                        cinematically. That's your job. The AI generates pixels — <em data-i18n-html="aivisual.639bae9a">you</em> generate meaning. Without
                         these concepts, you'll produce technically impressive garbage.</p>
-                </div>
-            </div>
-        </header>
+</div>
+</div>
+</header>
 
-        <!-- Table of Contents -->
-        <div class="max-w-4xl mx-auto px-6 py-6">
-            <div class="fade-up p-5 rounded-xl" style="background: #18181b; border: 1px solid #27272a;">
-                <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color: #52525b;">On this page
+<div class="max-w-4xl mx-auto px-6 py-6">
+<div class="fade-up p-5 rounded-xl" style="background: #18181b; border: 1px solid #27272a;">
+<h3 class="text-xs font-semibold uppercase tracking-wider mb-3" data-i18n-html="aivisual.23bc9bf3" style="color: #52525b;">On this page
                 </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1">
-                    <a href="#foundation" class="toc-link">A. Foundation</a>
-                    <a href="#prompt-structure" class="toc-link">B. Prompt Structure</a>
-                    <a href="#visual-control" class="toc-link">C. Visual Control</a>
-                    <a href="#cinematic-image" class="toc-link">D. Cinematic Image</a>
-                    <a href="#video-motion" class="toc-link">E. Video Motion</a>
-                    <a href="#prompting-motion" class="toc-link">F. Prompting Motion</a>
-                    <a href="#cinematic-video" class="toc-link">G. Cinematic Video</a>
-                    <a href="#keyframes" class="toc-link">H. Keyframes</a>
-                    <a href="#characters" class="toc-link">I. Characters</a>
-                    <a href="#cinematography" class="toc-link">J. Cinematography</a>
-                    <a href="#storytelling" class="toc-link">K. Storytelling</a>
-                    <a href="#avoid" class="toc-link">L. What to Avoid</a>
-                    <a href="#comparison-lab" class="toc-link">⚡ Comparison Lab</a>
-                    <a href="#exercises" class="toc-link">✏️ Exercises</a>
-                </div>
-            </div>
-        </div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-1" data-i18n-html="aivisual.0a589833">
+<a class="toc-link" data-i18n-html="aivisual.f42469bf" href="#foundation">A. Foundation</a>
+<a class="toc-link" data-i18n-html="aivisual.d8c09213" href="#prompt-structure">B. Prompt Structure</a>
+<a class="toc-link" data-i18n-html="aivisual.3305a569" href="#visual-control">C. Visual Control</a>
+<a class="toc-link" data-i18n-html="aivisual.502fcc9e" href="#cinematic-image">D. Cinematic Image</a>
+<a class="toc-link" data-i18n-html="aivisual.38d5548f" href="#video-motion">E. Video Motion</a>
+<a class="toc-link" data-i18n-html="aivisual.272c3890" href="#prompting-motion">F. Prompting Motion</a>
+<a class="toc-link" data-i18n-html="aivisual.650afdfc" href="#cinematic-video">G. Cinematic Video</a>
+<a class="toc-link" data-i18n-html="aivisual.17235cf9" href="#keyframes">H. Keyframes</a>
+<a class="toc-link" data-i18n-html="aivisual.d52a4aa8" href="#characters">I. Characters</a>
+<a class="toc-link" data-i18n-html="aivisual.06b11669" href="#cinematography">J. Cinematography</a>
+<a class="toc-link" data-i18n-html="aivisual.02823824" href="#storytelling">K. Storytelling</a>
+<a class="toc-link" data-i18n-html="aivisual.7fe69ce2" href="#avoid">L. What to Avoid</a>
+<a class="toc-link" data-i18n-html="aivisual.27fe6143" href="#comparison-lab">⚡ Comparison Lab</a>
+<a class="toc-link" data-i18n-html="aivisual.bfad09b7" href="#exercises">✏️ Exercises</a>
+</div>
+</div>
+</div>
 
-        <!-- A. FOUNDATION -->
-        <section id="foundation" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">A</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Visual Thinking Foundation</h2>
-                        <p class="text-xs" style="color: #71717a;">Understand the machine to control the machine.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Prompt Engineering Fundamentals</h3>
-                    <p>Prompt engineering is not "writing descriptions." It's the skill of <strong>communicating intent
+<section class="max-w-4xl mx-auto px-6 py-8" id="foundation">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">A</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.75794220" style="color: #fafafa;">AI Visual Thinking Foundation</h2>
+<p class="text-xs" data-i18n-html="aivisual.c07f25cc" style="color: #71717a;">Understand the machine to control the machine.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.acb98654">Prompt Engineering Fundamentals</h3>
+<p data-i18n-html="aivisual.3ac1b5e9">Prompt engineering is not "writing descriptions." It's the skill of <strong data-i18n-html="aivisual.d2967343">communicating intent
                             to a neural network</strong> using its native language — which is not human language.
                         Effective prompts are structured hierarchically: subject first, then context, then style
                         modifiers, then quality tokens. The critical insight: AI models don't understand meaning — they
                         understand statistical associations. "A sad woman" doesn't mean sadness to the model; it means
-                        the visual patterns that co-occurred with "sad" in training data. This is why <strong>specific,
+                        the visual patterns that co-occurred with "sad" in training data. This is why <strong data-i18n-html="aivisual.99b75ef8">specific,
                             concrete descriptions</strong> outperform abstract emotional instructions.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Latent Space Explained</h3>
-                    <p>Latent space is the mathematical universe where AI images "live" before they become pixels. It's
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.74c20ef0">Latent Space Explained</h3>
+<p data-i18n-html="aivisual.20651f91">Latent space is the mathematical universe where AI images "live" before they become pixels. It's
                         a high-dimensional space where every possible image is a point. Similar images cluster together
                         — all "portraits" in one region, all "landscapes" in another. When you prompt, you're navigating
                         through this space, selecting a region. Understanding latent space helps you understand
-                        <em>why</em> certain prompts produce certain results, why small prompt changes can cause
+                        <em data-i18n-html="aivisual.531e70a6">why</em> certain prompts produce certain results, why small prompt changes can cause
                         dramatic visual shifts (crossing a boundary between clusters), and why some combinations produce
                         incoherent results (landing between clusters).</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Conditioning vs Randomness</h3>
-                    <p>Every AI generation balances two forces: <strong>conditioning</strong> (following your prompt
-                        closely) and <strong>randomness</strong> (the model's own statistical entropy). More
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.4755f826">Conditioning vs Randomness</h3>
+<p data-i18n-html="aivisual.95ece10d">Every AI generation balances two forces: <strong data-i18n-html="aivisual.376b9436">conditioning</strong> (following your prompt
+                        closely) and <strong data-i18n-html="aivisual.af1c2e39">randomness</strong> (the model's own statistical entropy). More
                         conditioning → more prompt adherence, less surprise. More randomness → more unexpected results,
                         less control. The sweet spot is where the model follows your intent but adds details you didn't
                         explicitly request — but details that feel right. Pure conditioning produces stiff, lifeless
                         images. Pure randomness produces chaos. The art is calibrating the balance.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Sampling Steps & CFG Scale</h3>
-                    <p>AI images are generated through iterative <strong>denoising</strong> — starting from pure noise
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.877c86d4">Sampling Steps &amp; CFG Scale</h3>
+<p data-i18n-html="aivisual.a101a0d0">AI images are generated through iterative <strong data-i18n-html="aivisual.92c09a7d">denoising</strong> — starting from pure noise
                         and progressively refining. Each "step" resolves ambiguity: early steps establish composition,
                         middle steps define objects, late steps refine textures. 20 steps is usually sufficient; 150
-                        wastes time. <strong>CFG (Classifier-Free Guidance)</strong> controls prompt obedience vs
+                        wastes time. <strong data-i18n-html="aivisual.23c128ae">CFG (Classifier-Free Guidance)</strong> controls prompt obedience vs
                         creative freedom. Low (1–5) = dreamy, loose. Medium (7–12) = balanced sweet spot. High (15–30) =
                         rigid, over-saturated. Higher CFG doesn't mean "better" — it means "more obedient at any cost."
                     </p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Overfitting & Prompt Collapse</h3>
-                    <p><strong>Overfitting:</strong> When a model has memorized training data rather than generalizing.
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.b0e0e4e1">Overfitting &amp; Prompt Collapse</h3>
+<p data-i18n-html="aivisual.10e595a7"><strong data-i18n-html="aivisual.0c950a72">Overfitting:</strong> When a model has memorized training data rather than generalizing.
                         Signs: faces that look like specific celebrities, stock-photo compositions. Push toward the
-                        model's generative zones instead.<br><strong>Prompt collapse:</strong> When a prompt is too long
+                        model's generative zones instead.<br/><strong data-i18n-html="aivisual.b1045f3e">Prompt collapse:</strong> When a prompt is too long
                         or contradictory, the model ignores parts — typically concepts mentioned later. The model has
-                        limited "attention." The solution: shorter, focused prompts. Quality > quantity.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Model Bias & Determinism</h3>
-                    <p><strong>Model bias:</strong> Every model carries training data biases — default beauty standards,
+                        limited "attention." The solution: shorter, focused prompts. Quality &gt; quantity.</p>
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.55446301">Model Bias &amp; Determinism</h3>
+<p data-i18n-html="aivisual.a01dccc1"><strong data-i18n-html="aivisual.e513ff7f">Model bias:</strong> Every model carries training data biases — default beauty standards,
                         Western photography aesthetics, centered compositions. Awareness helps you push past
-                        defaults.<br><strong>Determinism vs Variation:</strong> Same prompt + same seed = same image.
+                        defaults.<br/><strong data-i18n-html="aivisual.770c7b24">Determinism vs Variation:</strong> Same prompt + same seed = same image.
                         Change the seed = variation. Use fixed seeds to iterate on composition while changing style. Use
                         random seeds to explore. Understanding determinism lets you treat AI as a precision tool, not a
                         slot machine.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Why AI Images Look Artificial</h3>
-                    <p><strong>Over-perfection</strong> — clinical sharpness everywhere. <strong>Lighting
-                            inconsistency</strong> — conflicting sources, sourceless ambient light. <strong>Texture
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.6b3587fc">Why AI Images Look Artificial</h3>
+<p data-i18n-html="aivisual.baceda4d"><strong data-i18n-html="aivisual.45e531e7">Over-perfection</strong> — clinical sharpness everywhere. <strong data-i18n-html="aivisual.9b8af629">Lighting
+                            inconsistency</strong> — conflicting sources, sourceless ambient light. <strong data-i18n-html="aivisual.22396907">Texture
                             homogeneity</strong> — same detail level everywhere vs real focal hierarchies.
-                        <strong>Compositional safety</strong> — centered, balanced, "correct." <strong>Emotional
+                        <strong data-i18n-html="aivisual.f8acc700">Compositional safety</strong> — centered, balanced, "correct." <strong data-i18n-html="aivisual.ac2d68de">Emotional
                             emptiness</strong> — rendered faces without genuine internal state. The fix: prompt for
                         imperfection, specify focal planes, use cinematic lighting terms, accept that the best AI images
                         look slightly "wrong" on purpose.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- B. PROMPT STRUCTURE -->
-        <section id="prompt-structure" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">B</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Image Prompt Structure</h2>
-                        <p class="text-xs" style="color: #71717a;">How you structure a prompt determines whether the AI
+<section class="max-w-4xl mx-auto px-6 py-8" id="prompt-structure">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">B</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.a8a55111" style="color: #fafafa;">AI Image Prompt Structure</h2>
+<p class="text-xs" data-i18n-html="aivisual.307d6edb" style="color: #71717a;">How you structure a prompt determines whether the AI
                             understands your intent.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Subject Hierarchy in Prompts</h3>
-                    <p>The subject mentioned first receives the most attention. <strong>Primary subject</strong> = what
-                        the image is about. <strong>Secondary</strong> = supporting elements. <strong>Context</strong> =
-                        background. <strong>Style modifiers</strong> = how it looks. "Cinematic dramatic lighting of a
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.bf614092">Subject Hierarchy in Prompts</h3>
+<p data-i18n-html="aivisual.4ce979c1">The subject mentioned first receives the most attention. <strong data-i18n-html="aivisual.29810b75">Primary subject</strong> = what
+                        the image is about. <strong data-i18n-html="aivisual.0c7d6cf1">Secondary</strong> = supporting elements. <strong data-i18n-html="aivisual.ad4e2064">Context</strong> =
+                        background. <strong data-i18n-html="aivisual.a08b261b">Style modifiers</strong> = how it looks. "Cinematic dramatic lighting of a
                         woman in rain" prioritizes "cinematic" over "woman." "A woman in rain, cinematic lighting"
-                        centers the person. Order isn't grammar — it's <em>attention allocation</em>.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Prompt Weighting & Negative Prompts</h3>
-                    <p><strong>Weighting</strong> (<code>::</code> syntax):
+                        centers the person. Order isn't grammar — it's <em data-i18n-html="aivisual.6a72def5">attention allocation</em>.</p>
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.06d0a186">Prompt Weighting &amp; Negative Prompts</h3>
+<p data-i18n-html="aivisual.c8cbbcff"><strong data-i18n-html="aivisual.a991e139">Weighting</strong> (<code>::</code> syntax):
                         <code>woman::1.5 rain::0.8 cinematic::1.2</code> gives precise control over hierarchy. Warning:
-                        extreme weights (above 2.0) cause artifacts.<br><strong>Negative prompts</strong> are as
+                        extreme weights (above 2.0) cause artifacts.<br/><strong data-i18n-html="aivisual.e05b8361">Negative prompts</strong> are as
                         important as positive. Strategic negatives: "oversaturated" prevents candy colors, "stock photo"
                         pushes past generic compositions, "symmetrical" encourages natural asymmetry, "perfect skin"
                         allows realistic texture. Build a library for your use case.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Style Anchoring vs Style Theft</h3>
-                    <p><strong>Style anchoring</strong> = describing aesthetic properties: "warm tones, soft focus,
-                        golden hour, slightly desaturated." You understand what creates a look. <strong>Style
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.d8abbaab">Style Anchoring vs Style Theft</h3>
+<p data-i18n-html="aivisual.dd5ae70a"><strong data-i18n-html="aivisual.a9a41f59">Style anchoring</strong> = describing aesthetic properties: "warm tones, soft focus,
+                        golden hour, slightly desaturated." You understand what creates a look. <strong data-i18n-html="aivisual.1d6c0d95">Style
                             theft</strong> = using an artist's name as shortcut: "in the style of [artist]." Anchoring
                         is skill — you describe the look in technical terms. Theft is lazy — you outsource your
                         aesthetic decisions. Learn to describe styles technically for more control and originality.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Prompt Minimalism</h3>
-                    <p>The counterintuitive truth: <strong>shorter prompts often produce better results</strong>. Fewer
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.2c9e8fd5">Prompt Minimalism</h3>
+<p data-i18n-html="aivisual.46e7e96e">The counterintuitive truth: <strong data-i18n-html="aivisual.69c598e6">shorter prompts often produce better results</strong>. Fewer
                         instructions = fewer conflicts. "Tired fisherman, dawn, documentary photography" gives creative
                         space while maintaining intent. A 200-word prompt leads to prompt collapse and confused outputs.
-                        Describe the <em>essence</em>, not the <em>inventory</em>. If you can say it in 10 words, don't
+                        Describe the <em data-i18n-html="aivisual.89c525ef">essence</em>, not the <em data-i18n-html="aivisual.7a1eabc3">inventory</em>. If you can say it in 10 words, don't
                         use 50.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- C. VISUAL CONTROL -->
-        <section id="visual-control" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(6,182,212,0.1); color: #06b6d4;">C</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Visual Control in AI</h2>
-                        <p class="text-xs" style="color: #71717a;">The filmmaker's vocabulary applied to AI generation.
+<section class="max-w-4xl mx-auto px-6 py-8" id="visual-control">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(6,182,212,0.1); color: #06b6d4;">C</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.dc112818" style="color: #fafafa;">Visual Control in AI</h2>
+<p class="text-xs" data-i18n-html="aivisual.01c528bd" style="color: #71717a;">The filmmaker's vocabulary applied to AI generation.
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Camera Angle & Lens Simulation</h3>
-                    <p>AI responds to camera terms: "low angle," "bird's eye view," "Dutch angle." But specificity wins:
-                        "camera at knee height looking slightly upward" > "low angle." Combine with lens: "wide angle
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.8a762567">Camera Angle &amp; Lens Simulation</h3>
+<p data-i18n-html="aivisual.5c140067">AI responds to camera terms: "low angle," "bird's eye view," "Dutch angle." But specificity wins:
+                        "camera at knee height looking slightly upward" &gt; "low angle." Combine with lens: "wide angle
                         low shot" = distortion + drama. "Telephoto high angle" = compression + surveillance. Specific
                         focal lengths affect output: "24mm" = wide + distorted depth. "85mm" = compressed portraits.
                         "135mm" = dreamy bokeh. Even specific lens names work: "anamorphic lens flare," "Helios 44-2
                         swirly bokeh."</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Depth of Field & Lighting Direction</h3>
-                    <p><strong>DOF:</strong> "f/1.4 aperture, creamy bokeh" > "blurry background." You can prompt rack
-                        focus: "focus on foreground hands, face slightly soft."<br><strong>Lighting:</strong> "Dramatic
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.d95886c6">Depth of Field &amp; Lighting Direction</h3>
+<p data-i18n-html="aivisual.78f980e6"><strong data-i18n-html="aivisual.71bb7d22">DOF:</strong> "f/1.4 aperture, creamy bokeh" &gt; "blurry background." You can prompt rack
+                        focus: "focus on foreground hands, face slightly soft."<br/><strong data-i18n-html="aivisual.ce9809db">Lighting:</strong> "Dramatic
                         lighting" is vague. "Single hard key light from camera left, 45° above, no fill, deep shadows on
-                        right side of face" is specific. AI responds to: <strong>direction</strong> (from
-                        left/behind/above), <strong>quality</strong> (hard/soft/diffused), <strong>temperature</strong>
-                        (warm tungsten/cool daylight), <strong>motivation</strong> (window light/neon/candlelight),
-                        <strong>style</strong> (Rembrandt/split/silhouette).</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Texture, Skin & Fabric Realism</h3>
-                    <p>AI defaults to "perfect" = fake. <strong>Skin:</strong> "visible pores, subtle skin texture,
-                        minor imperfections" instead of smooth AI skin. <strong>Fabric:</strong> "slight wrinkles,
-                        natural drape, visible weave" instead of CG cloth. <strong>Surfaces:</strong> "worn wood
+                        right side of face" is specific. AI responds to: <strong data-i18n-html="aivisual.ef72c37b">direction</strong> (from
+                        left/behind/above), <strong data-i18n-html="aivisual.d66636b2">quality</strong> (hard/soft/diffused), <strong data-i18n-html="aivisual.eef438f7">temperature</strong>
+                        (warm tungsten/cool daylight), <strong data-i18n-html="aivisual.8b20d363">motivation</strong> (window light/neon/candlelight),
+                        <strong data-i18n-html="aivisual.a1b01e73">style</strong> (Rembrandt/split/silhouette).</p>
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.f8ac6a95">Texture, Skin &amp; Fabric Realism</h3>
+<p data-i18n-html="aivisual.a735a646">AI defaults to "perfect" = fake. <strong data-i18n-html="aivisual.04a0d5d5">Skin:</strong> "visible pores, subtle skin texture,
+                        minor imperfections" instead of smooth AI skin. <strong data-i18n-html="aivisual.24a0bb4b">Fabric:</strong> "slight wrinkles,
+                        natural drape, visible weave" instead of CG cloth. <strong data-i18n-html="aivisual.171c28c7">Surfaces:</strong> "worn wood
                         texture, fingerprint smudges on glass, weather staining" instead of pristine materials.
                         Imperfection is realism. The human brain detects perfection as uncanny.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- D. CINEMATIC IMAGE LANGUAGE -->
-        <section id="cinematic-image" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(236,72,153,0.1); color: #ec4899;">D</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Cinematic Image Language</h2>
-                        <p class="text-xs" style="color: #71717a;">Making AI images feel like frames from a film, not
+<section class="max-w-4xl mx-auto px-6 py-8" id="cinematic-image">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(236,72,153,0.1); color: #ec4899;">D</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.76b4bb73" style="color: #fafafa;">Cinematic Image Language</h2>
+<p class="text-xs" data-i18n-html="aivisual.d511ff72" style="color: #71717a;">Making AI images feel like frames from a film, not
                             renders from a machine.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Environmental Storytelling</h3>
-                    <p>The environment tells a story before any character appears. "A kitchen with two cold cups of
-                        coffee and an unfinished letter" > "a kitchen." Every object is a clue. Every detail implies a
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.bbde399d">Environmental Storytelling</h3>
+<p data-i18n-html="aivisual.b407c49e">The environment tells a story before any character appears. "A kitchen with two cold cups of
+                        coffee and an unfinished letter" &gt; "a kitchen." Every object is a clue. Every detail implies a
                         before and after. Prompt for specificity that implies story: "dusty bookshelf with one book
                         removed, a circle of clean dust where it was."</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Implied Narrative & Mood Over Detail</h3>
-                    <p><strong>Implied narrative:</strong> Capture a <strong>moment between moments</strong> — "a woman
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.bc1bf4d4">Implied Narrative &amp; Mood Over Detail</h3>
+<p data-i18n-html="aivisual.914411ff"><strong data-i18n-html="aivisual.dca26386">Implied narrative:</strong> Capture a <strong data-i18n-html="aivisual.f5aa6818">moment between moments</strong> — "a woman
                         mid-step turning to look behind her," "an empty swing still moving," "a man holding an unopened
-                        letter." The image becomes a question, not an answer.<br><strong>Mood over detail:</strong>
+                        letter." The image becomes a question, not an answer.<br/><strong data-i18n-html="aivisual.5397aeb8">Mood over detail:</strong>
                         "Melancholy, quiet, early morning solitude" produces more resonant images than listing objects.
                         Mood activates entire clusters of visual concepts at once.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Silence, Asymmetry & Imperfect Framing</h3>
-                    <p><strong>Visual silence</strong> = negative space + stillness + restraint. "Empty room, single
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.a1d9175f">Silence, Asymmetry &amp; Imperfect Framing</h3>
+<p data-i18n-html="aivisual.0b48c8aa"><strong data-i18n-html="aivisual.76b1de15">Visual silence</strong> = negative space + stillness + restraint. "Empty room, single
                         shaft of light, dust particles." Most overprompted AI images are visually
-                        noisy.<br><strong>Asymmetry:</strong> "Subject in the left third, looking into empty space" >
-                        centered compositions. Asymmetry implies dynamism and reality.<br><strong>Imperfect
+                        noisy.<br/><strong data-i18n-html="aivisual.5a2799c8">Asymmetry:</strong> "Subject in the left third, looking into empty space" &gt;
+                        centered compositions. Asymmetry implies dynamism and reality.<br/><strong data-i18n-html="aivisual.3685f6e0">Imperfect
                             framing:</strong> "Slightly off-center, horizon tilted, subject partially out of frame."
                         Break AI's geometric perfection. Controlled imperfection separates cinematic from clinical.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- E. AI VIDEO MOTION -->
-        <section id="video-motion" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(234,88,12,0.1); color: #ea580c;">E</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Video: Motion Reality</h2>
-                        <p class="text-xs" style="color: #71717a;">Understanding why AI motion feels fake — and how to
+<section class="max-w-4xl mx-auto px-6 py-8" id="video-motion">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(234,88,12,0.1); color: #ea580c;">E</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.f0368b7d" style="color: #fafafa;">AI Video: Motion Reality</h2>
+<p class="text-xs" data-i18n-html="aivisual.7df28b50" style="color: #71717a;">Understanding why AI motion feels fake — and how to
                             fight it.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Temporal Consistency & Frame Coherence</h3>
-                    <p><strong>Temporal consistency</strong> = maintaining visual coherence across frames. AI objects
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.f188d216">Temporal Consistency &amp; Frame Coherence</h3>
+<p data-i18n-html="aivisual.9b5a28f7"><strong data-i18n-html="aivisual.f9b6c6b5">Temporal consistency</strong> = maintaining visual coherence across frames. AI objects
                         subtly shift shape/texture/color between frames, creating a "morphing" quality the eye reads as
-                        fake. This is the single biggest challenge in AI video.<br><strong>Frame coherence</strong> =
+                        fake. This is the single biggest challenge in AI video.<br/><strong data-i18n-html="aivisual.e938d938">Frame coherence</strong> =
                         each frame being internally consistent — objects with stable geometry, directional lighting,
                         logical spatial relationships. If individual frames don't make physical sense, motion between
                         them can't either.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Motion Continuity & Camera Motivation</h3>
-                    <p><strong>Continuity:</strong> Real movement is continuous — AI objects change direction
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.970e8c22">Motion Continuity &amp; Camera Motivation</h3>
+<p data-i18n-html="aivisual.2549ce11"><strong data-i18n-html="aivisual.7eabc375">Continuity:</strong> Real movement is continuous — AI objects change direction
                         mid-motion, vary speed randomly. Design prompts for simple, unidirectional movements: "camera
-                        slowly panning right across a landscape" > "camera orbits around a person while
-                        zooming."<br><strong>Motivation:</strong> AI cameras move without reason. In cinema, every
-                        movement has emotional motivation. "Camera slowly pushes in as tension builds" > "camera moves
+                        slowly panning right across a landscape" &gt; "camera orbits around a person while
+                        zooming."<br/><strong data-i18n-html="aivisual.9f88897e">Motivation:</strong> AI cameras move without reason. In cinema, every
+                        movement has emotional motivation. "Camera slowly pushes in as tension builds" &gt; "camera moves
                         forward."</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>AI Motion Artifacts</h3>
-                    <p><strong>Floating camera</strong> — weightless movement lacking real-camera physics.
-                        <strong>Morphing objects</strong> — shapes changing between frames. <strong>Cloth/hair
-                            swimming</strong> — movement without physical cause. <strong>Temporal flickering</strong> —
-                        textures pulsing between frames. AI motion feels fake because it lacks <strong>physical
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.08141429">AI Motion Artifacts</h3>
+<p data-i18n-html="aivisual.7c877bc5"><strong data-i18n-html="aivisual.08f35278">Floating camera</strong> — weightless movement lacking real-camera physics.
+                        <strong data-i18n-html="aivisual.bbb14604">Morphing objects</strong> — shapes changing between frames. <strong data-i18n-html="aivisual.5eded62b">Cloth/hair
+                            swimming</strong> — movement without physical cause. <strong data-i18n-html="aivisual.781114b5">Temporal flickering</strong> —
+                        textures pulsing between frames. AI motion feels fake because it lacks <strong data-i18n-html="aivisual.b84b1ade">physical
                             consequence</strong> — movement without inertia, friction, weight, reaction. Design scenes
                         where limitations become aesthetic choices.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- F. PROMPTING FOR MOTION -->
-        <section id="prompting-motion" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">F</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Prompting for Motion</h2>
-                        <p class="text-xs" style="color: #71717a;">Less motion, more intention = better AI video.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Locked Camera & Micro-Movement</h3>
-                    <p><strong>Static shots</strong> are far more reliable than moving camera. When AI doesn't generate
+<section class="max-w-4xl mx-auto px-6 py-8" id="prompting-motion">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">F</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.3f1642cb" style="color: #fafafa;">Prompting for Motion</h2>
+<p class="text-xs" data-i18n-html="aivisual.8dd77e9d" style="color: #71717a;">Less motion, more intention = better AI video.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.84f6fb23">Locked Camera &amp; Micro-Movement</h3>
+<p data-i18n-html="aivisual.e8dcf47d"><strong data-i18n-html="aivisual.408da814">Static shots</strong> are far more reliable than moving camera. When AI doesn't generate
                         camera motion, it can maintain temporal consistency. "Static shot of rain falling on a window,
-                        camera locked" > "dramatic sweeping shot through a rainy
-                        city."<br><strong>Micro-movements</strong> — a slight breath, blinking eyes, swaying curtains —
+                        camera locked" &gt; "dramatic sweeping shot through a rainy
+                        city."<br/><strong data-i18n-html="aivisual.61351c92">Micro-movements</strong> — a slight breath, blinking eyes, swaying curtains —
                         create life without artifacts. "Barely perceptible camera drift," "still portrait with only eyes
                         blinking." These feel more cinematic than dramatic action.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Intentional Stillness & Physical Realism</h3>
-                    <p><strong>Stillness</strong> is a deliberate choice, not absence. "A frozen landscape, only
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.0a68bb9d">Intentional Stillness &amp; Physical Realism</h3>
+<p data-i18n-html="aivisual.77a3a686"><strong data-i18n-html="aivisual.b4ffefe5">Stillness</strong> is a deliberate choice, not absence. "A frozen landscape, only
                         snowflakes drifting." Turns AI's limitation into aesthetic strength. Ozu, Tarkovsky, Dreyer
-                        built cinema on stillness.<br><strong>Physical inertia:</strong> "Heavy, labored movement,"
+                        built cinema on stillness.<br/><strong data-i18n-html="aivisual.3ebf504f">Physical inertia:</strong> "Heavy, labored movement,"
                         "natural human sway," "imperfect posture." Add "handheld camera movement," "documentary-style"
-                        to push toward physical honesty.<br><strong>Breathing motion:</strong> Chest rising, shoulder
+                        to push toward physical honesty.<br/><strong data-i18n-html="aivisual.5bf4e9a3">Breathing motion:</strong> Chest rising, shoulder
                         movement. Prompt: "visible breathing, gentle chest movement." Also applies to camera — "camera
                         breathing" separates cinematic handheld from robotic smoothness.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- G. CINEMATIC AI VIDEO -->
-        <section id="cinematic-video" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(16,185,129,0.1); color: #10b981;">G</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Cinematic AI Video</h2>
-                        <p class="text-xs" style="color: #71717a;">How to make AI video that feels like cinema, not tech
+<section class="max-w-4xl mx-auto px-6 py-8" id="cinematic-video">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(16,185,129,0.1); color: #10b981;">G</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.f5f5c409" style="color: #fafafa;">Cinematic AI Video</h2>
+<p class="text-xs" data-i18n-html="aivisual.4c34d622" style="color: #71717a;">How to make AI video that feels like cinema, not tech
                             demo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Single Emotional Beat & Internal Conflict</h3>
-                    <p>One scene, one emotion, one beat. "A man realizes he's been crying, wipes his face, looks up." AI
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.ce11d068">Single Emotional Beat &amp; Internal Conflict</h3>
+<p data-i18n-html="aivisual.8f5050f4">One scene, one emotion, one beat. "A man realizes he's been crying, wipes his face, looks up." AI
                         excels at sustaining mood for seconds — fails at transitioning between moods. Design clips as
-                        <strong>emotional snapshots</strong>, edit together traditionally.<br><strong>Internal
+                        <strong data-i18n-html="aivisual.0814532e">emotional snapshots</strong>, edit together traditionally.<br/><strong data-i18n-html="aivisual.1655a93d">Internal
                             conflict:</strong> Use environment/lighting/behavior as metaphor. "Walls subtly closing in"
                         (anxiety). "Warm sunlight becoming harsh" (painful truth). "Hand gripping cup, knuckles
-                        whitening" (suppressed emotion). Don't prompt "sad person" — prompt the <em>physical
+                        whitening" (suppressed emotion). Don't prompt "sad person" — prompt the <em data-i18n-html="aivisual.3882364e">physical
                             symptoms</em>.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Environmental Pressure, Minimalism & Non-Performance</h3>
-                    <p><strong>Environmental pressure:</strong> Use environment as antagonist — "rain intensifying,"
-                        "room darkening," "walls closing in."<br><strong>Slow cinema:</strong> Minimal action + patient
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.180173ed">Environmental Pressure, Minimalism &amp; Non-Performance</h3>
+<p data-i18n-html="aivisual.e4ea958c"><strong data-i18n-html="aivisual.c039204b">Environmental pressure:</strong> Use environment as antagonist — "rain intensifying,"
+                        "room darkening," "walls closing in."<br/><strong data-i18n-html="aivisual.4da278d9">Slow cinema:</strong> Minimal action + patient
                         contemplation. AI does this well. "Empty bench in a park, leaves falling slowly, late afternoon
-                        light fading" — plays to AI's strengths.<br><strong>Minimalist shots:</strong> One subject, one
+                        light fading" — plays to AI's strengths.<br/><strong data-i18n-html="aivisual.4eec6af1">Minimalist shots:</strong> One subject, one
                         light, one texture. "Single candle in darkness, flame barely
-                        flickering."<br><strong>Non-performative acting:</strong> "Natural, unguarded expression,"
+                        flickering."<br/><strong data-i18n-html="aivisual.1f6b7a2a">Non-performative acting:</strong> "Natural, unguarded expression,"
                         "caught off-guard, not posing," "looking away from camera." Documentary quality over theatrical
                         performance.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- H. KEYFRAMES -->
-        <section id="keyframes" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(99,102,241,0.1); color: #6366f1;">H</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Keyframes & Structure</h2>
-                        <p class="text-xs" style="color: #71717a;">Where professionals separate from amateurs.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Keyframe Prompting & Anchor Tokens</h3>
-                    <p><strong>Keyframe prompting:</strong> Different prompts at different timeline points. Keep
+<section class="max-w-4xl mx-auto px-6 py-8" id="keyframes">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(99,102,241,0.1); color: #6366f1;">H</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.35001e6b" style="color: #fafafa;">Keyframes &amp; Structure</h2>
+<p class="text-xs" data-i18n-html="aivisual.86be3dc6" style="color: #71717a;">Where professionals separate from amateurs.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.29533fd5">Keyframe Prompting &amp; Anchor Tokens</h3>
+<p data-i18n-html="aivisual.0a4c43bb"><strong data-i18n-html="aivisual.aeb00cb7">Keyframe prompting:</strong> Different prompts at different timeline points. Keep
                         keyframes conceptually connected. Frame 0: "calm ocean at dawn." Frame 48: "ocean becoming
-                        turbulent." Avoid dramatic concept jumps.<br><strong>Anchor tokens:</strong> Descriptive terms
+                        turbulent." Avoid dramatic concept jumps.<br/><strong data-i18n-html="aivisual.f4f0ef0b">Anchor tokens:</strong> Descriptive terms
                         that stay constant across all prompts. If your character wears "a dark green wool coat," use
                         those exact words every time. Change verbs and context, keep subject descriptions identical.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Visual Memory & Drift Control</h3>
-                    <p><strong>Visual memory</strong> must be imposed externally — AI has no memory between generations.
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.59bf7d64">Visual Memory &amp; Drift Control</h3>
+<p data-i18n-html="aivisual.4e1e13bb"><strong data-i18n-html="aivisual.1fef00b3">Visual memory</strong> must be imposed externally — AI has no memory between generations.
                         Use: consistent seeds, identical descriptions, reference images (img2img),
                         ControlNet/IP-Adapter. Shot-to-shot inconsistency is the #1 reason AI video projects
-                        fail.<br><strong>Drift control:</strong> Over extended sequences, visuals gradually "drift."
+                        fail.<br/><strong data-i18n-html="aivisual.3e768239">Drift control:</strong> Over extended sequences, visuals gradually "drift."
                         Control with fixed seeds, reference anchors, consistent post-processing (LUTs, color
                         correction). Accept some drift is inevitable — integrate it into your aesthetic.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- I. AI CHARACTERS -->
-        <section id="characters" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(244,63,94,0.1); color: #f43f5e;">I</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Characters & Humans</h2>
-                        <p class="text-xs" style="color: #71717a;">The uncanny valley is about understanding what makes
+<section class="max-w-4xl mx-auto px-6 py-8" id="characters">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(244,63,94,0.1); color: #f43f5e;">I</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.7ba6644e" style="color: #fafafa;">AI Characters &amp; Humans</h2>
+<p class="text-xs" data-i18n-html="aivisual.9711bcef" style="color: #71717a;">The uncanny valley is about understanding what makes
                             humans look human.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Consistency, Micro-Expressions & Eye Focus</h3>
-                    <p><strong>Consistency:</strong> Use IP-Adapter, detailed anchor tokens, curation. The brain is
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.edc6823b">Consistency, Micro-Expressions &amp; Eye Focus</h3>
+<p data-i18n-html="aivisual.aee7bc28"><strong data-i18n-html="aivisual.f04b6634">Consistency:</strong> Use IP-Adapter, detailed anchor tokens, curation. The brain is
                         extraordinarily sensitive — 5% face variation reads as "different
-                        person."<br><strong>Micro-expressions:</strong> Prompt for <strong>held expressions</strong>
-                        rather than transitions. "A face holding back tears" > "transitioning from happy to
-                        sad."<br><strong>Eye focus:</strong> AI eyes often fail subtly — different focus points, painted
+                        person."<br/><strong data-i18n-html="aivisual.33612091">Micro-expressions:</strong> Prompt for <strong data-i18n-html="aivisual.70894beb">held expressions</strong>
+                        rather than transitions. "A face holding back tears" &gt; "transitioning from happy to
+                        sad."<br/><strong data-i18n-html="aivisual.a66d5374">Eye focus:</strong> AI eyes often fail subtly — different focus points, painted
                         irises, inconsistent catchlights, the "dead eye" effect. Prompt: "natural eye moisture,"
                         "realistic catchlights," "eyes focused on a specific point."</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Mannequin Effect, Subtle Emotion & Asymmetry</h3>
-                    <p><strong>Mannequin effect:</strong> Plastic, posed, lifeless despite good rendering. Combat with:
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.cd887837">Mannequin Effect, Subtle Emotion &amp; Asymmetry</h3>
+<p data-i18n-html="aivisual.7ec6ada6"><strong data-i18n-html="aivisual.1bf6fd2e">Mannequin effect:</strong> Plastic, posed, lifeless despite good rendering. Combat with:
                         asymmetric features, natural skin texture, environmental context, candid positioning, imperfect
                         lighting. The person should look like they existed before the camera found
-                        them.<br><strong>Subtle emotion:</strong> Use compound descriptions: "quiet determination mixed
-                        with exhaustion" > "determined." Behavioral: "trying not to smile," "holding back
-                        tears."<br><strong>Asymmetry:</strong> Real faces have one eye higher, crooked smiles. Prompt:
+                        them.<br/><strong data-i18n-html="aivisual.5c706dc3">Subtle emotion:</strong> Use compound descriptions: "quiet determination mixed
+                        with exhaustion" &gt; "determined." Behavioral: "trying not to smile," "holding back
+                        tears."<br/><strong data-i18n-html="aivisual.5a2799c8">Asymmetry:</strong> Real faces have one eye higher, crooked smiles. Prompt:
                         "natural facial asymmetry," "candid with natural imperfection." Perfection is the enemy of
                         believability.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- J. AI CINEMATOGRAPHY -->
-        <section id="cinematography" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">J</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Cinematography Prompts</h2>
-                        <p class="text-xs" style="color: #71717a;">Where filmmaking education pays off in AI generation.
+<section class="max-w-4xl mx-auto px-6 py-8" id="cinematography">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(59,130,246,0.1); color: #3b82f6;">J</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.01ac288a" style="color: #fafafa;">AI Cinematography Prompts</h2>
+<p class="text-xs" data-i18n-html="aivisual.a1da19ab" style="color: #71717a;">Where filmmaking education pays off in AI generation.
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Natural & Practical Light</h3>
-                    <p><strong>Natural light:</strong> "Late afternoon sunlight from a west-facing window, warm golden
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.7053f027">Natural &amp; Practical Light</h3>
+<p data-i18n-html="aivisual.039b21b2"><strong data-i18n-html="aivisual.9f9d5fd5">Natural light:</strong> "Late afternoon sunlight from a west-facing window, warm golden
                         tones, long shadows." Avoid generic "natural lighting" — specify character of light. "Overcast
-                        diffused" ≠ "direct midday harsh."<br><strong>Practical lights:</strong> Visible light sources
+                        diffused" ≠ "direct midday harsh."<br/><strong data-i18n-html="aivisual.8867ad9d">Practical lights:</strong> Visible light sources
                         as primary illumination. "Lit only by desk lamp, warm pool, darkness surrounding." "Face
                         illuminated by phone screen in dark room." Gives the model a logical light source instead of
                         invisible omnidirectional default.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Backlight, Shadows & Imperfect Exposure</h3>
-                    <p><strong>Backlight:</strong> "Subject backlit by sunset, hair glowing, face in shadow."
-                        <strong>Rim light:</strong> "Subtle rim light on right shoulder and cheek, dark background."
-                        Both create cinematic separation AI understands well.<br><strong>Shadow storytelling:</strong>
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.ed35effd">Backlight, Shadows &amp; Imperfect Exposure</h3>
+<p data-i18n-html="aivisual.5154756d"><strong data-i18n-html="aivisual.f5b6647d">Backlight:</strong> "Subject backlit by sunset, hair glowing, face in shadow."
+                        <strong data-i18n-html="aivisual.43e3da62">Rim light:</strong> "Subtle rim light on right shoulder and cheek, dark background."
+                        Both create cinematic separation AI understands well.<br/><strong data-i18n-html="aivisual.0949dfba">Shadow storytelling:</strong>
                         "Half face in shadow" (duality). "Shadow of window bars across subject" (imprisonment). Specify
-                        contrast: "high contrast, deep blacks, no fill" for noir.<br><strong>Imperfect
+                        contrast: "high contrast, deep blacks, no fill" for noir.<br/><strong data-i18n-html="aivisual.214edf93">Imperfect
                             exposure:</strong> "Slightly overexposed highlights, blown-out window" — intentional DP
-                        decisions. <strong>Film grain:</strong> "ISO 3200 noise, subtle digital noise in shadows" — adds
+                        decisions. <strong data-i18n-html="aivisual.8ea2bf35">Film grain:</strong> "ISO 3200 noise, subtle digital noise in shadows" — adds
                         organic quality and smooths AI artifacts.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- K. AI STORYTELLING -->
-        <section id="storytelling" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">K</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">AI Storytelling</h2>
-                        <p class="text-xs" style="color: #71717a;">The most important section. Everything else is craft.
+<section class="max-w-4xl mx-auto px-6 py-8" id="storytelling">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">K</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.9cec51be" style="color: #fafafa;">AI Storytelling</h2>
+<p class="text-xs" data-i18n-html="aivisual.33e54637" style="color: #71717a;">The most important section. Everything else is craft.
                             This is meaning.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="concept-card fade-up">
-                    <h3>Visual Storytelling Without Dialogue</h3>
-                    <p>AI can't write dialogue, and that's a gift. It forces pure image thinking. Every scene must
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.df59bdde">Visual Storytelling Without Dialogue</h3>
+<p data-i18n-html="aivisual.b2c0e339">AI can't write dialogue, and that's a gift. It forces pure image thinking. Every scene must
                         communicate through behavior, environment, light, composition alone — the highest form of visual
                         storytelling, the same principles that make silent cinema powerful.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Presence vs Absence</h3>
-                    <p>What's missing is often more powerful. "An empty chair with a still-warm cup of coffee" = recent
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.eecafae6">Presence vs Absence</h3>
+<p data-i18n-html="aivisual.3b613da2">What's missing is often more powerful. "An empty chair with a still-warm cup of coffee" = recent
                         departure. "A child's room, perfectly preserved, untouched" = loss. Prompt for scenes defined by
                         what ISN'T there — the viewer fills the void with personal emotion.</p>
-                </div>
-                <div class="concept-card fade-up">
-                    <h3>Time Pressure, Memory & Symbolism</h3>
-                    <p><strong>Time pressure:</strong> "Hourglass with last grains," "clock at 11:59," "sunset
-                        disappearing." Inherent tension in a single frame.<br><strong>Space as antagonist:</strong>
+</div>
+<div class="concept-card fade-up">
+<h3 data-i18n-html="aivisual.24c8cafd">Time Pressure, Memory &amp; Symbolism</h3>
+<p data-i18n-html="aivisual.f53b6c28"><strong data-i18n-html="aivisual.527f85c1">Time pressure:</strong> "Hourglass with last grains," "clock at 11:59," "sunset
+                        disappearing." Inherent tension in a single frame.<br/><strong data-i18n-html="aivisual.c792d580">Space as antagonist:</strong>
                         "Vast empty desert," "claustrophobic room," "corridor narrowing into
-                        darkness."<br><strong>Memory vs reality:</strong> Memories = warmer, softer, golden. Reality =
+                        darkness."<br/><strong data-i18n-html="aivisual.076b9819">Memory vs reality:</strong> Memories = warmer, softer, golden. Reality =
                         sharper, cooler, unflattering. Cutting between registers creates living in two
-                        times.<br><strong>Repetition with variation:</strong> Same composition with subtle changes —
+                        times.<br/><strong data-i18n-html="aivisual.f6052879">Repetition with variation:</strong> Same composition with subtle changes —
                         same window at different times of day. The viewer notices what changed and asks
-                        why.<br><strong>Non-literal symbolism:</strong> "A tree with one branch broken among healthy
+                        why.<br/><strong data-i18n-html="aivisual.b5304e55">Non-literal symbolism:</strong> "A tree with one branch broken among healthy
                         trees" = isolation, damage. Images working on two levels — surface and subtext.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- L. WHAT TO AVOID -->
-        <section id="avoid" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(220,38,38,0.1); color: #dc2626;">L</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">What to Avoid</h2>
-                        <p class="text-xs" style="color: #71717a;">Knowing what NOT to do is as valuable as knowing what
+<section class="max-w-4xl mx-auto px-6 py-8" id="avoid">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(220,38,38,0.1); color: #dc2626;">L</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.c3a77f05" style="color: #fafafa;">What to Avoid</h2>
+<p class="text-xs" data-i18n-html="aivisual.a2a1b539" style="color: #71717a;">Knowing what NOT to do is as valuable as knowing what
                             to do.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-3">
-                <div class="avoid-card fade-up">
-                    <h3>Soulless Video</h3>
-                    <p>Generated without intention. Motion without purpose = pixels changing. Every AI clip should
-                        answer "what should the viewer feel?" <em>before</em> you write the prompt.</p>
-                </div>
-                <div class="avoid-card fade-up">
-                    <h3>Over-Stylization</h3>
-                    <p>"Ultra detailed, hyper realistic, volumetric lighting, cinematic, octane render, 8K, trending on
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="avoid-card fade-up">
+<h3 data-i18n-html="aivisual.498c93f9">Soulless Video</h3>
+<p data-i18n-html="aivisual.e8b09489">Generated without intention. Motion without purpose = pixels changing. Every AI clip should
+                        answer "what should the viewer feel?" <em data-i18n-html="aivisual.2f444175">before</em> you write the prompt.</p>
+</div>
+<div class="avoid-card fade-up">
+<h3 data-i18n-html="aivisual.34d4bf72">Over-Stylization</h3>
+<p data-i18n-html="aivisual.cd0f556e">"Ultra detailed, hyper realistic, volumetric lighting, cinematic, octane render, 8K, trending on
                         ArtStation" = technically impressive, emotionally empty. Before any style modifier, ask: "Does
                         this serve the emotional intent?" If not, remove it.</p>
-                </div>
-                <div class="avoid-card fade-up">
-                    <h3>Hyperrealism Fatigue</h3>
-                    <p>When everything is hyper-realistic, nothing feels real. "Too real" paradoxically feels fake.
+</div>
+<div class="avoid-card fade-up">
+<h3 data-i18n-html="aivisual.acd2f299">Hyperrealism Fatigue</h3>
+<p data-i18n-html="aivisual.8c63877e">When everything is hyper-realistic, nothing feels real. "Too real" paradoxically feels fake.
                         Effective AI images embrace stylization, grain, imperfection. The goal isn't "indistinguishable
                         from photograph" — it's "emotionally convincing."</p>
-                </div>
-                <div class="avoid-card fade-up">
-                    <h3>AI Clichés</h3>
-                    <p>Orange-teal color grade, dramatic lens flare, person in beam of light, epic golden hour
+</div>
+<div class="avoid-card fade-up">
+<h3 data-i18n-html="aivisual.2e0cca4d">AI Clichés</h3>
+<p data-i18n-html="aivisual.f3ce6931">Orange-teal color grade, dramatic lens flare, person in beam of light, epic golden hour
                         mountains, brooding character in rain. These are the stock photos of AI. Break free with
                         unfamiliar compositions, unusual lighting, human-scale moments.</p>
-                </div>
-                <div class="avoid-card fade-up">
-                    <h3>Unreal Camera & Overprompting</h3>
-                    <p><strong>Camera:</strong> Floating through walls, impossible orbits. Use physically possible
-                        camera work. More motion ≠ more cinematic.<br><strong>Overprompting:</strong> The #1 mistake.
-                        50-word inventory prompts force muddy compromises. <strong>Distill to essence.</strong> "A woman
+</div>
+<div class="avoid-card fade-up">
+<h3 data-i18n-html="aivisual.2f6efab0">Unreal Camera &amp; Overprompting</h3>
+<p data-i18n-html="aivisual.677cf568"><strong data-i18n-html="aivisual.367a7017">Camera:</strong> Floating through walls, impossible orbits. Use physically possible
+                        camera work. More motion ≠ more cinematic.<br/><strong data-i18n-html="aivisual.9187c8f4">Overprompting:</strong> The #1 mistake.
+                        50-word inventory prompts force muddy compromises. <strong data-i18n-html="aivisual.cffcb85b">Distill to essence.</strong> "A woman
                         alone with her coffee, morning light, contemplative." Your job is intent, not inventory.</p>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section>
 
-        <!-- VISUAL COMPARISON LAB -->
-        <section id="comparison-lab" class="max-w-4xl mx-auto px-6 py-8">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">⚡</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Visual Comparison Lab</h2>
-                        <p class="text-xs" style="color: #71717a;">Default vs constraint-based prompting. See why intent
+<section class="max-w-4xl mx-auto px-6 py-8" id="comparison-lab">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">⚡</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.54c70e6b" style="color: #fafafa;">Visual Comparison Lab</h2>
+<p class="text-xs" data-i18n-html="aivisual.002d0131" style="color: #71717a;">Default vs constraint-based prompting. See why intent
                             beats aesthetics.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 fade-up">
-                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 1: The Portrait</h3>
-                <div class="comparison-grid">
-                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
-                        <div class="prompt-box">"beautiful woman, cinematic lighting, dramatic, 8K, ultra detailed,
+</div>
+</div>
+</div>
+<div class="mt-8 fade-up">
+<h3 class="text-sm font-semibold mb-3" data-i18n-html="aivisual.362d0cd5" style="color: #d4d4d8;">Comparison 1: The Portrait</h3>
+<div class="comparison-grid">
+<div class="comp-bad"><span class="comp-label" data-i18n-html="aivisual.33f49450">❌ Default</span>
+<div class="prompt-box" data-i18n-html="aivisual.470b0e27">"beautiful woman, cinematic lighting, dramatic, 8K, ultra detailed,
                             hyper realistic, octane render, trending on ArtStation"</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: technically impressive, emotionally empty.
+<p class="text-xs" data-i18n-html="aivisual.f21d0ec9" style="color:#a1a1aa;">Result: technically impressive, emotionally empty.
                             Over-saturated, symmetrical, no story.</p>
-                    </div>
-                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
-                        <div class="prompt-box">"tired woman, 40s, looking past camera, not posing. Single desk lamp
+</div>
+<div class="comp-good"><span class="comp-label" data-i18n-html="aivisual.f13f1e28">✅ Constraint-Based</span>
+<div class="prompt-box" data-i18n-html="aivisual.4155e0fc">"tired woman, 40s, looking past camera, not posing. Single desk lamp
                             from camera left, harsh shadows. Visible pores, asymmetric expression. Holding back tears.
                             f/2.0, slight underexposure."</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: a human being in a specific moment. Emotion
+<p class="text-xs" data-i18n-html="aivisual.1edf7f1d" style="color:#a1a1aa;">Result: a human being in a specific moment. Emotion
                             from specificity, not adjectives.</p>
-                    </div>
-                </div>
-                <div class="annotation"><strong>Why it works:</strong> The first describes what it should LOOK LIKE. The
+</div>
+</div>
+<div class="annotation" data-i18n-html="aivisual.b997a08d"><strong data-i18n-html="aivisual.19fde75f">Why it works:</strong> The first describes what it should LOOK LIKE. The
                     second describes what it should FEEL LIKE through concrete physical details.</div>
-            </div>
-
-            <div class="mt-8 fade-up">
-                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 2: The Environment</h3>
-                <div class="comparison-grid">
-                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
-                        <div class="prompt-box">"abandoned hospital corridor, horror atmosphere, dramatic lighting,
+</div>
+<div class="mt-8 fade-up">
+<h3 class="text-sm font-semibold mb-3" data-i18n-html="aivisual.c6da64bb" style="color: #d4d4d8;">Comparison 2: The Environment</h3>
+<div class="comparison-grid">
+<div class="comp-bad"><span class="comp-label" data-i18n-html="aivisual.33f49450">❌ Default</span>
+<div class="prompt-box" data-i18n-html="aivisual.5e735c36">"abandoned hospital corridor, horror atmosphere, dramatic lighting,
                             foggy, eerie, dark, HDR, volumetric light, cinematic"</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: generic horror set. Green tint, fog machine
+<p class="text-xs" data-i18n-html="aivisual.ba7bc2d6" style="color:#a1a1aa;">Result: generic horror set. Green tint, fog machine
                             aesthetics, predictable.</p>
-                    </div>
-                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
-                        <div class="prompt-box">"long hospital corridor, daytime. Fluorescent lights ON — half working,
+</div>
+<div class="comp-good"><span class="comp-label" data-i18n-html="aivisual.f13f1e28">✅ Constraint-Based</span>
+<div class="prompt-box" data-i18n-html="aivisual.7222a172">"long hospital corridor, daytime. Fluorescent lights ON — half working,
                             half flickering. Clean floor but one wheelchair at the far end. No fog. No dramatic
                             lighting. Documentary photography."</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: genuinely unsettling. Horror from what SHOULD
+<p class="text-xs" data-i18n-html="aivisual.41155d94" style="color:#a1a1aa;">Result: genuinely unsettling. Horror from what SHOULD
                             be normal but isn't.</p>
-                    </div>
-                </div>
-                <div class="annotation"><strong>Why it works:</strong> Constraints are SUBTRACTIVE — no fog, no dramatic
+</div>
+</div>
+<div class="annotation" data-i18n-html="aivisual.da060e18"><strong data-i18n-html="aivisual.19fde75f">Why it works:</strong> Constraints are SUBTRACTIVE — no fog, no dramatic
                     lighting. Removing clichés forces something real and therefore more disturbing.</div>
-            </div>
-
-            <div class="mt-8 fade-up">
-                <h3 class="text-sm font-semibold mb-3" style="color: #d4d4d8;">Comparison 3: The AI Video Clip</h3>
-                <div class="comparison-grid">
-                    <div class="comp-bad"><span class="comp-label">❌ Default</span>
-                        <div class="prompt-box">"dramatic cinematic shot of a man walking through a burning city, epic
+</div>
+<div class="mt-8 fade-up">
+<h3 class="text-sm font-semibold mb-3" data-i18n-html="aivisual.69f8c699" style="color: #d4d4d8;">Comparison 3: The AI Video Clip</h3>
+<div class="comparison-grid">
+<div class="comp-bad"><span class="comp-label" data-i18n-html="aivisual.33f49450">❌ Default</span>
+<div class="prompt-box" data-i18n-html="aivisual.79933a20">"dramatic cinematic shot of a man walking through a burning city, epic
                             camera movement, slow motion, explosions, smoke, debris flying"</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: motion chaos. Man morphs. Fire looks like
+<p class="text-xs" data-i18n-html="aivisual.07360eff" style="color:#a1a1aa;">Result: motion chaos. Man morphs. Fire looks like
                             paint. Camera is floaty.</p>
-                    </div>
-                    <div class="comp-good"><span class="comp-label">✅ Constraint-Based</span>
-                        <div class="prompt-box">"static camera, locked tripod. A man sits on a bench. Far background:
+</div>
+<div class="comp-good"><span class="comp-label" data-i18n-html="aivisual.f13f1e28">✅ Constraint-Based</span>
+<div class="prompt-box" data-i18n-html="aivisual.782a3c11">"static camera, locked tripod. A man sits on a bench. Far background:
                             barely visible smoke rising. He doesn't look at it. Subtle wind on his collar. 4 seconds. No
                             camera movement."</div>
-                        <p class="text-xs" style="color:#a1a1aa;">Result: achievable, emotionally powerful. Static
+<p class="text-xs" data-i18n-html="aivisual.eb54e2df" style="color:#a1a1aa;">Result: achievable, emotionally powerful. Static
                             camera and refusal to look tells the story.</p>
-                    </div>
-                </div>
-                <div class="annotation"><strong>Why it works:</strong> Static camera, no complex motion, one subject —
+</div>
+</div>
+<div class="annotation" data-i18n-html="aivisual.4b530ca7"><strong data-i18n-html="aivisual.19fde75f">Why it works:</strong> Static camera, no complex motion, one subject —
                     plays to AI's strengths. Restraint creates meaning that spectacle destroys.</div>
-            </div>
-        </section>
+</div>
+</section>
 
-        <!-- WORKSHOP EXERCISES -->
-        <section id="exercises" class="max-w-4xl mx-auto px-6 py-8 pb-16">
-            <div class="fade-up">
-                <div class="section-header">
-                    <div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">✏️</div>
-                    <div>
-                        <h2 class="text-xl font-bold" style="color: #fafafa;">Workshop Exercises</h2>
-                        <p class="text-xs" style="color: #71717a;">Practice constraint-based thinking. Creative
+<section class="max-w-4xl mx-auto px-6 py-8 pb-16" id="exercises">
+<div class="fade-up">
+<div class="section-header">
+<div class="section-letter" style="background: rgba(245,158,11,0.1); color: #f59e0b;">✏️</div>
+<div>
+<h2 class="text-xl font-bold" data-i18n-html="aivisual.da1761e7" style="color: #fafafa;">Workshop Exercises</h2>
+<p class="text-xs" data-i18n-html="aivisual.2bb78620" style="color: #71717a;">Practice constraint-based thinking. Creative
                             recalibrations.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 space-y-4">
-                <div class="exercise-card fade-up">
-                    <span class="exercise-badge">Exercise</span>
-                    <h4>Distill to Intent</h4>
-                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;">Take this overloaded prompt and reduce it
-                        to <strong style="color:#fbbf24;">emotional intent only</strong> in 15 words or
-                        fewer:<br><br><em>"A 25-year-old woman with long dark hair wearing a vintage red dress standing
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div class="exercise-card fade-up">
+<span class="exercise-badge" data-i18n-html="aivisual.ef8fb97d">Exercise</span>
+<h4 data-i18n-html="aivisual.615ad97e">Distill to Intent</h4>
+<p class="text-sm leading-relaxed" data-i18n-html="aivisual.2b3ba9f6" style="color: #a1a1aa;">Take this overloaded prompt and reduce it
+                        to <strong data-i18n-html="aivisual.35a9606b" style="color:#fbbf24;">emotional intent only</strong> in 15 words or
+                        fewer:<br/><br/><em data-i18n-html="aivisual.a15bd91f">"A 25-year-old woman with long dark hair wearing a vintage red dress standing
                             in a European café at a window table with rain on the glass and warm interior lighting and
                             she looks pensive while holding a coffee cup and there's a bookshelf behind her, shot on
                             35mm film, cinematic, moody"</em></p>
-                    <button class="reveal-btn"
-                        onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
+<button class="reveal-btn" data-i18n-html="aivisual.fc76db18" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
                         Approach</button>
-                    <div class="exercise-reveal">
-                        <div class="exercise-reveal-content"><strong>Possible reductions:</strong><br>• "woman alone at
-                            a rainy window, warm light, lost in thought. 35mm."<br>• "solitary coffee. rain outside.
-                            she's not really here. documentary warmth."<br><br><strong>The principle:</strong> The
+<div class="exercise-reveal">
+<div class="exercise-reveal-content" data-i18n-html="aivisual.1dee08f7"><strong data-i18n-html="aivisual.28c6617b">Possible reductions:</strong><br/>• "woman alone at
+                            a rainy window, warm light, lost in thought. 35mm."<br/>• "solitary coffee. rain outside.
+                            she's not really here. documentary warmth."<br/><br/><strong data-i18n-html="aivisual.a58a6812">The principle:</strong> The
                             original is inventory. The reductions are intent.</div>
-                    </div>
-                </div>
-                <div class="exercise-card fade-up">
-                    <span class="exercise-badge">Exercise</span>
-                    <h4>Constraint Architecture: 3 Shots, No Movement</h4>
-                    <p class="text-sm leading-relaxed" style="color: #a1a1aa;">Design a 3-shot AI video sequence:
-                        <strong style="color:#fbbf24;">"someone letting go of anger"</strong><br>• Camera: static,
-                        locked tripod<br>• Motion: micro-movements only<br>• No facial close-ups (body/hands/environment
-                        only)<br>• One light source per shot</p>
-                    <button class="reveal-btn"
-                        onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
+</div>
+</div>
+<div class="exercise-card fade-up">
+<span class="exercise-badge" data-i18n-html="aivisual.ef8fb97d">Exercise</span>
+<h4 data-i18n-html="aivisual.b008d5a3">Constraint Architecture: 3 Shots, No Movement</h4>
+<p class="text-sm leading-relaxed" data-i18n-html="aivisual.4a02140d" style="color: #a1a1aa;">Design a 3-shot AI video sequence:
+                        <strong data-i18n-html="aivisual.7e699ccb" style="color:#fbbf24;">"someone letting go of anger"</strong><br/>• Camera: static,
+                        locked tripod<br/>• Motion: micro-movements only<br/>• No facial close-ups (body/hands/environment
+                        only)<br/>• One light source per shot</p>
+<button class="reveal-btn" data-i18n-html="aivisual.fc76db18" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='Show Approach'?'Hide':'Show Approach'">Show
                         Approach</button>
-                    <div class="exercise-reveal">
-                        <div class="exercise-reveal-content"><strong>Shot 1:</strong> "Hands gripping crumpled letter.
-                            Knuckles white. Overhead lamp. Static." — Holding anger.<br><strong>Shot 2:</strong> "Same
-                            hands relaxing. Fingers uncurl. Letter loosens. Same lamp." — The release.<br><strong>Shot
+<div class="exercise-reveal">
+<div class="exercise-reveal-content" data-i18n-html="aivisual.9659214f"><strong data-i18n-html="aivisual.c5284b5d">Shot 1:</strong> "Hands gripping crumpled letter.
+                            Knuckles white. Overhead lamp. Static." — Holding anger.<br/><strong data-i18n-html="aivisual.ae822fe1">Shot 2:</strong> "Same
+                            hands relaxing. Fingers uncurl. Letter loosens. Same lamp." — The release.<br/><strong data-i18n-html="aivisual.445c9f2f">Shot
                                 3:</strong> "Empty table. Letter left behind. Wind barely moving its edge. Daylight
                             replacing lamp." — After. Light source change (artificial → natural) signals the emotional
                             shift.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</div>
+</section>
 
-        <!-- Footer -->
-        <footer class="max-w-4xl mx-auto px-6 py-12" style="border-top: 1px solid #27272a;">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div class="flex gap-4 text-xs"><a href="mograph-keywords.html" class="hover:underline"
-                        style="color:#71717a;">← Motion Graphics KW</a><a href="index.html" class="hover:underline"
-                        style="color:#71717a;">Overview</a><a href="resources.html" class="hover:underline"
-                        style="color:#71717a;">Resources →</a></div>
-                <div class="text-xs" style="color: #3f3f46;">Visual Storytelling Framework · 2026</div>
-            </div>
-        </footer>
-    </div>
-
-    <script>
+<footer class="max-w-4xl mx-auto px-6 py-12" style="border-top: 1px solid #27272a;">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex gap-4 text-xs" data-i18n-html="aivisual.c79ae076"><a class="hover:underline" data-i18n-html="aivisual.868cd8fa" href="mograph-keywords.html" style="color:#71717a;">← Motion Graphics KW</a><a class="hover:underline" data-i18n-html="aivisual.3b878279" href="index.html" style="color:#71717a;">Overview</a><a class="hover:underline" data-i18n-html="aivisual.3d9bd5ca" href="resources.html" style="color:#71717a;">Resources →</a></div>
+<div class="text-xs" data-i18n-html="aivisual.3c5af944" style="color: #3f3f46;">Visual Storytelling Framework · 2026</div>
+</div>
+</footer>
+</div>
+<script>
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('active'); }
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.getElementById('sidebar').classList.remove('open'); document.querySelector('.sidebar-overlay').classList.remove('active'); } });
     </script>
-  <script type="module" src="global-lang.js"></script>
+<script src="global-lang.js" type="module"></script>
 </body>
-
 </html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Knowledge Book — Visual Storytelling Framework</title>
+  <meta name="description" content="Full expanded knowledge book PDF from the Visual Storytelling Framework site." />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #09090b;
+      color: #e4e4e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #27272a;
+      background: #0c0c0f;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fafafa;
+    }
+    header p {
+      margin: 0.15rem 0 0;
+      font-size: 0.72rem;
+      color: #71717a;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #3f3f46;
+      color: #e4e4e7;
+      background: #18181b;
+    }
+    a.btn-primary {
+      background: linear-gradient(135deg, rgba(245,158,11,.25), rgba(139,92,246,.2));
+      border-color: rgba(245,158,11,.4);
+      color: #fde68a;
+    }
+    a.btn:active { transform: scale(0.98); }
+    .frame-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    iframe, embed, object {
+      flex: 1;
+      width: 100%;
+      min-height: 70vh;
+      border: 0;
+      background: #111;
+    }
+    .mobile-help {
+      display: none;
+      padding: 1.25rem 1rem 2rem;
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    .mobile-help h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.5rem;
+      color: #fafafa;
+    }
+    .mobile-help p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #a1a1aa;
+      margin: 0 0 0.85rem;
+    }
+    .mobile-help ol {
+      margin: 0 0 1rem;
+      padding-left: 1.2rem;
+      color: #a1a1aa;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 768px) {
+      /* Many phones won't show PDF inside iframe reliably */
+      .frame-wrap iframe { display: none; }
+      .mobile-help { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>📕 Complete Knowledge Book</h1>
+      <p>Full website knowledge expanded · offline PDF</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="/knowledge/">← Site</a>
+      <a class="btn btn-primary" id="dl" href="/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf" download>
+        Download PDF
+      </a>
+      <a class="btn" href="/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf" target="_blank" rel="noopener">
+        Open PDF tab
+      </a>
+    </div>
+  </header>
+
+  <div class="frame-wrap">
+    <iframe
+      title="Visual Storytelling Complete Knowledge PDF"
+      src="/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf#view=FitH"
+    ></iframe>
+    <div class="mobile-help">
+      <h2>Open on phone</h2>
+      <p>
+        iPhone/Android browsers often block PDFs inside the page. Use one of these:
+      </p>
+      <ol>
+        <li>Tap <strong>Download PDF</strong> (saves to Files / Downloads).</li>
+        <li>Or tap <strong>Open PDF tab</strong> (opens the file directly).</li>
+      </ol>
+      <p>
+        Permanent link (bookmark this):
+      </p>
+      <p style="word-break:break-all;color:#fbbf24;font-size:0.8rem">
+        https://spacereact.github.io/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf
+      </p>
+      <div class="actions" style="margin-top:1rem">
+        <a class="btn btn-primary" href="/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf" download>Download PDF</a>
+        <a class="btn" href="/knowledge/docs/Visual_Storytelling_COMPLETE_EXPANDED.pdf" target="_blank" rel="noopener">Open PDF tab</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

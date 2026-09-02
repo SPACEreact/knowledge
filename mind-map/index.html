@@ -3,287 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06070a">
-  <meta name="description" content="A visual literacy and storytelling atlas for learning how images direct attention, emotion, space, time, and meaning.">
-  <title>Visual Literacy Atlas — Learn to See</title>
-  <link rel="stylesheet" href="atlas.css">
+  <meta name="theme-color" content="#160c0d">
+  <meta name="description" content="A visual storytelling knowledge atlas: story, design, cinematography, sound, editing, motion and visual literacy.">
+  <title>दृष्टि — Visual Storytelling Atlas</title>
+  <link rel="stylesheet" href="royal-pages.css">
 </head>
-<body class="atlas-body">
-  <a class="skip-link" href="#main-content">Skip to the atlas</a>
-  <div class="progress-line" aria-hidden="true"></div>
-  <div class="atmosphere" aria-hidden="true">
-    <div class="orb orb-a" data-parallax=".035"></div>
-    <div class="orb orb-b" data-parallax=".06"></div>
-  </div>
+<body>
+  <main class="rp-home" id="main-content">
+    <header class="rp-home-hero">
+      <div>
+        <p class="rp-kicker">दृष्टि · the cultivated eye</p>
+        <h1>Visual storytelling,<br><em>as one connected craft.</em></h1>
+      </div>
+      <p class="rp-lede">Story answers <strong>why</strong>. Style answers <strong>how it feels</strong>. Every visual decision begins with attention and ends as emotion.</p>
+    </header>
 
-  <div class="app-shell">
-    <aside class="site-rail" aria-label="Atlas navigation">
-      <a class="brand" href="index.html" aria-label="Visual Literacy Atlas home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-copy">
-          <strong>Visual Literacy</strong>
-          <span>A course in seeing</span>
-        </span>
+    <section class="rp-pair" aria-label="The two atlases">
+      <a class="rp-arch-card rp-feature" href="visual-literacy.html">
+        <span class="rp-number">01 · foundation</span>
+        <span class="rp-arrow">↗</span>
+        <h2>Visual Literacy</h2>
+        <p>Perception, colour, composition, light, camera, editing, mise-en-scène, symbolism and intuition.</p>
+        <span class="rp-line">Learn to see what an image is doing.</span>
       </a>
+      <a class="rp-arch-card rp-feature rp-companion" href="https://spacereact.github.io/atlas-of-looks/">
+        <span class="rp-number">02 · lineage</span>
+        <span class="rp-arrow">↗</span>
+        <h2>Atlas of Looks</h2>
+        <p>A visual history of how makers have shaped the world—from ochre walls to latent worlds.</p>
+        <span class="rp-line">Follow the evolution of the look.</span>
+      </a>
+    </section>
 
-      <p class="rail-label">Begin</p>
-      <nav class="rail-nav">
-        <a class="rail-link active" href="index.html"><span class="rail-index">00</span>Overview</a>
-        <a class="rail-link" href="visual-literacy.html"><span class="rail-index">01</span>Visual Literacy Atlas</a>
-        <a class="rail-link" href="start-here.html"><span class="rail-index">02</span>Start Here</a>
-        <a class="rail-link" href="skill-tree.html"><span class="rail-index">03</span>Skill Tree</a>
-      </nav>
+    <section class="rp-domain-grid" aria-label="Core knowledge domains">
+      <a href="storytelling.html"><span>01</span><h3>Storytelling</h3><p>Meaning, character, conflict, transformation.</p></a>
+      <a href="design.html"><span>02</span><h3>Design</h3><p>Hierarchy, colour, typography, composition.</p></a>
+      <a href="cinematography.html"><span>03</span><h3>Cinematography</h3><p>Light, lens, perspective, physical reality.</p></a>
+      <a href="sound.html"><span>04</span><h3>Sound</h3><p>Space, rhythm, texture, the unseen frame.</p></a>
+      <a href="editing.html"><span>05</span><h3>Editing</h3><p>Time, attention, collision, continuity.</p></a>
+      <a href="motion.html"><span>06</span><h3>Motion</h3><p>Movement, energy, anticipation, life.</p></a>
+    </section>
 
-      <p class="rail-label">Core domains</p>
-      <nav class="rail-nav">
-        <a class="rail-link" href="storytelling.html"><span class="rail-index">04</span>Storytelling</a>
-        <a class="rail-link" href="design.html"><span class="rail-index">05</span>Design</a>
-        <a class="rail-link" href="cinematography.html"><span class="rail-index">06</span>Cinematography</a>
-        <a class="rail-link" href="sound.html"><span class="rail-index">07</span>Sound</a>
-        <a class="rail-link" href="editing.html"><span class="rail-index">08</span>Editing</a>
-        <a class="rail-link" href="motion.html"><span class="rail-index">09</span>Motion</a>
-      </nav>
-
-      <p class="rail-label">Advanced</p>
-      <nav class="rail-nav">
-        <a class="rail-link" href="emotion-grammar.html"><span class="rail-index">10</span>Emotion Grammar</a>
-        <a class="rail-link" href="scene-grammar.html"><span class="rail-index">11</span>Scene Grammar</a>
-        <a class="rail-link" href="ai-visual.html"><span class="rail-index">12</span>AI Visuals</a>
-        <a class="rail-link" href="book.html"><span class="rail-index">13</span>Knowledge Book</a>
-      </nav>
-
-      <div class="rail-foot">
-        <p>From knowledge to instinct. Learn the variable, feel its effect, then stop needing the name.</p>
-        <div class="rail-progress" aria-label="Atlas coverage"><span></span></div>
-      </div>
-    </aside>
-
-    <main class="site-main" id="main-content">
-      <div class="mobile-bar">
-        <strong>Visual Literacy Atlas</strong>
-        <button class="mobile-nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Open navigation">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <header class="hero">
-        <div class="page-wrap hero-grid">
-          <div class="reveal">
-            <p class="eyebrow">The visual literacy atlas</p>
-            <h1>Learn to see what an image is <em>doing</em> to you.</h1>
-            <p class="hero-copy">
-              Not a library of rules. A training system for turning visual knowledge into instinct.
-              <strong>Compare. Isolate. Manipulate. Apply. Break.</strong>
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="visual-literacy.html">
-                Enter the visual lab
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a class="button" href="start-here.html">Choose a learning path</a>
-            </div>
-            <div class="hero-note">
-              <b>12</b>
-              <span>acts from perception and colour to blocking, symbolism, and artistic intuition.</span>
-              <b>7</b>
-              <span>levels from feeling a principle to inventing with it unconsciously.</span>
-            </div>
-          </div>
-
-          <div class="perception-stage reveal" id="attention-stage">
-            <div class="stage-head">
-              <span>Two-second test</span>
-              <span class="stage-status">live perception</span>
-            </div>
-            <div class="attention-field" aria-label="Abstract visual attention experiment">
-              <span class="attention-plane plane-one"></span>
-              <span class="attention-plane plane-two"></span>
-              <span class="attention-plane plane-three"></span>
-              <span class="attention-figure"></span>
-              <span class="attention-target"></span>
-              <span class="focus-ring"></span>
-            </div>
-            <div class="stage-foot">
-              <div class="stage-copy">
-                <strong>Where did your eye land first?</strong>
-                Notice before you explain.
-              </div>
-              <button class="text-button" type="button" data-reveal-target="#attention-stage" aria-pressed="false">Reveal the eye path</button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section class="section section-line">
-        <div class="page-wrap">
-          <div class="section-head reveal">
-            <div>
-              <p class="eyebrow">How the atlas teaches</p>
-              <h2>A rule discovered stays with you.</h2>
-            </div>
-            <p>Every principle follows the same arc. Experience comes first; terminology arrives only after your eye has felt the difference.</p>
-          </div>
-
-          <div class="method-strip reveal" aria-label="Seven-step learning method">
-            <article class="method-step" style="--step-color:var(--blue)">
-              <span>01</span><h3>See</h3><p>Compare before explanation.</p>
-            </article>
-            <article class="method-step" style="--step-color:#8da5ff">
-              <span>02</span><h3>Isolate</h3><p>Remove every other variable.</p>
-            </article>
-            <article class="method-step" style="--step-color:var(--violet)">
-              <span>03</span><h3>Name</h3><p>Give the effect a word.</p>
-            </article>
-            <article class="method-step" style="--step-color:#c786de">
-              <span>04</span><h3>Manipulate</h3><p>Push until the feeling scales.</p>
-            </article>
-            <article class="method-step" style="--step-color:var(--coral)">
-              <span>05</span><h3>Trace</h3><p>Follow it across eras and forms.</p>
-            </article>
-            <article class="method-step" style="--step-color:var(--mint)">
-              <span>06</span><h3>Apply</h3><p>Use it inside a real sequence.</p>
-            </article>
-            <article class="method-step" style="--step-color:#83d3e6">
-              <span>07</span><h3>Break</h3><p>Know when violation is stronger.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="page-wrap">
-          <div class="section-head reveal">
-            <div>
-              <p class="eyebrow">One connected system</p>
-              <h2>Story is why. Craft is how it feels.</h2>
-            </div>
-            <p>Move in order. Later domains borrow authority from earlier ones; technique becomes powerful only when it serves an emotional decision.</p>
-          </div>
-
-          <div class="domain-grid">
-            <a class="domain-card wide reveal" href="storytelling.html" style="--accent:var(--coral)">
-              <span class="card-number">01 / FOUNDATION</span>
-              <span class="card-arrow">↗</span>
-              <h3>Storytelling</h3>
-              <p>Character, conflict, transformation, pressure, and the emotional reason every visual decision exists.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-            <a class="domain-card reveal" href="design.html" style="--accent:var(--violet)">
-              <span class="card-number">02 / FORM</span>
-              <span class="card-arrow">↗</span>
-              <h3>Design</h3>
-              <p>Composition, colour, hierarchy, shape, space, material, and visual systems.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-            <a class="domain-card reveal" href="cinematography.html" style="--accent:var(--blue)">
-              <span class="card-number">03 / PERSPECTIVE</span>
-              <span class="card-arrow">↗</span>
-              <h3>Cinematography</h3>
-              <p>Lens, light, camera height, movement, depth, and psychological point of view.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-            <a class="domain-card reveal" href="sound.html" style="--accent:var(--mint)">
-              <span class="card-number">04 / PRESENCE</span>
-              <span class="card-arrow">↗</span>
-              <h3>Sound</h3>
-              <p>Space, texture, silence, rhythm, expectation, and what exists beyond the frame.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-            <a class="domain-card reveal" href="editing.html" style="--accent:#83d3e6">
-              <span class="card-number">05 / TIME</span>
-              <span class="card-arrow">↗</span>
-              <h3>Editing</h3>
-              <p>Attention across duration: cuts, withholding, pulse, collision, and emotional continuity.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-            <a class="domain-card wide reveal" href="emotion-grammar.html" style="--accent:#c786de">
-              <span class="card-number">06 / SYNTHESIS</span>
-              <span class="card-arrow">↗</span>
-              <h3>Emotion Grammar</h3>
-              <p>Bring space, light, lens, movement, editing, sound, and texture together around the emotion you are engineering.</p>
-              <span class="card-signal" aria-hidden="true"></span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-line">
-        <div class="page-wrap">
-          <div class="practice-band reveal">
-            <div class="practice-visual" data-parallax=".025">
-              <span class="memory-mark" aria-hidden="true"></span>
-            </div>
-            <div class="practice-copy">
-              <p class="eyebrow">Five-minute practice</p>
-              <h3>Two-second recall.</h3>
-              <p>Look at any frame for two seconds. Hide it. Answer from memory—not analysis.</p>
-              <ol class="practice-prompt">
-                <li><span>01</span>Where did my eye land first, and why?</li>
-                <li><span>02</span>What was the composition’s structural shape?</li>
-                <li><span>03</span>What colour temperature dominated?</li>
-                <li><span>04</span>What single emotion remained?</li>
-              </ol>
-              <a class="button" href="visual-literacy.html#practice">Open all practices</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="page-wrap">
-          <div class="section-head reveal">
-            <div>
-              <p class="eyebrow">Enter at your level</p>
-              <h2>Different route. Same destination.</h2>
-            </div>
-            <p>The destination is not more vocabulary. It is faster, cleaner judgment under pressure.</p>
-          </div>
-          <div class="paths reveal">
-            <article class="path" style="--accent:var(--mint)">
-              <span>New to craft</span>
-              <h3>Build the eye</h3>
-              <ol>
-                <li>01 · <a href="visual-literacy.html">Visual Literacy Atlas</a></li>
-                <li>02 · <a href="storytelling.html">Storytelling foundation</a></li>
-                <li>03 · <a href="design.html">Design fundamentals</a></li>
-                <li>04 · <a href="cinematography.html">Camera and light</a></li>
-              </ol>
-            </article>
-            <article class="path" style="--accent:var(--blue)">
-              <span>Working filmmaker</span>
-              <h3>Control the grammar</h3>
-              <ol>
-                <li>01 · <a href="emotion-grammar.html">Emotion Grammar</a></li>
-                <li>02 · <a href="scene-grammar.html">Scene Grammar</a></li>
-                <li>03 · <a href="editing.html">Editing deep dive</a></li>
-                <li>04 · <a href="audience-participation.html">Audience Participation</a></li>
-              </ol>
-            </article>
-            <article class="path" style="--accent:var(--violet)">
-              <span>AI image-maker</span>
-              <h3>Direct, don’t decorate</h3>
-              <ol>
-                <li>01 · <a href="storytelling.html">Start with intent</a></li>
-                <li>02 · <a href="cinematography.html">Build camera literacy</a></li>
-                <li>03 · <a href="ai-visual.html">Translate into AI control</a></li>
-                <li>04 · <a href="ideation.html">Use creative constraints</a></li>
-              </ol>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <div class="page-wrap footer-grid">
-          <div><strong>Visual Literacy Atlas</strong>Built for perception, not accumulation.</div>
-          <div>History → perception → principle → emotion → application → experiment → intuition.</div>
-        </div>
-      </footer>
-    </main>
-  </div>
-
-  <script src="atlas.js" type="module"></script>
+    <nav class="rp-index-links" aria-label="Explore the systems">
+      <a href="emotion-grammar.html">Emotion Grammar</a>
+      <a href="scene-grammar.html">Scene Grammar</a>
+      <a href="story-emotion.html">Story × Emotion</a>
+      <a href="human-layers.html">Human Layers</a>
+      <a href="ai-visual.html">AI Visual</a>
+      <a href="skill-tree.html">Skill Tree</a>
+    </nav>
+  </main>
 </body>
 </html>

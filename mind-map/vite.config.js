@@ -12,10 +12,25 @@ function goatCounterAnalytics() {
   };
 }
 
+// One shell for every entry point. Individual knowledge pages keep their
+// content, while navigation, type, colour, language and responsive behavior
+// are maintained from one source.
+function unifiedAtlasShell() {
+  return {
+    name: 'unified-atlas-shell',
+    transformIndexHtml: {
+      order: 'pre',
+      handler() {
+        return [{ tag: 'script', attrs: { type: 'module', src: '/unified-shell.js' }, injectTo: 'body' }];
+      }
+    }
+  };
+}
+
 export default defineConfig({
   base: '/knowledge/',
   root: '.',
-  plugins: [goatCounterAnalytics()],
+  plugins: [unifiedAtlasShell(), goatCounterAnalytics()],
   publicDir: 'public',
   build: {
     outDir: 'dist',

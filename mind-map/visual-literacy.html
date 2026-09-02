@@ -3,242 +3,113 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06070a">
-  <meta name="description" content="Interactive visual literacy experiments, twelve acts of study, a seven-level mastery ladder, and daily perceptual practice.">
-  <title>The Visual Literacy Atlas — Interactive Course</title>
-  <link rel="stylesheet" href="atlas.css">
+  <meta name="theme-color" content="#160c0d">
+  <meta name="description" content="A static visual atlas of perception, colour, composition, light, camera, editing, mise-en-scène, symbolism and intuition.">
+  <title>The Visual Literacy Atlas</title>
+  <link rel="stylesheet" href="royal-pages.css">
 </head>
-<body class="atlas-body">
-  <a class="skip-link" href="#course">Skip to the course</a>
-  <div class="progress-line" aria-hidden="true"></div>
-  <div class="atmosphere" aria-hidden="true">
-    <div class="orb orb-a" data-parallax=".03"></div>
-    <div class="orb orb-b" data-parallax=".055"></div>
-  </div>
+<body>
+  <main class="rp-atlas" id="main-content">
+    <header class="rp-atlas-hero">
+      <div><p class="rp-kicker">दृश्य साक्षरता · visual literacy</p><h1>The eye feels it<br><em>before language names it.</em></h1></div>
+      <div class="rp-intro"><p>Before studying art, study the eye and brain receiving it. Composition, colour, camera and cuts work because they pass through a perceptual machine.</p><p>The goal is internalization: feel that an image is wrong, locate the variable, know what to change.</p></div>
+      <div class="rp-chain" aria-label="Learning sequence"><span>History</span><i></i><span>Perception</span><i></i><span>Principle</span><i></i><span>Emotion</span><i></i><span>Application</span><i></i><span>Experiment</span><i></i><span>Intuition</span></div>
+    </header>
 
-  <header class="atlas-topbar">
-    <div class="page-wrap atlas-topbar-inner">
-      <a class="atlas-back" href="index.html">
-        <span aria-hidden="true">←</span>
-        Visual Literacy Atlas
-      </a>
-      <nav class="atlas-chapters" aria-label="Course sections">
-        <a href="#experiments">Experiments</a>
-        <a href="#acts">Twelve Acts</a>
-        <a href="#mastery">Mastery</a>
-        <a href="#practice">Practice</a>
-      </nav>
-    </div>
-  </header>
+    <section class="rp-method">
+      <p class="rp-section-label">Method · seven passes</p>
+      <div class="rp-seven">
+        <article><b>01</b><h3>See</h3><p>Compare before explanation.</p></article><article><b>02</b><h3>Isolate</h3><p>Remove every other variable.</p></article><article><b>03</b><h3>Name</h3><p>Give the effect a word.</p></article><article><b>04</b><h3>Manipulate</h3><p>Push until the feeling scales.</p></article><article><b>05</b><h3>Trace</h3><p>Follow it through eras and forms.</p></article><article><b>06</b><h3>Apply</h3><p>Use it inside a sequence.</p></article><article><b>07</b><h3>Break</h3><p>Violate it with intention.</p></article>
+      </div>
+    </section>
 
-  <main id="course">
-    <section class="atlas-hero">
-      <div class="page-wrap atlas-hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">A course in seeing</p>
-          <h1>The visual<br><em>literacy</em> atlas.</h1>
-        </div>
-        <div class="atlas-intro reveal">
-          <p><strong>Before studying art, study the eye and brain receiving it.</strong> Every compositional trick, colour harmony, camera angle, and cut works through a perceptual mechanism.</p>
-          <p>The objective is perceptual internalization: to feel that an image is wrong, locate the variable, and know what to change.</p>
-          <div class="atlas-sequence" aria-label="Learning sequence">
-            <span>History</span><span>Perception</span><span>Principle</span><span>Emotion</span><span>Application</span><span>Experiment</span><span>Intuition</span>
-          </div>
+    <section class="rp-act" id="seeing">
+      <header><span>I</span><div><p>The machinery of seeing</p><h2>Attention is selected, not received.</h2></div></header>
+      <div class="rp-two">
+        <div class="rp-static-figure rp-salience" aria-label="Static diagram showing an isolated contrasting dot among repeated shapes"><i></i><i></i><i></i><i></i><b></b></div>
+        <div class="rp-copy-grid">
+          <article><h3>The perceptual machine</h3><p>The eye samples. The brain predicts, groups and fills gaps. Seeing is an active construction shaped by memory and expectation.</p></article>
+          <article><h3>Four salience drivers</h3><p><strong>Contrast</strong> differs from its field. <strong>Isolation</strong> breaks a group. <strong>Motion</strong> announces change. <strong>Expectation</strong> makes surprise visible.</p></article>
+          <article><h3>Gestalt grouping</h3><p>Proximity · similarity · closure · continuation · figure/ground · common fate. The mind prefers the simplest stable organization.</p></article>
+          <article><h3>Depth without depth</h3><p>Occlusion · relative size · atmospheric perspective · convergence · height in frame · focus. Flat marks become space.</p></article>
+          <article><h3>Processing fluency</h3><p>Clarity is processed faster and often feels more truthful. Difficulty can create attention—but only when the friction is meaningful.</p></article>
+          <article><h3>Two-second recall</h3><p>Look briefly, hide the image, then name: first eye landing, structural shape, dominant temperature and remaining emotion.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="atlas-section" id="experiments">
-      <div class="page-wrap">
-        <div class="atlas-section-lead reveal">
-          <div>
-            <p class="eyebrow">See before naming</p>
-            <h2>Three variables.<br>Three felt differences.</h2>
-          </div>
-          <p>Use the controls. The explanation matters less than the moment your perception changes.</p>
-        </div>
-
-        <div class="experiment-grid">
-          <article class="experiment full reveal">
-            <div class="experiment-head">
-              <div><span>01 · Attention</span><h3>Where does your eye go first?</h3></div>
-              <p>Contrast and isolation can outweigh sheer size.</p>
-            </div>
-            <div class="salience-demo" id="salience-demo" aria-label="Salience experiment">
-              <span class="shape"></span>
-              <span class="shape"></span>
-              <span class="shape"></span>
-              <span class="salience-point"></span>
-              <span class="salience-map"></span>
-            </div>
-            <div class="experiment-actions">
-              <button class="text-button" type="button" data-reveal-target="#salience-demo" aria-pressed="false">Reveal the eye path</button>
-            </div>
-          </article>
-
-          <article class="experiment reveal">
-            <div class="experiment-head">
-              <div><span>02 · Colour</span><h3>The same grey, twice.</h3></div>
-              <p>The chips are identical. Context makes them feel different.</p>
-            </div>
-            <div class="grey-demo" id="grey-demo" aria-label="Simultaneous colour contrast experiment">
-              <div class="grey-panel"><span class="grey-chip"></span></div>
-              <div class="grey-panel light"><span class="grey-chip"></span></div>
-            </div>
-            <div class="experiment-actions">
-              <button class="text-button" type="button" data-isolate-target="#grey-demo" aria-pressed="false">Remove the context</button>
-            </div>
-          </article>
-
-          <article class="experiment reveal">
-            <div class="experiment-head">
-              <div><span>03 · Composition</span><h3>Space is an emotional dial.</h3></div>
-              <p>Move the figure. Feel balance turn into edge tension.</p>
-            </div>
-            <div class="negative-demo" data-negative-demo aria-label="Negative-space composition experiment">
-              <span class="negative-figure"></span>
-            </div>
-            <label class="range-row">
-              <span>edge</span>
-              <input type="range" min="10" max="90" value="50" data-negative-range aria-label="Move figure through the frame">
-              <span>edge</span>
-              <strong data-negative-label>balanced</strong>
-            </label>
-          </article>
-        </div>
+    <section class="rp-act" id="colour">
+      <header><span>II</span><div><p>Colour</p><h2>A wavelength enters. A relationship is felt.</h2></div></header>
+      <div class="rp-colour-row" aria-label="Static colour studies">
+        <figure class="rp-grey"><div><i></i></div><div><i></i></div><figcaption>Identical grey. Different surroundings. Perceived brightness changes.</figcaption></figure>
+        <figure class="rp-harmony"><i></i><i></i><i></i><i></i><i></i><i></i><figcaption>Monochromatic · analogous · complementary · split complementary · triadic · tetradic.</figcaption></figure>
+        <figure class="rp-saturation"><i></i><i></i><i></i><i></i><i></i><figcaption>Saturation is intensity, not quality. Restraint gives a vivid accent authority.</figcaption></figure>
+      </div>
+      <div class="rp-copy-grid thirds">
+        <article><h3>Physical / perceptual</h3><p>Hue comes from wavelength; colour experience comes from adaptation, illumination and neighboring colour.</p></article><article><h3>Association / culture</h3><p>Colour carries learned meaning, but no universal dictionary. Red may signal love, danger, fertility, power or mourning depending on context.</p></article><article><h3>Pigment history</h3><p>Ochre, indigo, madder, lapis, vermilion and synthetic dyes changed what cultures could picture—and what power could afford.</p></article><article><h3>Breaking “bad colour”</h3><p>Clashing colour works when hierarchy, proportion and purpose are controlled. Discord can be the story.</p></article><article><h3>Read the whole field</h3><p>Ask what dominates, what recedes, what repeats, and which accent alters the emotional temperature.</p></article><article><h3>Colour is relational</h3><p>Never judge a swatch alone. Change background, scale, material and light before deciding what it means.</p></article>
       </div>
     </section>
 
-    <section class="atlas-section" id="acts">
-      <div class="page-wrap">
-        <div class="atlas-section-lead reveal">
-          <div>
-            <p class="eyebrow">The complete map</p>
-            <h2>Twelve acts.<br>One perceptual system.</h2>
-          </div>
-          <p>Study sequentially for foundations, or enter through the visual problem currently resisting you.</p>
-        </div>
-
-        <div class="acts-grid reveal">
-          <article class="act" style="--act:var(--blue)">
-            <span>I</span><h3>The Machinery of Seeing</h3><p>Attention, prediction, Gestalt grouping, depth cues, figure and ground, processing fluency.</p>
-          </article>
-          <article class="act" style="--act:#8da5ff">
-            <span>II</span><h3>Colour</h3><p>Physics and perception, harmony, simultaneous contrast, culture, pigment history, saturation.</p>
-          </article>
-          <article class="act" style="--act:var(--violet)">
-            <span>III</span><h3>Composition</h3><p>Visual weight, structural skeletons, negative space, leading lines, balance and deliberate imbalance.</p>
-          </article>
-          <article class="act" style="--act:#c786de">
-            <span>IV</span><h3>Light &amp; Value</h3><p>Lighting position, key-to-fill ratio, silhouette, chiaroscuro, separation, mood and moral commentary.</p>
-          </article>
-          <article class="act" style="--act:var(--coral)">
-            <span>V</span><h3>Shape, Line &amp; Space</h3><p>Primitive forms, directional emotion, scale, compression, expansion, geometry and organic structure.</p>
-          </article>
-          <article class="act" style="--act:#fa86a1">
-            <span>VI</span><h3>The Camera</h3><p>Height, power, focal length, distortion, depth of field, movement and psychological perspective.</p>
-          </article>
-          <article class="act" style="--act:var(--mint)">
-            <span>VII</span><h3>Movement, Time &amp; Editing</h3><p>Anticipation, follow-through, cut grammar, shot duration, rhythm and the cut that refuses to happen.</p>
-          </article>
-          <article class="act" style="--act:#83d3e6">
-            <span>VIII</span><h3>Blocking &amp; Mise-en-scène</h3><p>Power through position, group patterns, depth staging and every system operating inside one frame.</p>
-          </article>
-          <article class="act" style="--act:#72b8ee">
-            <span>IX</span><h3>Production Design, Costume &amp; Texture</h3><p>Rooms as biography, visible character arcs, material meaning and scale relative to the body.</p>
-          </article>
-          <article class="act" style="--act:var(--blue)">
-            <span>X</span><h3>Contrast &amp; Visual Rhythm</h3><p>The universal engines of attention: difference, repetition, hierarchy and designed reading order.</p>
-          </article>
-          <article class="act" style="--act:var(--violet)">
-            <span>XI</span><h3>Symbolism &amp; Visual Storytelling</h3><p>Context rather than dictionaries, motif transformation and meaning accumulated across a work.</p>
-          </article>
-          <article class="act" style="--act:var(--coral)">
-            <span>XII</span><h3>Building Intuition</h3><p>The migration from conscious rule-checking to immediate diagnosis, control, violation and invention.</p>
-          </article>
-        </div>
-      </div>
+    <section class="rp-act" id="composition">
+      <header><span>III</span><div><p>Composition</p><h2>The frame distributes pressure.</h2></div></header>
+      <div class="rp-skeletons" aria-label="Six composition skeleton diagrams"><figure class="thirds"><i></i><figcaption>Thirds</figcaption></figure><figure class="centre"><i></i><figcaption>Centre</figcaption></figure><figure class="diagonal"><i></i><figcaption>Diagonal</figcaption></figure><figure class="triangle"><i></i><figcaption>Triangle</figcaption></figure><figure class="radial"><i></i><figcaption>Radial</figcaption></figure><figure class="frame"><i></i><figcaption>Frame</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Visual weight</h3><p>Size, contrast, colour, faces, detail and isolation add weight. Balance is an equilibrium of unlike forces—not symmetry.</p></article><article><h3>Negative space</h3><p>Empty space is active. It can create calm, dignity, loneliness, suspense or room for an unseen threat.</p></article><article><h3>Leading lines</h3><p>Edges, gazes, roads and light paths aim attention. The strongest line is the one the viewer follows without noticing.</p></article><article><h3>Triangle through history</h3><p>Stable pyramids organize sacred and royal imagery; tilted triangles convert stability into urgency.</p></article><article><h3>Deliberate imbalance</h3><p>Put weight near an edge, leave an answer absent, or oppose movement with space. Instability becomes emotional syntax.</p></article><article><h3>Structural reading</h3><p>Reduce a frame to masses and directional lines. The skeleton remains when subject matter disappears.</p></article></div>
     </section>
 
-    <section class="atlas-section" id="mastery">
-      <div class="page-wrap">
-        <div class="atlas-section-lead reveal">
-          <div>
-            <p class="eyebrow">The mastery ladder</p>
-            <h2>Learn the name.<br>Then outgrow it.</h2>
-          </div>
-          <p>Depth is not how many principles you can recite. It is how independently you can perceive, control, combine, and transform them.</p>
-        </div>
-
-        <div class="mastery reveal">
-          <div class="mastery-step" style="--level:#77849c"><b>01</b><strong>Feel it</strong><span>React emotionally, with no vocabulary yet.</span></div>
-          <div class="mastery-step" style="--level:#7d94c5"><b>02</b><strong>See it</strong><span>Notice the specific visual cause.</span></div>
-          <div class="mastery-step" style="--level:var(--blue)"><b>03</b><strong>Name it</strong><span>Attach the correct term to the effect.</span></div>
-          <div class="mastery-step" style="--level:var(--violet)"><b>04</b><strong>Control it</strong><span>Manipulate the variable deliberately.</span></div>
-          <div class="mastery-step" style="--level:#c786de"><b>05</b><strong>Combine it</strong><span>Use it alongside other principles.</span></div>
-          <div class="mastery-step" style="--level:var(--coral)"><b>06</b><strong>Break it</strong><span>Know when violating it is stronger.</span></div>
-          <div class="mastery-step" style="--level:var(--mint)"><b>07</b><strong>Invent with it</strong><span>Use it unconsciously in original work.</span></div>
-        </div>
-      </div>
+    <section class="rp-act" id="light">
+      <header><span>IV</span><div><p>Light &amp; value</p><h2>Light describes form—and judges it.</h2></div></header>
+      <div class="rp-light-strip" aria-label="Five lighting position portraits"><figure class="front"><i></i><figcaption>Front · open</figcaption></figure><figure class="side"><i></i><figcaption>Side · divided</figcaption></figure><figure class="back"><i></i><figcaption>Back · mythic</figcaption></figure><figure class="top"><i></i><figcaption>Top · severe</figcaption></figure><figure class="under"><i></i><figcaption>Under · uncanny</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Position</h3><p>Front, side, back, top and under-lighting expose different facial structures and different moral readings.</p></article><article><h3>Ratio</h3><p>A low key-to-fill ratio feels open and legible. A high ratio increases mystery, separation and threat.</p></article><article><h3>Silhouette</h3><p>When internal detail disappears, pose and contour must carry identity, intention and movement.</p></article><article><h3>Chiaroscuro</h3><p>From sacred painting to noir, extreme value contrast has staged revelation, guilt, power and concealment.</p></article><article><h3>Separation</h3><p>Value, colour temperature, edge light and atmosphere keep subject and background readable.</p></article><article><h3>Moral commentary</h3><p>Lighting never merely exposes. It tells us who may be trusted, what remains hidden and where grace enters.</p></article></div>
     </section>
 
-    <section class="atlas-section" id="practice">
-      <div class="page-wrap">
-        <div class="atlas-section-lead reveal">
-          <div>
-            <p class="eyebrow">Daily perceptual training</p>
-            <h2>Five minutes.<br>One variable.</h2>
-          </div>
-          <p>Short, spaced practice across paintings, cinema, design, architecture, animation, games, and your own frames.</p>
-        </div>
-
-        <div class="practice-band reveal">
-          <div class="practice-visual" data-parallax=".022">
-            <span class="memory-mark" aria-hidden="true"></span>
-          </div>
-          <div class="practice-copy">
-            <p class="eyebrow">Today’s exercise</p>
-            <h3 data-daily-exercise>Predict where the eye will land, then check.</h3>
-            <p>Do it quickly. The purpose is not to be correct; it is to build a tighter feedback loop between intention and perception.</p>
-            <a class="button button-primary" href="playgrounds.html">Open the playgrounds</a>
-          </div>
-        </div>
-
-        <div class="daily-grid reveal">
-          <div class="daily-item"><b>01</b><span>Rank five frames by visual tension, fastest first.</span></div>
-          <div class="daily-item"><b>02</b><span>Guess the focal length used in a still.</span></div>
-          <div class="daily-item"><b>03</b><span>Identify a frame’s dominant three-value structure.</span></div>
-          <div class="daily-item"><b>04</b><span>Re-block a two-person scene to reverse who holds power.</span></div>
-          <div class="daily-item"><b>05</b><span>Build three compositions from the same objects.</span></div>
-          <div class="daily-item"><b>06</b><span>Match a painting’s colour relationships in a new image.</span></div>
-          <div class="daily-item"><b>07</b><span>Predict where the eye lands, then check.</span></div>
-          <div class="daily-item"><b>08</b><span>Remove one element and predict how hierarchy shifts.</span></div>
-          <div class="daily-item"><b>09</b><span>Recreate a studied image from memory alone.</span></div>
-          <div class="daily-item"><b>10</b><span>Make a romantic frame threatening without changing the actors.</span></div>
-        </div>
-      </div>
+    <section class="rp-act" id="shape">
+      <header><span>V</span><div><p>Shape, line &amp; space</p><h2>Geometry arrives before character.</h2></div></header>
+      <div class="rp-shape-language" aria-label="Shape and line emotion diagram"><figure><i class="circle"></i><figcaption>Circle · unity, softness, cycle</figcaption></figure><figure><i class="square"></i><figcaption>Square · order, weight, security</figcaption></figure><figure><i class="tri"></i><figcaption>Triangle · direction, danger, ascent</figcaption></figure><figure><i class="organic"></i><figcaption>Organic · life, irregularity, vulnerability</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Primitive forms</h3><p>Reduce bodies, sets and graphics to circle, square, triangle and organic form. Repetition creates a world; deviation creates a character.</p></article><article><h3>Line direction</h3><p>Horizontal rests. Vertical asserts. Diagonal accelerates. Curves guide and embrace. Jagged lines agitate.</p></article><article><h3>Space &amp; lens</h3><p>Wide lenses expand near/far difference; long lenses compress distance and stack planes. Space itself becomes a relationship.</p></article></div>
     </section>
 
-    <section class="atlas-section">
-      <div class="page-wrap">
-        <div class="question-wall reveal">
-          <p class="eyebrow">Always ask</p>
-          <h2>What can I change in this image?</h2>
-          <div class="variable-cloud" aria-label="Visual variables">
-            <span>Subject</span><span>Position</span><span>Size</span><span>Angle</span><span>Shape</span><span>Line</span><span>Colour</span><span>Value</span><span>Texture</span><span>Light</span><span>Space</span><span>Lens</span><span>Camera</span><span>Movement</span><span>Time</span><span>Rhythm</span><span>Contrast</span><span>Order</span>
-          </div>
-        </div>
-      </div>
+    <section class="rp-act" id="camera">
+      <header><span>VI</span><div><p>The camera</p><h2>Perspective is a psychological position.</h2></div></header>
+      <div class="rp-lens-row" aria-label="Camera height and focal length comparison"><figure class="low"><i></i><figcaption>Low · authority</figcaption></figure><figure class="eye"><i></i><figcaption>Eye · parity</figcaption></figure><figure class="high"><i></i><figcaption>High · exposure</figcaption></figure><figure class="wide"><i></i><figcaption>Wide · proximity</figcaption></figure><figure class="long"><i></i><figcaption>Long · compression</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Camera height</h3><p>Low can enlarge power; high can expose fragility; eye level can share space. Context can reverse each reading.</p></article><article><h3>Focal length</h3><p>Wide lenses exaggerate spatial difference and facial depth. Long lenses flatten space and turn distance into observation.</p></article><article><h3>Depth of field</h3><p>Shallow focus isolates and withholds; deep focus allows relationships to compete in the same moment.</p></article><article><h3>Movement</h3><p>Pan reveals, dolly changes relation, handheld transmits instability, locked frames refuse intervention.</p></article><article><h3>Motivation</h3><p>Move because attention, power or emotion changes—not because the equipment can.</p></article><article><h3>Point of view</h3><p>Every placement answers: whose knowledge, whose distance and whose emotional risk organizes this image?</p></article></div>
+    </section>
+
+    <section class="rp-act" id="editing">
+      <header><span>VII</span><div><p>Movement, time &amp; editing</p><h2>The cut is an act of thought.</h2></div></header>
+      <div class="rp-cut-strip" aria-label="Six cut types"><span>Match<small>form continues</small></span><span>Action<small>motion continues</small></span><span>Eyeline<small>gaze resolves</small></span><span>Graphic<small>shape rhymes</small></span><span>Contrast<small>meaning collides</small></span><span>Ellipsis<small>time disappears</small></span></div>
+      <div class="rp-copy-grid thirds"><article><h3>Anticipation</h3><p>A preparatory action makes the main action legible. The viewer reads intention before consequence.</p></article><article><h3>Follow-through</h3><p>Parts continue after the primary force stops. Residual motion gives weight, material and life.</p></article><article><h3>Six cuts</h3><p>Match, action, eyeline, graphic, contrast and ellipsis each preserve or rupture a different continuity.</p></article><article><h3>Shot duration</h3><p>Shortening creates acceleration; extension creates observation, discomfort or reverence. Rhythm is relational, not a fixed number.</p></article><article><h3>The long take</h3><p>Refusing the cut preserves geography, duration and moral responsibility. The viewer cannot escape by editorial permission.</p></article><article><h3>Movement grammar</h3><p>Timing, spacing, easing and direction shape whether motion feels heavy, graceful, comic, mechanical or afraid.</p></article></div>
+    </section>
+
+    <section class="rp-act" id="blocking">
+      <header><span>VIII</span><div><p>Blocking &amp; mise-en-scène</p><h2>Position turns relationship into architecture.</h2></div></header>
+      <div class="rp-blocking" aria-label="Static blocking pattern diagrams"><figure class="line"><i></i><i></i><i></i><figcaption>Line · parity</figcaption></figure><figure class="triangle"><i></i><i></i><i></i><figcaption>Triangle · hierarchy</figcaption></figure><figure class="split"><i></i><i></i><i></i><figcaption>Split · conflict</figcaption></figure><figure class="depth"><i></i><i></i><i></i><figcaption>Depth · control</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Blocking tells story</h3><p>Who approaches, withdraws, crosses, turns away or occupies the center reveals power before dialogue does.</p></article><article><h3>Group patterns</h3><p>Lines create parity, triangles hierarchy, clusters belonging, splits conflict and depth staging unequal knowledge.</p></article><article><h3>Cinema history</h3><p>Tableaux borrowed theatrical clarity; montage fractured space; deep staging let multiple actions coexist.</p></article><article><h3>Mise-en-scène</h3><p>Set, costume, light, body, lens and frame operate together. Changing one variable alters the reading of all others.</p></article><article><h3>Power through position</h3><p>Centre is not always power. The figure who controls entrances, gaze or distance may control the scene from an edge.</p></article><article><h3>Synthesis</h3><p>Read a frame as a system: attention → relation → emotion → story function.</p></article></div>
+    </section>
+
+    <section class="rp-act" id="production">
+      <header><span>IX</span><div><p>Production design, costume &amp; texture</p><h2>A world remembers who lived in it.</h2></div></header>
+      <div class="rp-materials" aria-label="Six material families"><span>Stone<small>permanence</small></span><span>Wood<small>warmth</small></span><span>Metal<small>precision</small></span><span>Glass<small>distance</small></span><span>Fabric<small>body</small></span><span>Earth<small>origin</small></span></div>
+      <div class="rp-copy-grid thirds"><article><h3>Room as biography</h3><p>Wear, repair, clutter, absence, status objects and inherited objects reveal time, class and private rituals.</p></article><article><h3>Costume arc</h3><p>Silhouette, fit, repetition, deterioration and colour can make transformation visible before a character admits it.</p></article><article><h3>Material meaning</h3><p>Stone, wood, metal, glass, fabric and earth carry physical behavior first; association grows from use and context.</p></article><article><h3>Human scale</h3><p>Architecture feels intimate, civic, sacred or oppressive through its relation to the body.</p></article><article><h3>Texture &amp; light</h3><p>Roughness breaks highlights; polish reflects worlds; translucency holds light. Texture becomes visible through illumination.</p></article><article><h3>Designed history</h3><p>A convincing set contains causes: what was built, used, neglected, protected and changed.</p></article></div>
+    </section>
+
+    <section class="rp-act" id="rhythm">
+      <header><span>X</span><div><p>Contrast &amp; visual rhythm</p><h2>Difference catches the eye. Repetition teaches it where to look.</h2></div></header>
+      <div class="rp-matrix" aria-label="Contrast matrix"><span>Light / dark</span><span>Large / small</span><span>Warm / cool</span><span>Sharp / soft</span><span>Dense / sparse</span><span>Still / moving</span><span>Regular / irregular</span><span>Near / far</span></div>
+      <div class="rp-copy-grid thirds"><article><h3>Contrast matrix</h3><p>Value, size, colour, edge, density, motion, pattern and depth can all create emphasis. Stack them cautiously.</p></article><article><h3>Repetition</h3><p>A repeated interval becomes expectation. Variation becomes event. The break gains force from the pattern before it.</p></article><article><h3>Hierarchy</h3><p>Primary, secondary and tertiary information must remain distinct. If everything shouts, nothing leads.</p></article></div>
+    </section>
+
+    <section class="rp-act" id="symbolism">
+      <header><span>XI</span><div><p>Symbolism &amp; visual meaning</p><h2>A motif earns meaning through transformation.</h2></div></header>
+      <div class="rp-frame-states" aria-label="Four symbolic frame states"><figure><i></i><figcaption>Open</figcaption></figure><figure><i></i><figcaption>Divided</figcaption></figure><figure><i></i><figcaption>Enclosed</figcaption></figure><figure><i></i><figcaption>Released</figcaption></figure></div>
+      <div class="rp-copy-grid thirds"><article><h3>Frame states</h3><p>Open, divided, enclosed and released frames can chart a character’s changing relation to the world.</p></article><article><h3>No symbol dictionary</h3><p>Meaning is contextual. A door may mean escape, exclusion, ritual, danger or nothing until the story makes it recur.</p></article><article><h3>Motif transformation</h3><p>Introduce, repeat, vary and resolve. A motif becomes dramatic when its context changes while its form remains recognizable.</p></article><article><h3>The red web</h3><p>Trace one colour through costume, space, object and light. Its meaning moves from appearance to relationship.</p></article><article><h3>Symbol as consequence</h3><p>Begin with character and action. Let the symbol condense meaning already alive in the work.</p></article><article><h3>Restraint</h3><p>A motif does not need explanation. Repetition, placement and transformation teach the audience how to read it.</p></article></div>
+    </section>
+
+    <section class="rp-act rp-final" id="intuition">
+      <header><span>XII</span><div><p>Artistic intuition</p><h2>Vocabulary disappears into choice.</h2></div></header>
+      <div class="rp-ladder" aria-label="Seven-level mastery ladder"><span><b>1</b>Feel</span><span><b>2</b>Notice</span><span><b>3</b>Name</span><span><b>4</b>Control</span><span><b>5</b>Combine</span><span><b>6</b>Break</span><span><b>7</b>Invent</span></div>
+      <div class="rp-copy-grid thirds"><article><h3>Vocabulary levels</h3><p>“This feels wrong” becomes “the edge tension and warm/cool split oppose the scene’s intimacy.” Precision enables revision.</p></article><article><h3>Spaced training</h3><p>Return to one variable across many images and days. Recognition grows faster when memory must retrieve, not merely reread.</p></article><article><h3>Mastery</h3><p>Intuition is compressed experience: principles retrieved quickly enough to feel immediate.</p></article></div>
+      <div class="rp-practice" id="practice"><p class="rp-section-label">Ten five-minute studies</p><ol><li>Look for two seconds; recall the first eye landing.</li><li>Reduce a frame to three value masses.</li><li>Name its structural skeleton.</li><li>Find the dominant warm/cool relationship.</li><li>Trace every gaze and leading line.</li><li>Rebuild the relationship using different objects.</li><li>Predict where the eye lands, then check.</li><li>Remove one element; predict the hierarchy shift.</li><li>Recreate a studied image from memory.</li><li>Make a romantic frame threatening without changing the actors.</li></ol><p class="rp-final-line">“This feels right” is not the end of analysis. It is analysis becoming instinct.</p></div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="page-wrap footer-grid">
-      <div><strong>Visual Literacy Atlas</strong>This feels right. This doesn’t. And I know what to change.</div>
-      <div><a href="index.html">Return to the complete storytelling framework →</a></div>
-    </div>
-  </footer>
-
-  <script src="atlas.js" type="module"></script>
 </body>
 </html>

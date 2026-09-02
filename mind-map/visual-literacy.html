@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06070a">
+  <meta name="description" content="Interactive visual literacy experiments, twelve acts of study, a seven-level mastery ladder, and daily perceptual practice.">
+  <title>The Visual Literacy Atlas — Interactive Course</title>
+  <link rel="stylesheet" href="atlas.css">
+</head>
+<body class="atlas-body">
+  <a class="skip-link" href="#course">Skip to the course</a>
+  <div class="progress-line" aria-hidden="true"></div>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-a" data-parallax=".03"></div>
+    <div class="orb orb-b" data-parallax=".055"></div>
+  </div>
+
+  <header class="atlas-topbar">
+    <div class="page-wrap atlas-topbar-inner">
+      <a class="atlas-back" href="index.html">
+        <span aria-hidden="true">←</span>
+        Visual Literacy Atlas
+      </a>
+      <nav class="atlas-chapters" aria-label="Course sections">
+        <a href="#experiments">Experiments</a>
+        <a href="#acts">Twelve Acts</a>
+        <a href="#mastery">Mastery</a>
+        <a href="#practice">Practice</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="course">
+    <section class="atlas-hero">
+      <div class="page-wrap atlas-hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">A course in seeing</p>
+          <h1>The visual<br><em>literacy</em> atlas.</h1>
+        </div>
+        <div class="atlas-intro reveal">
+          <p><strong>Before studying art, study the eye and brain receiving it.</strong> Every compositional trick, colour harmony, camera angle, and cut works through a perceptual mechanism.</p>
+          <p>The objective is perceptual internalization: to feel that an image is wrong, locate the variable, and know what to change.</p>
+          <div class="atlas-sequence" aria-label="Learning sequence">
+            <span>History</span><span>Perception</span><span>Principle</span><span>Emotion</span><span>Application</span><span>Experiment</span><span>Intuition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="experiments">
+      <div class="page-wrap">
+        <div class="atlas-section-lead reveal">
+          <div>
+            <p class="eyebrow">See before naming</p>
+            <h2>Three variables.<br>Three felt differences.</h2>
+          </div>
+          <p>Use the controls. The explanation matters less than the moment your perception changes.</p>
+        </div>
+
+        <div class="experiment-grid">
+          <article class="experiment full reveal">
+            <div class="experiment-head">
+              <div><span>01 · Attention</span><h3>Where does your eye go first?</h3></div>
+              <p>Contrast and isolation can outweigh sheer size.</p>
+            </div>
+            <div class="salience-demo" id="salience-demo" aria-label="Salience experiment">
+              <span class="shape"></span>
+              <span class="shape"></span>
+              <span class="shape"></span>
+              <span class="salience-point"></span>
+              <span class="salience-map"></span>
+            </div>
+            <div class="experiment-actions">
+              <button class="text-button" type="button" data-reveal-target="#salience-demo" aria-pressed="false">Reveal the eye path</button>
+            </div>
+          </article>
+
+          <article class="experiment reveal">
+            <div class="experiment-head">
+              <div><span>02 · Colour</span><h3>The same grey, twice.</h3></div>
+              <p>The chips are identical. Context makes them feel different.</p>
+            </div>
+            <div class="grey-demo" id="grey-demo" aria-label="Simultaneous colour contrast experiment">
+              <div class="grey-panel"><span class="grey-chip"></span></div>
+              <div class="grey-panel light"><span class="grey-chip"></span></div>
+            </div>
+            <div class="experiment-actions">
+              <button class="text-button" type="button" data-isolate-target="#grey-demo" aria-pressed="false">Remove the context</button>
+            </div>
+          </article>
+
+          <article class="experiment reveal">
+            <div class="experiment-head">
+              <div><span>03 · Composition</span><h3>Space is an emotional dial.</h3></div>
+              <p>Move the figure. Feel balance turn into edge tension.</p>
+            </div>
+            <div class="negative-demo" data-negative-demo aria-label="Negative-space composition experiment">
+              <span class="negative-figure"></span>
+            </div>
+            <label class="range-row">
+              <span>edge</span>
+              <input type="range" min="10" max="90" value="50" data-negative-range aria-label="Move figure through the frame">
+              <span>edge</span>
+              <strong data-negative-label>balanced</strong>
+            </label>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="acts">
+      <div class="page-wrap">
+        <div class="atlas-section-lead reveal">
+          <div>
+            <p class="eyebrow">The complete map</p>
+            <h2>Twelve acts.<br>One perceptual system.</h2>
+          </div>
+          <p>Study sequentially for foundations, or enter through the visual problem currently resisting you.</p>
+        </div>
+
+        <div class="acts-grid reveal">
+          <article class="act" style="--act:var(--blue)">
+            <span>I</span><h3>The Machinery of Seeing</h3><p>Attention, prediction, Gestalt grouping, depth cues, figure and ground, processing fluency.</p>
+          </article>
+          <article class="act" style="--act:#8da5ff">
+            <span>II</span><h3>Colour</h3><p>Physics and perception, harmony, simultaneous contrast, culture, pigment history, saturation.</p>
+          </article>
+          <article class="act" style="--act:var(--violet)">
+            <span>III</span><h3>Composition</h3><p>Visual weight, structural skeletons, negative space, leading lines, balance and deliberate imbalance.</p>
+          </article>
+          <article class="act" style="--act:#c786de">
+            <span>IV</span><h3>Light &amp; Value</h3><p>Lighting position, key-to-fill ratio, silhouette, chiaroscuro, separation, mood and moral commentary.</p>
+          </article>
+          <article class="act" style="--act:var(--coral)">
+            <span>V</span><h3>Shape, Line &amp; Space</h3><p>Primitive forms, directional emotion, scale, compression, expansion, geometry and organic structure.</p>
+          </article>
+          <article class="act" style="--act:#fa86a1">
+            <span>VI</span><h3>The Camera</h3><p>Height, power, focal length, distortion, depth of field, movement and psychological perspective.</p>
+          </article>
+          <article class="act" style="--act:var(--mint)">
+            <span>VII</span><h3>Movement, Time &amp; Editing</h3><p>Anticipation, follow-through, cut grammar, shot duration, rhythm and the cut that refuses to happen.</p>
+          </article>
+          <article class="act" style="--act:#83d3e6">
+            <span>VIII</span><h3>Blocking &amp; Mise-en-scène</h3><p>Power through position, group patterns, depth staging and every system operating inside one frame.</p>
+          </article>
+          <article class="act" style="--act:#72b8ee">
+            <span>IX</span><h3>Production Design, Costume &amp; Texture</h3><p>Rooms as biography, visible character arcs, material meaning and scale relative to the body.</p>
+          </article>
+          <article class="act" style="--act:var(--blue)">
+            <span>X</span><h3>Contrast &amp; Visual Rhythm</h3><p>The universal engines of attention: difference, repetition, hierarchy and designed reading order.</p>
+          </article>
+          <article class="act" style="--act:var(--violet)">
+            <span>XI</span><h3>Symbolism &amp; Visual Storytelling</h3><p>Context rather than dictionaries, motif transformation and meaning accumulated across a work.</p>
+          </article>
+          <article class="act" style="--act:var(--coral)">
+            <span>XII</span><h3>Building Intuition</h3><p>The migration from conscious rule-checking to immediate diagnosis, control, violation and invention.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="mastery">
+      <div class="page-wrap">
+        <div class="atlas-section-lead reveal">
+          <div>
+            <p class="eyebrow">The mastery ladder</p>
+            <h2>Learn the name.<br>Then outgrow it.</h2>
+          </div>
+          <p>Depth is not how many principles you can recite. It is how independently you can perceive, control, combine, and transform them.</p>
+        </div>
+
+        <div class="mastery reveal">
+          <div class="mastery-step" style="--level:#77849c"><b>01</b><strong>Feel it</strong><span>React emotionally, with no vocabulary yet.</span></div>
+          <div class="mastery-step" style="--level:#7d94c5"><b>02</b><strong>See it</strong><span>Notice the specific visual cause.</span></div>
+          <div class="mastery-step" style="--level:var(--blue)"><b>03</b><strong>Name it</strong><span>Attach the correct term to the effect.</span></div>
+          <div class="mastery-step" style="--level:var(--violet)"><b>04</b><strong>Control it</strong><span>Manipulate the variable deliberately.</span></div>
+          <div class="mastery-step" style="--level:#c786de"><b>05</b><strong>Combine it</strong><span>Use it alongside other principles.</span></div>
+          <div class="mastery-step" style="--level:var(--coral)"><b>06</b><strong>Break it</strong><span>Know when violating it is stronger.</span></div>
+          <div class="mastery-step" style="--level:var(--mint)"><b>07</b><strong>Invent with it</strong><span>Use it unconsciously in original work.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="practice">
+      <div class="page-wrap">
+        <div class="atlas-section-lead reveal">
+          <div>
+            <p class="eyebrow">Daily perceptual training</p>
+            <h2>Five minutes.<br>One variable.</h2>
+          </div>
+          <p>Short, spaced practice across paintings, cinema, design, architecture, animation, games, and your own frames.</p>
+        </div>
+
+        <div class="practice-band reveal">
+          <div class="practice-visual" data-parallax=".022">
+            <span class="memory-mark" aria-hidden="true"></span>
+          </div>
+          <div class="practice-copy">
+            <p class="eyebrow">Today’s exercise</p>
+            <h3 data-daily-exercise>Predict where the eye will land, then check.</h3>
+            <p>Do it quickly. The purpose is not to be correct; it is to build a tighter feedback loop between intention and perception.</p>
+            <a class="button button-primary" href="playgrounds.html">Open the playgrounds</a>
+          </div>
+        </div>
+
+        <div class="daily-grid reveal">
+          <div class="daily-item"><b>01</b><span>Rank five frames by visual tension, fastest first.</span></div>
+          <div class="daily-item"><b>02</b><span>Guess the focal length used in a still.</span></div>
+          <div class="daily-item"><b>03</b><span>Identify a frame’s dominant three-value structure.</span></div>
+          <div class="daily-item"><b>04</b><span>Re-block a two-person scene to reverse who holds power.</span></div>
+          <div class="daily-item"><b>05</b><span>Build three compositions from the same objects.</span></div>
+          <div class="daily-item"><b>06</b><span>Match a painting’s colour relationships in a new image.</span></div>
+          <div class="daily-item"><b>07</b><span>Predict where the eye lands, then check.</span></div>
+          <div class="daily-item"><b>08</b><span>Remove one element and predict how hierarchy shifts.</span></div>
+          <div class="daily-item"><b>09</b><span>Recreate a studied image from memory alone.</span></div>
+          <div class="daily-item"><b>10</b><span>Make a romantic frame threatening without changing the actors.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atlas-section">
+      <div class="page-wrap">
+        <div class="question-wall reveal">
+          <p class="eyebrow">Always ask</p>
+          <h2>What can I change in this image?</h2>
+          <div class="variable-cloud" aria-label="Visual variables">
+            <span>Subject</span><span>Position</span><span>Size</span><span>Angle</span><span>Shape</span><span>Line</span><span>Colour</span><span>Value</span><span>Texture</span><span>Light</span><span>Space</span><span>Lens</span><span>Camera</span><span>Movement</span><span>Time</span><span>Rhythm</span><span>Contrast</span><span>Order</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrap footer-grid">
+      <div><strong>Visual Literacy Atlas</strong>This feels right. This doesn’t. And I know what to change.</div>
+      <div><a href="index.html">Return to the complete storytelling framework →</a></div>
+    </div>
+  </footer>
+
+  <script src="atlas.js" type="module"></script>
+</body>
+</html>

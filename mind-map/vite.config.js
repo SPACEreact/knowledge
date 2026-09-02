@@ -45,6 +45,7 @@ export default defineConfig({
         audienceParticipation: resolve(__dirname, 'audience-participation.html'),
         humanLayers: resolve(__dirname, 'human-layers.html'),
         startHere: resolve(__dirname, 'start-here.html'),
+        visualLiteracy: resolve(__dirname, 'visual-literacy.html'),
         book: resolve(__dirname, 'book.html'),
       }
     }

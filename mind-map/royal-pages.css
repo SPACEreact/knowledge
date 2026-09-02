@@ -38,3 +38,119 @@ figure{margin:0}.rp-colour-row{display:grid;grid-template-columns:repeat(3,1fr);
 @media(max-width:1050px){.rp-seven{grid-template-columns:repeat(4,1fr)}.rp-copy-grid.thirds{grid-template-columns:repeat(2,1fr)}.rp-skeletons{grid-template-columns:repeat(3,1fr)}.rp-domain-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.rp-home,.rp-atlas{padding:90px 20px 70px}.rp-home-hero,.rp-atlas-hero,.rp-pair,.rp-two{grid-template-columns:1fr}.rp-home-hero{padding:6vh 0 60px;gap:32px}.rp-atlas-hero{min-height:auto;padding:30px 0 55px;gap:30px}.rp-chain{overflow-x:auto;justify-content:flex-start;gap:9px;padding-bottom:8px}.rp-chain i{min-width:20px}.rp-arch-card{min-height:340px;padding:30px;border-radius:100px 100px 3px 3px}.rp-arch-card:after{border-radius:88px 88px 2px 2px}.rp-number{left:30px;top:32px}.rp-arrow{right:30px;top:28px}.rp-line{left:30px;right:30px;bottom:28px}.rp-feature h2{margin-top:115px}.rp-domain-grid{grid-template-columns:1fr}.rp-seven{grid-template-columns:repeat(2,1fr)}.rp-act>header{grid-template-columns:58px 1fr;gap:12px}.rp-act>header>span{width:48px;height:60px}.rp-copy-grid,.rp-copy-grid.thirds,.rp-colour-row,.rp-light-strip,.rp-lens-row,.rp-shape-language,.rp-blocking,.rp-frame-states{grid-template-columns:1fr 1fr}.rp-static-figure{min-height:320px}.rp-skeletons{grid-template-columns:repeat(2,1fr)}.rp-cut-strip,.rp-materials{grid-template-columns:repeat(2,1fr)}.rp-matrix{grid-template-columns:repeat(2,1fr)}.rp-ladder{grid-template-columns:repeat(4,1fr);align-items:stretch}.rp-ladder span,.rp-ladder span:nth-child(n){min-height:110px}.rp-practice{padding:28px 18px;border-radius:70px 70px 3px 3px}.rp-practice ol{grid-template-columns:1fr}}
 @media(max-width:440px){.rp-copy-grid,.rp-copy-grid.thirds,.rp-colour-row,.rp-light-strip,.rp-lens-row,.rp-shape-language,.rp-blocking,.rp-frame-states{grid-template-columns:1fr}.rp-home h1,.rp-atlas h1{font-size:3.2rem}.rp-seven{grid-template-columns:1fr 1fr}.rp-skeletons{grid-template-columns:1fr 1fr}}
+
+/* Generated motifs enrich the existing layout without adding new interface or copy. */
+.rp-home-hero {
+  position: relative;
+  padding-bottom: clamp(92px,11vw,148px);
+}
+.rp-home-hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: min(100%,1040px);
+  height: 96px;
+  translate: -50% 0;
+  background: var(--ua-border,url('./assets/decor/manuscript-border.webp')) center / contain no-repeat;
+  opacity: .68;
+  pointer-events: none;
+}
+
+.rp-arch-card {
+  transition: translate .28s ease,border-color .28s ease;
+}
+.rp-arch-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px 7% -25px;
+  background: var(--ua-window,url('./assets/decor/jharokha-frame.webp')) center top / 100% 100% no-repeat;
+  opacity: .29;
+  filter: saturate(.82) contrast(.92);
+  pointer-events: none;
+}
+.rp-arch-card:hover {
+  translate: 0 -3px;
+  border-color: rgba(194,88,59,.5);
+}
+
+.rp-domain-grid a {
+  background:
+    linear-gradient(rgba(33,17,19,.92),rgba(33,17,19,.97)),
+    var(--ua-jaali,url('./assets/decor/jaali-field.webp')) center / 420px auto;
+  transition: border-color .2s ease;
+}
+.rp-domain-grid a:hover {
+  border-color: rgba(194,88,59,.42);
+  background:
+    linear-gradient(rgba(45,20,24,.9),rgba(33,17,19,.96)),
+    var(--ua-jaali,url('./assets/decor/jaali-field.webp')) center / 420px auto;
+}
+
+.rp-atlas-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.rp-atlas-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -3%;
+  top: 2%;
+  width: min(48vw,520px);
+  aspect-ratio: 1122/1402;
+  background: var(--ua-window,url('./assets/decor/jharokha-frame.webp')) center / contain no-repeat;
+  opacity: .13;
+  filter: saturate(.78);
+  pointer-events: none;
+}
+
+.rp-method {
+  position: relative;
+  padding-bottom: 118px;
+}
+.rp-method::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: min(90%,920px);
+  height: 76px;
+  translate: -50% 0;
+  background: var(--ua-border,url('./assets/decor/manuscript-border.webp')) center / contain no-repeat;
+  opacity: .52;
+  pointer-events: none;
+}
+
+.rp-practice {
+  position: relative;
+  background:
+    linear-gradient(rgba(33,17,19,.9),rgba(33,17,19,.97)),
+    var(--ua-jaali,url('./assets/decor/jaali-field.webp')) center / 560px auto;
+  overflow: hidden;
+}
+.rp-practice::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -26px;
+  width: min(86%,760px);
+  height: 86px;
+  translate: -50% 0;
+  background: var(--ua-border,url('./assets/decor/manuscript-border.webp')) center / contain no-repeat;
+  opacity: .34;
+  pointer-events: none;
+}
+
+@media(max-width:760px) {
+  .rp-home-hero { padding-bottom: 94px; }
+  .rp-home-hero::after { height: 64px; opacity: .54; }
+  .rp-atlas-hero::before { right: -18%; top: 4%; width: 82vw; opacity: .095; }
+  .rp-arch-card::before { inset: 10px 2% -8px; opacity: .24; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .rp-arch-card { transition: none; }
+  .rp-arch-card:hover { translate: 0; }
+}

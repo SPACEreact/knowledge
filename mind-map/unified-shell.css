@@ -13,8 +13,6 @@
   --ua-paper-dim: #bcae9b;
   --ua-line: rgba(234, 223, 206, .13);
   --ua-rail: 276px;
-  --ua-jaali: url('./assets/decor/jaali-field.webp');
-  --ua-ornaments: url('./assets/decor/jharokha-sprite.png');
 }
 
 html { scroll-behavior: smooth; background: var(--ua-ink); }
@@ -80,16 +78,17 @@ body.unified-atlas .site-footer { display: none !important; }
 }
 .ua-brand small { display: block; margin-top: 4px; color: var(--ua-paper-dim); font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
 .ua-arch {
-  width: 48px;
-  height: 54px;
+  position: relative;
+  width: 36px;
+  height: 43px;
   flex: 0 0 auto;
-  background-image: var(--ua-ornaments);
-  background-repeat: no-repeat;
-  background-size: 300% 200%;
-  background-position: 50% 0;
-  filter: saturate(.9) contrast(1.05);
+  border: 1px solid var(--ua-saffron);
+  border-radius: 19px 19px 2px 2px;
+  background: linear-gradient(150deg, var(--ua-lacquer), var(--ua-plum));
 }
-.ua-arch::before, .ua-arch::after, .ua-arch i { display: none; }
+.ua-arch::before, .ua-arch::after { content: ''; position: absolute; top: 19px; width: 1px; height: 20px; background: rgba(234,223,206,.38); }
+.ua-arch::before { left: 11px; } .ua-arch::after { right: 11px; }
+.ua-arch i { position: absolute; inset: 12px 8px 6px; border: 1px solid rgba(234,223,206,.45); border-radius: 12px 12px 1px 1px; }
 
 .ua-nav { padding: 11px 0 20px; }
 .ua-group { margin-top: 16px; }
@@ -201,7 +200,36 @@ body.unified-atlas .text-amber-500 { color: var(--ua-saffron) !important; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-/* Jaali stays inside text-bearing surfaces; architectural ornaments remain clear. */
+/* Generated architectural assets — kept deliberately quiet behind the reading layer. */
+:root {
+  --ua-jaali: url('./assets/decor/jaali-field.webp');
+  --ua-window: url('./assets/decor/jharokha-frame.webp');
+  --ua-border: url('./assets/decor/manuscript-border.webp');
+}
+
+html body.unified-atlas {
+  background:
+    radial-gradient(circle at 80% 8%, rgba(109,49,87,.12), transparent 29rem),
+    linear-gradient(rgba(22,12,13,.935), rgba(22,12,13,.965)),
+    var(--ua-jaali) center top / 720px auto repeat fixed,
+    var(--ua-ink) !important;
+}
+
+.ua-rail { isolation: isolate; }
+.ua-rail::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 74px;
+  width: 238px;
+  height: 298px;
+  translate: -50% 0;
+  background: var(--ua-window) center top / contain no-repeat;
+  opacity: .075;
+  pointer-events: none;
+}
+
 .ua-sibling {
   background:
     linear-gradient(135deg, rgba(32,16,18,.84), rgba(32,16,18,.93)),

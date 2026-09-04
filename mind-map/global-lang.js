@@ -19,13 +19,14 @@ import {
 // ─── Hindi translations keyed by page filename (fallback for untagged heroes) ───
 const PAGE_TRANSLATIONS = {
   'index.html': {
-    pageTitle: 'विज़ुअल स्टोरीटेलिंग फ़्रेमवर्क — सिनेमाई आर्किटेक्ट की तरह सोचें',
-    h1: 'AI इसे परफ़ेक्ट बना सकता है। इंसान इसे इंसानी बनाते हैं।',
-    heroSub1: 'हम इमोशन मीटर हैं।',
-    heroSub2:
-      'हमने 3 बजे का दर्द जिया है, सालों की कोशिश के बाद चुप्पी में मिली जीत, और वो धोखा जो अब भी चुभता है। AI बड़े पैमाने पर परफ़ेक्ट कंटेंट बना सकता है। लेकिन उसे महसूस कराना — सिर्फ इंसान कर सकता है।',
-    heroQuote:
-      '"मैंने यह फ़्रेमवर्क इसलिए बनाया क्योंकि भविष्य सबसे अच्छे prompt writer का नहीं है। ये सबसे अच्छे emotion director का है।"',
+    pageTitle: 'दृष्टि — दृश्य कथाकला का एटलस',
+    h1: 'दृश्य कथाकला—एक जुड़ा हुआ शिल्प।',
+    heroDesc: 'कहानी “क्यों” का उत्तर देती है। शैली बताती है कि वह कैसा महसूस होता है। हर दृश्य निर्णय ध्यान से शुरू होकर भावना तक पहुँचता है।',
+  },
+  'visual-literacy.html': {
+    pageTitle: 'दृश्य साक्षरता का एटलस',
+    h1: 'आँख पहले महसूस करती है—भाषा बाद में नाम देती है।',
+    heroDesc: 'कला पढ़ने से पहले उस आँख और मस्तिष्क को समझिए जो उसे ग्रहण करते हैं। रचना, रंग, कैमरा और कट एक अनुभूति-तंत्र से होकर असर पैदा करते हैं।',
   },
   'storytelling.html': {
     pageTitle: 'कहानी सुनाना — कोर लेयर — विज़ुअल स्टोरीटेलिंग',
@@ -320,7 +321,7 @@ function applyPageFallback(pageName, strings) {
 
   if (strings.heroDesc) {
     const mainDesc = document.querySelector(
-      'header p:not(.italic):not([style*="italic"]):not([data-i18n]):not([data-i18n-html]), main > section:first-of-type p:not([data-i18n]):not([data-i18n-html])'
+      '.rp-lede:not([data-i18n]), .rp-intro p:not([data-i18n]), header p:not(.rp-kicker):not(.italic):not([style*="italic"]):not([data-i18n]):not([data-i18n-html]), main > section:first-of-type p:not([data-i18n]):not([data-i18n-html])'
     );
     if (mainDesc) setTextIfMatch(mainDesc, strings.heroDesc);
   }

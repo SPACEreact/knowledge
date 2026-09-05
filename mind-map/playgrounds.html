@@ -1,512 +1,198 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Interactive Playgrounds | Visual Storytelling Study Guide</title>
-<meta content="Learn cinematic concepts by doing. Drag lights, adjust focal lengths, draw easing curves, and mix audio — all in your browser." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
-<link href="playground.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171114">
+  <meta name="description" content="Static visual studies for lighting, lenses, depth, colour, composition, motion, editing rhythm and sound.">
+  <title>Visual Studies | Visual Storytelling Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="playground.css">
 </head>
 <body data-page="playgrounds">
+  <main class="pg-main visual-studies">
+    <header class="study-hero">
+      <p class="study-kicker">Static visual plates · eight relationships</p>
+      <h1 data-i18n-html="playgrounds.f5f32abf">Visual Studies</h1>
+      <p class="study-intro" data-i18n-html="playgrounds.627807ef">Read the relationships slowly. Each plate isolates one visual principle so the eye can compare before language explains.</p>
+      <nav class="study-index" aria-label="Visual studies on this page">
+        <a href="#lighting" data-i18n-html="playgrounds.1d363f1f">Lighting</a>
+        <a href="#focal-length" data-i18n-html="playgrounds.f5567fe0">Lenses</a>
+        <a href="#dof" data-i18n-html="playgrounds.cf363fde">Depth</a>
+        <a href="#color-temp" data-i18n-html="playgrounds.c50c6cb5">Colour</a>
+        <a href="#composition" data-i18n-html="playgrounds.21ced0b2">Composition</a>
+        <a href="#easing" data-i18n-html="playgrounds.b21d0329">Motion</a>
+        <a href="#timeline" data-i18n-html="playgrounds.fbaeb88d">Editing</a>
+        <a href="#sound-mixer" data-i18n-html="playgrounds.4bdedcd4">Sound</a>
+      </nav>
+    </header>
 
-<div class="gpu-status" data-i18n-html="playgrounds.860136a0" id="gpuStatus">
-<span class="gpu-dot"></span>
-<span data-i18n-html="playgrounds.cf27e259" id="gpuLabel">Detecting GPU...</span>
-</div>
+    <section class="study-plate" id="lighting" aria-labelledby="lighting-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.d8c21593">Cinematography</span>
+        <p class="study-number" aria-hidden="true">01</p>
+        <h2 id="lighting-title" data-i18n-html="playgrounds.88554965">Three-Point Lighting</h2>
+        <p data-i18n-html="playgrounds.268528d2">The <strong>key</strong> establishes direction, the <strong>fill</strong> controls contrast, and the <strong>back light</strong> separates the subject. Their ratio shapes shadow, highlight and emotional pressure.</p>
+      </div>
+      <figure class="study-figure lighting-figure">
+        <svg viewBox="0 0 800 460" role="img" aria-labelledby="lighting-diagram-title lighting-diagram-desc">
+          <title id="lighting-diagram-title">Three-point lighting plan</title>
+          <desc id="lighting-diagram-desc">A subject in the centre with a strong key light, softer fill light and rear separation light.</desc>
+          <path class="study-frame-line" d="M35 34h730v392H35z"/>
+          <path class="light-beam beam-key" d="M112 104 360 208 448 268 180 175Z"/>
+          <path class="light-beam beam-fill" d="m692 160-237 72-75 55 260-60Z"/>
+          <path class="light-beam beam-back" d="m520 68-96 132 38 26 107-128Z"/>
+          <circle class="lamp lamp-key" cx="112" cy="104" r="25"/>
+          <circle class="lamp lamp-fill" cx="692" cy="160" r="21"/>
+          <circle class="lamp lamp-back" cx="520" cy="68" r="18"/>
+          <circle class="subject-head" cx="405" cy="222" r="54"/>
+          <path class="subject-body" d="M293 394c7-78 50-126 112-126s105 48 112 126Z"/>
+          <path class="face-light" d="M375 178c38-20 79 1 82 37 3 39-26 65-62 60-25-4-41-23-43-47-1-19 7-39 23-50Z"/>
+          <text x="78" y="72">KEY · 100%</text>
+          <text x="644" y="124">FILL · 35%</text>
+          <text x="492" y="42">BACK · 55%</text>
+          <text class="diagram-note" x="324" y="423">contrast ratio creates mood</text>
+        </svg>
+        <figcaption>Direction first. Ratio second. Brightness alone does not make lighting expressive.</figcaption>
+      </figure>
+    </section>
 
-<div class="search-overlay" id="searchOverlay">
-<div class="search-container">
-<input autocomplete="off" class="search-input" id="searchInput" placeholder="Search concepts... (⌘K)" spellcheck="false" type="text"/>
-<div class="search-results" id="searchResults"></div>
-</div>
-</div>
+    <section class="study-plate" id="focal-length" aria-labelledby="focal-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.d8c21593">Cinematography</span>
+        <p class="study-number" aria-hidden="true">02</p>
+        <h2 id="focal-title" data-i18n-html="playgrounds.f51b5edf">Focal Length Psychology</h2>
+        <p data-i18n-html="playgrounds.5b486d48">Compare <strong>18mm</strong> wide and expansive, <strong>50mm</strong> natural, and <strong>200mm</strong> compressed. Focal length changes field of view; changing camera distance changes perspective and the background relationship.</p>
+      </div>
+      <figure class="study-figure">
+        <div class="lens-comparison" role="img" aria-label="Comparison of wide, normal and telephoto framing">
+          <div class="lens-frame lens-wide">
+            <span class="lens-horizon"></span><i class="lens-subject"></i><b>18mm</b><small>expansive depth</small>
+          </div>
+          <div class="lens-frame lens-normal">
+            <span class="lens-horizon"></span><i class="lens-subject"></i><b>50mm</b><small>natural relation</small>
+          </div>
+          <div class="lens-frame lens-long">
+            <span class="lens-horizon"></span><i class="lens-subject"></i><b>200mm</b><small>compressed depth</small>
+          </div>
+        </div>
+        <figcaption>The subject can remain similar in size while the world behind them changes dramatically.</figcaption>
+      </figure>
+    </section>
 
-<nav class="pg-nav">
-<a class="pg-nav-link" data-i18n-html="playgrounds.c4bbed5a" href="index.html">← Overview</a>
-<a class="pg-nav-link active" data-i18n-html="playgrounds.1d363f1f" data-section="lighting" href="#lighting">🎥 Lighting</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.f5567fe0" data-section="focal-length" href="#focal-length">🔭 Lenses</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.cf363fde" data-section="dof" href="#dof">🔘 DOF</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.c50c6cb5" data-section="color-temp" href="#color-temp">🌡️ Color</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.21ced0b2" data-section="composition" href="#composition">📐 Composition</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.b21d0329" data-section="easing" href="#easing">📈 Easing</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.fbaeb88d" data-section="timeline" href="#timeline">✂️ Timeline</a>
-<a class="pg-nav-link" data-i18n-html="playgrounds.4bdedcd4" data-section="sound-mixer" href="#sound-mixer">🎚️ Sound</a>
-<button class="pg-nav-link pg-search-btn" id="searchBtn">🔍</button>
-</nav>
-<main class="pg-main">
+    <section class="study-plate" id="dof" aria-labelledby="dof-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.d8c21593">Cinematography</span>
+        <p class="study-number" aria-hidden="true">03</p>
+        <h2 id="dof-title" data-i18n-html="playgrounds.84af023f">Depth of Field</h2>
+        <p data-i18n-html="playgrounds.c3df738d">Compare <strong>f/1.4</strong> with its shallow focus and soft bokeh to <strong>f/16</strong> with deeper focus. Aperture works together with focal length, sensor size and subject distance to control what remains sharp.</p>
+      </div>
+      <figure class="study-figure">
+        <div class="dof-comparison" role="img" aria-label="Depth of field from shallow at f 1.4 to deep at f 16">
+          <div class="dof-scene dof-shallow"><span></span><span></span><i></i><b>f/1.4</b><small>isolate</small></div>
+          <div class="dof-scene dof-middle"><span></span><span></span><i></i><b>f/5.6</b><small>balance</small></div>
+          <div class="dof-scene dof-deep"><span></span><span></span><i></i><b>f/16</b><small>context</small></div>
+        </div>
+        <figcaption>Focus is not merely technical clarity; it is an instruction about where attention belongs.</figcaption>
+      </figure>
+    </section>
 
-<header class="pg-header">
-<h1 class="pg-title" data-i18n-html="playgrounds.f5f32abf">Interactive Playgrounds</h1>
-<p class="pg-subtitle" data-i18n-html="playgrounds.627807ef">Learn by doing. Every concept is a playground, not a paragraph.</p>
-<div class="pg-tech-badges" data-i18n-html="playgrounds.95d4e580">
-<span class="pg-badge pg-badge--webgpu" data-i18n-html="playgrounds.e2a7a478" id="badgeWebGPU">WebGPU</span>
-<span class="pg-badge pg-badge--signals" data-i18n-html="playgrounds.cadd2b2a">Signals</span>
-<span class="pg-badge pg-badge--orama" data-i18n-html="playgrounds.af251ed5">Orama RAG</span>
-<span class="pg-badge pg-badge--webllm" data-i18n-html="playgrounds.3ca97830" id="badgeAI">WebLLM</span>
-</div>
-</header>
+    <section class="study-plate" id="color-temp" aria-labelledby="temperature-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.d8c21593">Cinematography</span>
+        <p class="study-number" aria-hidden="true">04</p>
+        <h2 id="temperature-title" data-i18n-html="playgrounds.dba5b1e2">Colour Temperature</h2>
+        <p data-i18n-html="playgrounds.77670545">Move conceptually from warm <strong>candlelight (2000K)</strong> to cool <strong>blue sky (10000K)</strong>. Colour temperature can suggest intimacy, neutrality, distance or unease before the story names the feeling.</p>
+      </div>
+      <figure class="study-figure temperature-figure">
+        <div class="temperature-scale" role="img" aria-label="Colour temperature scale from 2000 to 10000 kelvin">
+          <div class="temp temp-2000"><span>2000K</span><small>candle</small></div>
+          <div class="temp temp-3200"><span>3200K</span><small>tungsten</small></div>
+          <div class="temp temp-5600"><span>5600K</span><small>daylight</small></div>
+          <div class="temp temp-7000"><span>7000K</span><small>overcast</small></div>
+          <div class="temp temp-10000"><span>10000K</span><small>blue sky</small></div>
+        </div>
+        <div class="temperature-axis" aria-hidden="true"><span>felt warmth</span><i></i><span>felt coolness</span></div>
+        <figcaption>The emotional reading of warm and cool depends on context, contrast and cultural memory.</figcaption>
+      </figure>
+    </section>
 
-<section class="pg-section" id="lighting">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.88554965">Three-Point Lighting</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.268528d2">
-                    Drag the <strong data-i18n-html="playgrounds.89735695" style="color:#ffd700">Key</strong>,
-                    <strong data-i18n-html="playgrounds.db3e3f51" style="color:#6699ff">Fill</strong>, and
-                    <strong data-i18n-html="playgrounds.0557fa92" style="color:#fff">Back</strong> lights around the subject.
-                    Watch shadows and highlights change in real-time.
-                </p>
-</div>
-<div class="pg-canvas-wrapper">
-<div class="pg-canvas" id="lightingCanvas"></div>
-<div class="pg-controls-panel" id="lightingControls"></div>
-</div>
-</section>
+    <section class="study-plate" id="composition" aria-labelledby="composition-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.1afa74da">Design</span>
+        <p class="study-number" aria-hidden="true">05</p>
+        <h2 id="composition-title" data-i18n-html="playgrounds.7112e33e">Composition Guides</h2>
+        <p data-i18n-html="playgrounds.9f06151d">Compare how the same visual weight behaves inside <strong>rule-of-thirds</strong>, <strong>golden-ratio</strong> and <strong>diagonal</strong> structures. A guide is useful when it clarifies intention, not when it becomes a formula.</p>
+      </div>
+      <figure class="study-figure composition-figure">
+        <div class="composition-grid">
+          <div><svg viewBox="0 0 260 170" role="img" aria-label="Rule of thirds composition"><path d="M87 0v170M173 0v170M0 57h260M0 113h260"/><circle cx="173" cy="57" r="23"/><path class="ground" d="M0 125q80-30 132 3t128-9v51H0Z"/></svg><b>Thirds</b></div>
+          <div><svg viewBox="0 0 260 170" role="img" aria-label="Golden ratio composition"><path d="M161 0v170M0 105h161M99 105v65M99 145h62M137 105c0 24-15 40-38 40-38 0-61-24-61-61 0-53 34-84 85-84"/><circle cx="99" cy="105" r="18"/></svg><b>Golden ratio</b></div>
+          <div><svg viewBox="0 0 260 170" role="img" aria-label="Diagonal composition"><path d="m0 170 260-170M0 0l260 170M0 128 196 0M64 170 260 42"/><circle cx="170" cy="59" r="22"/><path class="ground" d="M0 145 260 92v78H0Z"/></svg><b>Diagonal</b></div>
+        </div>
+        <figcaption>Structure guides the eye; asymmetry and interruption keep the frame alive.</figcaption>
+      </figure>
+    </section>
 
-<section class="pg-section" id="focal-length">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.f51b5edf">Focal Length Psychology</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.5b486d48">
-                    Slide between <strong data-i18n-html="playgrounds.ed6d4ec5">18mm</strong> (wide, dramatic) and <strong data-i18n-html="playgrounds.f0b1c7cf">200mm</strong> (telephoto,
-                    compressed).
-                    Notice how the background relationship changes — this is <em data-i18n-html="playgrounds.c7a138c3">perspective distortion</em>.
-                </p>
-</div>
-<div class="pg-canvas-wrapper">
-<div class="pg-canvas" id="focalCanvas"></div>
-<div class="pg-controls-panel" id="focalControls"></div>
-</div>
-</section>
+    <section class="study-plate" id="easing" aria-labelledby="easing-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.8226588f">Motion</span>
+        <p class="study-number" aria-hidden="true">06</p>
+        <h2 id="easing-title" data-i18n-html="playgrounds.e5597875">Easing Curves</h2>
+        <p data-i18n-html="playgrounds.33219079">Compare <strong>linear</strong> motion with <strong>ease-in-out</strong> and <strong>overshoot</strong>. The same start and end points can feel mechanical, graceful or energetic depending on how velocity changes between them.</p>
+      </div>
+      <figure class="study-figure easing-figure">
+        <svg viewBox="0 0 760 390" role="img" aria-labelledby="easing-diagram-title easing-diagram-desc">
+          <title id="easing-diagram-title">Three animation timing curves</title>
+          <desc id="easing-diagram-desc">Linear, ease-in-out and overshoot curves plotted against time.</desc>
+          <path class="chart-axis" d="M92 35v285h610"/>
+          <path class="chart-guide" d="M92 249h610M92 178h610M92 107h610"/>
+          <path class="curve curve-linear" d="m92 320 610-260"/>
+          <path class="curve curve-ease" d="M92 320c220 0 180-260 610-260"/>
+          <path class="curve curve-over" d="M92 320c205 0 184-238 431-238 88 0 81-45 179-22"/>
+          <text x="112" y="292">LINEAR</text><text x="284" y="196">EASE IN–OUT</text><text x="506" y="52">OVERSHOOT</text>
+          <text class="diagram-note" x="655" y="350">time →</text>
+        </svg>
+        <figcaption>Motion carries character: timing is the difference between movement and behaviour.</figcaption>
+      </figure>
+    </section>
 
-<section class="pg-section" id="dof">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.84af023f">Depth of Field</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.c3df738d">
-                    Slide the aperture from <strong>f/1.4</strong> (dreamy bokeh) to <strong>f/16</strong> (everything
-                    sharp).
-                    Lower f-stops create the shallow depth of field that gives cinema its signature look.
-                </p>
-</div>
-<div class="pg-canvas-wrapper">
-<div class="pg-canvas" id="dofCanvas"></div>
-<div class="pg-controls-panel" id="dofControls"></div>
-</div>
-</section>
+    <section class="study-plate" id="timeline" aria-labelledby="timeline-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.b1caf7f2">Editing</span>
+        <p class="study-number" aria-hidden="true">07</p>
+        <h2 id="timeline-title" data-i18n-html="playgrounds.3c363d96">Editing Rhythm</h2>
+        <p data-i18n-html="playgrounds.baa46f36">Compare long, even and accelerating shot lengths. Cut placement creates pulse; alignment with a beat can reinforce momentum, while cutting against it can create tension or surprise.</p>
+      </div>
+      <figure class="study-figure timeline-figure">
+        <div class="timeline-study" role="img" aria-label="Three editing patterns with long, even and accelerating shot lengths">
+          <div class="timeline-row"><b>Contemplative</b><span class="shot s-7"></span><span class="shot s-5"></span><span class="shot s-6"></span></div>
+          <div class="timeline-row"><b>Measured</b><span class="shot s-3"></span><span class="shot s-3"></span><span class="shot s-3"></span><span class="shot s-3"></span><span class="shot s-3"></span></div>
+          <div class="timeline-row"><b>Accelerating</b><span class="shot s-6"></span><span class="shot s-4"></span><span class="shot s-3"></span><span class="shot s-2"></span><span class="shot s-1"></span></div>
+        </div>
+        <div class="beat-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <figcaption>Rhythm is a relationship between duration, expectation, movement and sound—not simply speed.</figcaption>
+      </figure>
+    </section>
 
-<section class="pg-section" id="color-temp">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.d8c21593" style="--domain-color: var(--cinematography)">Cinematography</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.dba5b1e2">Color Temperature</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.77670545">
-                    Shift the scene from warm <strong data-i18n-html="playgrounds.1fb6dea2">candlelight (2000K)</strong> to cold <strong data-i18n-html="playgrounds.49d2f7cc">blue sky
-                        (10000K)</strong>.
-                    Color temperature is one of the most powerful emotional tools in cinematography.
-                </p>
-</div>
-<div class="pg-canvas-wrapper">
-<div class="pg-canvas" id="colorTempCanvas"></div>
-<div class="pg-controls-panel" id="colorTempControls"></div>
-</div>
-</section>
-
-<section class="pg-section" id="composition">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.1afa74da" style="--domain-color: var(--design)">Design</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.7112e33e">Composition Rules</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.9f06151d">
-                    Drag the colored elements to explore how placement affects visual weight.
-                    Toggle overlays to see <strong data-i18n-html="playgrounds.ade8c9a4">Rule of Thirds</strong>, <strong data-i18n-html="playgrounds.88117b56">Golden Ratio</strong>, and
-                    <strong data-i18n-html="playgrounds.9ac677ee">Diagonal</strong> guides.
-                </p>
-</div>
-<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-<div class="pg-canvas pg-canvas--2d" id="compositionCanvas"></div>
-<div class="pg-controls-panel" id="compositionControls"></div>
-</div>
-</section>
-
-<section class="pg-section" id="easing">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.8226588f" style="--domain-color: var(--motion)">Motion</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.e5597875">Easing Curve Editor</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.33219079">
-                    Drag the <strong data-i18n-html="playgrounds.9f274107" style="color:#22c55e">green</strong> and
-                    <strong data-i18n-html="playgrounds.bda9643a" style="color:#ef4444">red</strong> control points to shape the motion curve.
-                    The ball below follows your easing in real-time.
-                </p>
-</div>
-<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-<div class="pg-canvas pg-canvas--2d" id="easingCanvas"></div>
-<div class="pg-controls-panel" id="easingControls"></div>
-</div>
-</section>
-
-<section class="pg-section" id="timeline">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.b1caf7f2" style="--domain-color: var(--editing)">Editing</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.3c363d96">Editing Timeline</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.baa46f36">
-                    Drag <strong data-i18n-html="playgrounds.4454ec91" style="color:#ef4444">cut markers</strong> to change pacing.
-                    <strong data-i18n-html="playgrounds.d9a61887">Double-click</strong> to add new cuts.
-                    The rhythm grid shows if your cuts land on beat.
-                </p>
-</div>
-<div class="pg-canvas-wrapper pg-canvas-wrapper--2d">
-<div class="pg-canvas pg-canvas--2d" id="timelineCanvas"></div>
-<div class="pg-controls-panel" id="timelineControls"></div>
-</div>
-</section>
-
-<section class="pg-section" id="sound-mixer">
-<div class="pg-section-header">
-<span class="pg-section-domain" data-i18n-html="playgrounds.9d07e0e0" style="--domain-color: var(--sound)">Sound</span>
-<h2 class="pg-section-title" data-i18n-html="playgrounds.43dba652">Sound Mixer</h2>
-<p class="pg-section-desc" data-i18n-html="playgrounds.cd8cd794">
-                    Four channels: <strong data-i18n-html="playgrounds.359928af" style="color:#22c55e">Dialogue</strong>,
-                    <strong data-i18n-html="playgrounds.47dcbd83" style="color:#8b5cf6">Music</strong>,
-                    <strong style="color:#f59e0b">SFX</strong>, and
-                    <strong data-i18n-html="playgrounds.782ad488" style="color:#06b6d4">Ambience</strong>.
-                    Mix them to shape the emotional texture of a scene.
-                </p>
-</div>
-<div class="pg-canvas-wrapper pg-canvas-wrapper--mixer">
-<div class="pg-canvas pg-canvas--mixer" id="mixerCanvas"></div>
-<div class="pg-controls-panel" id="mixerControls"></div>
-</div>
-</section>
-</main>
-
-<button class="ai-fab" data-i18n-html="playgrounds.e70c6afb" id="aiFab" title="Ask AI Tutor">
-<span class="ai-fab-icon">🧠</span>
-<span class="ai-fab-label" data-i18n-html="playgrounds.4153d4b2" id="aiFabLabel">AI Tutor</span>
-</button>
-<div class="ai-panel" id="aiPanel">
-<div class="ai-panel-header">
-<h3 data-i18n-html="playgrounds.f58f025a">🧠 AI Tutor</h3>
-<span class="ai-status" data-i18n-html="playgrounds.27a21354" id="aiStatusBadge">offline</span>
-<button class="ai-close" id="aiClose">✕</button>
-</div>
-<div class="ai-messages" id="aiMessages">
-<div class="ai-msg ai-msg--system">
-<p data-i18n-html="playgrounds.849b5c3a">I'm your cinematic storytelling tutor. I run <strong data-i18n-html="playgrounds.da216e72">entirely in your browser</strong> — no cloud, no
-                    API key needed.</p>
-<p data-i18n-html="playgrounds.989e9553">Ask me about any concept you're exploring!</p>
-</div>
-</div>
-<div class="ai-input-row">
-<input autocomplete="off" class="ai-input" id="aiInput" placeholder="Ask about a concept..." type="text"/>
-<button class="ai-send" id="aiSend">→</button>
-</div>
-<div class="ai-progress" id="aiProgress">
-<div class="ai-progress-bar" id="aiProgressBar"></div>
-<span class="ai-progress-text" id="aiProgressText"></span>
-</div>
-</div>
-
-<button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle">🌙</button>
-<footer class="pg-footer">
-<p data-i18n-html="playgrounds.69159d2f">Built with <strong data-i18n-html="playgrounds.e2a7a478">WebGPU</strong> · <strong data-i18n-html="playgrounds.5a258fd9">Orama</strong> · <strong data-i18n-html="playgrounds.3ca97830">WebLLM</strong> ·
-            <strong data-i18n-html="playgrounds.cadd2b2a">Signals</strong> — all running in your browser
-        </p>
-</footer>
-<script type="module">
-        import { detectGPU, searchQuery } from './src/state/signals.js';
-        import { LightingPlayground } from './src/playgrounds/lightingPlayground.js';
-        import { FocalLengthPlayground } from './src/playgrounds/focalLengthPlayground.js';
-        import { DOFPlayground } from './src/playgrounds/dofPlayground.js';
-        import { ColorTempPlayground } from './src/playgrounds/colorTempPlayground.js';
-        import { CompositionPlayground } from './src/playgrounds/compositionPlayground.js';
-        import { EasingPlayground } from './src/playgrounds/easingPlayground.js';
-        import { TimelinePlayground } from './src/playgrounds/timelinePlayground.js';
-        import { SoundMixerPlayground } from './src/playgrounds/soundMixerPlayground.js';
-        import { initSearch } from './src/search/search.js';
-        import { initAITutor, askTutor } from './src/ai/aiTutor.js';
-        import { effect } from '@preact/signals-core';
-        import {
-            gpuCapabilities, aiStatus, aiMessages, aiModelProgress,
-            searchResults
-        } from './src/state/signals.js';
-
-        // ═══════════════════════════════════════
-        // INIT
-        // ═══════════════════════════════════════
-
-        async function init() {
-            // 1. Detect GPU
-            const caps = await detectGPU();
-            const gpuLabel = document.getElementById('gpuLabel');
-            const gpuDot = document.querySelector('.gpu-dot');
-            const badge = document.getElementById('badgeWebGPU');
-
-            if (caps.webgpu) {
-                gpuLabel.textContent = `WebGPU Active — ${caps.gpuName || 'GPU'}`;
-                gpuDot.classList.add('gpu-dot--active');
-                badge.classList.add('pg-badge--active');
-            } else {
-                gpuLabel.textContent = 'WebGL Fallback';
-                gpuDot.classList.add('gpu-dot--fallback');
-                badge.textContent = 'WebGL';
-            }
-
-            // 2. Initialize playgrounds (lazy)
-            const playgroundMap = {
-                'lightingCanvas': { Cls: LightingPlayground, controls: 'lightingControls' },
-                'focalCanvas': { Cls: FocalLengthPlayground, controls: 'focalControls' },
-                'dofCanvas': { Cls: DOFPlayground, controls: 'dofControls' },
-                'colorTempCanvas': { Cls: ColorTempPlayground, controls: 'colorTempControls' },
-                'compositionCanvas': { Cls: CompositionPlayground, controls: 'compositionControls' },
-                'easingCanvas': { Cls: EasingPlayground, controls: 'easingControls' },
-                'timelineCanvas': { Cls: TimelinePlayground, controls: 'timelineControls' },
-                'mixerCanvas': { Cls: SoundMixerPlayground, controls: 'mixerControls' },
-            };
-
-            // Use IntersectionObserver for lazy loading
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting || entry.target._pg) return;
-                    const config = playgroundMap[entry.target.id];
-                    if (config) {
-                        try {
-                            const pg = new config.Cls(entry.target);
-                            pg.createControls(document.getElementById(config.controls));
-                            entry.target._pg = pg;
-                            console.log(`✅ ${entry.target.id} initialized`);
-                        } catch (err) {
-                            console.error(`❌ Failed to init ${entry.target.id}:`, err);
-                            entry.target.innerHTML = `<div style="padding:2rem;color:#ef4444;font-family:monospace;text-align:center;">
-                                <p>⚠️ This playground failed to load</p>
-                                <p style="font-size:0.75rem;opacity:0.6">${err.message}</p>
-                            </div>`;
-                        }
-                    }
-                    observer.unobserve(entry.target);
-                });
-            }, { threshold: 0.1 });
-
-            Object.keys(playgroundMap).forEach(id => {
-                const el = document.getElementById(id);
-                if (el) observer.observe(el);
-            });
-
-            // 3. Initialize search
-            try {
-                await initSearch();
-            } catch (e) {
-                console.warn('Search init failed:', e);
-            }
-
-            // 4. Initialize AI (deferred)
-            try {
-                initAITutor();
-            } catch (e) {
-                console.warn('AI tutor init failed:', e);
-            }
-
-            // 5. Wire up search UI
-            setupSearch();
-
-            // 6. Wire up AI panel
-            setupAIPanel();
-
-            // 7. Wire up nav
-            setupNav();
-
-            // 8. Theme toggle
-            setupTheme();
-
-            console.log('🎬 Playgrounds initialized');
-        }
-
-        // ═══════════════════════════════════════
-        // SEARCH UI
-        // ═══════════════════════════════════════
-
-        function setupSearch() {
-            const overlay = document.getElementById('searchOverlay');
-            const input = document.getElementById('searchInput');
-            const resultsEl = document.getElementById('searchResults');
-            const searchBtn = document.getElementById('searchBtn');
-
-            searchBtn.addEventListener('click', () => {
-                overlay.classList.toggle('active');
-                if (overlay.classList.contains('active')) input.focus();
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                    e.preventDefault();
-                    overlay.classList.toggle('active');
-                    if (overlay.classList.contains('active')) input.focus();
-                }
-                if (e.key === 'Escape') overlay.classList.remove('active');
-            });
-
-            input.addEventListener('input', (e) => {
-                searchQuery.value = e.target.value;
-            });
-
-            // React to results
-            effect(() => {
-                const results = searchResults.value;
-                if (results.length === 0) {
-                    resultsEl.innerHTML = '';
-                    return;
-                }
-
-                const domainColors = {
-                    cinematography: '#e85d75',
-                    design: '#6C63FF',
-                    sound: '#06b6d4',
-                    editing: '#8b5cf6',
-                    motion: '#f59e0b',
-                    storytelling: '#22c55e'
-                };
-
-                resultsEl.innerHTML = results.map(r => `
-                    <a href="${r.link}" class="search-result" data-domain="${r.domain}">
-                        <span class="search-result-type" style="background: ${domainColors[r.domain] || '#666'}">${r.type}</span>
-                        <div class="search-result-body">
-                            <strong>${r.title}</strong>
-                            <p>${r.definition?.substring(0, 100)}...</p>
-                        </div>
-                    </a>
-                `).join('');
-            });
-        }
-
-        // ═══════════════════════════════════════
-        // AI PANEL
-        // ═══════════════════════════════════════
-
-        function setupAIPanel() {
-            const fab = document.getElementById('aiFab');
-            const panel = document.getElementById('aiPanel');
-            const closeBtn = document.getElementById('aiClose');
-            const input = document.getElementById('aiInput');
-            const sendBtn = document.getElementById('aiSend');
-            const messagesEl = document.getElementById('aiMessages');
-            const statusBadge = document.getElementById('aiStatusBadge');
-            const progressBar = document.getElementById('aiProgressBar');
-            const progressText = document.getElementById('aiProgressText');
-            const progressEl = document.getElementById('aiProgress');
-
-            fab.addEventListener('click', () => {
-                panel.classList.toggle('active');
-            });
-
-            closeBtn.addEventListener('click', () => {
-                panel.classList.remove('active');
-            });
-
-            const sendMessage = async () => {
-                const msg = input.value.trim();
-                if (!msg) return;
-                input.value = '';
-                await askTutor(msg);
-            };
-
-            sendBtn.addEventListener('click', sendMessage);
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-
-            // React to AI status
-            effect(() => {
-                const status = aiStatus.value;
-                statusBadge.textContent = status;
-                statusBadge.className = `ai-status ai-status--${status}`;
-
-                const fabLabel = document.getElementById('aiFabLabel');
-                if (status === 'loading') fabLabel.textContent = 'Loading...';
-                else if (status === 'ready') fabLabel.textContent = 'AI Ready';
-                else if (status === 'thinking') fabLabel.textContent = 'Thinking...';
-                else if (status === 'error') fabLabel.textContent = 'Error';
-                else fabLabel.textContent = 'AI Tutor';
-            });
-
-            // React to AI messages
-            effect(() => {
-                const msgs = aiMessages.value;
-                if (msgs.length === 0) return;
-
-                const html = msgs.map(m => `
-                    <div class="ai-msg ai-msg--${m.role}">
-                        <p>${m.content.replace(/\n/g, '<br>')}</p>
-                    </div>
-                `).join('');
-
-                messagesEl.innerHTML = `
-                    <div class="ai-msg ai-msg--system">
-                        <p>I'm your cinematic tutor. Ask me anything!</p>
-                    </div>
-                    ${html}
-                `;
-
-                messagesEl.scrollTop = messagesEl.scrollHeight;
-            });
-
-            // React to model download progress
-            effect(() => {
-                const progress = aiModelProgress.value;
-                if (progress > 0 && progress < 1) {
-                    progressEl.style.display = 'block';
-                    progressBar.style.width = `${progress * 100}%`;
-                    progressText.textContent = `Loading model: ${Math.round(progress * 100)}%`;
-                } else {
-                    progressEl.style.display = 'none';
-                }
-            });
-        }
-
-        // ═══════════════════════════════════════
-        // NAV
-        // ═══════════════════════════════════════
-
-        function setupNav() {
-            const links = document.querySelectorAll('.pg-nav-link[data-section]');
-            const sections = document.querySelectorAll('.pg-section');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        links.forEach(l => l.classList.remove('active'));
-                        const link = document.querySelector(`.pg-nav-link[data-section="${entry.target.id}"]`);
-                        if (link) link.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            sections.forEach(s => observer.observe(s));
-        }
-
-        // ═══════════════════════════════════════
-        // THEME
-        // ═══════════════════════════════════════
-
-        function setupTheme() {
-            const toggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'dark'; // Default dark for playgrounds
-            html.setAttribute('data-theme', savedTheme);
-            toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-            toggle.addEventListener('click', () => {
-                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            });
-        }
-
-        // GO
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
-<script src="global-lang.js" type="module"></script>
+    <section class="study-plate" id="sound-mixer" aria-labelledby="sound-title">
+      <div class="study-copy">
+        <span class="study-domain" data-i18n-html="playgrounds.9d07e0e0">Sound</span>
+        <p class="study-number" aria-hidden="true">08</p>
+        <h2 id="sound-title" data-i18n-html="playgrounds.43dba652">Sound Layers</h2>
+        <p data-i18n-html="playgrounds.cd8cd794">Four layers—<strong>dialogue</strong>, <strong>music</strong>, <strong>effects</strong> and <strong>ambience</strong>—shape a scene's emotional texture. Clarity comes from hierarchy: every layer should not compete at equal intensity.</p>
+      </div>
+      <figure class="study-figure sound-figure">
+        <div class="sound-stack" role="img" aria-label="A sound hierarchy with dialogue strongest, then ambience, effects and music">
+          <div><b>Dialogue</b><span><i style="--level:88%"></i></span><small>foreground · clarity</small></div>
+          <div><b>Music</b><span><i style="--level:46%"></i></span><small>emotion · subtext</small></div>
+          <div><b>Effects</b><span><i style="--level:62%"></i></span><small>action · material</small></div>
+          <div><b>Ambience</b><span><i style="--level:70%"></i></span><small>place · continuity</small></div>
+        </div>
+        <figcaption>A mix becomes legible when one layer leads and the others support the moment.</figcaption>
+      </figure>
+    </section>
+  </main>
 </body>
 </html>

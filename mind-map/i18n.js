@@ -8,6 +8,15 @@ const DEFAULT_LANG = 'en';
 const SUPPORTED = ['en', 'hi'];
 
 const langCache = {};
+const pendingLanguages = new Map();
+let translationRevision = 0;
+
+function readLanguage() {
+  try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; } catch { return DEFAULT_LANG; }
+}
+function saveLanguage(lang) {
+  try { localStorage.setItem(STORAGE_KEY, lang); } catch { /* Private storage is optional. */ }
+}
 /** @type {WeakMap<Element, { html: string, text: string }>} */
 const originalCache = new WeakMap();
 const originalTitle = { value: null };
@@ -28,7 +37,7 @@ function resolve(obj, path) {
   return path.split('.').reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : undefined), obj);
 }
 
-async function loadLang(lang) {
+async function fetchLanguage(lang) {
   if (langCache[lang]) return langCache[lang];
 
   const candidates = [
@@ -53,6 +62,15 @@ async function loadLang(lang) {
   console.warn('[i18n] Could not load lang/' + lang + '.json from any path');
   langCache[lang] = {};
   return langCache[lang];
+}
+
+function loadLang(lang) {
+  if (!SUPPORTED.includes(lang)) return Promise.resolve({});
+  if (langCache[lang]) return Promise.resolve(langCache[lang]);
+  if (!pendingLanguages.has(lang)) {
+    pendingLanguages.set(lang, fetchLanguage(lang).finally(() => pendingLanguages.delete(lang)));
+  }
+  return pendingLanguages.get(lang);
 }
 
 function cacheOriginal(el) {
@@ -85,14 +103,17 @@ function restoreOriginal(el) {
  * - [data-i18n-html="index.abc"] → HTML-capable string (key is the attribute value)
  * - element with both: data-i18n is the key, data-i18n-html is a flag for HTML mode
  */
-async function applyTranslations(lang, { animate = false } = {}) {
-  if (!SUPPORTED.includes(lang)) return;
+async function applyTranslations(lang) {
+  if (!SUPPORTED.includes(lang)) return false;
+  const revision = ++translationRevision;
 
   if (originalTitle.value === null) {
     originalTitle.value = document.title;
   }
 
-  const strings = await loadLang(lang);
+  // English is already authored in the document; it needs no network round-trip.
+  const strings = lang === DEFAULT_LANG ? {} : await loadLang(lang);
+  if (revision !== translationRevision) return false;
   document.documentElement.setAttribute('lang', lang);
   document.body.classList.remove('lang-en', 'lang-hi');
   document.body.classList.add('lang-' + lang);
@@ -103,7 +124,7 @@ async function applyTranslations(lang, { animate = false } = {}) {
     if (originalTitle.value) document.title = originalTitle.value;
     updateSwitcherUI(lang);
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
-    return;
+    return true;
   }
 
   // Title from pack if present
@@ -121,17 +142,7 @@ async function applyTranslations(lang, { animate = false } = {}) {
     const value = resolve(strings, key);
     if (value === undefined || value === null || typeof value === 'object') return;
 
-    const apply = () => applyValue(el, value, true);
-    if (animate) {
-      el.style.opacity = '0';
-      el.style.transition = 'opacity 0.2s ease';
-      setTimeout(() => {
-        apply();
-        el.style.opacity = '1';
-      }, 120);
-    } else {
-      apply();
-    }
+    applyValue(el, value, true);
   });
 
   // 2) Nested data-i18n keys second so child labels win over parent HTML blobs
@@ -140,24 +151,16 @@ async function applyTranslations(lang, { animate = false } = {}) {
     const value = resolve(strings, key);
     if (value === undefined || value === null || typeof value === 'object') return;
 
-    const apply = () => applyValue(el, value, false);
-    if (animate) {
-      el.style.opacity = '0';
-      el.style.transition = 'opacity 0.2s ease';
-      setTimeout(() => {
-        apply();
-        el.style.opacity = '1';
-      }, 120);
-    } else {
-      apply();
-    }
+    applyValue(el, value, false);
   });
 
   updateSwitcherUI(lang);
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+  return true;
 }
 
 function updateSwitcherUI(lang) {
+  document.querySelectorAll('#global-lang-switcher button[data-lang]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
   document.querySelectorAll('.lang-en-label').forEach((el) => el.classList.toggle('active-lang', lang === 'en'));
   document.querySelectorAll('.lang-hi-label').forEach((el) => el.classList.toggle('active-lang', lang === 'hi'));
 }
@@ -169,7 +172,7 @@ const I18n = {
   applyTranslations,
 
   async init() {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = readLanguage();
     const lang = SUPPORTED.includes(saved) ? saved : DEFAULT_LANG;
     this.currentLang = lang;
     await applyTranslations(lang, { animate: false });
@@ -178,7 +181,7 @@ const I18n = {
   async setLanguage(lang, animate = true) {
     if (!SUPPORTED.includes(lang)) return;
     this.currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang);
+    saveLanguage(lang);
     await applyTranslations(lang, { animate });
   },
 
@@ -204,6 +207,8 @@ export {
   BASE_URL,
   STORAGE_KEY,
   SUPPORTED,
+  readLanguage,
+  saveLanguage,
 };
 
 // No auto-init here. global-lang.js owns the language switcher lifecycle.

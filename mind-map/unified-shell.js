@@ -1,147 +1,123 @@
-import './unified-shell.css';
 import './handcrafted-pages.css';
+import './unified-shell.css';
 import './global-lang.js';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
+import { orderedItems } from './atlas-navigation.js';
 
-const dividerAsset = new URL('./assets/craft/manuscript-divider.webp', import.meta.url).href;
-
-const groups = [
-  ['Begin', [
-    ['index.html', 'Overview'],
-    ['visual-literacy.html', 'Visual Literacy'],
-    ['start-here.html', 'Start Here'],
-  ]],
-  ['Core', [
-    ['storytelling.html', 'Storytelling'],
-    ['design.html', 'Design'],
-    ['cinematography.html', 'Cinematography'],
-    ['sound.html', 'Sound'],
-    ['editing.html', 'Editing'],
-    ['motion.html', 'Motion'],
-  ]],
-  ['Systems', [
-    ['ai-visual.html', 'AI Visual'],
-    ['emotion-grammar.html', 'Emotion Grammar'],
-    ['scene-grammar.html', 'Scene Grammar'],
-    ['story-emotion.html', 'Story × Emotion'],
-    ['human-layers.html', 'Human Layers'],
-  ]],
-  ['Reference', [
-    ['skill-tree.html', 'Skill Tree'],
-    ['style-reference.html', 'Style Reference'],
-    ['craft-notes.html', 'Craft Notes'],
-    ['resources.html', 'Resources'],
-    ['book.html', 'Knowledge Book'],
-  ]],
-];
-
+// The shell and theme are in the initial HTML. Reading never waits for JS.
+document.documentElement.classList.remove('ua-no-js');
 const current = location.pathname.split('/').pop() || 'index.html';
-const links = groups.map(([label, items]) => `
-  <div class="ua-group">
-    <p>${label}</p>
-    ${items.map(([href, text]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${text}</a>`).join('')}
-  </div>`).join('');
-
-document.documentElement.classList.remove('dark');
-document.documentElement.classList.add('ua-light');
-document.body.classList.add('unified-atlas');
-document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#f3e6cc');
-
-document.querySelectorAll('body > .sidebar, body > .site-rail, body > .menu-btn, body > .sidebar-overlay, body > .atlas-topbar, body > .app-shell > .site-rail').forEach((node) => {
-  node.setAttribute('data-legacy-shell', '');
-});
-
-const main = document.querySelector('main') || document.querySelector('.main-content') || document.body.firstElementChild;
-if (main) main.classList.add('ua-main');
-
-const shell = document.createElement('div');
-shell.innerHTML = `
-  <button class="ua-menu" type="button" aria-expanded="false" aria-controls="ua-rail">
-    <span></span><span></span><span></span><b>Menu</b>
-  </button>
-  <div class="ua-scrim" aria-hidden="true"></div>
-  <aside class="ua-rail" id="ua-rail" aria-label="Knowledge atlas navigation">
-    <a class="ua-brand" href="index.html" aria-label="Visual Storytelling home">
-      <span class="ua-brand-mark" aria-hidden="true"><img src="${dividerAsset}" alt="" width="1800" height="600"></span>
-      <span><strong>दृष्टि</strong><small>Visual Storytelling</small></span>
-    </a>
-    <img class="ua-brand-divider" src="${dividerAsset}" alt="" width="1800" height="600" aria-hidden="true">
-    <nav class="ua-nav">${links}</nav>
-    <a class="ua-sibling" href="https://spacereact.github.io/atlas-of-looks/">
-      <span><small>Companion collection</small>Atlas of Looks</span><b>↗</b>
-    </a>
-  </aside>`;
-
-document.body.prepend(...shell.children);
-
-const button = document.querySelector('.ua-menu');
+const main = document.querySelector('.ua-main');
+const menuButton = document.querySelector('.ua-menu');
+const mobileBar = document.querySelector('.ua-mobile-bar');
+const closeButton = document.querySelector('.ua-close');
 const scrim = document.querySelector('.ua-scrim');
-const setOpen = (open) => {
-  document.body.classList.toggle('ua-open', open);
-  button?.setAttribute('aria-expanded', String(open));
-};
-button?.addEventListener('click', () => setOpen(!document.body.classList.contains('ua-open')));
+const rail = document.querySelector('.ua-rail');
+const narrowScreen = window.matchMedia('(max-width: 920px)');
+let drawerOpen = false;
+
+function setOpen(requestedOpen, restoreFocus = true) {
+  drawerOpen = requestedOpen && narrowScreen.matches;
+  document.body.classList.toggle('ua-open', drawerOpen);
+  menuButton?.setAttribute('aria-expanded', String(drawerOpen));
+  scrim?.setAttribute('aria-hidden', String(!drawerOpen));
+  if (rail) {
+    rail.inert = narrowScreen.matches && !drawerOpen;
+    if (drawerOpen) {
+      rail.setAttribute('role', 'dialog');
+      rail.setAttribute('aria-modal', 'true');
+    } else {
+      rail.removeAttribute('role');
+      rail.removeAttribute('aria-modal');
+    }
+  }
+  if (main) main.inert = drawerOpen;
+  if (mobileBar) mobileBar.inert = drawerOpen;
+  if (drawerOpen) closeButton?.focus({ preventScroll: true });
+  else if (restoreFocus && narrowScreen.matches) menuButton?.focus({ preventScroll: true });
+}
+
+setOpen(false, false);
+menuButton?.addEventListener('click', () => setOpen(!drawerOpen));
+closeButton?.addEventListener('click', () => setOpen(false));
 scrim?.addEventListener('click', () => setOpen(false));
-document.querySelectorAll('.ua-rail a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+rail?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false, false)));
+narrowScreen.addEventListener('change', () => setOpen(false, false));
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') setOpen(false);
+  if (!drawerOpen) return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    setOpen(false);
+  }
+  if (event.key !== 'Tab' || !rail) return;
+  const focusable = [...rail.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')]
+    .filter((element) => element.getClientRects().length);
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last?.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first?.focus();
+  }
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) setOpen(false);
-});
+// The rail scrolls independently; a deep reference page must remain findable.
+const currentLink = rail?.querySelector('[aria-current="page"]');
+const navigation = rail?.querySelector('.ua-nav');
+if (currentLink && navigation) {
+  navigation.scrollTop = Math.max(0, currentLink.offsetTop - navigation.offsetTop - 70);
+}
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const precisePointer = window.matchMedia('(pointer: fine)');
-const revealTargets = main
-  ? Array.from(main.children).filter((node) => node.matches('header, section, nav'))
-  : [];
+const currentIndex = orderedItems.findIndex(([href]) => href === current);
+if (main && currentIndex > 0 && !main.querySelector('.ua-route-nav')) {
+  const previous = orderedItems[currentIndex - 1];
+  const next = orderedItems[currentIndex + 1];
+  const routeNav = document.createElement('nav');
+  routeNav.className = 'ua-route-nav';
+  routeNav.setAttribute('aria-label', 'Related atlas sections');
+  routeNav.innerHTML = `
+    <a href="${previous[0]}"><small>Previous</small><span>← ${previous[1]}</span></a>
+    <a class="ua-route-home" href="index.html"><small>Knowledge atlas</small><span>Overview</span></a>
+    ${next ? `<a href="${next[0]}"><small>Next</small><span>${next[1]} →</span></a>` : '<span></span>'}`;
+  main.append(routeNav);
+}
 
-if (!reduceMotion.matches && 'IntersectionObserver' in window) {
-  revealTargets.forEach((node) => node.classList.add('ua-reveal'));
-  document.body.classList.add('ua-motion-ready');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('ua-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: .06 });
-  revealTargets.forEach((node, index) => {
-    if (index === 0) node.classList.add('ua-visible');
-    observer.observe(node);
+document.querySelectorAll('img').forEach((image) => { image.decoding ||= 'async'; });
+
+// Only decorative images move, only on fine-pointer desktop devices, and only
+// after a real scroll/resize. No animation library or permanent frame loop.
+const motionAllowed = window.matchMedia('(prefers-reduced-motion: no-preference) and (pointer: fine) and (min-width: 921px)');
+const layers = [...document.querySelectorAll('[data-ua-parallax]')]
+  .filter((element) => element.matches('img') && element.closest('[aria-hidden="true"]'));
+let pendingFrame = 0;
+
+function paintDepth() {
+  pendingFrame = 0;
+  if (!motionAllowed.matches || document.hidden) return;
+  const viewport = window.innerHeight;
+  layers.forEach((layer) => {
+    const bounds = layer.parentElement.getBoundingClientRect();
+    if (bounds.bottom < -40 || bounds.top > viewport + 40) return;
+    const progress = Math.max(-1, Math.min(1, (viewport / 2 - (bounds.top + bounds.height / 2)) / viewport));
+    const travel = Math.min(24, Math.max(8, Number(layer.dataset.uaParallax) || 16));
+    layer.style.transform = `translate3d(0, ${Math.round(progress * travel)}px, 0)`;
   });
 }
 
-if (!reduceMotion.matches && precisePointer.matches && window.innerWidth > 760) {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const lenis = new Lenis({
-    duration: 1.05,
-    smoothWheel: true,
-    syncTouch: false,
-    wheelMultiplier: .86,
-  });
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
-
-  document.querySelectorAll('[data-ua-parallax]').forEach((layer) => {
-    const travel = Math.min(46, Math.max(10, Number.parseFloat(layer.dataset.uaParallax || '.03') * 1000));
-    gsap.fromTo(layer,
-      { y: -travel },
-      {
-        y: travel,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: layer.parentElement || layer,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: .7,
-          invalidateOnRefresh: true,
-        },
-      });
-  });
+function queueDepth() {
+  if (motionAllowed.matches && !pendingFrame && layers.length) pendingFrame = requestAnimationFrame(paintDepth);
 }
+
+function syncMotion() {
+  cancelAnimationFrame(pendingFrame);
+  pendingFrame = 0;
+  layers.forEach((layer) => { layer.style.transform = ''; });
+  queueDepth();
+}
+
+window.addEventListener('scroll', queueDepth, { passive: true });
+window.addEventListener('resize', queueDepth, { passive: true });
+document.addEventListener('visibilitychange', syncMotion);
+motionAllowed.addEventListener('change', syncMotion);
+syncMotion();

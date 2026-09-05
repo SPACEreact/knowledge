@@ -14,6 +14,8 @@ import {
   updateSwitcherUI,
   STORAGE_KEY,
   I18n,
+  readLanguage,
+  saveLanguage,
 } from './i18n.js';
 
 // ─── Hindi translations keyed by page filename (fallback for untagged heroes) ───
@@ -114,6 +116,11 @@ const PAGE_TRANSLATIONS = {
     h1: 'ह्यूमन लेयर्स',
     heroDesc: 'हर compelling character में multiple layers होती हैं। Surface के नीचे जो है वही story को human बनाता है।',
   },
+  'human-layers-enhanced.html': {
+    pageTitle: 'ह्यूमन लेयर्स — विस्तृत ज्ञान संस्करण',
+    h1: 'ह्यूमन लेयर्स — विस्तृत ज्ञान संस्करण',
+    heroDesc: 'गहरे एनीग्राम नोट्स, कैमरा-भाषा मानचित्र, पोडली बल-मानचित्र और विकसित चरित्र-चाप उदाहरण।',
+  },
   'audience-participation.html': {
     pageTitle: 'ऑडियंस पार्टिसिपेशन — विज़ुअल स्टोरीटेलिंग फ़्रेमवर्क',
     h1: 'ऑडियंस पार्टिसिपेशन',
@@ -161,8 +168,8 @@ const PAGE_TRANSLATIONS = {
     h1: 'एडिटिंग रिदम',
   },
   'playgrounds.html': {
-    pageTitle: 'प्लेग्राउंड्स — विज़ुअल स्टोरीटेलिंग',
-    h1: 'प्लेग्राउंड्स',
+    pageTitle: 'दृश्य अध्ययन — विज़ुअल स्टोरीटेलिंग',
+    h1: 'दृश्य अध्ययन',
   },
   'visual-story.html': {
     pageTitle: 'द विज़ुअल स्टोरी — ब्रूस ब्लॉक',
@@ -174,12 +181,20 @@ const PAGE_TRANSLATIONS = {
 const SIDEBAR_HI = {
   'VISUAL STORYTELLING': 'विज़ुअल स्टोरीटेलिंग',
   'Knowledge Framework': 'नॉलेज फ़्रेमवर्क',
+  'Volume I · Knowledge': 'खंड I · ज्ञान',
+  'Volume II · History': 'खंड II · इतिहास',
+  Begin: 'आरंभ',
+  'Core craft': 'मूल शिल्प',
+  Systems: 'प्रणालियाँ',
+  Reference: 'संदर्भ',
   Core: 'कोर',
   Domains: 'डोमेन्स',
   'Advanced Systems': 'एडवांस्ड सिस्टम्स',
   'Tools & Reference': 'टूल्स और रेफ़रेंस',
   'Tools &amp; Reference': 'टूल्स और रेफ़रेंस',
   Overview: 'ओवरव्यू',
+  'Visual Literacy': 'दृश्य साक्षरता',
+  'Start Here': 'यहाँ से शुरू करें',
   Storytelling: 'कहानी',
   Design: 'डिज़ाइन',
   Cinematography: 'सिनेमेटोग्राफ़ी',
@@ -192,6 +207,8 @@ const SIDEBAR_HI = {
   'Scene Grammar': 'सीन ग्रामर',
   'Story × Emotion': 'कहानी × इमोशन',
   'Human Layers': 'ह्यूमन लेयर्स',
+  'Human Layers — Expanded': 'ह्यूमन लेयर्स — विस्तृत',
+  'Audience as Presence': 'उपस्थिति के रूप में दर्शक',
   'Audience Participation': 'ऑडियंस पार्टिसिपेशन',
   'Ideation Engine': 'आइडिया इंजन',
   Ideation: 'आइडिया इंजन',
@@ -201,8 +218,17 @@ const SIDEBAR_HI = {
   Resources: 'रिसोर्सेज़',
   'Keyword Maps': 'कीवर्ड मैप्स',
   'Filmmaking Keywords': 'फ़िल्ममेकिंग कीवर्ड्स',
+  'Filmmaking Terms': 'फ़िल्ममेकिंग शब्दावली',
   'Motion Graphics Keywords': 'मोशन ग्राफ़िक्स कीवर्ड्स',
+  'Motion Graphics': 'मोशन ग्राफ़िक्स',
   'Editing Rhythm': 'एडिटिंग रिदम',
+  'Visual Studies': 'दृश्य अध्ययन',
+  'Visual Story Reader': 'दृश्य कथा पाठ',
+  'Knowledge Book': 'ज्ञान पुस्तक',
+  'Atlas of Looks': 'रूपों का एटलस',
+  'Knowledge atlas': 'ज्ञान एटलस',
+  Previous: 'पिछला',
+  Next: 'अगला',
   '← Back to Overview': '← ओवरव्यू पर वापस',
   'Skip to main content': 'मुख्य सामग्री पर जाएँ',
 };
@@ -240,33 +266,6 @@ function injectSwitcher() {
   const el = document.createElement('div');
   el.id = 'global-lang-switcher';
   el.innerHTML = `
-    <style>
-      #global-lang-switcher {
-        position: fixed; top: .75rem; right: .75rem; z-index: 9999;
-        display: flex; gap: 3px; padding: 5px;
-        background: rgba(12,12,15,0.85);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 999px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      }
-      #global-lang-switcher .glb-icon {
-        display:flex; align-items:center; padding:0 6px 0 4px; color:#52525b;
-      }
-      #global-lang-switcher button {
-        padding: 6px 14px; border-radius: 999px; font-size:13px; font-weight:600;
-        cursor:pointer; color:#71717a; background:none; border:none;
-        transition: all 0.25s ease; font-family: inherit;
-      }
-      #global-lang-switcher button.active-lang {
-        background: rgba(139,92,246,0.2); color:#d8b4fe;
-        box-shadow: inset 0 0 0 1px rgba(139,92,246,0.4);
-      }
-      body.lang-hi {
-        font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif !important;
-        line-height: 1.8;
-      }
-    </style>
     <div class="glb-icon" aria-hidden="true">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253" />
@@ -275,19 +274,12 @@ function injectSwitcher() {
     <button type="button" id="glb-en-btn" class="lang-en-label active-lang" data-lang="en">English</button>
     <button type="button" id="glb-hi-btn" class="lang-hi-label" data-lang="hi">हिंदी</button>
   `;
-  document.body.appendChild(el);
+  (document.querySelector('.ua-language-slot') || document.body).appendChild(el);
 
   el.querySelectorAll('button[data-lang]').forEach((btn) => {
     btn.addEventListener('click', () => GlobalLang.set(btn.getAttribute('data-lang')));
   });
 
-  if (!document.getElementById('noto-devanagari-font')) {
-    const link = document.createElement('link');
-    link.id = 'noto-devanagari-font';
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap';
-    document.head.appendChild(link);
-  }
 }
 
 function setTextIfMatch(el, hiText) {
@@ -418,7 +410,7 @@ function revertFallbacks() {
 async function applyDictionarySweep() {
   const en = await loadLang('en');
   const hi = await loadLang('hi');
-  if (!en || !hi) return;
+  if (!en || !hi || GlobalLang.current !== 'hi') return;
 
   const reverse = new Map();
 
@@ -478,7 +470,7 @@ const GlobalLang = {
   current: 'en',
 
   init() {
-    const saved = localStorage.getItem(STORAGE_KEY) || 'en';
+    const saved = readLanguage() === 'hi' ? 'hi' : 'en';
     this.current = saved;
     I18n.currentLang = saved;
 
@@ -499,7 +491,7 @@ const GlobalLang = {
     if (lang !== 'en' && lang !== 'hi') return;
     this.current = lang;
     I18n.currentLang = lang;
-    localStorage.setItem(STORAGE_KEY, lang);
+    saveLanguage(lang);
     document.documentElement.setAttribute('lang', lang);
     document.body.classList.toggle('lang-hi', lang === 'hi');
     document.body.classList.toggle('lang-en', lang === 'en');
@@ -509,7 +501,8 @@ const GlobalLang = {
     revertFallbacks();
 
     // Primary path: JSON packs + data-i18n / data-i18n-html
-    await applyTranslations(lang, { animate });
+    const applied = await applyTranslations(lang);
+    if (!applied || this.current !== lang) return;
 
     if (lang === 'hi') {
       const pageName = getPageName();

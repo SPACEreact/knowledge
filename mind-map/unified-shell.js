@@ -2,6 +2,7 @@ import './handcrafted-pages.css';
 import './unified-shell.css';
 import './global-lang.js';
 import { orderedItems } from './atlas-navigation.js';
+import './atlas-orbs.js';
 
 // The shell and theme are in the initial HTML. Reading never waits for JS.
 document.documentElement.classList.remove('ua-no-js');

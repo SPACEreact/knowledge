@@ -17,6 +17,7 @@
     "@preact/signals-core": "^1.13.0",
     "gsap": "^3.15.0",
     "mammoth": "^1.11.0",
+    "thinking-orbs": "0.3.1",
     "three": "^0.182.0"
   },
   "devDependencies": {

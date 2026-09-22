@@ -3,6 +3,7 @@ import './unified-shell.css';
 import './global-lang.js';
 import { orderedItems } from './atlas-navigation.js';
 import './atlas-orbs.js';
+import './plain-language-glossary.js';
 
 // The shell and theme are in the initial HTML. Reading never waits for JS.
 document.documentElement.classList.remove('ua-no-js');

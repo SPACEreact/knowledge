@@ -57,7 +57,7 @@ function unifiedAtlasShell() {
         return {
           html: rendered,
           tags: [
-            { tag: 'meta', attrs: { name: 'theme-color', content: '#171114' }, injectTo: 'head-prepend' },
+            { tag: 'meta', attrs: { name: 'theme-color', content: '#160c0d' }, injectTo: 'head-prepend' },
             { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' }, injectTo: 'head-prepend' },
             { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }, injectTo: 'head-prepend' },
             {

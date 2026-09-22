@@ -1,6 +1,6 @@
 :root {
   /* Semantic night-manuscript system. Contrast is verified in scripts/contrast-audit.mjs. */
-  --ua-canvas: #171114;
+  --ua-canvas: #160c0d;
   --ua-canvas-deep: #110d0f;
   --ua-raised: #21171c;
   --ua-reading: #291d22;

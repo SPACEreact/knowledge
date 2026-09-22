@@ -84,6 +84,9 @@ for (const page of pages) {
   if (!/class="[^"]*unified-atlas/.test(html) || !/data-theme="dark"/.test(html)) {
     failures.push(`${page}: the initial document must render in the dark theme`);
   }
+  if (!/<meta name="theme-color" content="#160c0d"/.test(html)) {
+    failures.push(`${page}: browser theme must match the manuscript canvas`);
+  }
 
   const references = [...html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
   for (const reference of references) {

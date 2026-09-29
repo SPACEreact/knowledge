@@ -1755,3 +1755,54 @@ body.unified-atlas .reader-container h1 { text-align: left; }
 @media (prefers-reduced-motion: reduce) {
   body.unified-atlas * { animation: none !important; transition: none !important; }
 }
+
+/* Volume I / cinema journal. Shared tokens keep every reading route coherent. */
+:root {
+  --ua-canvas: #101619;
+  --ua-canvas-deep: #0b1113;
+  --ua-raised: #192225;
+  --ua-reading: #1d282a;
+  --ua-reading-soft: #253134;
+  --ua-companion: #1c292d;
+  --ua-text: #f0ece3;
+  --ua-text-secondary: #c4cfcb;
+  --ua-text-quiet: #9fada9;
+  --ua-border: rgba(223, 234, 228, .22);
+  --ua-border-strong: #809895;
+  --ua-terracotta: #b8d2ce;
+  --ua-copper: #c9ab7b;
+  --ua-saffron: #d9b983;
+  --ua-peacock: #91bbb5;
+  --ua-mineral-blue: #90afbd;
+  --ua-madder: #c9a4a8;
+  --ua-focus: #eac785;
+  --ua-madder-deep: #304649;
+  --ua-indigo: #334f5a;
+  --ua-peacock-dark: #315c57;
+  --madder: #527577;
+  --lacquer: #72979a;
+  --plum: #526873;
+}
+body.unified-atlas {
+  background: var(--ua-canvas-deep) !important;
+  background-image: none !important;
+}
+body.unified-atlas :is(.ua-rail, .ua-mobile-bar) { background: var(--ua-canvas) !important; }
+body.unified-atlas .ua-main { background: var(--ua-canvas-deep); }
+body.unified-atlas :is(.rp-home, .rp-atlas) { max-width: 1460px; }
+body.unified-atlas :is(.rp-home-hero, .rp-atlas-hero) { min-height: min(700px, 78svh); }
+body.unified-atlas .rp-home h1,
+body.unified-atlas .rp-atlas h1 { letter-spacing: -.06em; }
+body.unified-atlas :is(.rp-home h1 em, .rp-atlas h1 em) { color: var(--ua-text); }
+body.unified-atlas .rp-hero-guardian,
+body.unified-atlas .rp-atlas-art { filter: grayscale(1) contrast(1.15) brightness(.8); opacity: .74; }
+body.unified-atlas :is(.rp-arch-card, .rp-companion-volume) { border-radius: 2px !important; background: var(--ua-raised) !important; }
+body.unified-atlas .rp-arch-card::after { border-radius: 1px !important; }
+body.unified-atlas .rp-card-window { border-radius: 0 !important; }
+body.unified-atlas :is(.rp-domain-grid a, .rp-seven article, .rp-copy-grid article) { background: var(--ua-raised) !important; }
+body.unified-atlas :is(.rp-domain-grid a, .rp-arch-card, .rp-companion-volume) { transition: background .25s ease, transform .25s ease; }
+body.unified-atlas :is(.rp-domain-grid a, .rp-arch-card, .rp-companion-volume):hover { background: var(--ua-reading) !important; transform: translateY(-3px); }
+body.unified-atlas .rp-act > header > span { border-radius: 2px; background: var(--ua-raised); }
+@media (max-width: 760px) {
+  body.unified-atlas :is(.rp-home-hero, .rp-atlas-hero) { min-height: 0; }
+}
